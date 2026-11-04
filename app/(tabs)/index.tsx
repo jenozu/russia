@@ -11,7 +11,7 @@ const deckIds: DeckId[] = ["familiar", "lookalikes", "new", "difficult", "signs"
 
 export default function HomeScreen() {
   const router = useRouter();
-  const { state, ready, unlockedLetters, masteredLetters, overallPercent } = useLearning();
+  const { state, ready, unlockedLetters, masteredLetters, overallPercent, setDailyGoal } = useLearning();
   const remaining = Math.max(0, state.dailyGoal - state.dailyCompleted);
   const todayDone = state.dailyCompleted >= state.dailyGoal;
   const unlockedIds = useMemo(() => new Set(unlockedLetters.map((letter) => letter.id)), [unlockedLetters]);
@@ -46,6 +46,13 @@ export default function HomeScreen() {
               <MaterialIcons name="local-fire-department" size={18} color={COLORS.black} />
               <Text style={styles.streakValue}>{state.streak || 0}</Text>
               <Text style={styles.streakLabel}>day streak</Text>
+            </View>
+          </View>
+          <View style={styles.goalSettingRow}>
+            <Text style={styles.goalSettingText}>Daily goal · {state.dailyGoal} reviews</Text>
+            <View style={styles.goalAdjuster}>
+              <Pressable accessibilityLabel="Decrease daily goal" disabled={state.dailyGoal <= 5} onPress={() => setDailyGoal(state.dailyGoal - 1)} style={styles.goalAdjustButton}><Text style={styles.goalAdjustText}>−</Text></Pressable>
+              <Pressable accessibilityLabel="Increase daily goal" disabled={state.dailyGoal >= 30} onPress={() => setDailyGoal(state.dailyGoal + 1)} style={styles.goalAdjustButton}><Text style={styles.goalAdjustText}>+</Text></Pressable>
             </View>
           </View>
           <View style={styles.goalProgressRow}>
@@ -116,6 +123,11 @@ const styles = StyleSheet.create({
   streakBadge: { backgroundColor: COLORS.cyan, borderWidth: 2, borderColor: COLORS.black, borderRadius: 16, padding: 10, minWidth: 92, alignItems: "center", justifyContent: "center" },
   streakValue: { fontSize: 22, fontWeight: "900", color: COLORS.black },
   streakLabel: { fontSize: 10, fontWeight: "800", color: COLORS.black },
+  goalSettingRow: { flexDirection: "row", alignItems: "center", justifyContent: "space-between" },
+  goalSettingText: { fontSize: 12, fontWeight: "800", color: COLORS.inkMuted },
+  goalAdjuster: { flexDirection: "row", gap: 6 },
+  goalAdjustButton: { width: 30, height: 30, borderRadius: 10, borderWidth: 2, borderColor: COLORS.black, backgroundColor: COLORS.cyan, alignItems: "center", justifyContent: "center" },
+  goalAdjustText: { fontSize: 20, lineHeight: 22, fontWeight: "900", color: COLORS.black },
   goalProgressRow: { flexDirection: "row", alignItems: "center", gap: 10 },
   goalBarWrap: { flex: 1 },
   goalCount: { fontSize: 12, fontWeight: "900", color: COLORS.black, minWidth: 46, textAlign: "right" },

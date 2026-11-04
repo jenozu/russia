@@ -16,8 +16,8 @@ const modeLabels: { key: PracticeMode; label: string }[] = [
   { key: "read", label: "Read" },
 ];
 
-function ChoiceButton({ letter, selected, correct, disabled, onPress }: { letter: LetterCard; selected: boolean; correct?: boolean; disabled?: boolean; onPress: () => void }) {
-  const backgroundColor = selected ? (correct ? "#D1FAE5" : "#FEE2E2") : COLORS.white;
+function ChoiceButton({ letter, selected, correct, answered, disabled, onPress }: { letter: LetterCard; selected: boolean; correct: boolean; answered: boolean; disabled?: boolean; onPress: () => void }) {
+  const backgroundColor = answered && correct ? "#D1FAE5" : answered && selected ? "#FEE2E2" : COLORS.white;
   return (
     <Pressable disabled={disabled} onPress={onPress} style={({ pressed }) => [styles.choice, { backgroundColor }, pressed && styles.pressed]}>
       <Text style={styles.choiceUpper}>{letter.upper}</Text>
@@ -35,16 +35,24 @@ export default function PracticeScreen() {
   const [flipped, setFlipped] = useState(false);
   const [answered, setAnswered] = useState(false);
   const [lastCorrect, setLastCorrect] = useState<boolean | null>(null);
+  const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [readRevealed, setReadRevealed] = useState(false);
   const [completed, setCompleted] = useState(false);
 
 
   const currentLetter = LETTER_BY_ID[sessionIds[index]] ?? unlockedLetters[0] ?? LETTERS[0];
   const currentIndex = Math.min(index, Math.max(sessionIds.length - 1, 0));
-  const currentExercise = READING_EXERCISES[currentIndex % READING_EXERCISES.length];
+  const unlockedIdSet = useMemo(() => new Set(unlockedLetters.map((letter) => letter.id)), [unlockedLetters]);
+  const availableExercises = useMemo(() => READING_EXERCISES.filter((exercise) => exercise.letters.every((id) => unlockedIdSet.has(id))), [unlockedIdSet]);
+  const currentExercise = (availableExercises.length ? availableExercises : READING_EXERCISES)[currentIndex % (availableExercises.length || READING_EXERCISES.length)];
   const choices = useMemo(() => {
     const pool = [currentLetter, ...unlockedLetters.filter((letter) => letter.id !== currentLetter.id)];
-    return pool.slice(0, 4);
+    const seed = currentLetter.id.split("").reduce((sum, character) => sum + character.charCodeAt(0), 0);
+    const offset = pool.length ? seed % pool.length : 0;
+    const rotated = [...pool.slice(offset), ...pool.slice(0, offset)];
+    const next = rotated.slice(0, 4);
+    if (!next.some((letter) => letter.id === currentLetter.id)) next[next.length - 1] = currentLetter;
+    return next;
   }, [currentLetter, unlockedLetters]);
 
   const resetSession = (nextMode = mode) => {
@@ -54,6 +62,7 @@ export default function PracticeScreen() {
     setFlipped(false);
     setAnswered(false);
     setLastCorrect(null);
+    setSelectedChoice(null);
     setReadRevealed(false);
     setCompleted(false);
   };
@@ -67,6 +76,7 @@ export default function PracticeScreen() {
     setFlipped(false);
     setAnswered(false);
     setLastCorrect(null);
+    setSelectedChoice(null);
     setReadRevealed(false);
   };
 
@@ -79,6 +89,7 @@ export default function PracticeScreen() {
     if (answered) return;
     const correct = letterId === currentLetter.id;
     setAnswered(true);
+    setSelectedChoice(letterId);
     setLastCorrect(correct);
     recordReview(currentLetter.id, correct ? "got-it" : "again");
   };
@@ -153,7 +164,7 @@ export default function PracticeScreen() {
               <Text style={styles.cardFaceLabel}>{mode === "sounds" ? "SOUND MATCH" : "RECOGNIZE IT"}</Text>
               <Text style={styles.quizTitle}>{mode === "sounds" ? `Which letter makes the /${currentLetter.sound}/ sound?` : `Find the letter for “${currentLetter.guide}”.`}</Text>
               {mode === "sounds" && <AudioButton text={currentLetter.upper} label="Hear the Russian sound" />}
-              <View style={styles.choiceGrid}>{choices.map((letter) => <ChoiceButton key={letter.id} letter={letter} selected={answered && (lastCorrect ? letter.id === currentLetter.id : letter.id === currentLetter.id)} correct={letter.id === currentLetter.id} disabled={answered} onPress={() => answerChoice(letter.id)} />)}</View>
+              <View style={styles.choiceGrid}>{choices.map((letter) => <ChoiceButton key={letter.id} letter={letter} selected={selectedChoice === letter.id} correct={letter.id === currentLetter.id} answered={answered} disabled={answered} onPress={() => answerChoice(letter.id)} />)}</View>
               {answered && <View style={[styles.feedback, { backgroundColor: lastCorrect ? "#D1FAE5" : "#FEE2E2" }]}><Text style={styles.feedbackTitle}>{lastCorrect ? "That’s it." : `The answer is ${currentLetter.upper}${currentLetter.lower}.`}</Text><Text style={styles.feedbackBody}>{lastCorrect ? "Nice recognition. Keep the sound attached to the shape." : currentLetter.tip}</Text></View>}
             </View>
             {answered && <PrimaryButton onPress={advance}><Text style={styles.buttonText}>{index >= sessionIds.length - 1 ? "Finish session" : "Next letter"}</Text><MaterialIcons name="arrow-forward" size={19} color={COLORS.black} /></PrimaryButton>}

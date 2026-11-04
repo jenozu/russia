@@ -41,4 +41,4 @@ The data model includes all 33 Russian letters and explicit deck assignment: fam
 
 ## Delivery boundaries
 
-Native Russian audio uses the platform/browser speech synthesis capability when available, with a graceful audio affordance fallback if the host does not expose it. The first release does not require account login, cloud sync, or a production audio CDN; those can be layered onto the persisted data model later without changing the learning UI.
+Russian audio uses Expo Speech on iOS/Android and the browser Web Speech API in Preview, both requesting the `ru-RU` voice when the host provides one. The first release does not require account login, cloud sync, or a production audio CDN; those can be layered onto the persisted data model later without changing the learning UI. Daily goal changes are available directly on the Today card, and the store resets the visible daily counter at calendar-day boundaries.

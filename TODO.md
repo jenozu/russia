@@ -28,4 +28,4 @@
 
 - [x] Preserve the fixed Expo/React Native/TypeScript mobile starter and portrait-first, one-handed flows.
 - [x] Persist learning state locally so sessions, streak, goal, and mastery remain available across app sessions.
-- [ ] Verify a clean checkpoint after TypeScript and app checks complete.
+- [x] Verify a clean checkpoint after TypeScript and app checks complete.

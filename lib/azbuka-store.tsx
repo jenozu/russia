@@ -93,11 +93,21 @@ export const pickSessionLetters = (state: LearningState, limit = 6) => {
   return [...due, ...unlocked.filter((letter) => !dueIds.has(letter.id))].slice(0, limit);
 };
 
-const normalizeState = (value: Partial<LearningState>): LearningState => ({
-  ...initialState,
-  ...value,
-  cards: { ...initialState.cards, ...(value.cards ?? {}) },
-});
+const normalizeState = (value: Partial<LearningState>): LearningState => {
+  const normalized = {
+    ...initialState,
+    ...value,
+    cards: { ...initialState.cards, ...(value.cards ?? {}) },
+  };
+  if (normalized.lastPracticeDate !== todayKey()) {
+    return {
+      ...normalized,
+      dailyCompleted: 0,
+      streak: normalized.lastPracticeDate === yesterdayKey() ? normalized.streak : 0,
+    };
+  }
+  return normalized;
+};
 
 const nextReviewFor = (rating: ReviewRating, repetitions: number) => {
   const now = Date.now();

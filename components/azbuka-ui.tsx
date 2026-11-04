@@ -1,4 +1,5 @@
 import { MaterialIcons } from "@expo/vector-icons";
+import * as Speech from "expo-speech";
 import { useEffect, useRef } from "react";
 import { Platform, Pressable, StyleSheet, Text, View, type PressableProps, type StyleProp, type ViewStyle } from "react-native";
 import { DECKS, type DeckId } from "@/lib/azbuka-data";
@@ -81,6 +82,7 @@ export function AudioButton({ text, label = "Play Russian pronunciation" }: { te
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
   useEffect(() => () => {
     if (Platform.OS === "web" && typeof window !== "undefined") window.speechSynthesis?.cancel();
+    if (Platform.OS !== "web") Speech.stop();
   }, []);
   const speak = () => {
     if (Platform.OS === "web" && typeof window !== "undefined" && "speechSynthesis" in window) {
@@ -90,7 +92,10 @@ export function AudioButton({ text, label = "Play Russian pronunciation" }: { te
       utterance.rate = 0.72;
       utteranceRef.current = utterance;
       window.speechSynthesis.speak(utterance);
+      return;
     }
+    Speech.stop();
+    Speech.speak(text, { language: "ru-RU", rate: 0.72, pitch: 1 });
   };
   return (
     <Pressable accessibilityLabel={label} onPress={speak} style={({ pressed }) => [styles.audioButton, pressed && styles.pressed]}>
