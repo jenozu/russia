@@ -3,7 +3,7 @@ import { useRouter } from "expo-router";
 import { useMemo } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { ScreenContainer } from "@/components/screen-container";
-import { COLORS, DeckChip, PrimaryButton, ProgressBar, SectionLabel, shadow, StatPill } from "@/components/azbuka-ui";
+import { COLORS, DeckChip, PrimaryButton, ProgressBar, SectionLabel, SecondaryButton, shadow, StatPill } from "@/components/azbuka-ui";
 import { LETTERS, type DeckId } from "@/lib/azbuka-data";
 import { useLearning } from "@/lib/azbuka-store";
 
@@ -71,6 +71,14 @@ export default function HomeScreen() {
           <StatPill value={unlockedDeckCount} label="decks unlocked" color={COLORS.cyan} />
         </View>
 
+        <View style={styles.stageCard}>
+          <View style={styles.stageCardCopy}>
+            <Text style={styles.cardEyebrow}>STAGE 1 / SPEAK FIRST</Text>
+            <Text style={styles.stageCardTitle}>100 useful Russian words before grammar gets heavy.</Text>
+            <Text style={styles.stageCardBody}>A 7-day pronunciation-first runway from hello to tiny conversations.</Text>
+          </View>
+          <SecondaryButton onPress={() => router.push("/stage-one" as never)}><Text style={styles.stageButtonText}>Open Stage 1</Text><MaterialIcons name="arrow-forward" size={18} color={COLORS.black} /></SecondaryButton>
+        </View>
         <View style={styles.sectionHeader}>
           <SectionLabel>Learn in small loops</SectionLabel>
           <Text style={styles.sectionHint}>{unlockedLetters.length}/33 letters open</Text>
@@ -134,6 +142,11 @@ const styles = StyleSheet.create({
   startButton: { width: "100%" },
   buttonText: { fontSize: 15, fontWeight: "900", color: COLORS.black },
   statRow: { flexDirection: "row", gap: 10 },
+  stageCard: { backgroundColor: COLORS.cyan, borderWidth: 2, borderColor: COLORS.black, borderRadius: 22, padding: 16, gap: 14 },
+  stageCardCopy: { gap: 5 },
+  stageCardTitle: { fontSize: 22, lineHeight: 25, fontWeight: "900", color: COLORS.black },
+  stageCardBody: { fontSize: 13, lineHeight: 18, fontWeight: "700", color: COLORS.inkMuted },
+  stageButtonText: { fontSize: 14, fontWeight: "900", color: COLORS.black },
   sectionHeader: { flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: 2 },
   sectionHint: { fontSize: 11, fontWeight: "800", color: COLORS.inkMuted },
   deckRail: { paddingRight: 12 },
