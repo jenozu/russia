@@ -29,3 +29,17 @@
 - [x] Preserve the fixed Expo/React Native/TypeScript mobile starter and portrait-first, one-handed flows.
 - [x] Persist learning state locally so sessions, streak, goal, and mastery remain available across app sessions.
 - [x] Verify a clean checkpoint after TypeScript and app checks complete.
+
+## 5. Stage 1 speak-first curriculum integration
+
+- [x] Incorporate the linked `curriculum/russian/stage_1.md` curriculum as a dedicated in-app Stage 1 flow without replacing the alphabet decks.
+- [x] Include all 100 Stage 1 everyday words and expressions with Russian, pronunciation guide, English meaning, and seven-day grouping.
+- [x] Follow the curriculum order of meaning, pronunciation, saying it aloud, recognizing Cyrillic, and using a tiny sentence.
+- [x] Include the source curriculum’s sentence patterns, mini-conversation practice, pronunciation notes through the displayed guides, and readiness checks for moving to Stage 2.
+
+
+## 6. Standalone HTML handoff
+
+- [x] Deliver a dependency-free `standalone.html` browser app as the current primary prototype.
+- [x] Embed the complete 100-item Stage 1 curriculum and all 33 Russian alphabet letters.
+- [x] Preserve local progress, daily goal controls, pronunciation audio, Stage 1 review flow, alphabet mastery, and progress views without Expo runtime dependencies.

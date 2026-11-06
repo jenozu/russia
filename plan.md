@@ -29,11 +29,14 @@ The data model includes all 33 Russian letters and explicit deck assignment: fam
 
 ## Project structure
 
-- `app/(tabs)/index.tsx` — Today dashboard and deck unlock overview.
+- `app/(tabs)/index.tsx` — Today dashboard, deck unlock overview, and Stage 1 curriculum entry point.
 - `app/(tabs)/practice.tsx` — Flashcard, recognition quiz, sound quiz, and reading exercise session.
+- `app/stage-one.tsx` — Seven-day “Speak first” curriculum flow with pronunciation-first cards, sentence patterns, mini-conversation practice, and readiness checks.
 - `app/(tabs)/progress.tsx` — Progress summary, deck breakdown, and letter mastery grid.
 - `app/(tabs)/_layout.tsx` — Three-tab navigation styled in the candy-pop system.
 - `lib/azbuka-data.ts` — Static 33-letter curriculum, deck metadata, examples, and reading prompts.
+- `lib/stage-one-data.ts` — Structured 100-item Stage 1 curriculum, seven-day sequence, pronunciation guides, sentence patterns, mini-conversation lines, and readiness checklist sourced from the linked repository.
+- `curriculum/russian/stage_1.md` — Local source copy of the referenced curriculum for traceability.
 - `lib/azbuka-store.tsx` — AsyncStorage-backed learning state, streak logic, daily goal, unlock calculation, and spaced-repetition scheduling.
 - `components/azbuka-ui.tsx` — Shared cards, buttons, progress bars, badges, and audio affordance.
 - `theme.config.js` — Palette tokens derived from the supplied design file.
@@ -42,3 +45,10 @@ The data model includes all 33 Russian letters and explicit deck assignment: fam
 ## Delivery boundaries
 
 Russian audio uses Expo Speech on iOS/Android and the browser Web Speech API in Preview, both requesting the `ru-RU` voice when the host provides one. The first release does not require account login, cloud sync, or a production audio CDN; those can be layered onto the persisted data model later without changing the learning UI. Daily goal changes are available directly on the Today card, and the store resets the visible daily counter at calendar-day boundaries.
+
+The Stage 1 module incorporates the linked [Russian Stage 1 curriculum](https://github.com/jenozu/a1-voice-tutor/blob/main/curriculum/russian/stage_1.md) as a separate speak-first runway: 100 everyday words and expressions, seven day groupings, the meaning → pronunciation → say aloud → recognize Cyrillic → tiny sentence sequence, pronunciation-focused English guides, useful sentence patterns, a mini conversation, and readiness criteria for moving to Stage 2. The alphabet decks remain the dedicated Cyrillic mastery loop rather than being replaced by phrase study.
+
+
+## Standalone HTML handoff
+
+The current deliverable is `standalone.html`, a dependency-free browser app that runs by opening the file directly or serving it from any static host. It embeds the 100-item Stage 1 curriculum and all 33 alphabet letters, uses browser `speechSynthesis` for Russian pronunciation, and stores daily goal, Stage 1 reviews, and letter mastery in localStorage. The Expo implementation remains in the repository for later expansion, but is not required for this standalone handoff.
