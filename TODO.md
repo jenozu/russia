@@ -43,3 +43,12 @@
 - [x] Deliver a dependency-free `standalone.html` browser app as the current primary prototype.
 - [x] Embed the complete 100-item Stage 1 curriculum and all 33 Russian alphabet letters.
 - [x] Preserve local progress, daily goal controls, pronunciation audio, Stage 1 review flow, alphabet mastery, and progress views without Expo runtime dependencies.
+
+
+## 7. Milestone 1 — Versioned local state
+
+- [x] Add a versioned local state object with learner preferences, daily activity, Stage 1 item records, alphabet records, and review event history.
+- [x] Migrate the existing `goal`, `stage`, and `letters` localStorage shape without losing saved progress.
+- [x] Reset the visible daily counter at calendar-day boundaries while preserving cumulative progress.
+- [x] Add JSON export, import, and reset controls for local learning data.
+- [x] Validate the generated standalone artifact with JavaScript syntax and static HTTP smoke checks.

@@ -22,6 +22,10 @@ Before feature work begins:
 
 ## Milestone 1 — Make the learning state explicit
 
+**Status: complete in the standalone HTML app.**
+
+Implemented versioned local state (`version: 1`), migration from the original `goal`/`stage`/`letters` shape, per-item review records, event history, calendar-day reset handling, JSON export/import, and local-progress reset controls. JavaScript syntax and static HTTP smoke checks pass.
+
 **Goal:** replace the prototype’s simple reviewed-item arrays with a versioned local data model that can support future features safely.
 
 Implement:
