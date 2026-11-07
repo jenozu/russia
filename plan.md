@@ -1,54 +1,31 @@
-# Азбука — Russian Alphabet
+# Азбука — Standalone HTML Plan
 
-## Implementation plan
+## Product boundary
 
-Азбука is a portrait-first Expo/React Native/TypeScript learning app for complete beginners. The first release is intentionally local-first: learning progress, daily goal, streak, and spaced-repetition history are persisted on-device with AsyncStorage so the core loop works immediately without login or a network dependency. The fixed Expo starter, Metro port 8081, API port 3000, app identifiers, and native integrations are preserved.
+Азбука is a dependency-free standalone HTML Russian-learning app for complete beginners. The repository intentionally has no Expo, React Native, mobile framework, backend runtime, package manager, or build-time JavaScript dependency. The browser opens `standalone.html` directly or serves it through a basic static HTTP server.
 
-The experience is organized around three bottom-tab surfaces:
+## Current implementation
 
-- **Today**: daily goal, streak, completion percentage, a single primary “Start today’s session” action, deck unlock progression, and a compact preview of the next practice set.
-- **Practice**: short sessions with mode chips for Flashcards, Quiz, and Read. Flashcards flip between a large Cyrillic character and a definition side with pronunciation, English guide, example word, transliteration, meaning, and audio control. Quiz tests visual recognition and sound matching. Read exercises let the learner decode simple Russian words using already-introduced letters.
-- **Progress**: overall alphabet completion, deck-level progress, mastered/learning/new counts, and a letter-by-letter mastery grid.
-
-The data model includes all 33 Russian letters and explicit deck assignment: familiar-looking letters, confusing lookalikes, new characters, difficult sounds, and special signs. A curated learning order introduces the first familiar forms before later decks unlock gradually. Each letter records correct/incorrect reviews, a repetition count, mastery score, and next review timestamp. Review ratings schedule the next appearance sooner for “Again” and “Hard” and farther out for “Got it!”. Daily practice increments streak state and goal progress.
+The app embeds the complete 100-item Russian Stage 1 curriculum and all 33 Cyrillic letters. It provides short learning loops, meaning-first Stage 1 cards, Russian pronunciation playback through the browser speech API, alphabet examples, sentence patterns, mini-conversation content, local progress, daily goals, letter mastery, progress statistics, and Milestone 1 versioned local state with migration, calendar-safe daily tracking, JSON backup, import, and reset controls.
 
 ## Design system
 
-- **Design movement**: neo-brutalist candy-pop learning tool, with warm pink canvas and black ink-like structure.
-- **Core principles**: high-contrast legibility, one main action per screen, tactile feedback, and generous breathing room for a beginner’s attention.
-- **Color philosophy**: Bubblegum Pink (`#FFD8E8`) makes the app welcoming; black borders and hard shadows make actions feel physical; Pastel Cyan (`#9BE9FB`) signals “go”; lavender (`#FAE8FF`) groups optional paths; white cards keep content crisp.
-- **Layout paradigm**: a narrow, asymmetric mobile column with a strong top status strip, offset cards, and horizontal deck rails rather than dense grids.
-- **Signature elements**: offset black shadows, pill-like deck chips, and oversized Cyrillic glyphs as the visual anchor.
-- **Interaction philosophy**: every tappable surface has a tactile press state; the learning loop is calm, direct, and never hides the next obvious step.
-- **Animation**: use simple scale/opacity and card flip state changes only; avoid distracting motion and keep transitions under 250ms.
-- **Typography**: Outfit-style display hierarchy with bold headings, Space Grotesk-like compact body copy, and monospaced micro labels for progress numbers. The implementation uses system fallbacks where native font loading is unavailable.
-- **Brand essence**: “A friendly first step into Russian reading” — playful, clear, motivating.
-- **Brand voice**: warm and specific. Example lines: “One small session. A real alphabet.” and “You’re not behind — you’re building the sound map.”
-- **Wordmark/logo**: a chunky black “Я” glyph inside a cyan speech-bubble tile, used as the app icon and compact identity mark.
-- **Signature brand color**: Bubblegum Pink (`#FFD8E8`).
+The visual language is neo-brutalist candy-pop: Bubblegum Pink `#FFD8E8` as the canvas, Pastel Cyan `#9BE9FB` for primary actions, Pastel Lilac `#FAE8FF` for supporting surfaces, heavy black borders and offset shadows, white cards, rounded tactile controls, large Cyrillic glyphs, and concise beginner-friendly copy.
 
-## Project structure
+## Repository structure
 
-- `app/(tabs)/index.tsx` — Today dashboard, deck unlock overview, and Stage 1 curriculum entry point.
-- `app/(tabs)/practice.tsx` — Flashcard, recognition quiz, sound quiz, and reading exercise session.
-- `app/stage-one.tsx` — Seven-day “Speak first” curriculum flow with pronunciation-first cards, sentence patterns, mini-conversation practice, and readiness checks.
-- `app/(tabs)/progress.tsx` — Progress summary, deck breakdown, and letter mastery grid.
-- `app/(tabs)/_layout.tsx` — Three-tab navigation styled in the candy-pop system.
-- `lib/azbuka-data.ts` — Static 33-letter curriculum, deck metadata, examples, and reading prompts.
-- `lib/stage-one-data.ts` — Structured 100-item Stage 1 curriculum, seven-day sequence, pronunciation guides, sentence patterns, mini-conversation lines, and readiness checklist sourced from the linked repository.
-- `curriculum/russian/stage_1.md` — Local source copy of the referenced curriculum for traceability.
-- `lib/azbuka-store.tsx` — AsyncStorage-backed learning state, streak logic, daily goal, unlock calculation, and spaced-repetition scheduling.
-- `components/azbuka-ui.tsx` — Shared cards, buttons, progress bars, badges, and audio affordance.
-- `theme.config.js` — Palette tokens derived from the supplied design file.
-- `assets/images/*` — Rebranded launcher and splash assets using the app mark.
+- `standalone.html` — generated, dependency-free browser app.
+- `scripts/build_standalone.py` — deterministic generator for the standalone artifact.
+- `curriculum/russian/stage_1.md` — imported source curriculum.
+- `curriculum/russian/stage-one-data.ts` — structured curriculum source consumed by the generator; it is data only and is not an application framework.
+- `README.md` — setup, product scope, and design overview.
+- `master_task.md` — staged roadmap for future standalone-browser capabilities.
+- `TODO.md` — delivered requirements and milestone status.
 
-## Delivery boundaries
+## Development approach
 
-Russian audio uses Expo Speech on iOS/Android and the browser Web Speech API in Preview, both requesting the `ru-RU` voice when the host provides one. The first release does not require account login, cloud sync, or a production audio CDN; those can be layered onto the persisted data model later without changing the learning UI. Daily goal changes are available directly on the Today card, and the store resets the visible daily counter at calendar-day boundaries.
+Implement one milestone at a time. Every milestone must preserve direct browser usability, local progress compatibility, the existing curriculum, and the visual system. Validate with generated-artifact checks and a static HTTP smoke test before moving to the next milestone.
 
-The Stage 1 module incorporates the linked [Russian Stage 1 curriculum](https://github.com/jenozu/a1-voice-tutor/blob/main/curriculum/russian/stage_1.md) as a separate speak-first runway: 100 everyday words and expressions, seven day groupings, the meaning → pronunciation → say aloud → recognize Cyrillic → tiny sentence sequence, pronunciation-focused English guides, useful sentence patterns, a mini conversation, and readiness criteria for moving to Stage 2. The alphabet decks remain the dedicated Cyrillic mastery loop rather than being replaced by phrase study.
+## Future standalone-browser milestones
 
-
-## Standalone HTML handoff
-
-The current deliverable is `standalone.html`, a dependency-free browser app that runs by opening the file directly or serving it from any static host. It embeds the 100-item Stage 1 curriculum and all 33 alphabet letters, uses browser `speechSynthesis` for Russian pronunciation, and stores daily goal, Stage 1 reviews, and letter mastery in localStorage. The Expo implementation remains in the repository for later expansion, but is not required for this standalone handoff.
+The roadmap proceeds from explicit local state to true spaced repetition, reliable Russian audio, microphone capture, transcription, pronunciation feedback, adaptive quizzes, conversations, stories, contextual grammar, motivation mechanics, optional sync, and browser/PWA hardening. None of those future capabilities should introduce Expo or another mobile framework into this repository.

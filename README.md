@@ -1,6 +1,6 @@
 # Азбука — Russian Voice Tutor
 
-Азбука is a beginner-first Russian learning app framework. The current repository contains a standalone browser prototype plus the earlier Expo/React Native implementation that established the learning model and UI direction.
+Азбука is a beginner-first Russian learning app built as a standalone HTML experience. This repository intentionally contains only the dependency-free browser app, its generator, source curriculum, and documentation.
 
 The product direction is intentionally incremental: first make the core loop reliable, then add one voice, assessment, adaptive-learning, and motivation capability at a time. Each feature should be implemented and verified independently before the next feature begins.
 
@@ -22,10 +22,6 @@ Example local preview:
 python3 -m http.server 4173
 # Open http://localhost:4173/standalone.html
 ```
-
-### Expo implementation
-
-The `app/`, `components/`, `lib/`, and `theme.config.js` files contain the earlier mobile-oriented implementation. It includes the Azbuka alphabet decks, local learning state, practice surfaces, native Expo Speech integration, and the Stage 1 curriculum screen. It is preserved as a future mobile path, but the standalone HTML app is the current primary prototype.
 
 ## Product direction
 
@@ -54,20 +50,17 @@ The interface uses a neo-brutalist candy-pop system derived from the supplied de
 
 ## Content source
 
-The Russian Stage 1 curriculum is preserved in [`curriculum/russian/stage_1.md`](curriculum/russian/stage_1.md) and represented for the Expo flow in [`lib/stage-one-data.ts`](lib/stage-one-data.ts). It follows the learning sequence:
+The Russian Stage 1 curriculum is preserved in [`curriculum/russian/stage_1.md`](curriculum/russian/stage_1.md) and structured for the standalone generator in [`curriculum/russian/stage-one-data.ts`](curriculum/russian/stage-one-data.ts). It follows the learning sequence:
 
 > Meaning → pronunciation → say it aloud → recognize the Cyrillic → use a tiny sentence
 
 ## Repository structure
 
 ```text
-standalone.html                 Dependency-free browser prototype
+standalone.html                 Dependency-free browser app
 scripts/build_standalone.py     Regenerates standalone.html from local curriculum data
-curriculum/russian/             Source curriculum material
-lib/                            Structured curriculum and Expo learning state
-components/                     Reusable Expo UI components
-app/                            Expo routes and screens
-theme.config.js                 Shared design tokens
+curriculum/russian/             Source markdown and structured curriculum data
+README.md                       Standalone app setup and product overview
 master_task.md                  Incremental implementation plan
 ```
 

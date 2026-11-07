@@ -1,6 +1,6 @@
 from pathlib import Path
 import json, re
-src = Path('lib/stage-one-data.ts').read_text()
+src = Path('curriculum/russian/stage-one-data.ts').read_text()
 raw = src[:src.index('];\n\nconst sections')]
 items = [{'n': i + 1, 'ru': ru, 'pron': pron, 'en': en, 'day': i // 20 + 1} for i, (ru, pron, en) in enumerate(re.findall(r'\["([^"]*)", "([^"]*)", "([^"]*)"\]', raw))]
 assert len(items) == 100, len(items)

@@ -10,7 +10,7 @@ The working rule is strict: implement one milestone, verify it in the standalone
 
 **Status: framework prepared; future feature work not started.**
 
-The baseline contains the standalone HTML prototype, the 100-item Russian Stage 1 curriculum, the 33-letter alphabet content, the current neo-brutalist visual system, browser text-to-speech playback, localStorage progress, the preserved Expo path, and the imported source curriculum.
+The baseline contains the standalone HTML prototype, the 100-item Russian Stage 1 curriculum, the 33-letter alphabet content, the current neo-brutalist visual system, browser text-to-speech playback, localStorage progress, the imported source curriculum, and a standalone-only runtime boundary.
 
 Before feature work begins:
 
@@ -308,9 +308,9 @@ Verify:
 - A user can export and delete their data.
 - The app still works offline for the basic local loop.
 
-## Milestone 14 — Mobile/PWA hardening
+## Milestone 14 — Standalone browser hardening
 
-**Goal:** decide whether the standalone app should remain a static web app, become a PWA, or be promoted to the preserved Expo mobile path.
+**Goal:** harden the standalone HTML app for reliable browser use and optional PWA packaging without introducing a mobile framework.
 
 Evaluate:
 
@@ -319,7 +319,7 @@ Evaluate:
 - Audio behavior on iOS and Android browsers.
 - Touch targets and one-handed layout.
 - Push notifications.
-- Whether the Expo implementation should consume the same curriculum and state model.
+- Whether a PWA manifest and service worker are worthwhile for the standalone browser experience.
 
 Do not begin this milestone until the browser experience has a reliable learning loop and voice flow.
 

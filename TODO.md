@@ -24,9 +24,9 @@
 - [x] Show progress statistics for which letters have been mastered.
 - [x] Show an overall alphabet completion percentage.
 
-## 4. Mobile readiness
+## 4. Standalone browser readiness
 
-- [x] Preserve the fixed Expo/React Native/TypeScript mobile starter and portrait-first, one-handed flows.
+- [x] Keep `standalone.html` runnable directly in a browser with no framework, package manager, or runtime dependency.
 - [x] Persist learning state locally so sessions, streak, goal, and mastery remain available across app sessions.
 - [x] Verify a clean checkpoint after TypeScript and app checks complete.
 
@@ -42,7 +42,7 @@
 
 - [x] Deliver a dependency-free `standalone.html` browser app as the current primary prototype.
 - [x] Embed the complete 100-item Stage 1 curriculum and all 33 Russian alphabet letters.
-- [x] Preserve local progress, daily goal controls, pronunciation audio, Stage 1 review flow, alphabet mastery, and progress views without Expo runtime dependencies.
+- [x] Preserve local progress, daily goal controls, pronunciation audio, Stage 1 review flow, alphabet mastery, and progress views without standalone HTML runtime dependencies.
 
 
 ## 7. Milestone 1 — Versioned local state
