@@ -47,6 +47,10 @@ Do not add microphone input or new quiz types in this milestone.
 
 ## Milestone 2 — Add real review ratings and spaced repetition
 
+**Status: complete in the standalone HTML app.**
+
+Implemented Again/Hard/Good/Easy ratings, deterministic intervals, due-first and weak-item queue ordering, independent Stage 1 and alphabet scheduling records, visible return reasons, and a Settings debug view showing last review, rating, and next review. Browser-level checks confirmed Again (10 minutes) < Good (3 days) < Easy (7 days), overdue items are selected before untouched items, and scheduled state persists in localStorage.
+
 **Goal:** turn review history into meaningful scheduling.
 
 Implement:

@@ -52,3 +52,13 @@
 - [x] Reset the visible daily counter at calendar-day boundaries while preserving cumulative progress.
 - [x] Add JSON export, import, and reset controls for local learning data.
 - [x] Validate the generated standalone artifact with JavaScript syntax and static HTTP smoke checks.
+
+
+## 8. Milestone 2 — Ratings and spaced repetition
+
+- [x] Add Again, Hard, Good, and Easy review buttons to Stage 1 cards.
+- [x] Use transparent deterministic intervals: Again 10 minutes, Hard 1 day, Good 3 days, and Easy 7 days, with longer intervals for repeated Good/Easy reviews.
+- [x] Prioritize overdue scheduled items, then weak items, then untouched material within the selected Stage 1 day.
+- [x] Keep separate scheduling records for Stage 1 phrases and alphabet letters.
+- [x] Show why an item is appearing again and expose last review, rating, and next review in the Settings debug panel.
+- [x] Verify rating ordering, due-first selection, and localStorage persistence in a live browser runtime.
