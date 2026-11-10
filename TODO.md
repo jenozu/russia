@@ -169,3 +169,16 @@
 - [x] Persist dismissed tip IDs in the existing version-1 local state with backward-compatible migration defaults.
 - [x] Validate relevance, example text, learn-more expansion, dismiss-to-next-tip behavior, syntax, static HTTP serving, and preservation of existing story/scenario panels in a live browser.
 - [ ] Add broader grammar coverage and cultural notes for later scenarios and stories.
+
+## 18. Milestone 12 — Motivation and habit mechanics
+
+- [x] Add persisted, idempotent XP rewards for completed Stage 1 reviews, quiz results, speaking attempts, and scenario completion.
+- [x] Record reward keys and XP-awarded events so refreshes and replayed UI states cannot duplicate rewards.
+- [x] Track actual activity dates and display the current calendar-day streak.
+- [x] Display a seven-day activity count and editable weekly activity goal.
+- [x] Keep the existing editable daily review goal visible in the private summary.
+- [x] Add three small badges tied to meaningful thresholds: first win, 50 XP, and three-day streak.
+- [x] Add a private Progress summary showing XP, streak, weekly activity, badges, and goal guidance.
+- [x] Preserve version-1 local state with backward-compatible motivation defaults.
+- [x] Validate reward creation, no-duplicate refresh behavior, progress rendering, goal persistence, syntax, static HTTP serving, and existing Stage 1 state in a live browser.
+- [ ] Consider optional reminders, accounts, and privacy-controlled leaderboards only in later milestones.

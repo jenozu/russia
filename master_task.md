@@ -309,6 +309,10 @@ Verify:
 
 ## Milestone 12 — Add motivation and habit mechanics
 
+**Status: complete in the standalone HTML app — private, local-first motivation summary.**
+
+Implemented idempotent XP rewards for completed Stage 1 reviews, quiz results, speaking attempts when browser speech input is available, and scenario completion. Added a persisted reward-key ledger so refreshing or replaying a completed render cannot duplicate XP, activity dates for calendar-based streaks, a seven-day activity count, three small threshold badges, editable daily review and weekly activity goals, and a private Progress summary. The slice intentionally excludes accounts, leaderboards, reminders, and social comparison.
+
 **Goal:** make progress visible without turning practice into noise.
 
 Implement:
