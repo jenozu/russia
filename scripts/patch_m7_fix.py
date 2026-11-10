@@ -1,0 +1,11 @@
+from pathlib import Path
+p=Path('scripts/build_standalone.py')
+s=p.read_text()
+s=s.replace("let state=normalizeState(JSON.parse(localStorage.getItem('azbuka-standalone')||'null')),day=1,index=0,revealed=false,quizStarted=false,quizAnswered=false,quizChoices=[];", "let state=normalizeState(JSON.parse(localStorage.getItem('azbuka-standalone')||'null')),day=1,index=0,revealed=false,quizStarted=false,quizAnswered=false,quizChoices=[],quizItemId=null;")
+s=s.replace("day=i+1;index=0;revealed=false;quizStarted=false;quizAnswered=false;renderStage()", "day=i+1;index=0;revealed=false;quizStarted=false;quizAnswered=false;quizItemId=null;renderStage()")
+s=s.replace("function startQuiz(){quizStarted=true;quizAnswered=false;renderQuiz()}", "function startQuiz(){quizStarted=true;quizAnswered=false;let current=list()[index%list().length];quizItemId=current.n;renderQuiz()}")
+s=s.replace("let item=list()[index%list().length];quizChoices=quizChoicesFor(item);", "let item=ITEMS.find(x=>x.n===quizItemId)||list()[index%list().length];quizItemId=item.n;quizChoices=quizChoicesFor(item);")
+s=s.replace("let item=list()[index%list().length],correct=quizChoices[choiceIndex]===item.en", "let item=ITEMS.find(x=>x.n===quizItemId)||list()[index%list().length],correct=quizChoices[choiceIndex]===item.en")
+s=s.replace("quizStarted=false;quizAnswered=false;let x=list()[index%list().length];", "quizStarted=false;quizAnswered=false;quizItemId=null;let x=list()[index%list().length];")
+p.write_text(s)
+print('quiz lock patch applied')

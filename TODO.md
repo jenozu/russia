@@ -107,3 +107,16 @@
 - [x] Keep recognition failures and no-speech states scoreless and distinguish them from incorrect answers.
 - [x] Preserve the target phrase and prior transcript attempts through retry; store score, transcript, timestamp, and attempt count on the Stage 1 review record.
 - [x] Validate exact, missing, extra-word, retry, and metadata behavior in a live browser runtime.
+
+
+## 13. Milestone 7 — Structured quiz modes
+
+- [x] Implement only the first quiz mode: Russian → English multiple choice; do not mix the remaining modes into this screen.
+- [x] Reuse the Stage 1 due queue so the quiz follows existing review priority.
+- [x] Show one Russian prompt with four English answer choices and one clear answer action.
+- [x] Give immediate correct/incorrect feedback and identify the correct meaning after an incorrect answer.
+- [x] Record each quiz result as a local review event with mode, item, correctness, chosen answer, timestamp, and next review.
+- [x] Schedule correct quiz answers as Good and incorrect answers as Again.
+- [x] Keep a retry path that preserves the active question even if the due queue reorders after scheduling.
+- [x] Validate clean question generation, four choices, incorrect feedback, retry stability, correct feedback, persistence, and event recording in a live browser runtime.
+- [ ] Implement and independently verify English → Russian, Cyrillic recognition, sound-to-letter, typed fill-in, typed translation, and spoken-response modes in later increments.

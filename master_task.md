@@ -184,6 +184,10 @@ Verify:
 
 ## Milestone 7 — Add structured quiz modes
 
+**Status: in progress — first mode complete in the standalone HTML app.**
+
+Implemented the first mode only: Russian → English multiple choice. It is a separate focused panel, reuses the existing Stage 1 due queue, generates four English choices, gives immediate correct/incorrect feedback, records quiz review events, schedules correct answers as Good and incorrect answers as Again, and keeps the active question stable through retry even when scheduling changes queue order. The remaining six quiz modes stay disabled until independently implemented and verified.
+
 **Goal:** expand beyond reveal cards while keeping short, manageable sessions.
 
 Implement one mode at a time in this order:
