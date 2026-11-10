@@ -73,3 +73,14 @@
 - [x] Cancel the previous utterance before each new playback so repeated taps do not accumulate duplicate queues.
 - [x] Keep lessons usable when `speechSynthesis` or browser voices are unavailable.
 - [x] Validate generated JavaScript and live-browser controller behavior.
+
+
+## 10. Milestone 4 — Learner microphone capture
+
+- [x] Detect `MediaRecorder`, `getUserMedia`, and secure-context capability without requesting permission on page load.
+- [x] Request microphone permission only after the learner explicitly taps Record.
+- [x] Add Record, Stop, Replay, and Discard controls with elapsed duration and clear status messages.
+- [x] Keep recordings in memory only; do not upload audio or add recording blobs to localStorage.
+- [x] Revoke object URLs, stop media tracks, and handle repeated/discarded recordings without stale controls.
+- [x] Provide useful permission-denied, unsupported-browser, and HTTPS guidance while leaving the rest of the lesson usable.
+- [x] Validate the complete lifecycle with a mocked live-browser test.

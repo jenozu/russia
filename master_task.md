@@ -98,6 +98,10 @@ Verify:
 
 ## Milestone 4 — Add learner microphone capture
 
+**Status: complete in the standalone HTML app.**
+
+Implemented explicit MediaRecorder capability checks, permission requests only from the Record action, local in-memory record/stop/replay/discard controls, duration tracking, permission and unsupported-browser messages, secure-context guidance, and object-URL/stream cleanup. Browser tests covered permission denial, unsupported fallback, complete record lifecycle, discard during recording, and confirmed no recording data is added to localStorage or uploaded.
+
 **Goal:** let the learner record a response in the browser without scoring it yet.
 
 Implement:
