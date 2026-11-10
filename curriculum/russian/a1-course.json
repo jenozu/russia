@@ -137,7 +137,7 @@
       "id": "u04-people-family",
       "title": "People and family",
       "order": 4,
-      "status": "planned",
+      "status": "active",
       "objective": "Use high-leverage Russian in a practical beginner situation.",
       "lessonTemplate": [
         "warm-up",
@@ -2671,6 +2671,793 @@
         63,
         64,
         65
+      ]
+    },
+    "u02-greetings-introductions": {
+      "id": "u02-greetings-introductions",
+      "unitId": "u02-greetings-introductions",
+      "status": "active",
+      "title": "Greetings and introductions",
+      "objective": "Greet someone, exchange names, and say where you are from in a short Russian conversation.",
+      "paretoTier": "survival-core",
+      "estimatedMinutes": 10,
+      "activities": [
+        {
+          "id": "u02-warmup",
+          "type": "warm-up",
+          "title": "Open the conversation",
+          "prompt": "Choose a greeting that fits the situation.",
+          "reviewIds": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "u02-meaning",
+          "type": "meaning",
+          "title": "Build your introduction",
+          "prompt": "Connect names and origins to useful meanings.",
+          "reviewIds": []
+        },
+        {
+          "id": "u02-listen",
+          "type": "listen",
+          "title": "Notice the question",
+          "prompt": "Hear the difference between informal and formal name questions.",
+          "reviewIds": []
+        },
+        {
+          "id": "u02-produce",
+          "type": "produce",
+          "title": "Say who you are",
+          "prompt": "Answer «Как тебя зовут?» with your name.",
+          "reviewIds": []
+        },
+        {
+          "id": "u02-apply",
+          "type": "apply",
+          "title": "Meet someone new",
+          "prompt": "Complete the dialogue and follow the short story.",
+          "reviewIds": []
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "u02-hello",
+          "ru": "Привет",
+          "pron": "pree-VYET",
+          "en": "hi",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u02-formal-hello",
+          "ru": "Здравствуйте",
+          "pron": "ZDRA-stvooy-te",
+          "en": "hello (formal)",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u02-name",
+          "ru": "имя",
+          "pron": "ee-MYA",
+          "en": "name",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u02-my-name",
+          "ru": "Меня зовут",
+          "pron": "mee-NYA za-VOOT",
+          "en": "my name is",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u02-what-name",
+          "ru": "Как тебя зовут?",
+          "pron": "kak tee-BYA za-VOOT",
+          "en": "what is your name?",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u02-formal-what-name",
+          "ru": "Как вас зовут?",
+          "pron": "kak vas za-VOOT",
+          "en": "what is your name? (formal)",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u02-nice",
+          "ru": "приятно",
+          "pron": "pree-YAT-na",
+          "en": "nice / pleased",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u02-from",
+          "ru": "откуда",
+          "pron": "at-KOO-da",
+          "en": "from where",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u02-i-from",
+          "ru": "Я из",
+          "pron": "ya iz",
+          "en": "I am from",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u02-live",
+          "ru": "Я живу в",
+          "pron": "ya zhee-VOO v",
+          "en": "I live in",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u02-thanks",
+          "ru": "спасибо",
+          "pron": "spa-SEE-ba",
+          "en": "thank you",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u02-please",
+          "ru": "пожалуйста",
+          "pron": "pa-ZHA-loo-sta",
+          "en": "please / you’re welcome",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u02-yes",
+          "ru": "да",
+          "pron": "da",
+          "en": "yes",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u02-no",
+          "ru": "нет",
+          "pron": "nyet",
+          "en": "no",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        }
+      ],
+      "patterns": [
+        {
+          "ru": "Меня зовут Анна.",
+          "en": "My name is Anna.",
+          "pron": "mee-NYA za-VOOT AN-na"
+        },
+        {
+          "ru": "Откуда ты? — Я из Канады.",
+          "en": "Where are you from? — I am from Canada.",
+          "pron": "at-KOO-da ty? — ya iz ka-NA-dy"
+        },
+        {
+          "ru": "Очень приятно!",
+          "en": "Nice to meet you!",
+          "pron": "O-chen pree-YAT-na"
+        }
+      ],
+      "grammar": {
+        "id": "u02-formal-you",
+        "kind": "Usage",
+        "title": "Ты vs Вы",
+        "explanation": "Use «ты» with friends and people your age when the situation is informal. Use «вы» for a stranger, an older person, or a polite interaction. «Как вас зовут?» is the safe formal question.",
+        "exampleRu": "Как вас зовут? — Меня зовут Анна.",
+        "exampleEn": "What is your name? — My name is Anna.",
+        "commonMistake": "Do not switch to «ты» with a stranger before the situation becomes informal."
+      },
+      "dialogue": {
+        "id": "u02-first-meeting",
+        "title": "First meeting",
+        "turns": [
+          {
+            "role": "tutor",
+            "ru": "Здравствуйте! Как вас зовут?",
+            "en": "Hello! What is your name?",
+            "prompt": "Say your name politely.",
+            "variants": [
+              "меня зовут",
+              "я"
+            ],
+            "hint": "Start with «Меня зовут…»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Откуда вы?",
+            "en": "Where are you from?",
+            "prompt": "Say where you are from.",
+            "variants": [
+              "я из",
+              "я живу в"
+            ],
+            "hint": "Start with «Я из…»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Очень приятно! До свидания!",
+            "en": "Nice to meet you! Goodbye!",
+            "prompt": "Understand the closing.",
+            "variants": [],
+            "hint": ""
+          }
+        ]
+      },
+      "story": {
+        "id": "u02-new-neighbor",
+        "title": "A first meeting",
+        "lines": [
+          {
+            "ru": "Здравствуйте! Меня зовут Ольга.",
+            "en": "Hello! My name is Olga."
+          },
+          {
+            "ru": "Я из Москвы.",
+            "en": "I am from Moscow."
+          },
+          {
+            "ru": "Это мой новый друг Марк.",
+            "en": "This is my new friend Mark."
+          },
+          {
+            "ru": "Очень приятно!",
+            "en": "Nice to meet you!"
+          }
+        ],
+        "glossary": [
+          "здравствуйте",
+          "меня зовут",
+          "из",
+          "друг",
+          "приятно"
+        ],
+        "questions": [
+          {
+            "q": "Как её зовут?",
+            "options": [
+              "Ольга",
+              "Мария",
+              "Анна"
+            ],
+            "answer": "Ольга"
+          },
+          {
+            "q": "Откуда Ольга?",
+            "options": [
+              "из Москвы",
+              "из Парижа",
+              "из дома"
+            ],
+            "answer": "из Москвы"
+          },
+          {
+            "q": "Кто Марк?",
+            "options": [
+              "новый друг",
+              "брат",
+              "учитель"
+            ],
+            "answer": "новый друг"
+          }
+        ]
+      },
+      "checkpoint": {
+        "id": "u02-checkpoint",
+        "title": "First meeting check",
+        "questions": [
+          {
+            "id": "u02-q1",
+            "prompt": "Choose the polite greeting.",
+            "options": [
+              "Здравствуйте!",
+              "До свидания!",
+              "Спасибо!"
+            ],
+            "answer": "Здравствуйте!",
+            "skill": "recognition"
+          },
+          {
+            "id": "u02-q2",
+            "prompt": "Choose the natural answer to «Как тебя зовут?»",
+            "options": [
+              "Меня зовут Анна.",
+              "Я из Канады.",
+              "Очень приятно."
+            ],
+            "answer": "Меня зовут Анна.",
+            "skill": "production"
+          },
+          {
+            "id": "u02-q3",
+            "prompt": "Choose the phrase for “I am from Moscow”.",
+            "options": [
+              "Я из Москвы.",
+              "Как вас зовут?",
+              "Пожалуйста."
+            ],
+            "answer": "Я из Москвы.",
+            "skill": "production"
+          }
+        ],
+        "completionRule": "Answer at least 2 of 3 correctly and complete both dialogue turns."
+      },
+      "completionEvidence": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reviewLinks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "u04-people-family": {
+      "id": "u04-people-family",
+      "unitId": "u04-people-family",
+      "status": "active",
+      "title": "People and family",
+      "objective": "Describe the important people around you and ask who someone is using simple Russian sentences.",
+      "paretoTier": "high-frequency-core",
+      "estimatedMinutes": 10,
+      "activities": [
+        {
+          "id": "u04-warmup",
+          "type": "warm-up",
+          "title": "Name the people",
+          "prompt": "Retrieve the family and friend words you need most.",
+          "reviewIds": []
+        },
+        {
+          "id": "u04-meaning",
+          "type": "meaning",
+          "title": "Meet the people",
+          "prompt": "Connect people words to their meanings and genders.",
+          "reviewIds": []
+        },
+        {
+          "id": "u04-listen",
+          "type": "listen",
+          "title": "Hear who it is",
+          "prompt": "Notice the difference between «он» and «она».",
+          "reviewIds": []
+        },
+        {
+          "id": "u04-produce",
+          "type": "produce",
+          "title": "Describe your family",
+          "prompt": "Build a sentence with мой, моя, он, or она.",
+          "reviewIds": []
+        },
+        {
+          "id": "u04-apply",
+          "type": "apply",
+          "title": "Introduce someone",
+          "prompt": "Complete the dialogue and understand the family story.",
+          "reviewIds": []
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "u04-family",
+          "ru": "семья",
+          "pron": "sye-MYA",
+          "en": "family",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u04-mother",
+          "ru": "мама",
+          "pron": "MA-ma",
+          "en": "mother",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u04-father",
+          "ru": "папа",
+          "pron": "PA-pa",
+          "en": "father",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u04-brother",
+          "ru": "брат",
+          "pron": "brat",
+          "en": "brother",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u04-sister",
+          "ru": "сестра",
+          "pron": "sye-STRA",
+          "en": "sister",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u04-friend",
+          "ru": "друг",
+          "pron": "drook",
+          "en": "friend (male)",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u04-friend-f",
+          "ru": "подруга",
+          "pron": "pa-DOO-ga",
+          "en": "friend (female)",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u04-who",
+          "ru": "кто",
+          "pron": "kto",
+          "en": "who",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u04-this",
+          "ru": "это",
+          "pron": "EH-ta",
+          "en": "this is",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u04-my-m",
+          "ru": "мой",
+          "pron": "moy",
+          "en": "my (masculine)",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u04-my-f",
+          "ru": "моя",
+          "pron": "ma-YA",
+          "en": "my (feminine)",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u04-he",
+          "ru": "он",
+          "pron": "on",
+          "en": "he",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u04-she",
+          "ru": "она",
+          "pron": "a-NA",
+          "en": "she",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u04-together",
+          "ru": "вместе",
+          "pron": "VMYES-te",
+          "en": "together",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        }
+      ],
+      "patterns": [
+        {
+          "ru": "Это моя сестра.",
+          "en": "This is my sister.",
+          "pron": "EH-ta ma-YA sye-STRA"
+        },
+        {
+          "ru": "Кто это? — Это мой брат.",
+          "en": "Who is this? — This is my brother.",
+          "pron": "kto EH-ta? — EH-ta moy brat"
+        },
+        {
+          "ru": "Он мой друг. Она моя подруга.",
+          "en": "He is my friend. She is my friend.",
+          "pron": "on moy drook. a-NA ma-YA pa-DOO-ga"
+        }
+      ],
+      "grammar": {
+        "id": "u04-gender-agreement",
+        "kind": "Grammar",
+        "title": "Мой or моя? Он or она?",
+        "explanation": "Use «мой» with a masculine noun such as брат or друг, and «моя» with a feminine noun such as сестра or подруга. Use «он» for he and «она» for she.",
+        "exampleRu": "Это моя сестра. Она моя подруга.",
+        "exampleEn": "This is my sister. She is my friend.",
+        "commonMistake": "Do not use «мой» before a feminine noun: say «моя сестра»."
+      },
+      "dialogue": {
+        "id": "u04-family-introduction",
+        "title": "Introducing family",
+        "turns": [
+          {
+            "role": "tutor",
+            "ru": "Кто это?",
+            "en": "Who is this?",
+            "prompt": "Say that this is your sister.",
+            "variants": [
+              "это моя сестра"
+            ],
+            "hint": "Use «Это моя…»."
+          },
+          {
+            "role": "tutor",
+            "ru": "А это кто?",
+            "en": "And who is this?",
+            "prompt": "Say that this is your brother.",
+            "variants": [
+              "это мой брат"
+            ],
+            "hint": "Use «Это мой…»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Понятно. До встречи!",
+            "en": "I see. See you soon!",
+            "prompt": "Understand the closing.",
+            "variants": [],
+            "hint": ""
+          }
+        ]
+      },
+      "story": {
+        "id": "u04-family-day",
+        "title": "A family day",
+        "lines": [
+          {
+            "ru": "Это моя семья.",
+            "en": "This is my family."
+          },
+          {
+            "ru": "Это мой брат Илья.",
+            "en": "This is my brother Ilya."
+          },
+          {
+            "ru": "А это моя сестра Нина.",
+            "en": "And this is my sister Nina."
+          },
+          {
+            "ru": "Мы вместе дома.",
+            "en": "We are together at home."
+          }
+        ],
+        "glossary": [
+          "семья",
+          "мой",
+          "моя",
+          "брат",
+          "сестра",
+          "вместе"
+        ],
+        "questions": [
+          {
+            "q": "Кто Илья?",
+            "options": [
+              "брат",
+              "сестра",
+              "друг"
+            ],
+            "answer": "брат"
+          },
+          {
+            "q": "Кто Нина?",
+            "options": [
+              "сестра",
+              "мама",
+              "папа"
+            ],
+            "answer": "сестра"
+          },
+          {
+            "q": "Где семья?",
+            "options": [
+              "дома",
+              "в школе",
+              "в кафе"
+            ],
+            "answer": "дома"
+          }
+        ]
+      },
+      "checkpoint": {
+        "id": "u04-checkpoint",
+        "title": "People check",
+        "questions": [
+          {
+            "id": "u04-q1",
+            "prompt": "Choose the correct phrase for “my sister”.",
+            "options": [
+              "моя сестра",
+              "мой сестра",
+              "моя брат"
+            ],
+            "answer": "моя сестра",
+            "skill": "production"
+          },
+          {
+            "id": "u04-q2",
+            "prompt": "Choose the phrase for “Who is this?”.",
+            "options": [
+              "Кто это?",
+              "Это моя семья.",
+              "До встречи!"
+            ],
+            "answer": "Кто это?",
+            "skill": "recognition"
+          },
+          {
+            "id": "u04-q3",
+            "prompt": "Choose the correct pronoun for Нина.",
+            "options": [
+              "она",
+              "он",
+              "они"
+            ],
+            "answer": "она",
+            "skill": "production"
+          }
+        ],
+        "completionRule": "Answer at least 2 of 3 correctly and complete both dialogue turns."
+      },
+      "completionEvidence": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reviewLinks": [
+        3,
+        4,
+        5
       ]
     }
   }

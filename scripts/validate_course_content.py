@@ -73,27 +73,29 @@ def load_and_validate(path: Path = COURSE_PATH) -> dict[str, Any]:
             errors.append(f"survival-tier item {item.get('sourceItemId')} is missing from survivalCoreIds")
     if len(items) != len(source):
         errors.append(f"items must cover all {len(source)} Stage 1 entries; found {len(items)}")
-    unit_content = data.get("unitContent", {}).get("u03-numbers-time")
-    if not unit_content:
-        errors.append("unitContent.u03-numbers-time is required")
-    else:
+    unit_content_all = data.get("unitContent") or {}
+    required_unit_content = ("u02-greetings-introductions", "u03-numbers-time", "u04-people-family")
+    for unit_key in required_unit_content:
+        unit_content = unit_content_all.get(unit_key)
+        if not unit_content:
+            errors.append(f"unitContent.{unit_key} is required")
+            continue
         for key in ("activities", "vocabulary", "patterns", "grammar", "dialogue", "story", "checkpoint", "completionEvidence"):
             if not unit_content.get(key):
-                errors.append(f"u03-numbers-time.{key} is required")
+                errors.append(f"{unit_key}.{key} is required")
         if len(unit_content.get("vocabulary", [])) < 12:
-            errors.append("u03-numbers-time must contain at least 12 vocabulary items")
+            errors.append(f"{unit_key} must contain at least 12 vocabulary items")
         if len(unit_content.get("activities", [])) < 5:
-            errors.append("u03-numbers-time must contain at least 5 lesson activities")
+            errors.append(f"{unit_key} must contain at least 5 lesson activities")
         if len(unit_content.get("dialogue", {}).get("turns", [])) < 3:
-            errors.append("u03-numbers-time dialogue must contain at least 3 turns")
+            errors.append(f"{unit_key} dialogue must contain at least 3 turns")
         if len(unit_content.get("story", {}).get("lines", [])) < 3:
-            errors.append("u03-numbers-time story must contain at least 3 lines")
+            errors.append(f"{unit_key} story must contain at least 3 lines")
         if len(unit_content.get("checkpoint", {}).get("questions", [])) < 3:
-            errors.append("u03-numbers-time checkpoint must contain at least 3 questions")
-        checkpoint_questions = unit_content.get("checkpoint", {}).get("questions", [])
-        for question in checkpoint_questions:
+            errors.append(f"{unit_key} checkpoint must contain at least 3 questions")
+        for question in unit_content.get("checkpoint", {}).get("questions", []):
             if not question.get("id") or not question.get("options") or question.get("answer") not in question.get("options", []):
-                errors.append(f"checkpoint question {question.get('id')!r} must have options containing its answer")
+                errors.append(f"{unit_key} checkpoint question {question.get('id')!r} must have options containing its answer")
     if errors:
         raise ValueError("Course content validation failed:\n- " + "\n- ".join(errors))
     return data

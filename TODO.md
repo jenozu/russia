@@ -248,3 +248,15 @@
 - [x] Merge Unit 3 review and completion records safely through the existing local backup/import path.
 - [x] Keep daily review accounting idempotent when the same Unit 3 item is rated repeatedly.
 - [x] Validate generated JavaScript syntax, content validation, fresh-port adaptive selection, scheduler intervals, XP events, badge issuance, and refresh persistence.
+
+## 24. A1 roadmap Phase 2 — Units 2–4 shared lesson and review engine
+
+- [x] Author a complete Unit 2 greetings-and-introductions content record.
+- [x] Author a complete Unit 4 people-and-family content record.
+- [x] Add lexical cores, sentence patterns, usage/grammar notes, authored dialogues, stories, and checkpoints for both units.
+- [x] Generalize the data-driven lesson renderer so Unit 2, Unit 3, and Unit 4 share one UI and one interaction model.
+- [x] Add Unit 2 and Unit 4 adaptive review cards to the shared scheduler and reward ledger.
+- [x] Add Unit 2, Unit 3, and Unit 4 navigation with isolated local completion and review state per unit.
+- [x] Extend the content validator to enforce the complete lesson shape for all three integrated units.
+- [x] Validate Unit 2 rendering and adaptive selection, Unit 4 rendering and adaptive selection, Unit 4 scheduled review rewards, and Unit 3 regression behavior.
+- [ ] Recycle Units 2–4 vocabulary into later-unit stories, listening contrasts, and cumulative checkpoints.
