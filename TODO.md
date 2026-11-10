@@ -182,3 +182,16 @@
 - [x] Preserve version-1 local state with backward-compatible motivation defaults.
 - [x] Validate reward creation, no-duplicate refresh behavior, progress rendering, goal persistence, syntax, static HTTP serving, and existing Stage 1 state in a live browser.
 - [ ] Consider optional reminders, accounts, and privacy-controlled leaderboards only in later milestones.
+
+## 19. Milestone 13 — Durable accounts and sync foundation
+
+- [x] Add a durable local learner profile ID with optional display name.
+- [x] Add account-aware JSON backup naming and export metadata.
+- [x] Merge imported review records by newest review timestamp instead of silently replacing local progress.
+- [x] Deduplicate merged review events and preserve local motivation, scenario, story, and dismissal state.
+- [x] Show explicit local-only account and privacy boundary messaging.
+- [x] Add explicit local account/data deletion while keeping the basic offline loop usable.
+- [x] Preserve version-1 local state with backward-compatible account and sync defaults.
+- [x] Validate profile creation, name persistence, backup download, refresh persistence, syntax, static HTTP serving, and existing review state in a live browser.
+- [ ] Add real authentication, server-side learner profiles, and multi-device conflict-safe sync only after a backend service is provisioned.
+- [ ] Publish privacy documentation for audio and transcripts alongside the account service.

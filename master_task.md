@@ -337,6 +337,10 @@ Verify:
 
 ## Milestone 13 — Add durable accounts and sync
 
+**Status: standalone foundation complete; remote account services remain deferred.**
+
+The standalone app now has a durable local learner profile with a generated profile ID and optional display name, account-aware JSON backups, deterministic merge-on-import for review records and unique event history, and explicit local account/data deletion. This preserves the offline learning loop and makes a backup portable across browsers without pretending that localStorage is authentication or server sync. True authentication, server-side learner profiles, and multi-device conflict resolution require a backend service and are intentionally not fabricated inside the standalone artifact.
+
 **Goal:** make progress portable across devices after the local learning loop is trustworthy.
 
 Implement only after localStorage behavior and the review model are stable:
