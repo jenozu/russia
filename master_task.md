@@ -74,6 +74,10 @@ Do not add speech recognition in this milestone.
 
 ## Milestone 3 — Improve browser Russian audio
 
+**Status: complete in the standalone HTML app.**
+
+Implemented a reusable browser speech controller with Russian voice discovery and fallback selection, play/pause/replay, persisted playback speed, sentence and word playback, phonetic-guide highlighting while speech starts, and explicit loading/unavailable states. The live browser test verified distinct word/sentence utterance text, cancellation before each new utterance, speed persistence, sentence controls, and graceful behavior when no voices are exposed.
+
 **Goal:** make listening practice dependable before asking the learner to speak.
 
 Implement:

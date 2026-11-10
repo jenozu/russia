@@ -62,3 +62,14 @@
 - [x] Keep separate scheduling records for Stage 1 phrases and alphabet letters.
 - [x] Show why an item is appearing again and expose last review, rating, and next review in the Settings debug panel.
 - [x] Verify rating ordering, due-first selection, and localStorage persistence in a live browser runtime.
+
+
+## 9. Milestone 3 — Browser Russian audio
+
+- [x] Add a reusable `speechSynthesis` audio controller for Stage 1 words, alphabet letters, sentence patterns, and mini-conversation lines.
+- [x] Discover `ru-RU` voices first, then use a Russian-name match, an available browser voice, or an explicit unavailable state.
+- [x] Add Play, Pause, Replay, and persisted playback-speed controls.
+- [x] Add word-level and sentence-level playback with a phonetic-guide highlight while speech is active.
+- [x] Cancel the previous utterance before each new playback so repeated taps do not accumulate duplicate queues.
+- [x] Keep lessons usable when `speechSynthesis` or browser voices are unavailable.
+- [x] Validate generated JavaScript and live-browser controller behavior.
