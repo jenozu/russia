@@ -96,3 +96,14 @@
 - [x] Distinguish recognition errors and no-speech results from incorrect answers; do not calculate or display a fake score.
 - [x] Provide an unsupported-browser fallback while keeping local recording available.
 - [x] Confirm the path makes no app upload/API call and does not persist audio or transcript data.
+
+
+## 12. Milestone 6 — Transcript-level pronunciation feedback
+
+- [x] Normalize transcript and target case, punctuation, whitespace, and Russian Unicode letters before comparison.
+- [x] Compare words deterministically with partial credit; exact matches score 100%, while missing or extra words lower the F1-style score predictably.
+- [x] Show a human-readable percentage with matched-word count, missing words, extra words, and likely trouble spots.
+- [x] Clearly label the result as transcript comparison, not phoneme-accurate pronunciation scoring.
+- [x] Keep recognition failures and no-speech states scoreless and distinguish them from incorrect answers.
+- [x] Preserve the target phrase and prior transcript attempts through retry; store score, transcript, timestamp, and attempt count on the Stage 1 review record.
+- [x] Validate exact, missing, extra-word, retry, and metadata behavior in a live browser runtime.

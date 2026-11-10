@@ -154,6 +154,10 @@ Verify:
 
 ## Milestone 6 — Add pronunciation scoring and feedback
 
+**Status: complete in the standalone HTML app.**
+
+Implemented transcript-level similarity only: case/punctuation/whitespace normalization, multiset word matching, deterministic F1-style partial credit, missing/extra-word feedback, likely trouble-spot guidance, and beginner-readable feedback. Scores and up to five transcript attempts are stored on the current Stage 1 review record with timestamps. Retry preserves the target phrase and prior metadata. The UI explicitly says this is not phoneme-accurate pronunciation scoring; recognition failures never receive a score.
+
 **Goal:** give useful feedback on a spoken target phrase rather than only showing a transcript.
 
 Start with transcript-level similarity as the first measurable version. Do not describe it as phoneme-accurate scoring.
