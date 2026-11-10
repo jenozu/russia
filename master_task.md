@@ -123,7 +123,13 @@ Verify:
 
 ## Milestone 5 — Add speech transcription
 
-**Goal:** convert a learner recording into text so the app can compare what was said with the target.
+**Status: complete in the standalone HTML app.**
+
+**Implementation path:** browser-native `SpeechRecognition`/`webkitSpeechRecognition` where available. The app performs live Russian recognition in the browser, does not upload the Milestone 4 recording Blob, does not call a server or managed speech API, and does not persist audio or transcripts. The UI explains that browser-level processing/privacy policies apply and requests explicit learner acknowledgment before starting recognition.
+
+Implemented the idle → recording → processing → result/error state machine, Russian-language selection (`ru-RU`), interim and final transcript display, retry/reset controls, unsupported-browser fallback, permission/error messaging, and explicit separation between transcription failure and answer correctness. This path intentionally does not score pronunciation; transcript comparison begins in Milestone 6.
+
+**Goal:** convert a learner response into text so the app can compare what was said with the target.
 
 Choose and document one implementation path:
 

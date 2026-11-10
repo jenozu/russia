@@ -84,3 +84,15 @@
 - [x] Revoke object URLs, stop media tracks, and handle repeated/discarded recordings without stale controls.
 - [x] Provide useful permission-denied, unsupported-browser, and HTTPS guidance while leaving the rest of the lesson usable.
 - [x] Validate the complete lifecycle with a mocked live-browser test.
+
+
+## 11. Milestone 5 — Browser-native speech transcription
+
+- [x] Choose and document the browser-native `SpeechRecognition`/`webkitSpeechRecognition` path; defer remote transcription services.
+- [x] Add idle, recording, processing, result, and error transcription states.
+- [x] Configure Russian recognition with `ru-RU`, interim results, and final transcript display.
+- [x] Require explicit learner acknowledgment of browser speech-processing privacy before recognition starts.
+- [x] Add retry/reset behavior without losing the current target phrase.
+- [x] Distinguish recognition errors and no-speech results from incorrect answers; do not calculate or display a fake score.
+- [x] Provide an unsupported-browser fallback while keeping local recording available.
+- [x] Confirm the path makes no app upload/API call and does not persist audio or transcript data.
