@@ -81,6 +81,18 @@ A learner must be able to complete lessons, reviews, quizzes, stories, and basic
 
 Words, chunks, grammar points, dialogues, stories, prompts, answer variants, cultural notes, and audio metadata should live in versioned content data rather than being embedded as one-off UI strings.
 
+### Pareto-first curriculum design
+
+The course should deliberately teach the small set of Russian that unlocks the largest number of beginner situations before broadening coverage. This is not permission to create a shallow “top words” list. It means identifying a high-leverage core of words, chunks, question forms, repair phrases, verb patterns, and grammatical constructions; teaching that core repeatedly across listening, speaking, stories, and conversations; and only then adding lower-frequency breadth. Every new item should justify its place through usefulness, reuse, communicative coverage, or a prerequisite relationship.
+
+The curriculum should track at least three layers: a **survival core** for immediate communication, a **high-frequency A1 core** that supports most recurring beginner interactions, and **supporting breadth** that makes the course more natural and flexible. Reviews and new lessons should prioritize the first two layers when learner time is limited.
+
+### Personalized adaptive learning is a core behavior
+
+Spaced repetition and adaptive selection are not optional gamification features. The tutor should use each learner’s demonstrated performance to decide what appears next, which modality needs work, when a word should return, how much scaffolding to show, and when to introduce new material. Adaptation should operate across recognition, listening, typing, speaking, grammar patterns, stories, and conversation—not only on isolated vocabulary cards.
+
+The learner should be able to see and influence this behavior: why an item returned, which skill is weak, what can be postponed, and what evidence is needed to move forward. The system should protect the high-leverage core from being crowded out by novelty.
+
 ### Deterministic practice before generative freedom
 
 The tutor should first provide reliable, authored exercises with explicit expected answers and helpful variants. Generative dialogue can be added behind boundaries, with content grounding, safety controls, and a visible fallback when the model is unavailable.
@@ -138,7 +150,7 @@ Each unit should contain a small core vocabulary set, reusable chunks, one or mo
 
 ### Vocabulary target
 
-Use a quality target rather than an arbitrary word count. The course should begin with the existing 100-item Stage 1 set and expand toward approximately 600–800 entries, including:
+Use a quality target rather than an arbitrary word count. The course should begin with the existing 100-item Stage 1 set and expand toward approximately 600–800 entries, while explicitly tagging the high-leverage survival and A1 core. The number is a planning range, not a completion metric by itself. A smaller set that is deeply recycled and usable in speech is preferable to a larger set that is only recognized in isolation. Include:
 
 - High-frequency individual words.
 - Reusable multiword chunks.
@@ -148,6 +160,30 @@ Use a quality target rather than an arbitrary word count. The course should begi
 - Vocabulary needed to understand the authored stories and conversations.
 
 Every item should have a stable ID, Russian text, learner-facing meaning, part of speech or chunk type, stress/pronunciation information, example use, theme, CEFR/course unit, known variants, audio metadata, and review relationships.
+
+### Reference-feature coverage requirement
+
+The reference A1 voice-tutor repository describes the intended product family, so the eventual Russian course should cover the substance of those features rather than treating them as unrelated add-ons:
+
+| Reference capability | Russian A1 implementation commitment |
+|---|---|
+| Word bank | High-leverage core plus supporting A1 vocabulary, examples, tags, audio, and familiarity evidence |
+| Multiple quiz modes | Recognition, fill-in, translation, sentence building, typed production, and spoken response |
+| Conversation mode | Themed role-play with tutor turns, repair phrases, accepted variants, and optional branching |
+| Voice input and TTS | Listen, record, recognize, replay, and graceful typed fallback across the course |
+| Spaced repetition | Skill-aware scheduling that protects the Pareto core and adapts to individual performance |
+| Pronunciation feedback | Honest transcript/target feedback first; validated audio scoring only when evidence supports it |
+| Story mode | Graded Russian stories with comprehension, glossary, listening, and optional retell activities |
+| Grammar and culture tips | Contextual explanations linked to the learner’s current error or goal |
+| Thematic study paths | Unit and path navigation by practical situation, with cross-unit recycling |
+| XP, badges, streaks, and goals | Existing mechanics extended to meaningful course milestones without pressure as the default |
+| Word of the Day | Optional high-leverage word or chunk with audio, example, and review action |
+| Reminders | Opt-in daily practice reminders after the core experience is stable |
+| Ambient mode | Optional bounded hands-free listening/responding mode with clear privacy controls |
+| Custom tutor voices | Consistent tutor styles that change tone and pacing, not instructional truth |
+| Leaderboard/social features | Deferred until privacy, motivation, and learner research justify them |
+
+This table is a coverage contract for the product direction. It does not require every feature to be built before the first expanded unit, but it prevents the final A1 course from quietly regressing into a larger flashcard app.
 
 ## 7. Roadmap phases
 
