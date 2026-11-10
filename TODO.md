@@ -219,4 +219,19 @@
 - [x] Wire content validation into `scripts/build_standalone.py` so invalid metadata blocks generated artifacts.
 - [x] Embed validated course metadata in the generated standalone artifact without changing the current learner UI.
 - [x] Validate JSON/schema output, generated JavaScript syntax, fresh-port browser rendering, embedded metadata markers, existing local state loading, Stage 1 navigation, and card reveal.
-- [ ] Build the first fully data-driven new unit and render its lesson activities through the shared course engine.
+- [x] Build the first fully data-driven new unit and render its lesson activities through the shared course engine.
+
+
+## 22. A1 roadmap Phase 1 — Unit 3: Numbers, dates, and time
+
+- [x] Add a complete `u03-numbers-time` content record to the course schema.
+- [x] Author a 16-item Pareto-aware vocabulary set with pronunciation guides and skill tags.
+- [x] Add five reusable lesson activities, sentence patterns, and a grammar contrast for `Который час?` versus `Во сколько?`.
+- [x] Add a three-turn guided dialogue with accepted Russian response variants and recovery feedback.
+- [x] Add a four-line graded story with English support and comprehension context.
+- [x] Add a three-question checkpoint with a two-of-three completion rule.
+- [x] Add the shared schema-driven Unit 3 renderer to the standalone app.
+- [x] Persist dialogue completion, checkpoint answers, activity selection, and unit attempts in local state.
+- [x] Extend content validation for required activities, vocabulary, dialogue, story, grammar, checkpoint, and answer integrity.
+- [x] Validate fresh-port browser rendering, accepted dialogue variants, checkpoint feedback, story translation, generated JavaScript syntax, and refresh rehydration.
+- [ ] Connect new unit review items to the global adaptive scheduler and XP/badge rewards.

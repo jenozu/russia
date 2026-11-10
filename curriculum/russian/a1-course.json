@@ -5,7 +5,7 @@
     "language": "ru",
     "level": "A1",
     "title": "Russian A1 · Pareto-first survival path",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "design": "Prioritize a small high-leverage core, then expand breadth through repeated meaningful use."
   },
   "paretoTiers": [
@@ -2244,5 +2244,434 @@
     "sourceItemKey": "n",
     "preserveExistingIds": true,
     "notes": "This schema adds metadata without replacing the existing standalone runtime data."
+  },
+  "unitContent": {
+    "u03-numbers-time": {
+      "id": "u03-numbers-time",
+      "unitId": "u03-numbers-time",
+      "status": "active",
+      "title": "Numbers, dates, and time",
+      "objective": "Ask and answer simple questions about numbers, days, dates, and the time of a meeting.",
+      "paretoTier": "survival-core",
+      "estimatedMinutes": 10,
+      "activities": [
+        {
+          "id": "u03-warmup",
+          "type": "warm-up",
+          "title": "Wake up the core",
+          "prompt": "Say today, tomorrow, and now before learning new numbers.",
+          "reviewIds": [
+            56,
+            57,
+            58
+          ]
+        },
+        {
+          "id": "u03-meaning",
+          "type": "meaning",
+          "title": "Meet the time words",
+          "prompt": "Connect each Russian word to a useful beginner meaning.",
+          "reviewIds": [
+            56,
+            57,
+            58
+          ]
+        },
+        {
+          "id": "u03-listen",
+          "type": "listen",
+          "title": "Listen for the number",
+          "prompt": "Hear the phrase, notice the stressed syllable, then repeat it aloud.",
+          "reviewIds": []
+        },
+        {
+          "id": "u03-produce",
+          "type": "produce",
+          "title": "Build a simple answer",
+          "prompt": "Answer «Который час?» with a time, then answer «Во сколько?» with в + time.",
+          "reviewIds": []
+        },
+        {
+          "id": "u03-apply",
+          "type": "apply",
+          "title": "Use it in a plan",
+          "prompt": "Complete the short dialogue and understand the tiny story.",
+          "reviewIds": []
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "u03-zero",
+          "ru": "ноль",
+          "pron": "nol",
+          "en": "zero",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u03-one",
+          "ru": "один",
+          "pron": "a-DEEN",
+          "en": "one",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u03-two",
+          "ru": "два",
+          "pron": "dva",
+          "en": "two",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u03-three",
+          "ru": "три",
+          "pron": "tree",
+          "en": "three",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u03-five",
+          "ru": "пять",
+          "pron": "pyat",
+          "en": "five",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u03-ten",
+          "ru": "десять",
+          "pron": "DYE-syat",
+          "en": "ten",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u03-today",
+          "ru": "сегодня",
+          "pron": "se-VOD-nya",
+          "en": "today",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u03-tomorrow",
+          "ru": "завтра",
+          "pron": "ZAV-tra",
+          "en": "tomorrow",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u03-yesterday",
+          "ru": "вчера",
+          "pron": "fche-RA",
+          "en": "yesterday",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u03-now",
+          "ru": "сейчас",
+          "pron": "see-CHAS",
+          "en": "now",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u03-hour",
+          "ru": "час",
+          "pron": "chas",
+          "en": "hour / o’clock",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u03-minute",
+          "ru": "минута",
+          "pron": "mee-NOO-ta",
+          "en": "minute",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u03-which-time",
+          "ru": "Который час?",
+          "pron": "ka-TO-riy chas",
+          "en": "What time is it?",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u03-at-what-time",
+          "ru": "Во сколько?",
+          "pron": "vo SKOL-ka",
+          "en": "At what time?",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u03-morning",
+          "ru": "утром",
+          "pron": "OO-tram",
+          "en": "in the morning",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u03-evening",
+          "ru": "вечером",
+          "pron": "VYE-che-ram",
+          "en": "in the evening",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        }
+      ],
+      "patterns": [
+        {
+          "ru": "Сегодня понедельник.",
+          "en": "Today is Monday.",
+          "pron": "se-VOD-nya pa-na-DYEL-neek"
+        },
+        {
+          "ru": "Который час? — Сейчас три часа.",
+          "en": "What time is it? — It is three o’clock now.",
+          "pron": "ka-TO-riy chas? — see-CHAS tree cha-SA"
+        },
+        {
+          "ru": "Во сколько встречаемся? — В три часа.",
+          "en": "What time shall we meet? — At three o’clock.",
+          "pron": "vo SKOL-ka fstre-CHA-yem-sya? — f tree cha-SA"
+        }
+      ],
+      "grammar": {
+        "id": "u03-time-questions",
+        "kind": "Grammar",
+        "title": "Который час? vs Во сколько?",
+        "explanation": "Use «Который час?» to ask the current time. Use «Во сколько?» to ask when an event happens. A simple answer uses «В» plus the time: «В три часа».",
+        "exampleRu": "Во сколько встречаемся? — В три часа.",
+        "exampleEn": "What time shall we meet? — At three o’clock.",
+        "commonMistake": "Do not use the current-time question when you mean the time of an appointment."
+      },
+      "dialogue": {
+        "id": "u03-meeting-time",
+        "title": "Making a simple plan",
+        "turns": [
+          {
+            "role": "tutor",
+            "ru": "Который час?",
+            "en": "What time is it?",
+            "prompt": "Say that it is three o’clock.",
+            "variants": [
+              "сейчас три часа",
+              "три часа"
+            ],
+            "hint": "Start with «Сейчас…»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Во сколько встречаемся?",
+            "en": "What time shall we meet?",
+            "prompt": "Say that you will meet at three.",
+            "variants": [
+              "в три",
+              "в три часа"
+            ],
+            "hint": "Start with «В три…»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Хорошо. До завтра!",
+            "en": "Good. See you tomorrow!",
+            "prompt": "Understand the closing.",
+            "variants": [],
+            "hint": ""
+          }
+        ]
+      },
+      "story": {
+        "id": "u03-tuesday-plan",
+        "title": "A small plan",
+        "lines": [
+          {
+            "ru": "Сегодня понедельник.",
+            "en": "Today is Monday."
+          },
+          {
+            "ru": "Сейчас три часа.",
+            "en": "It is three o’clock now."
+          },
+          {
+            "ru": "Завтра я работаю утром.",
+            "en": "Tomorrow I work in the morning."
+          },
+          {
+            "ru": "Вечером мы встречаемся.",
+            "en": "In the evening we meet."
+          }
+        ],
+        "glossary": [
+          "сегодня",
+          "сейчас",
+          "завтра",
+          "утром",
+          "вечером"
+        ],
+        "questions": [
+          {
+            "q": "Какой сегодня день?",
+            "options": [
+              "понедельник",
+              "вторник",
+              "вечер"
+            ],
+            "answer": "понедельник"
+          },
+          {
+            "q": "Который сейчас час?",
+            "options": [
+              "три часа",
+              "пять минут",
+              "завтра"
+            ],
+            "answer": "три часа"
+          },
+          {
+            "q": "Когда я работаю?",
+            "options": [
+              "утром",
+              "вчера",
+              "в три часа"
+            ],
+            "answer": "утром"
+          }
+        ]
+      },
+      "checkpoint": {
+        "id": "u03-checkpoint",
+        "title": "Quick time check",
+        "questions": [
+          {
+            "id": "u03-q1",
+            "prompt": "Choose the phrase for “tomorrow”.",
+            "options": [
+              "сегодня",
+              "завтра",
+              "вчера"
+            ],
+            "answer": "завтра",
+            "skill": "recognition"
+          },
+          {
+            "id": "u03-q2",
+            "prompt": "Choose the natural answer to «Во сколько?».",
+            "options": [
+              "В три часа.",
+              "Который час?",
+              "Сегодня."
+            ],
+            "answer": "В три часа.",
+            "skill": "production"
+          },
+          {
+            "id": "u03-q3",
+            "prompt": "Choose the phrase for “What time is it?”.",
+            "options": [
+              "Во сколько?",
+              "Который час?",
+              "До завтра!"
+            ],
+            "answer": "Который час?",
+            "skill": "recognition"
+          }
+        ],
+        "completionRule": "Answer at least 2 of 3 correctly and complete both dialogue turns."
+      },
+      "completionEvidence": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reviewLinks": [
+        56,
+        57,
+        58,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ]
+    }
   }
 }
