@@ -206,3 +206,17 @@
 - [x] Preserve browser speech-recognition fallback so typing and local review remain available when recognition is unsupported.
 - [x] Validate manifest/service-worker HTTP delivery, live registration, computed touch-target styles, local Stage 1 loop, and voice fallback messaging in a browser.
 - [ ] Validate install prompts, iOS/Android audio parity, and push notifications on physical devices with explicit opt-in.
+
+## 21. A1 roadmap Phase 1 — Pareto-first survival core and content structure
+
+- [x] Add versioned `curriculum/russian/a1-course.json` content metadata without replacing the existing Stage 1 runtime source.
+- [x] Define three explicit Pareto tiers: survival core, high-frequency A1 core, and supporting breadth.
+- [x] Tag all 100 existing Stage 1 items with a tier, unit relationship, skill coverage, reuse targets, and selection weight.
+- [x] Identify 45 stable-ID survival-core items covering greetings, repair, questions, identity, needs, time, food, places, and basic navigation.
+- [x] Scaffold the 16-unit Russian A1 course path with lesson-template and Pareto-focus metadata.
+- [x] Define protected-core adaptive-selection priorities and explanation templates for future review integration.
+- [x] Add dependency-free content validation for schema version, tiers, IDs, unit links, skill labels, and complete Stage 1 coverage.
+- [x] Wire content validation into `scripts/build_standalone.py` so invalid metadata blocks generated artifacts.
+- [x] Embed validated course metadata in the generated standalone artifact without changing the current learner UI.
+- [x] Validate JSON/schema output, generated JavaScript syntax, fresh-port browser rendering, embedded metadata markers, existing local state loading, Stage 1 navigation, and card reveal.
+- [ ] Build the first fully data-driven new unit and render its lesson activities through the shared course engine.

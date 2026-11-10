@@ -1,0 +1,2248 @@
+{
+  "schemaVersion": 1,
+  "course": {
+    "id": "russian-a1",
+    "language": "ru",
+    "level": "A1",
+    "title": "Russian A1 · Pareto-first survival path",
+    "version": "0.1.0",
+    "design": "Prioritize a small high-leverage core, then expand breadth through repeated meaningful use."
+  },
+  "paretoTiers": [
+    {
+      "id": "survival-core",
+      "label": "Survival core",
+      "description": "The smallest high-leverage set for introductions, repair, questions, needs, time, food, places, and basic navigation.",
+      "selectionWeight": 3,
+      "targetBehavior": "Prioritize in first exposure, daily sessions, adaptive review, and checkpoint recovery."
+    },
+    {
+      "id": "high-frequency-core",
+      "label": "High-frequency A1 core",
+      "description": "Common words and chunks that unlock most recurring beginner interactions after the survival layer.",
+      "selectionWeight": 2,
+      "targetBehavior": "Recycle across multiple units and modalities before adding supporting breadth."
+    },
+    {
+      "id": "supporting-breadth",
+      "label": "Supporting breadth",
+      "description": "Lower-frequency or contextual material that adds flexibility after the core is stable.",
+      "selectionWeight": 1,
+      "targetBehavior": "Introduce when core performance and learner capacity support it."
+    }
+  ],
+  "survivalCoreIds": [
+    1,
+    2,
+    6,
+    7,
+    8,
+    9,
+    11,
+    12,
+    13,
+    15,
+    16,
+    19,
+    20,
+    21,
+    22,
+    23,
+    31,
+    32,
+    33,
+    34,
+    36,
+    38,
+    39,
+    40,
+    48,
+    50,
+    51,
+    52,
+    53,
+    56,
+    57,
+    58,
+    66,
+    70,
+    71,
+    72,
+    76,
+    82,
+    83,
+    84,
+    85,
+    96,
+    97,
+    98,
+    99
+  ],
+  "units": [
+    {
+      "id": "u01-orientation",
+      "title": "Orientation and sound map",
+      "order": 1,
+      "status": "current",
+      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "lessonTemplate": [
+        "warm-up",
+        "meaning",
+        "listen",
+        "recognize",
+        "produce",
+        "speak",
+        "apply",
+        "checkpoint"
+      ],
+      "paretoFocus": "survival-core"
+    },
+    {
+      "id": "u02-greetings-introductions",
+      "title": "Greetings and introductions",
+      "order": 2,
+      "status": "current",
+      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "lessonTemplate": [
+        "warm-up",
+        "meaning",
+        "listen",
+        "recognize",
+        "produce",
+        "speak",
+        "apply",
+        "checkpoint"
+      ],
+      "paretoFocus": "survival-core"
+    },
+    {
+      "id": "u03-numbers-time",
+      "title": "Numbers, dates, and time",
+      "order": 3,
+      "status": "planned",
+      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "lessonTemplate": [
+        "warm-up",
+        "meaning",
+        "listen",
+        "recognize",
+        "produce",
+        "speak",
+        "apply",
+        "checkpoint"
+      ],
+      "paretoFocus": "high-frequency-core"
+    },
+    {
+      "id": "u04-people-family",
+      "title": "People and family",
+      "order": 4,
+      "status": "planned",
+      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "lessonTemplate": [
+        "warm-up",
+        "meaning",
+        "listen",
+        "recognize",
+        "produce",
+        "speak",
+        "apply",
+        "checkpoint"
+      ],
+      "paretoFocus": "high-frequency-core"
+    },
+    {
+      "id": "u05-home-objects",
+      "title": "Home and everyday objects",
+      "order": 5,
+      "status": "planned",
+      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "lessonTemplate": [
+        "warm-up",
+        "meaning",
+        "listen",
+        "recognize",
+        "produce",
+        "speak",
+        "apply",
+        "checkpoint"
+      ],
+      "paretoFocus": "high-frequency-core"
+    },
+    {
+      "id": "u06-food-cafe",
+      "title": "Food and café",
+      "order": 6,
+      "status": "planned",
+      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "lessonTemplate": [
+        "warm-up",
+        "meaning",
+        "listen",
+        "recognize",
+        "produce",
+        "speak",
+        "apply",
+        "checkpoint"
+      ],
+      "paretoFocus": "high-frequency-core"
+    },
+    {
+      "id": "u07-shopping-clothing",
+      "title": "Shopping and clothing",
+      "order": 7,
+      "status": "planned",
+      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "lessonTemplate": [
+        "warm-up",
+        "meaning",
+        "listen",
+        "recognize",
+        "produce",
+        "speak",
+        "apply",
+        "checkpoint"
+      ],
+      "paretoFocus": "high-frequency-core"
+    },
+    {
+      "id": "u08-daily-routine",
+      "title": "Daily routine",
+      "order": 8,
+      "status": "planned",
+      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "lessonTemplate": [
+        "warm-up",
+        "meaning",
+        "listen",
+        "recognize",
+        "produce",
+        "speak",
+        "apply",
+        "checkpoint"
+      ],
+      "paretoFocus": "high-frequency-core"
+    },
+    {
+      "id": "u09-work-school",
+      "title": "Work, school, and languages",
+      "order": 9,
+      "status": "planned",
+      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "lessonTemplate": [
+        "warm-up",
+        "meaning",
+        "listen",
+        "recognize",
+        "produce",
+        "speak",
+        "apply",
+        "checkpoint"
+      ],
+      "paretoFocus": "high-frequency-core"
+    },
+    {
+      "id": "u10-city-directions",
+      "title": "City and directions",
+      "order": 10,
+      "status": "planned",
+      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "lessonTemplate": [
+        "warm-up",
+        "meaning",
+        "listen",
+        "recognize",
+        "produce",
+        "speak",
+        "apply",
+        "checkpoint"
+      ],
+      "paretoFocus": "high-frequency-core"
+    },
+    {
+      "id": "u11-travel-stay",
+      "title": "Travel and accommodation",
+      "order": 11,
+      "status": "planned",
+      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "lessonTemplate": [
+        "warm-up",
+        "meaning",
+        "listen",
+        "recognize",
+        "produce",
+        "speak",
+        "apply",
+        "checkpoint"
+      ],
+      "paretoFocus": "high-frequency-core"
+    },
+    {
+      "id": "u12-weather-seasons",
+      "title": "Weather and seasons",
+      "order": 12,
+      "status": "planned",
+      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "lessonTemplate": [
+        "warm-up",
+        "meaning",
+        "listen",
+        "recognize",
+        "produce",
+        "speak",
+        "apply",
+        "checkpoint"
+      ],
+      "paretoFocus": "high-frequency-core"
+    },
+    {
+      "id": "u13-health-needs",
+      "title": "Health and immediate needs",
+      "order": 13,
+      "status": "planned",
+      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "lessonTemplate": [
+        "warm-up",
+        "meaning",
+        "listen",
+        "recognize",
+        "produce",
+        "speak",
+        "apply",
+        "checkpoint"
+      ],
+      "paretoFocus": "high-frequency-core"
+    },
+    {
+      "id": "u14-preferences-free-time",
+      "title": "Preferences and free time",
+      "order": 14,
+      "status": "planned",
+      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "lessonTemplate": [
+        "warm-up",
+        "meaning",
+        "listen",
+        "recognize",
+        "produce",
+        "speak",
+        "apply",
+        "checkpoint"
+      ],
+      "paretoFocus": "high-frequency-core"
+    },
+    {
+      "id": "u15-plans-future",
+      "title": "Plans and near future",
+      "order": 15,
+      "status": "planned",
+      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "lessonTemplate": [
+        "warm-up",
+        "meaning",
+        "listen",
+        "recognize",
+        "produce",
+        "speak",
+        "apply",
+        "checkpoint"
+      ],
+      "paretoFocus": "high-frequency-core"
+    },
+    {
+      "id": "u16-survival-mission",
+      "title": "A1 survival mission",
+      "order": 16,
+      "status": "planned",
+      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "lessonTemplate": [
+        "warm-up",
+        "meaning",
+        "listen",
+        "recognize",
+        "produce",
+        "speak",
+        "apply",
+        "checkpoint"
+      ],
+      "paretoFocus": "high-frequency-core"
+    }
+  ],
+  "items": [
+    {
+      "sourceItemId": 1,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 2,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 3,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 4,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 5,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 6,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 7,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 8,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 9,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 10,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 11,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 12,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 13,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 14,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 15,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 16,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 17,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 18,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 19,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 20,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 21,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u04-people-family"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 22,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u04-people-family"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 23,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u04-people-family"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 24,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u04-people-family"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 25,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u04-people-family"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 26,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u04-people-family"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 27,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u04-people-family"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 28,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u04-people-family"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 29,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u04-people-family"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 30,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u04-people-family"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 31,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 32,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 33,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 34,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 35,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 36,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 37,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 38,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 39,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 40,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u02-greetings-introductions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 41,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u08-daily-routine"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 42,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u08-daily-routine"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 43,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u08-daily-routine"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 44,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u08-daily-routine"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 45,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u08-daily-routine"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 46,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u08-daily-routine"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 47,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u08-daily-routine"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 48,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u08-daily-routine"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 49,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u08-daily-routine"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 50,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u08-daily-routine"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 51,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u08-daily-routine"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 52,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u08-daily-routine"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 53,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u08-daily-routine"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 54,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u08-daily-routine"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 55,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u08-daily-routine"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 56,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u03-numbers-time"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 57,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u03-numbers-time"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 58,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u03-numbers-time"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 59,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u03-numbers-time"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 60,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u03-numbers-time"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 61,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u03-numbers-time"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 62,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u03-numbers-time"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 63,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u03-numbers-time"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 64,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u03-numbers-time"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 65,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u03-numbers-time"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 66,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u05-home-objects"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 67,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u05-home-objects"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 68,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u05-home-objects"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 69,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u05-home-objects"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 70,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u05-home-objects"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 71,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u10-city-directions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 72,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u10-city-directions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 73,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u10-city-directions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 74,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u10-city-directions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 75,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u10-city-directions"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 76,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u05-home-objects"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 77,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u05-home-objects"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 78,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u05-home-objects"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 79,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u05-home-objects"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 80,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u05-home-objects"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 81,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u05-home-objects"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 82,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u05-home-objects"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 83,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u05-home-objects"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 84,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u05-home-objects"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 85,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u05-home-objects"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 86,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u07-shopping-clothing"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 87,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u07-shopping-clothing"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 88,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u07-shopping-clothing"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 89,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u07-shopping-clothing"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 90,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u07-shopping-clothing"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 91,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u07-shopping-clothing"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 92,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u01-orientation"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 93,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u01-orientation"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 94,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u01-orientation"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 95,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u01-orientation"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    },
+    {
+      "sourceItemId": 96,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u01-orientation"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 97,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u01-orientation"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 98,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u01-orientation"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 99,
+      "paretoTier": "survival-core",
+      "unitIds": [
+        "u01-orientation"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 3
+    },
+    {
+      "sourceItemId": 100,
+      "paretoTier": "high-frequency-core",
+      "unitIds": [
+        "u01-orientation"
+      ],
+      "skills": [
+        "recognition",
+        "listening",
+        "production"
+      ],
+      "reuseTargets": [
+        "dialogue",
+        "story",
+        "review"
+      ],
+      "selectionWeight": 1
+    }
+  ],
+  "selectionPolicy": {
+    "priorityOrder": [
+      "due-survival-core",
+      "weak-survival-core",
+      "new-survival-core",
+      "due-high-frequency-core",
+      "weak-high-frequency-core",
+      "new-high-frequency-core",
+      "supporting-breadth"
+    ],
+    "protectParetoCore": true,
+    "maxNewSupportingBreadthPerSession": 2,
+    "requiredEvidence": [
+      "recognition",
+      "listening",
+      "production",
+      "speaking"
+    ],
+    "explanationTemplates": [
+      "Survival core: this phrase unlocks many beginner situations.",
+      "Back because this high-leverage skill needs another retrieval.",
+      "Maintenance review: keeping a strong core phrase available."
+    ]
+  },
+  "migration": {
+    "source": "curriculum/russian/stage-one-data.ts",
+    "sourceItemKey": "n",
+    "preserveExistingIds": true,
+    "notes": "This schema adds metadata without replacing the existing standalone runtime data."
+  }
+}

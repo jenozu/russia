@@ -225,6 +225,8 @@ The roadmap has twelve build phases. The existing Stage 1 implementation counts 
 
 ## 9. Phase 1 — Course architecture and content schema
 
+**Status: first Pareto-first schema slice complete.** The repository now has a versioned `a1-course.json` that covers all 100 Stage 1 items, tags 45 high-leverage survival-core items, scaffolds 16 A1 units, defines a protected-core selection policy, and is validated before the standalone artifact is generated. Lesson rendering and adaptive scheduling are the next Phase 1 slices.
+
 ### Work
 
 Create versioned data structures for:
