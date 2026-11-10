@@ -120,3 +120,15 @@
 - [x] Keep a retry path that preserves the active question even if the due queue reorders after scheduling.
 - [x] Validate clean question generation, four choices, incorrect feedback, retry stability, correct feedback, persistence, and event recording in a live browser runtime.
 - [ ] Implement and independently verify English → Russian, Cyrillic recognition, sound-to-letter, typed fill-in, typed translation, and spoken-response modes in later increments.
+
+
+## 14. Milestone 8 — Adaptive quiz selection
+
+- [x] Adapt the active Stage 1 Russian → English quiz using actual item review state, last quiz correctness, rating, due status, newness, and confidence history.
+- [x] Balance due reviews, weak items, new material, and maintenance/confidence-building items with deterministic selection.
+- [x] Protect against repeating the same item too many times in one quiz session with a per-session seen counter.
+- [x] Show a learner-visible reason such as “Back because it was tricky last time” or “New material — a gentle first check.”
+- [x] Store the adaptive reason and session occurrence with each quiz result so later tuning is based on actual outcomes.
+- [x] Keep incorrect items eligible for earlier return through Again scheduling while allowing new material to enter the session.
+- [x] Validate weak-item priority, new-item introduction, confidence maintenance candidates, visible reasons, and repeat protection in a live browser runtime.
+- [ ] Extend the adaptive selector to letter-level and additional quiz-mode/deck-level queues when those quiz modes are implemented.

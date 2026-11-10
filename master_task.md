@@ -212,6 +212,10 @@ Verify each mode independently before enabling the next one. Do not create a sin
 
 ## Milestone 8 — Add adaptive quiz selection
 
+**Status: in progress — adaptive Stage 1 Russian → English mode complete.**
+
+Implemented the first adaptive selector for the active Stage 1 quiz mode. It combines due status, actual quiz correctness, review ratings, new-item status, confidence-building maintenance, and per-session seen counts. Weak items are prioritized, new items are introduced before strong items are repeated, an item is protected from repeated selection, and each question shows a learner-visible reason. The selected reason and session occurrence are stored with the quiz result. Letter/deck-level adaptive selection will be added when the corresponding quiz modes are implemented.
+
 **Goal:** use performance to choose the next question intelligently.
 
 Implement:
