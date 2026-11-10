@@ -157,3 +157,15 @@
 - [x] Save story attempts, correctness, cloze results, timestamps, and activity types as local review events while preserving existing localStorage compatibility.
 - [x] Validate JavaScript syntax, static HTTP serving, story rendering, translation reveal, audio control, vocabulary highlighting/linking, all three questions, cloze feedback, and refresh persistence in a live browser.
 - [ ] Add additional stories and richer vocabulary/story progression in later milestones.
+
+## 17. Milestone 11 — Grammar and cultural context
+
+- [x] Add a content-separated structured tip model with kind, topic, title, explanation, example, optional learn-more text, and related Stage 1 item IDs.
+- [x] Add a beginner-friendly formal/informal “тебя or вас?” explanation tied to the greeting lesson.
+- [x] Add a cultural note explaining casual “Привет” versus formal “Здравствуйте”.
+- [x] Add a seeded pronunciation/stress tip for чай to establish the reusable content pattern.
+- [x] Show only relevant tips for the active Stage 1 item and keep the core lesson usable without opening them.
+- [x] Add optional learn-more expansion and sequential dismiss behavior for multiple relevant tips.
+- [x] Persist dismissed tip IDs in the existing version-1 local state with backward-compatible migration defaults.
+- [x] Validate relevance, example text, learn-more expansion, dismiss-to-next-tip behavior, syntax, static HTTP serving, and preservation of existing story/scenario panels in a live browser.
+- [ ] Add broader grammar coverage and cultural notes for later scenarios and stories.

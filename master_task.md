@@ -287,6 +287,10 @@ Verify:
 
 ## Milestone 11 — Add grammar and cultural context
 
+**Status: complete in the standalone HTML app — structured, relevant, dismissible tips for the greeting lesson.**
+
+Implemented a content-separated `CONTEXT_TIPS` model with structured kind, topic, title, explanation, example, optional learn-more text, and related Stage 1 item IDs. The Stage 1 greeting card now surfaces a formal/informal “тебя or вас?” grammar tip followed by a “Привет is friendly” cultural note; each tip is dismissible, and dismissals persist in version-1 local state without interrupting the story, conversation, or review controls. A pronunciation/stress tip is also seeded for the existing чай item so the content model is ready for additional relevant tips.
+
 **Goal:** provide small, relevant explanations at the moment of need.
 
 Implement:
