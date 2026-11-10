@@ -132,3 +132,15 @@
 - [x] Keep incorrect items eligible for earlier return through Again scheduling while allowing new material to enter the session.
 - [x] Validate weak-item priority, new-item introduction, confidence maintenance candidates, visible reasons, and repeat protection in a live browser runtime.
 - [ ] Extend the adaptive selector to letter-level and additional quiz-mode/deck-level queues when those quiz modes are implemented.
+
+## 15. Milestone 9 — Conversation scenario
+
+- [x] Add one dedicated Russian “Meeting someone” scenario with a short scripted tutor-led exchange; do not add multiple scenarios in this milestone.
+- [x] Provide tutor Russian lines with replayable audio through the existing browser audio controller.
+- [x] Provide English support that can be revealed or hidden without leaving the scenario.
+- [x] Provide typed response input and a browser-native Russian speech response path where supported, with a typed fallback when recognition is unavailable.
+- [x] Accept response patterns and natural variants such as “Меня зовут …”, “Я из …”, and “Я живу в …” rather than requiring one exact answer.
+- [x] Show beginner-friendly recovery guidance, listen-again, and retry controls for unexpected responses without resetting the app.
+- [x] Save local scenario attempts, completion counts, timestamps, response methods, and correctness as scenario events while preserving existing localStorage state compatibility.
+- [x] Validate JavaScript syntax, static HTTP serving, scenario rendering, English reveal, tutor audio target, accepted typed variants, unexpected-response recovery, completion, refresh persistence, and existing adaptive quiz rendering in a live browser.
+- [ ] Add later scenarios such as café, directions, shopping, and asking for help.

@@ -235,6 +235,10 @@ Verify:
 
 ## Milestone 9 — Add conversation scenarios
 
+**Status: complete in the standalone HTML app — one independently testable “Meeting someone” scenario.**
+
+Implemented a dedicated local conversation panel with a short tutor-led exchange, Russian tutor audio replay through the existing audio controller, an English reveal toggle, typed responses, browser-native Russian speech input where supported, flexible response-pattern matching, beginner-friendly recovery guidance, retry without resetting the app, local scenario attempt/completion metadata, and `scenario-attempt` review events. This milestone intentionally includes only one scenario; additional scenarios, stories, grammar systems, accounts, syncing, XP, and motivation mechanics remain out of scope. The scenario’s speech path is capability-gated and falls back to typed input when browser recognition is unavailable.
+
 **Goal:** turn the vocabulary curriculum into guided, practical exchanges.
 
 Start with one Russian scenario, such as meeting someone or asking for directions.
