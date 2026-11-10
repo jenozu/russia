@@ -360,6 +360,10 @@ Verify:
 
 ## Milestone 14 — Standalone browser hardening
 
+**Status: complete for the standalone/PWA slice.**
+
+Added an installability foundation with `manifest.json`, standalone display metadata, theme colors, viewport-fit support, and a versioned service worker that precaches the app shell and serves cached content offline. Hardened mobile use with 44px touch targets, one-handed responsive stacking, safe-area-aware viewport settings, and compact mobile controls. Existing local audio and speech flows remain intentionally capability-based: recording continues to require a secure context and microphone permission, while unsupported speech recognition leaves typing and the local lesson loop available. Push notifications and native voice parity remain deferred because they require an opt-in service and device-specific browser validation.
+
 **Goal:** harden the standalone HTML app for reliable browser use and optional PWA packaging without introducing a mobile framework.
 
 Evaluate:

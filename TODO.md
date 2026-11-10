@@ -195,3 +195,14 @@
 - [x] Validate profile creation, name persistence, backup download, refresh persistence, syntax, static HTTP serving, and existing review state in a live browser.
 - [ ] Add real authentication, server-side learner profiles, and multi-device conflict-safe sync only after a backend service is provisioned.
 - [ ] Publish privacy documentation for audio and transcripts alongside the account service.
+
+## 20. Milestone 14 — Standalone browser hardening
+
+- [x] Add a PWA manifest with standalone display, app scope, theme color, and mobile viewport metadata.
+- [x] Add a versioned service worker that precaches the app shell and provides offline fallback behavior.
+- [x] Add 44px touch targets and touch-action hints for primary controls.
+- [x] Add one-handed responsive layout rules for narrow mobile screens.
+- [x] Preserve capability-based microphone behavior: secure-context checks, permission errors, and non-blocking fallback.
+- [x] Preserve browser speech-recognition fallback so typing and local review remain available when recognition is unsupported.
+- [x] Validate manifest/service-worker HTTP delivery, live registration, computed touch-target styles, local Stage 1 loop, and voice fallback messaging in a browser.
+- [ ] Validate install prompts, iOS/Android audio parity, and push notifications on physical devices with explicit opt-in.
