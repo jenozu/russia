@@ -144,3 +144,16 @@
 - [x] Save local scenario attempts, completion counts, timestamps, response methods, and correctness as scenario events while preserving existing localStorage state compatibility.
 - [x] Validate JavaScript syntax, static HTTP serving, scenario rendering, English reveal, tutor audio target, accepted typed variants, unexpected-response recovery, completion, refresh persistence, and existing adaptive quiz rendering in a live browser.
 - [ ] Add later scenarios such as café, directions, shopping, and asking for help.
+
+## 16. Milestone 10 — Story and comprehension practice
+
+- [x] Add one short beginner Russian story, “Утро Алекса”, using existing Stage 1 vocabulary; do not add multiple stories in this milestone.
+- [x] Provide line-level English translation reveal without interrupting the story.
+- [x] Provide story audio playback through the existing browser speech controller.
+- [x] Highlight story vocabulary at phrase and word level as known/new based on local Stage 1 review state.
+- [x] Link highlighted vocabulary back to the corresponding Stage 1 review card without adding a separate content system.
+- [x] Add three comprehension questions answerable from the story text with immediate feedback.
+- [x] Add one cloze activity and immediate correct/incorrect guidance.
+- [x] Save story attempts, correctness, cloze results, timestamps, and activity types as local review events while preserving existing localStorage compatibility.
+- [x] Validate JavaScript syntax, static HTTP serving, story rendering, translation reveal, audio control, vocabulary highlighting/linking, all three questions, cloze feedback, and refresh persistence in a live browser.
+- [ ] Add additional stories and richer vocabulary/story progression in later milestones.

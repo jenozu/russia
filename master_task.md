@@ -263,6 +263,10 @@ Verify:
 
 ## Milestone 10 — Add story and comprehension practice
 
+**Status: complete in the standalone HTML app — one independently testable beginner story.**
+
+Implemented one short “Утро Алекса” story using existing Stage 1 vocabulary, line-level English reveal, story audio through the existing speech controller, phrase-level known/new vocabulary highlighting with links back to Stage 1 review cards, three text-based comprehension questions, one tea cloze, and local `story-review` events with persisted attempt and correctness totals. The activity is intentionally short and remains a single story; additional stories, grammar systems, accounts, syncing, XP, and motivation mechanics remain out of scope.
+
 **Goal:** build connected reading/listening practice from known vocabulary.
 
 Implement:
