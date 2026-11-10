@@ -235,3 +235,16 @@
 - [x] Extend content validation for required activities, vocabulary, dialogue, story, grammar, checkpoint, and answer integrity.
 - [x] Validate fresh-port browser rendering, accepted dialogue variants, checkpoint feedback, story translation, generated JavaScript syntax, and refresh rehydration.
 - [ ] Connect new unit review items to the global adaptive scheduler and XP/badge rewards.
+
+## 23. A1 roadmap Phase 1 — Unit 3 adaptive review and rewards
+
+- [x] Add schema-backed Unit 3 review cards for vocabulary, sentence patterns, and dialogue turns.
+- [x] Reuse the global interval scheduler and `scheduleRecord` logic for Unit 3 review records.
+- [x] Prioritize new, due, and weak Unit 3 items with an adaptive selection score.
+- [x] Add reveal-and-rate review controls with Again, Hard, Good, and Easy outcomes.
+- [x] Award idempotent XP for each Unit 3 review attempt and award a one-time Unit 3 completion reward.
+- [x] Reuse the existing streak, weekly activity, and badge thresholds; verify the first-win badge at 10 XP.
+- [x] Persist Unit 3 review records, next-review timestamps, XP, badges, and unit completion across refreshes.
+- [x] Merge Unit 3 review and completion records safely through the existing local backup/import path.
+- [x] Keep daily review accounting idempotent when the same Unit 3 item is rated repeatedly.
+- [x] Validate generated JavaScript syntax, content validation, fresh-port adaptive selection, scheduler intervals, XP events, badge issuance, and refresh persistence.
