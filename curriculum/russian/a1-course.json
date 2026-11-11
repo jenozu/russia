@@ -173,7 +173,7 @@
       "id": "u06-food-cafe",
       "title": "Food and café",
       "order": 6,
-      "status": "planned",
+      "status": "active",
       "objective": "Use high-leverage Russian in a practical beginner situation.",
       "lessonTemplate": [
         "warm-up",
@@ -3914,6 +3914,536 @@
           }
         ],
         "completionRule": "Answer at least 3 of 4 correctly and complete both dialogue turns."
+      },
+      "completionEvidence": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reviewLinks": [
+        3,
+        4,
+        5,
+        57,
+        66
+      ]
+    },
+    "u06-food-cafe": {
+      "id": "u06-food-cafe",
+      "unitId": "u06-food-cafe",
+      "status": "active",
+      "title": "Food and café",
+      "objective": "Order simple food and drinks, ask the price, and complete a polite café transaction while recycling the core conversation patterns.",
+      "paretoTier": "high-frequency-core",
+      "estimatedMinutes": 12,
+      "activities": [
+        {
+          "id": "u06-warmup",
+          "type": "warm-up",
+          "title": "Return to the visit",
+          "prompt": "Bring greetings, family, home, and time phrases back before ordering.",
+          "reviewIds": []
+        },
+        {
+          "id": "u06-meaning",
+          "type": "meaning",
+          "title": "Choose food and drinks",
+          "prompt": "Connect the most useful café words to their meanings.",
+          "reviewIds": []
+        },
+        {
+          "id": "u06-listen",
+          "type": "listen",
+          "title": "Hear the order",
+          "prompt": "Listen for the request, quantity, and price in a short transaction.",
+          "reviewIds": []
+        },
+        {
+          "id": "u06-produce",
+          "type": "produce",
+          "title": "Make a polite request",
+          "prompt": "Order a drink, ask the price, and say thank you.",
+          "reviewIds": []
+        },
+        {
+          "id": "u06-apply",
+          "type": "apply",
+          "title": "Buy a small meal",
+          "prompt": "Complete the café dialogue, recycled listening, and cumulative checkpoint.",
+          "reviewIds": []
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "u06-cafe",
+          "ru": "кафе",
+          "pron": "ka-FEH",
+          "en": "café",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u06-menu",
+          "ru": "меню",
+          "pron": "me-NYOO",
+          "en": "menu",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u06-coffee",
+          "ru": "кофе",
+          "pron": "KO-fe",
+          "en": "coffee",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u06-tea",
+          "ru": "чай",
+          "pron": "chai",
+          "en": "tea",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u06-water",
+          "ru": "вода",
+          "pron": "va-DA",
+          "en": "water",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u06-bread",
+          "ru": "хлеб",
+          "pron": "khlyep",
+          "en": "bread",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u06-soup",
+          "ru": "суп",
+          "pron": "soop",
+          "en": "soup",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u06-salad",
+          "ru": "салат",
+          "pron": "sa-LAT",
+          "en": "salad",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u06-please-give",
+          "ru": "дайте, пожалуйста",
+          "pron": "DAI-tye pa-ZHA-loo-sta",
+          "en": "please give me",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u06-i-want",
+          "ru": "я хочу",
+          "pron": "ya kha-CHOO",
+          "en": "I want",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u06-how-much",
+          "ru": "Сколько стоит?",
+          "pron": "SKOL-ka STO-it",
+          "en": "How much does it cost?",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u06-rubles",
+          "ru": "рублей",
+          "pron": "roob-LYEY",
+          "en": "rubles",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u06-check",
+          "ru": "счёт",
+          "pron": "shyot",
+          "en": "bill / check",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u06-card",
+          "ru": "картой",
+          "pron": "KAR-toy",
+          "en": "by card",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        }
+      ],
+      "patterns": [
+        {
+          "ru": "Дайте, пожалуйста, чай.",
+          "en": "Tea, please.",
+          "pron": "DAI-tye pa-ZHA-loo-sta chai"
+        },
+        {
+          "ru": "Сколько стоит кофе?",
+          "en": "How much does the coffee cost?",
+          "pron": "SKOL-ka STO-it KO-fe"
+        },
+        {
+          "ru": "Счёт, пожалуйста.",
+          "en": "The bill, please.",
+          "pron": "shyot pa-ZHA-loo-sta"
+        },
+        {
+          "ru": "Я плачу картой.",
+          "en": "I am paying by card.",
+          "pron": "ya pla-CHOO KAR-toy"
+        }
+      ],
+      "grammar": {
+        "id": "u06-polite-request",
+        "kind": "Usage",
+        "title": "Polite requests with пожалуйста",
+        "explanation": "Use «пожалуйста» to soften a request: «Дайте, пожалуйста, чай» or «Счёт, пожалуйста». Russian café requests can be short and direct while still polite.",
+        "exampleRu": "Дайте, пожалуйста, кофе. Сколько стоит?",
+        "exampleEn": "Coffee, please. How much does it cost?",
+        "commonMistake": "Do not omit «пожалуйста» when making a short request to a server or cashier."
+      },
+      "dialogue": {
+        "id": "u06-cafe-order",
+        "title": "Ordering at a café",
+        "turns": [
+          {
+            "role": "tutor",
+            "ru": "Здравствуйте! Что будете?",
+            "en": "Hello! What will you have?",
+            "prompt": "Order tea politely.",
+            "variants": [
+              "дайте пожалуйста чай",
+              "я хочу чай"
+            ],
+            "hint": "Use «Дайте, пожалуйста, чай»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Ещё что-нибудь?",
+            "en": "Anything else?",
+            "prompt": "Ask how much the coffee costs.",
+            "variants": [
+              "сколько стоит кофе",
+              "сколько стоит"
+            ],
+            "hint": "Ask «Сколько стоит кофе?»."
+          },
+          {
+            "role": "tutor",
+            "ru": "С вас триста рублей.",
+            "en": "That will be three hundred rubles.",
+            "prompt": "Understand the transaction closing.",
+            "variants": [],
+            "hint": ""
+          }
+        ]
+      },
+      "story": {
+        "id": "u06-cafe-visit",
+        "title": "A café after work",
+        "lines": [
+          {
+            "ru": "Здравствуйте! Мы встречаемся в кафе.",
+            "en": "Hello! We are meeting at a café."
+          },
+          {
+            "ru": "Моя сестра хочет чай, а я хочу кофе.",
+            "en": "My sister wants tea, and I want coffee."
+          },
+          {
+            "ru": "Дайте, пожалуйста, суп и хлеб.",
+            "en": "Soup and bread, please."
+          },
+          {
+            "ru": "Сколько стоит? — Триста рублей.",
+            "en": "How much does it cost? — Three hundred rubles."
+          },
+          {
+            "ru": "Вечером мы вместе дома.",
+            "en": "In the evening we are together at home."
+          }
+        ],
+        "glossary": [
+          "встречаемся",
+          "кафе",
+          "моя сестра",
+          "чай",
+          "кофе",
+          "пожалуйста",
+          "сколько стоит",
+          "рублей"
+        ],
+        "questions": [
+          {
+            "q": "Где они встречаются?",
+            "options": [
+              "в кафе",
+              "дома",
+              "в школе"
+            ],
+            "answer": "в кафе"
+          },
+          {
+            "q": "Что хочет сестра?",
+            "options": [
+              "чай",
+              "кофе",
+              "суп"
+            ],
+            "answer": "чай"
+          },
+          {
+            "q": "Сколько стоит?",
+            "options": [
+              "триста рублей",
+              "три часа",
+              "завтра"
+            ],
+            "answer": "триста рублей"
+          }
+        ]
+      },
+      "recycling": {
+        "title": "Cumulative transaction loop",
+        "summary": "This unit carries greetings, names, time, family, home, and the visit pattern into a practical food transaction. Hear the situation, choose the useful response, then reuse it in the café story.",
+        "sources": [
+          {
+            "unitId": "u02-greetings-introductions",
+            "label": "Unit 2 · polite opening",
+            "words": [
+              "Здравствуйте",
+              "Меня зовут",
+              "пожалуйста"
+            ]
+          },
+          {
+            "unitId": "u03-numbers-time",
+            "label": "Unit 3 · time and numbers",
+            "words": [
+              "В три часа",
+              "Сегодня",
+              "триста"
+            ]
+          },
+          {
+            "unitId": "u04-people-family",
+            "label": "Unit 4 · people",
+            "words": [
+              "Моя сестра",
+              "мой брат",
+              "вместе"
+            ]
+          },
+          {
+            "unitId": "u05-home-objects",
+            "label": "Unit 5 · places and visits",
+            "words": [
+              "дома",
+              "в кафе",
+              "вместе"
+            ]
+          }
+        ],
+        "listeningContrasts": [
+          {
+            "id": "u06-listen-order",
+            "prompt": "You hear «Дайте, пожалуйста, чай» — what is happening?",
+            "hear": "Дайте, пожалуйста, чай.",
+            "options": [
+              "A polite order",
+              "A goodbye",
+              "A time question"
+            ],
+            "answer": "A polite order",
+            "explanation": "This recycles the polite request pattern from the earlier visit conversations."
+          },
+          {
+            "id": "u06-listen-price",
+            "prompt": "You hear «Сколько стоит?» — what does the speaker want?",
+            "hear": "Сколько стоит?",
+            "options": [
+              "The price",
+              "A person’s name",
+              "The location"
+            ],
+            "answer": "The price",
+            "explanation": "This is the transaction question for shopping and cafés."
+          },
+          {
+            "id": "u06-listen-place",
+            "prompt": "You hear «Мы встречаемся в кафе» — where are they meeting?",
+            "hear": "Мы встречаемся в кафе.",
+            "options": [
+              "At a café",
+              "At home",
+              "At the station"
+            ],
+            "answer": "At a café",
+            "explanation": "This reuses the Unit 5 meeting-and-place frame."
+          },
+          {
+            "id": "u06-listen-family",
+            "prompt": "You hear «Моя сестра хочет чай» — who wants tea?",
+            "hear": "Моя сестра хочет чай.",
+            "options": [
+              "My sister",
+              "My brother",
+              "The server"
+            ],
+            "answer": "My sister",
+            "explanation": "This returns the Unit 4 family phrase inside a new transaction."
+          }
+        ]
+      },
+      "checkpoint": {
+        "id": "u06-cumulative-checkpoint",
+        "title": "Cumulative café check",
+        "isCumulative": true,
+        "sourceUnits": [
+          "u02-greetings-introductions",
+          "u03-numbers-time",
+          "u04-people-family",
+          "u05-home-objects"
+        ],
+        "questions": [
+          {
+            "id": "u06-q1",
+            "prompt": "Choose the polite order for tea.",
+            "options": [
+              "Дайте, пожалуйста, чай.",
+              "Кто это?",
+              "В три часа."
+            ],
+            "answer": "Дайте, пожалуйста, чай.",
+            "skill": "production",
+            "sourceUnit": "u06-food-cafe"
+          },
+          {
+            "id": "u06-q2",
+            "prompt": "Choose the question that asks for a price.",
+            "options": [
+              "Сколько стоит?",
+              "Как вас зовут?",
+              "Где ты?"
+            ],
+            "answer": "Сколько стоит?",
+            "skill": "recognition",
+            "sourceUnit": "u06-food-cafe"
+          },
+          {
+            "id": "u06-q3",
+            "prompt": "Choose the phrase meaning “my sister”.",
+            "options": [
+              "Моя сестра.",
+              "Мой брат.",
+              "Моя книга."
+            ],
+            "answer": "Моя сестра.",
+            "skill": "production",
+            "sourceUnit": "u04-people-family"
+          },
+          {
+            "id": "u06-q4",
+            "prompt": "Choose the phrase for “at a café”.",
+            "options": [
+              "в кафе",
+              "дома",
+              "в три часа"
+            ],
+            "answer": "в кафе",
+            "skill": "recognition",
+            "sourceUnit": "u05-home-objects"
+          },
+          {
+            "id": "u06-q5",
+            "prompt": "Choose the answer that gives the transaction total.",
+            "options": [
+              "Триста рублей.",
+              "До завтра!",
+              "Меня зовут Ольга."
+            ],
+            "answer": "Триста рублей.",
+            "skill": "recognition",
+            "sourceUnit": "u03-numbers-time"
+          }
+        ],
+        "completionRule": "Answer at least 4 of 5 correctly and complete both dialogue turns."
       },
       "completionEvidence": [
         "recognition",

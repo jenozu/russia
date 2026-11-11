@@ -272,3 +272,17 @@
 - [x] Add Unit 5 to the shared lesson renderer, adaptive scheduler, XP rewards, and review navigation.
 - [x] Extend validation to require the recycling sources, listening contrasts, and cumulative checkpoint structure.
 - [x] Validate fresh-port Unit 5 rendering, recycled source labels, listening feedback, local persistence, adaptive selection, and generated JavaScript syntax.
+
+## 26. A1 roadmap Phase 2 — Unit 6 food, shopping, and transactions
+
+- [x] Author a complete Unit 6 food-and-café content record.
+- [x] Add food, drink, menu, price, bill, and payment vocabulary with production and listening tags.
+- [x] Add polite request grammar and four reusable transaction sentence patterns.
+- [x] Add an authored café-order dialogue with response recovery variants.
+- [x] Add a five-line café story that recycles greetings, family, time, home, and meeting language.
+- [x] Extend the cumulative recycling chain through Units 2, 3, 4, and 5.
+- [x] Add four interactive transaction listening contrasts and persist their answers locally.
+- [x] Add a five-question cumulative checkpoint requiring four correct answers.
+- [x] Connect Unit 6 to the shared lesson renderer, adaptive scheduler, XP rewards, and review navigation.
+- [x] Extend content validation for Unit 6’s four-source recycling chain and cumulative checkpoint.
+- [x] Validate fresh-port rendering, listening feedback, adaptive review scheduling, XP persistence, checkpoint state, generated JavaScript syntax, and Unit 2–5 compatibility.
