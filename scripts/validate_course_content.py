@@ -74,7 +74,7 @@ def load_and_validate(path: Path = COURSE_PATH) -> dict[str, Any]:
     if len(items) != len(source):
         errors.append(f"items must cover all {len(source)} Stage 1 entries; found {len(items)}")
     unit_content_all = data.get("unitContent") or {}
-    required_unit_content = ("u02-greetings-introductions", "u03-numbers-time", "u04-people-family", "u05-home-objects", "u06-food-cafe", "u07-shopping-clothing")
+    required_unit_content = ("u02-greetings-introductions", "u03-numbers-time", "u04-people-family", "u05-home-objects", "u06-food-cafe", "u07-shopping-clothing", "u08-daily-routine", "u09-work-school", "u10-city-directions", "u11-travel-stay", "u12-weather-seasons", "u13-health-needs", "u14-preferences-free-time", "u15-plans-future", "u16-survival-mission")
     for unit_key in required_unit_content:
         unit_content = unit_content_all.get(unit_key)
         if not unit_content:
@@ -130,6 +130,105 @@ def load_and_validate(path: Path = COURSE_PATH) -> dict[str, Any]:
             checkpoint = unit_content.get("checkpoint", {})
             if not checkpoint.get("isCumulative") or set(checkpoint.get("sourceUnits", [])) != expected_sources:
                 errors.append("u07-shopping-clothing checkpoint must be cumulative across Units 2 through 6")
+        if unit_key == "u08-daily-routine":
+            recycling = unit_content.get("recycling") or {}
+            expected_sources = {"u02-greetings-introductions", "u03-numbers-time", "u04-people-family", "u05-home-objects", "u06-food-cafe", "u07-shopping-clothing"}
+            source_ids = {source.get("unitId") for source in recycling.get("sources", [])}
+            if source_ids != expected_sources:
+                errors.append("u08-daily-routine recycling sources must be exactly Units 2 through 7")
+            if len(recycling.get("listeningContrasts", [])) < 6:
+                errors.append("u08-daily-routine needs at least 6 listening contrasts")
+            checkpoint = unit_content.get("checkpoint", {})
+            if not checkpoint.get("isCumulative") or set(checkpoint.get("sourceUnits", [])) != expected_sources:
+                errors.append("u08-daily-routine checkpoint must be cumulative across Units 2 through 7")
+        if unit_key == "u09-work-school":
+            recycling = unit_content.get("recycling") or {}
+            expected_sources = {"u02-greetings-introductions", "u03-numbers-time", "u04-people-family", "u05-home-objects", "u06-food-cafe", "u07-shopping-clothing", "u08-daily-routine"}
+            source_ids = {source.get("unitId") for source in recycling.get("sources", [])}
+            if source_ids != expected_sources:
+                errors.append("u09-work-school recycling sources must be exactly Units 2 through 8")
+            if len(recycling.get("listeningContrasts", [])) < 6:
+                errors.append("u09-work-school needs at least 6 listening contrasts")
+            checkpoint = unit_content.get("checkpoint", {})
+            if not checkpoint.get("isCumulative") or set(checkpoint.get("sourceUnits", [])) != expected_sources:
+                errors.append("u09-work-school checkpoint must be cumulative across Units 2 through 8")
+        if unit_key == "u10-city-directions":
+            recycling = unit_content.get("recycling") or {}
+            expected_sources = {"u02-greetings-introductions", "u03-numbers-time", "u04-people-family", "u05-home-objects", "u06-food-cafe", "u07-shopping-clothing", "u08-daily-routine", "u09-work-school"}
+            source_ids = {source.get("unitId") for source in recycling.get("sources", [])}
+            if source_ids != expected_sources:
+                errors.append("u10-city-directions recycling sources must be exactly Units 2 through 9")
+            if len(recycling.get("listeningContrasts", [])) < 6:
+                errors.append("u10-city-directions needs at least 6 listening contrasts")
+            checkpoint = unit_content.get("checkpoint", {})
+            if not checkpoint.get("isCumulative") or set(checkpoint.get("sourceUnits", [])) != expected_sources:
+                errors.append("u10-city-directions checkpoint must be cumulative across Units 2 through 9")
+        if unit_key == "u11-travel-stay":
+            recycling = unit_content.get("recycling") or {}
+            expected_sources = {"u02-greetings-introductions", "u03-numbers-time", "u04-people-family", "u05-home-objects", "u06-food-cafe", "u07-shopping-clothing", "u08-daily-routine", "u09-work-school", "u10-city-directions"}
+            source_ids = {source.get("unitId") for source in recycling.get("sources", [])}
+            if source_ids != expected_sources:
+                errors.append("u11-travel-stay recycling sources must be exactly Units 2 through 10")
+            if len(recycling.get("listeningContrasts", [])) < 6:
+                errors.append("u11-travel-stay needs at least 6 listening contrasts")
+            checkpoint = unit_content.get("checkpoint", {})
+            if not checkpoint.get("isCumulative") or set(checkpoint.get("sourceUnits", [])) != expected_sources:
+                errors.append("u11-travel-stay checkpoint must be cumulative across Units 2 through 10")
+        if unit_key == "u12-weather-seasons":
+            recycling = unit_content.get("recycling") or {}
+            expected_sources = {"u02-greetings-introductions", "u03-numbers-time", "u04-people-family", "u05-home-objects", "u06-food-cafe", "u07-shopping-clothing", "u08-daily-routine", "u09-work-school", "u10-city-directions", "u11-travel-stay"}
+            source_ids = {source.get("unitId") for source in recycling.get("sources", [])}
+            if source_ids != expected_sources:
+                errors.append("u12-weather-seasons recycling sources must be exactly Units 2 through 11")
+            if len(recycling.get("listeningContrasts", [])) < 6:
+                errors.append("u12-weather-seasons needs at least 6 listening contrasts")
+            checkpoint = unit_content.get("checkpoint", {})
+            if not checkpoint.get("isCumulative") or set(checkpoint.get("sourceUnits", [])) != expected_sources:
+                errors.append("u12-weather-seasons checkpoint must be cumulative across Units 2 through 11")
+        if unit_key == "u13-health-needs":
+            recycling = unit_content.get("recycling") or {}
+            expected_sources = {"u02-greetings-introductions", "u03-numbers-time", "u04-people-family", "u05-home-objects", "u06-food-cafe", "u07-shopping-clothing", "u08-daily-routine", "u09-work-school", "u10-city-directions", "u11-travel-stay", "u12-weather-seasons"}
+            source_ids = {source.get("unitId") for source in recycling.get("sources", [])}
+            if source_ids != expected_sources:
+                errors.append("u13-health-needs recycling sources must be exactly Units 2 through 12")
+            if len(recycling.get("listeningContrasts", [])) < 6:
+                errors.append("u13-health-needs needs at least 6 listening contrasts")
+            checkpoint = unit_content.get("checkpoint", {})
+            if not checkpoint.get("isCumulative") or set(checkpoint.get("sourceUnits", [])) != expected_sources:
+                errors.append("u13-health-needs checkpoint must be cumulative across Units 2 through 12")
+        if unit_key == "u14-preferences-free-time":
+            recycling = unit_content.get("recycling") or {}
+            expected_sources = {"u02-greetings-introductions", "u03-numbers-time", "u04-people-family", "u05-home-objects", "u06-food-cafe", "u07-shopping-clothing", "u08-daily-routine", "u09-work-school", "u10-city-directions", "u11-travel-stay", "u12-weather-seasons", "u13-health-needs"}
+            source_ids = {source.get("unitId") for source in recycling.get("sources", [])}
+            if source_ids != expected_sources:
+                errors.append("u14-preferences-free-time recycling sources must be exactly Units 2 through 13")
+            if len(recycling.get("listeningContrasts", [])) < 6:
+                errors.append("u14-preferences-free-time needs at least 6 listening contrasts")
+            checkpoint = unit_content.get("checkpoint", {})
+            if not checkpoint.get("isCumulative") or set(checkpoint.get("sourceUnits", [])) != expected_sources:
+                errors.append("u14-preferences-free-time checkpoint must be cumulative across Units 2 through 13")
+        if unit_key == "u15-plans-future":
+            recycling = unit_content.get("recycling") or {}
+            expected_sources = {"u02-greetings-introductions", "u03-numbers-time", "u04-people-family", "u05-home-objects", "u06-food-cafe", "u07-shopping-clothing", "u08-daily-routine", "u09-work-school", "u10-city-directions", "u11-travel-stay", "u12-weather-seasons", "u13-health-needs", "u14-preferences-free-time"}
+            source_ids = {source.get("unitId") for source in recycling.get("sources", [])}
+            if source_ids != expected_sources:
+                errors.append("u15-plans-future recycling sources must be exactly Units 2 through 14")
+            if len(recycling.get("listeningContrasts", [])) < 6:
+                errors.append("u15-plans-future needs at least 6 listening contrasts")
+            checkpoint = unit_content.get("checkpoint", {})
+            if not checkpoint.get("isCumulative") or set(checkpoint.get("sourceUnits", [])) != expected_sources:
+                errors.append("u15-plans-future checkpoint must be cumulative across Units 2 through 14")
+        if unit_key == "u16-survival-mission":
+            recycling = unit_content.get("recycling") or {}
+            expected_sources = {"u02-greetings-introductions", "u03-numbers-time", "u04-people-family", "u05-home-objects", "u06-food-cafe", "u07-shopping-clothing", "u08-daily-routine", "u09-work-school", "u10-city-directions", "u11-travel-stay", "u12-weather-seasons", "u13-health-needs", "u14-preferences-free-time", "u15-plans-future"}
+            source_ids = {source.get("unitId") for source in recycling.get("sources", [])}
+            if source_ids != expected_sources:
+                errors.append("u16-survival-mission recycling sources must be exactly Units 2 through 15")
+            if len(recycling.get("listeningContrasts", [])) < 6:
+                errors.append("u16-survival-mission needs at least 6 listening contrasts")
+            checkpoint = unit_content.get("checkpoint", {})
+            if not checkpoint.get("isCumulative") or set(checkpoint.get("sourceUnits", [])) != expected_sources:
+                errors.append("u16-survival-mission checkpoint must be cumulative across Units 2 through 15")
     if errors:
         raise ValueError("Course content validation failed:\n- " + "\n- ".join(errors))
     return data

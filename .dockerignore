@@ -1,0 +1,12 @@
+.git
+.gitignore
+.env
+.env.*
+.venv
+__pycache__
+*.py[cod]
+*.log
+node_modules
+standalone.html
+AZBUKA_A1_STUDY_GUIDE.pdf
+backend/tests

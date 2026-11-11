@@ -207,9 +207,9 @@
     },
     {
       "id": "u08-daily-routine",
-      "title": "Daily routine",
+      "title": "Hotel check-in, accommodation, and emergency help",
       "order": 8,
-      "status": "planned",
+      "status": "active",
       "objective": "Use high-leverage Russian in a practical beginner situation.",
       "lessonTemplate": [
         "warm-up",
@@ -227,8 +227,8 @@
       "id": "u09-work-school",
       "title": "Work, school, and languages",
       "order": 9,
-      "status": "planned",
-      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "status": "active",
+      "objective": "Talk simply about work, school, languages, ability, and communication repair.",
       "lessonTemplate": [
         "warm-up",
         "meaning",
@@ -245,8 +245,8 @@
       "id": "u10-city-directions",
       "title": "City and directions",
       "order": 10,
-      "status": "planned",
-      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "status": "active",
+      "objective": "Ask for places in the city, understand simple directions, and reach a destination by walking or transport.",
       "lessonTemplate": [
         "warm-up",
         "meaning",
@@ -263,8 +263,8 @@
       "id": "u11-travel-stay",
       "title": "Travel and accommodation",
       "order": 11,
-      "status": "planned",
-      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "status": "active",
+      "objective": "Buy or confirm a ticket, navigate arrival and departure, and handle simple travel or accommodation problems.",
       "lessonTemplate": [
         "warm-up",
         "meaning",
@@ -281,8 +281,8 @@
       "id": "u12-weather-seasons",
       "title": "Weather and seasons",
       "order": 12,
-      "status": "planned",
-      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "status": "active",
+      "objective": "Describe basic weather and seasons, choose suitable clothes, and make a simple plan.",
       "lessonTemplate": [
         "warm-up",
         "meaning",
@@ -299,8 +299,8 @@
       "id": "u13-health-needs",
       "title": "Health and immediate needs",
       "order": 13,
-      "status": "planned",
-      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "status": "active",
+      "objective": "Describe simple symptoms, ask for a doctor or pharmacy, and communicate immediate health needs clearly.",
       "lessonTemplate": [
         "warm-up",
         "meaning",
@@ -317,8 +317,8 @@
       "id": "u14-preferences-free-time",
       "title": "Preferences and free time",
       "order": 14,
-      "status": "planned",
-      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "status": "active",
+      "objective": "Express likes and dislikes, talk about hobbies, and make or decline a simple invitation.",
       "lessonTemplate": [
         "warm-up",
         "meaning",
@@ -335,8 +335,8 @@
       "id": "u15-plans-future",
       "title": "Plans and near future",
       "order": 15,
-      "status": "planned",
-      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "status": "active",
+      "objective": "Talk about simple future plans, arrange a time and place, and change a plan politely.",
       "lessonTemplate": [
         "warm-up",
         "meaning",
@@ -353,8 +353,8 @@
       "id": "u16-survival-mission",
       "title": "A1 survival mission",
       "order": 16,
-      "status": "planned",
-      "objective": "Use high-leverage Russian in a practical beginner situation.",
+      "status": "active",
+      "objective": "Combine A1 Russian in realistic survival situations: arrive, ask, repair, solve a problem, and make a plan.",
       "lessonTemplate": [
         "warm-up",
         "meaning",
@@ -5010,6 +5010,6121 @@
           }
         ],
         "completionRule": "Answer at least 4 of 5 correctly and complete both dialogue turns."
+      },
+      "completionEvidence": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reviewLinks": [
+        3,
+        4,
+        5,
+        57,
+        66
+      ]
+    },
+    "u08-daily-routine": {
+      "id": "u08-daily-routine",
+      "unitId": "u08-daily-routine",
+      "status": "active",
+      "title": "Hotel check-in, accommodation, and emergency help",
+      "objective": "Check into a hotel, report a room problem, and ask for urgent help while staying calm and clear.",
+      "paretoTier": "high-frequency-core",
+      "estimatedMinutes": 14,
+      "activities": [
+        {
+          "id": "u08-warmup",
+          "type": "warm-up",
+          "title": "Arrive safely",
+          "prompt": "Bring greetings, travel, tickets, café, home, and time phrases into a hotel arrival.",
+          "reviewIds": []
+        },
+        {
+          "id": "u08-meaning",
+          "type": "meaning",
+          "title": "Check in",
+          "prompt": "Connect the most useful hotel, room, and emergency words to their meanings.",
+          "reviewIds": []
+        },
+        {
+          "id": "u08-listen",
+          "type": "listen",
+          "title": "Hear the problem",
+          "prompt": "Listen for the room issue, location, and urgent request in short help phrases.",
+          "reviewIds": []
+        },
+        {
+          "id": "u08-produce",
+          "type": "produce",
+          "title": "Report clearly",
+          "prompt": "Say where you are, what is wrong, and what help you need.",
+          "reviewIds": []
+        },
+        {
+          "id": "u08-apply",
+          "type": "apply",
+          "title": "Solve the stay",
+          "prompt": "Complete the hotel dialogue, recycled listening, and cumulative checkpoint.",
+          "reviewIds": []
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "u08-hotel",
+          "ru": "гостиница",
+          "pron": "gas-TEE-nee-tsa",
+          "en": "hotel",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u08-room",
+          "ru": "номер",
+          "pron": "NO-mer",
+          "en": "room / number",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u08-reservation",
+          "ru": "бронирование",
+          "pron": "bra-nee-RO-va-nee-ye",
+          "en": "reservation",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u08-passport",
+          "ru": "паспорт",
+          "pron": "PAS-part",
+          "en": "passport",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u08-key",
+          "ru": "ключ",
+          "pron": "klyooch",
+          "en": "key",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u08-floor",
+          "ru": "этаж",
+          "pron": "eh-TAZH",
+          "en": "floor",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u08-problem",
+          "ru": "проблема",
+          "pron": "pra-BLYE-ma",
+          "en": "problem",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u08-does-not-work",
+          "ru": "не работает",
+          "pron": "nye ra-BO-ta-yet",
+          "en": "does not work",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u08-hot",
+          "ru": "горячая",
+          "pron": "ga-RYA-cha-ya",
+          "en": "hot (feminine)",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u08-cold",
+          "ru": "холодная",
+          "pron": "ha-LOD-na-ya",
+          "en": "cold (feminine)",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u08-help",
+          "ru": "помогите",
+          "pron": "pa-ma-GEE-tye",
+          "en": "help!",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u08-call",
+          "ru": "вызовите врача",
+          "pron": "vy-ZO-vee-tye vra-CHA",
+          "en": "call a doctor",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u08-police",
+          "ru": "полиция",
+          "pron": "pa-LEE-tsee-ya",
+          "en": "police",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u08-safe",
+          "ru": "безопасно",
+          "pron": "be-za-PAS-na",
+          "en": "safe",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u08-need-help",
+          "ru": "мне нужна помощь",
+          "pron": "mne noozh-NA PO-mashch",
+          "en": "I need help",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        }
+      ],
+      "patterns": [
+        {
+          "ru": "У меня есть бронирование.",
+          "en": "I have a reservation.",
+          "pron": "oo me-NYA yest bra-nee-RO-va-nee-ye"
+        },
+        {
+          "ru": "У меня проблема в номере.",
+          "en": "I have a problem in the room.",
+          "pron": "oo me-NYA pra-BLYE-ma v NO-me-re"
+        },
+        {
+          "ru": "Душ не работает.",
+          "en": "The shower does not work.",
+          "pron": "doosh nye ra-BO-ta-yet"
+        },
+        {
+          "ru": "Мне нужна помощь.",
+          "en": "I need help.",
+          "pron": "mne noozh-NA PO-mashch"
+        }
+      ],
+      "grammar": {
+        "id": "u08-location-and-gender",
+        "kind": "Usage",
+        "title": "У меня есть / у меня проблема",
+        "explanation": "Use «У меня есть…» to present what you have, and «У меня проблема…» to report a problem. Match descriptive words to feminine room nouns: «горячая вода» and «холодная вода».",
+        "exampleRu": "У меня проблема в номере. Горячая вода не работает.",
+        "exampleEn": "I have a problem in the room. The hot water does not work.",
+        "commonMistake": "Do not use the emergency phrase «Помогите!» as a casual request; reserve it for urgent danger or immediate need."
+      },
+      "dialogue": {
+        "id": "u08-hotel-checkin",
+        "title": "Checking in and reporting a room problem",
+        "turns": [
+          {
+            "role": "tutor",
+            "ru": "Здравствуйте! Ваш паспорт, пожалуйста.",
+            "en": "Hello! Your passport, please.",
+            "prompt": "Say that you have a reservation.",
+            "variants": [
+              "у меня есть бронирование",
+              "есть бронирование"
+            ],
+            "hint": "Use «У меня есть бронирование»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Вот ваш ключ, номер 204.",
+            "en": "Here is your key, room 204.",
+            "prompt": "Report that the shower does not work.",
+            "variants": [
+              "душ не работает",
+              "не работает душ"
+            ],
+            "hint": "Use «Душ не работает»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Сейчас поможем.",
+            "en": "We will help now.",
+            "prompt": "Say that you need help in an urgent situation.",
+            "variants": [
+              "мне нужна помощь",
+              "помогите"
+            ],
+            "hint": "Use «Мне нужна помощь» or «Помогите»."
+          }
+        ]
+      },
+      "story": {
+        "id": "u08-safe-hotel",
+        "title": "A safe hotel arrival",
+        "lines": [
+          {
+            "ru": "Здравствуйте! У меня есть бронирование.",
+            "en": "Hello! I have a reservation."
+          },
+          {
+            "ru": "Моя сестра показывает паспорт.",
+            "en": "My sister shows her passport."
+          },
+          {
+            "ru": "Наш номер на втором этаже.",
+            "en": "Our room is on the second floor."
+          },
+          {
+            "ru": "Душ не работает, но администратор помогает.",
+            "en": "The shower does not work, but the administrator helps."
+          },
+          {
+            "ru": "Вечером мы вместе в кафе рядом.",
+            "en": "In the evening we are together in a nearby café."
+          }
+        ],
+        "glossary": [
+          "бронирование",
+          "моя сестра",
+          "паспорт",
+          "номер",
+          "этаж",
+          "душ",
+          "не работает",
+          "помогает",
+          "в кафе"
+        ],
+        "questions": [
+          {
+            "q": "Что показывает сестра?",
+            "options": [
+              "паспорт",
+              "билет",
+              "меню"
+            ],
+            "answer": "паспорт"
+          },
+          {
+            "q": "На каком этаже номер?",
+            "options": [
+              "на втором этаже",
+              "в кафе",
+              "дома"
+            ],
+            "answer": "на втором этаже"
+          },
+          {
+            "q": "Что не работает?",
+            "options": [
+              "душ",
+              "метро",
+              "кофе"
+            ],
+            "answer": "душ"
+          }
+        ]
+      },
+      "recycling": {
+        "title": "Cumulative safe-stay loop",
+        "summary": "This unit carries the learner from greeting and travel to a hotel check-in, a room problem, and a clear request for help. Emergency language is practiced as precise, calm survival language.",
+        "sources": [
+          {
+            "unitId": "u02-greetings-introductions",
+            "label": "Unit 2 · polite opening",
+            "words": [
+              "Здравствуйте",
+              "пожалуйста",
+              "Извините"
+            ]
+          },
+          {
+            "unitId": "u03-numbers-time",
+            "label": "Unit 3 · time and numbers",
+            "words": [
+              "Сегодня",
+              "номер 204",
+              "В три часа"
+            ]
+          },
+          {
+            "unitId": "u04-people-family",
+            "label": "Unit 4 · companions",
+            "words": [
+              "Моя сестра",
+              "наш",
+              "вместе"
+            ]
+          },
+          {
+            "unitId": "u05-home-objects",
+            "label": "Unit 5 · rooms and objects",
+            "words": [
+              "номер",
+              "душ",
+              "рядом"
+            ]
+          },
+          {
+            "unitId": "u06-food-cafe",
+            "label": "Unit 6 · food and payment",
+            "words": [
+              "кафе",
+              "помогите",
+              "счёт"
+            ]
+          },
+          {
+            "unitId": "u07-shopping-clothing",
+            "label": "Unit 7 · travel and route",
+            "words": [
+              "паспорт",
+              "этаж",
+              "билет"
+            ]
+          }
+        ],
+        "listeningContrasts": [
+          {
+            "id": "u08-listen-reservation",
+            "prompt": "You hear «У меня есть бронирование» — what does the guest have?",
+            "hear": "У меня есть бронирование.",
+            "options": [
+              "A reservation",
+              "A ticket price",
+              "A menu"
+            ],
+            "answer": "A reservation",
+            "explanation": "This uses the polite introduction frame at hotel check-in."
+          },
+          {
+            "id": "u08-listen-problem",
+            "prompt": "You hear «Душ не работает» — what is the problem?",
+            "hear": "Душ не работает.",
+            "options": [
+              "The shower does not work",
+              "The key is ready",
+              "The café is nearby"
+            ],
+            "answer": "The shower does not work",
+            "explanation": "This is a clear accommodation problem report."
+          },
+          {
+            "id": "u08-listen-help",
+            "prompt": "You hear «Мне нужна помощь» — what does the speaker need?",
+            "hear": "Мне нужна помощь.",
+            "options": [
+              "Help",
+              "A passport",
+              "A room key"
+            ],
+            "answer": "Help",
+            "explanation": "This is a direct request for assistance."
+          },
+          {
+            "id": "u08-listen-location",
+            "prompt": "You hear «Наш номер на втором этаже» — where is the room?",
+            "hear": "Наш номер на втором этаже.",
+            "options": [
+              "On the second floor",
+              "At the café",
+              "On the bus"
+            ],
+            "answer": "On the second floor",
+            "explanation": "This recycles the floor and route language from travel."
+          },
+          {
+            "id": "u08-listen-urgent",
+            "prompt": "You hear «Вызовите врача» — what should someone do?",
+            "hear": "Вызовите врача.",
+            "options": [
+              "Call a doctor",
+              "Buy a ticket",
+              "Show the menu"
+            ],
+            "answer": "Call a doctor",
+            "explanation": "This is an urgent help phrase for a medical situation."
+          },
+          {
+            "id": "u08-listen-safe",
+            "prompt": "You hear «Здесь безопасно» — what does it mean?",
+            "hear": "Здесь безопасно.",
+            "options": [
+              "It is safe here",
+              "The room is cold",
+              "The train is late"
+            ],
+            "answer": "It is safe here",
+            "explanation": "This gives the learner a calm safety confirmation."
+          }
+        ]
+      },
+      "checkpoint": {
+        "id": "u08-cumulative-checkpoint",
+        "title": "Cumulative safe-stay check",
+        "isCumulative": true,
+        "sourceUnits": [
+          "u02-greetings-introductions",
+          "u03-numbers-time",
+          "u04-people-family",
+          "u05-home-objects",
+          "u06-food-cafe",
+          "u07-shopping-clothing"
+        ],
+        "questions": [
+          {
+            "id": "u08-q1",
+            "prompt": "Choose the phrase meaning “I have a reservation”.",
+            "options": [
+              "У меня есть бронирование.",
+              "Где станция метро?",
+              "Сколько стоит?"
+            ],
+            "answer": "У меня есть бронирование.",
+            "skill": "production",
+            "sourceUnit": "u08-daily-routine"
+          },
+          {
+            "id": "u08-q2",
+            "prompt": "Choose the phrase reporting a shower problem.",
+            "options": [
+              "Душ не работает.",
+              "Дайте, пожалуйста, чай.",
+              "Идите прямо."
+            ],
+            "answer": "Душ не работает.",
+            "skill": "production",
+            "sourceUnit": "u08-daily-routine"
+          },
+          {
+            "id": "u08-q3",
+            "prompt": "Choose the urgent request for help.",
+            "options": [
+              "Мне нужна помощь.",
+              "Меня зовут Ольга.",
+              "В три часа."
+            ],
+            "answer": "Мне нужна помощь.",
+            "skill": "production",
+            "sourceUnit": "u08-daily-routine"
+          },
+          {
+            "id": "u08-q4",
+            "prompt": "Choose the phrase meaning “my sister”.",
+            "options": [
+              "Моя сестра.",
+              "Мой паспорт.",
+              "Моя книга."
+            ],
+            "answer": "Моя сестра.",
+            "skill": "recognition",
+            "sourceUnit": "u04-people-family"
+          },
+          {
+            "id": "u08-q5",
+            "prompt": "Choose the hotel location phrase.",
+            "options": [
+              "на втором этаже",
+              "в кафе",
+              "на метро"
+            ],
+            "answer": "на втором этаже",
+            "skill": "recognition",
+            "sourceUnit": "u07-shopping-clothing"
+          },
+          {
+            "id": "u08-q6",
+            "prompt": "Choose the phrase for “the bill, please”.",
+            "options": [
+              "Счёт, пожалуйста.",
+              "Который час?",
+              "Кафе рядом."
+            ],
+            "answer": "Счёт, пожалуйста.",
+            "skill": "recognition",
+            "sourceUnit": "u06-food-cafe"
+          }
+        ],
+        "completionRule": "Answer at least 5 of 6 correctly and complete the dialogue."
+      },
+      "completionEvidence": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reviewLinks": [
+        3,
+        4,
+        5,
+        57,
+        66
+      ]
+    },
+    "u09-work-school": {
+      "id": "u09-work-school",
+      "unitId": "u09-work-school",
+      "status": "active",
+      "title": "Work, school, and languages",
+      "objective": "Talk simply about work, school, languages, ability, and communication repair.",
+      "paretoTier": "high-frequency-core",
+      "estimatedMinutes": 14,
+      "activities": [
+        {
+          "id": "u09-warmup",
+          "type": "warm-up",
+          "title": "Meet after work",
+          "prompt": "Bring greetings, time, travel, café, hotel, and help phrases into a work or study conversation.",
+          "reviewIds": []
+        },
+        {
+          "id": "u09-meaning",
+          "type": "meaning",
+          "title": "Work and study",
+          "prompt": "Connect the most useful work, school, and language words to their meanings.",
+          "reviewIds": []
+        },
+        {
+          "id": "u09-listen",
+          "type": "listen",
+          "title": "Catch the language",
+          "prompt": "Listen for workplaces, study locations, languages, and repair requests.",
+          "reviewIds": []
+        },
+        {
+          "id": "u09-produce",
+          "type": "produce",
+          "title": "Say what you do",
+          "prompt": "Say where you work or study and which languages you speak.",
+          "reviewIds": []
+        },
+        {
+          "id": "u09-apply",
+          "type": "apply",
+          "title": "Keep the conversation going",
+          "prompt": "Complete the language-meetup dialogue, recycled listening, and cumulative checkpoint.",
+          "reviewIds": []
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "u09-work",
+          "ru": "работа",
+          "pron": "ra-BO-ta",
+          "en": "work",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u09-work-verb",
+          "ru": "работать",
+          "pron": "ra-BO-tat",
+          "en": "to work",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u09-school",
+          "ru": "школа",
+          "pron": "SHKO-la",
+          "en": "school",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u09-university",
+          "ru": "университет",
+          "pron": "oo-nee-ver-see-TYET",
+          "en": "university",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u09-study",
+          "ru": "учиться",
+          "pron": "oo-CHEET-sa",
+          "en": "to study",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u09-student",
+          "ru": "студент",
+          "pron": "stoo-DYENT",
+          "en": "student (masculine)",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u09-office",
+          "ru": "офис",
+          "pron": "O-fis",
+          "en": "office",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u09-schedule",
+          "ru": "расписание",
+          "pron": "ras-pee-SA-nee-ye",
+          "en": "schedule",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u09-language",
+          "ru": "язык",
+          "pron": "ya-ZYK",
+          "en": "language",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u09-speak",
+          "ru": "говорить",
+          "pron": "ga-va-REET",
+          "en": "to speak",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u09-understand",
+          "ru": "понимать",
+          "pron": "pa-nee-MAT",
+          "en": "to understand",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u09-russian",
+          "ru": "по-русски",
+          "pron": "pa-ROOS-kee",
+          "en": "in Russian",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u09-english",
+          "ru": "по-английски",
+          "pron": "pa-ang-LEE-skee",
+          "en": "in English",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u09-a-little",
+          "ru": "немного",
+          "pron": "nee-MNO-ga",
+          "en": "a little",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u09-repeat",
+          "ru": "повторите",
+          "pron": "paf-ta-REE-tye",
+          "en": "repeat, please / repeat!",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u09-slower",
+          "ru": "медленнее",
+          "pron": "MED-len-nee-ye",
+          "en": "more slowly",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        }
+      ],
+      "patterns": [
+        {
+          "ru": "Я работаю в офисе.",
+          "en": "I work in an office.",
+          "pron": "ya ra-BO-ta-yoo v O-fi-se"
+        },
+        {
+          "ru": "Я учусь в университете.",
+          "en": "I study at a university.",
+          "pron": "ya oo-CHOOS v oo-nee-ver-see-TE-te"
+        },
+        {
+          "ru": "Я говорю по-английски и немного по-русски.",
+          "en": "I speak English and a little Russian.",
+          "pron": "ya ga-va-RYOO pa-ang-LEE-skee ee nee-MNO-ga pa-ROOS-kee"
+        },
+        {
+          "ru": "Я не понимаю. Повторите, пожалуйста.",
+          "en": "I do not understand. Please repeat.",
+          "pron": "ya nye pa-nee-MA-yoo paf-ta-REE-tye pa-ZHA-loo-sta"
+        }
+      ],
+      "grammar": {
+        "id": "u09-present-verbs-and-language",
+        "kind": "Usage",
+        "title": "Present-tense work, study, and language frames",
+        "explanation": "Use first-person forms such as «я работаю», «я учусь», «я говорю», and «я понимаю». Use «по-русски» and «по-английски» to say which language you speak.",
+        "exampleRu": "Я немного говорю по-русски, но не всё понимаю.",
+        "exampleEn": "I speak a little Russian, but I do not understand everything.",
+        "commonMistake": "Do not translate “in Russian” as «в русский» here. For speaking a language, use «по-русски»."
+      },
+      "dialogue": {
+        "id": "u09-language-meetup",
+        "title": "Meeting someone after work",
+        "turns": [
+          {
+            "role": "tutor",
+            "ru": "Привет! Где вы работаете?",
+            "en": "Hi! Where do you work?",
+            "prompt": "Say that you work in an office.",
+            "variants": [
+              "я работаю в офисе",
+              "работаю в офисе"
+            ],
+            "hint": "Use «Я работаю в офисе»."
+          },
+          {
+            "role": "tutor",
+            "ru": "А вы говорите по-русски?",
+            "en": "And do you speak Russian?",
+            "prompt": "Say that you speak a little Russian.",
+            "variants": [
+              "я немного говорю по-русски",
+              "немного говорю по-русски"
+            ],
+            "hint": "Use «Я немного говорю по-русски»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Конечно. Если не понимаете, скажите.",
+            "en": "Of course. If you do not understand, say so.",
+            "prompt": "Ask the person to speak more slowly.",
+            "variants": [
+              "говорите медленнее пожалуйста",
+              "говорите медленнее",
+              "медленнее пожалуйста"
+            ],
+            "hint": "Use «Говорите медленнее, пожалуйста»."
+          }
+        ]
+      },
+      "story": {
+        "id": "u09-after-work-class",
+        "title": "A language class after work",
+        "lines": [
+          {
+            "ru": "После работы я иду в университет.",
+            "en": "After work I go to the university."
+          },
+          {
+            "ru": "Моя сестра учится там, а я изучаю русский язык.",
+            "en": "My sister studies there, and I study Russian."
+          },
+          {
+            "ru": "В шесть часов у нас урок.",
+            "en": "At six o’clock we have a lesson."
+          },
+          {
+            "ru": "Я говорю немного по-русски, но не всё понимаю.",
+            "en": "I speak a little Russian, but I do not understand everything."
+          },
+          {
+            "ru": "Учитель говорит медленнее и помогает мне.",
+            "en": "The teacher speaks more slowly and helps me."
+          }
+        ],
+        "glossary": [
+          "после работы",
+          "иду",
+          "университет",
+          "учится",
+          "русский язык",
+          "урок",
+          "немного",
+          "не понимаю",
+          "медленнее"
+        ],
+        "questions": [
+          {
+            "q": "Куда идёт герой?",
+            "options": [
+              "в университет",
+              "в гостиницу",
+              "в кафе"
+            ],
+            "answer": "в университет"
+          },
+          {
+            "q": "Во сколько урок?",
+            "options": [
+              "в шесть часов",
+              "в три часа",
+              "вечером в кафе"
+            ],
+            "answer": "в шесть часов"
+          },
+          {
+            "q": "Как говорит учитель?",
+            "options": [
+              "медленнее",
+              "быстро",
+              "по-английски"
+            ],
+            "answer": "медленнее"
+          }
+        ]
+      },
+      "recycling": {
+        "title": "Cumulative work-and-language loop",
+        "summary": "This unit reuses practical arrival, place, time, café, and repair language while adding work, study, and language ability. The learner practices keeping a conversation going even when comprehension is incomplete.",
+        "sources": [
+          {
+            "unitId": "u02-greetings-introductions",
+            "label": "Unit 2 · opening a conversation",
+            "words": [
+              "Привет",
+              "Здравствуйте",
+              "Как вас зовут?"
+            ]
+          },
+          {
+            "unitId": "u03-numbers-time",
+            "label": "Unit 3 · schedules and time",
+            "words": [
+              "в шесть часов",
+              "сегодня",
+              "расписание"
+            ]
+          },
+          {
+            "unitId": "u04-people-family",
+            "label": "Unit 4 · people and companions",
+            "words": [
+              "моя сестра",
+              "я",
+              "вы"
+            ]
+          },
+          {
+            "unitId": "u05-home-objects",
+            "label": "Unit 5 · places and objects",
+            "words": [
+              "там",
+              "в",
+              "книга"
+            ]
+          },
+          {
+            "unitId": "u06-food-cafe",
+            "label": "Unit 6 · polite requests",
+            "words": [
+              "пожалуйста",
+              "кафе",
+              "помогите"
+            ]
+          },
+          {
+            "unitId": "u07-shopping-clothing",
+            "label": "Unit 7 · route and location",
+            "words": [
+              "идти",
+              "где",
+              "рядом"
+            ]
+          },
+          {
+            "unitId": "u08-daily-routine",
+            "label": "Unit 8 · repair and help",
+            "words": [
+              "не понимаю",
+              "помогите",
+              "помогает"
+            ]
+          }
+        ],
+        "listeningContrasts": [
+          {
+            "id": "u09-listen-office",
+            "prompt": "You hear «Я работаю в офисе» — where does the speaker work?",
+            "hear": "Я работаю в офисе.",
+            "options": [
+              "In an office",
+              "At a hotel",
+              "At a café"
+            ],
+            "answer": "In an office",
+            "explanation": "This is a high-frequency workplace frame."
+          },
+          {
+            "id": "u09-listen-study",
+            "prompt": "You hear «Я учусь в университете» — what does the speaker do?",
+            "hear": "Я учусь в университете.",
+            "options": [
+              "Studies at a university",
+              "Works at a school",
+              "Lives in a hotel"
+            ],
+            "answer": "Studies at a university",
+            "explanation": "This recycles place language and adds study."
+          },
+          {
+            "id": "u09-listen-language",
+            "prompt": "You hear «Я немного говорю по-русски» — how well does the speaker speak Russian?",
+            "hear": "Я немного говорю по-русски.",
+            "options": [
+              "A little",
+              "Fluently",
+              "Not at all"
+            ],
+            "answer": "A little",
+            "explanation": "«Немного» is a useful honest ability qualifier."
+          },
+          {
+            "id": "u09-listen-repair",
+            "prompt": "You hear «Повторите, пожалуйста» — what is the speaker asking for?",
+            "hear": "Повторите, пожалуйста.",
+            "options": [
+              "A repetition",
+              "A ticket",
+              "A room key"
+            ],
+            "answer": "A repetition",
+            "explanation": "This keeps a conversation moving without pretending to understand."
+          },
+          {
+            "id": "u09-listen-slower",
+            "prompt": "You hear «Говорите медленнее» — how should the other person speak?",
+            "hear": "Говорите медленнее.",
+            "options": [
+              "More slowly",
+              "In English",
+              "At six o’clock"
+            ],
+            "answer": "More slowly",
+            "explanation": "This is a practical listening-repair request."
+          },
+          {
+            "id": "u09-listen-class",
+            "prompt": "You hear «В шесть часов у нас урок» — what happens at six?",
+            "hear": "В шесть часов у нас урок.",
+            "options": [
+              "There is a lesson",
+              "There is a hotel check-in",
+              "There is a café bill"
+            ],
+            "answer": "There is a lesson",
+            "explanation": "This combines Unit 3 time with the new study context."
+          }
+        ]
+      },
+      "checkpoint": {
+        "id": "u09-cumulative-checkpoint",
+        "title": "Cumulative work-and-language check",
+        "isCumulative": true,
+        "sourceUnits": [
+          "u02-greetings-introductions",
+          "u03-numbers-time",
+          "u04-people-family",
+          "u05-home-objects",
+          "u06-food-cafe",
+          "u07-shopping-clothing",
+          "u08-daily-routine"
+        ],
+        "questions": [
+          {
+            "id": "u09-q1",
+            "prompt": "Choose the phrase meaning “I work in an office”.",
+            "options": [
+              "Я работаю в офисе.",
+              "Я учусь в университете.",
+              "Где гостиница?"
+            ],
+            "answer": "Я работаю в офисе.",
+            "skill": "production",
+            "sourceUnit": "u09-work-school"
+          },
+          {
+            "id": "u09-q2",
+            "prompt": "Choose the phrase meaning “I speak a little Russian”.",
+            "options": [
+              "Я немного говорю по-русски.",
+              "Я не понимаю.",
+              "Повторите, пожалуйста."
+            ],
+            "answer": "Я немного говорю по-русски.",
+            "skill": "production",
+            "sourceUnit": "u09-work-school"
+          },
+          {
+            "id": "u09-q3",
+            "prompt": "Choose the phrase asking someone to speak more slowly.",
+            "options": [
+              "Говорите медленнее, пожалуйста.",
+              "Сколько стоит?",
+              "Душ не работает."
+            ],
+            "answer": "Говорите медленнее, пожалуйста.",
+            "skill": "production",
+            "sourceUnit": "u09-work-school"
+          },
+          {
+            "id": "u09-q4",
+            "prompt": "Choose the time phrase from the story.",
+            "options": [
+              "в шесть часов",
+              "на втором этаже",
+              "в кафе рядом"
+            ],
+            "answer": "в шесть часов",
+            "skill": "recognition",
+            "sourceUnit": "u03-numbers-time"
+          },
+          {
+            "id": "u09-q5",
+            "prompt": "Choose the phrase meaning “my sister”.",
+            "options": [
+              "Моя сестра.",
+              "Мой паспорт.",
+              "Мой номер."
+            ],
+            "answer": "Моя сестра.",
+            "skill": "recognition",
+            "sourceUnit": "u04-people-family"
+          },
+          {
+            "id": "u09-q6",
+            "prompt": "Choose the polite request to repeat.",
+            "options": [
+              "Повторите, пожалуйста.",
+              "Счёт, пожалуйста.",
+              "Вызовите врача."
+            ],
+            "answer": "Повторите, пожалуйста.",
+            "skill": "recognition",
+            "sourceUnit": "u08-daily-routine"
+          }
+        ],
+        "completionRule": "Answer at least 5 of 6 correctly and complete the dialogue."
+      },
+      "completionEvidence": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reviewLinks": [
+        3,
+        4,
+        5,
+        57,
+        66
+      ]
+    },
+    "u10-city-directions": {
+      "id": "u10-city-directions",
+      "unitId": "u10-city-directions",
+      "status": "active",
+      "title": "City and directions",
+      "objective": "Ask for places in the city, understand simple directions, and reach a destination by walking or transport.",
+      "paretoTier": "high-frequency-core",
+      "estimatedMinutes": 15,
+      "activities": [
+        {
+          "id": "u10-warmup",
+          "type": "warm-up",
+          "title": "Find your way",
+          "prompt": "Bring greetings, hotel, transport, café, work, and repair phrases into a city route.",
+          "reviewIds": []
+        },
+        {
+          "id": "u10-meaning",
+          "type": "meaning",
+          "title": "City places and direction words",
+          "prompt": "Connect common destinations and high-value route chunks to their meanings.",
+          "reviewIds": []
+        },
+        {
+          "id": "u10-listen",
+          "type": "listen",
+          "title": "Hear the route",
+          "prompt": "Listen for left, right, straight, nearby, far, and transport choices.",
+          "reviewIds": []
+        },
+        {
+          "id": "u10-produce",
+          "type": "produce",
+          "title": "Ask and guide",
+          "prompt": "Ask where a place is and give a short route using one or two direction chunks.",
+          "reviewIds": []
+        },
+        {
+          "id": "u10-speak",
+          "type": "speak",
+          "title": "Repair the route",
+          "prompt": "Ask for a repetition or a visual gesture when a direction is unclear.",
+          "reviewIds": []
+        },
+        {
+          "id": "u10-apply",
+          "type": "apply",
+          "title": "Reach the destination",
+          "prompt": "Complete the pharmacy-route dialogue, city story, listening contrasts, and cumulative checkpoint.",
+          "reviewIds": []
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "u10-city",
+          "ru": "город",
+          "pron": "GO-rat",
+          "en": "city",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u10-street",
+          "ru": "улица",
+          "pron": "OO-lee-tsa",
+          "en": "street",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u10-center",
+          "ru": "центр",
+          "pron": "TSENTR",
+          "en": "center",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u10-station",
+          "ru": "станция",
+          "pron": "STAN-tsee-ya",
+          "en": "station",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u10-stop",
+          "ru": "остановка",
+          "pron": "as-ta-NOF-ka",
+          "en": "stop",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u10-metro",
+          "ru": "метро",
+          "pron": "meh-TRO",
+          "en": "metro / subway",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u10-pharmacy",
+          "ru": "аптека",
+          "pron": "ap-TE-ka",
+          "en": "pharmacy",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u10-bank",
+          "ru": "банк",
+          "pron": "BANK",
+          "en": "bank",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u10-museum",
+          "ru": "музей",
+          "pron": "moo-ZEY",
+          "en": "museum",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u10-park",
+          "ru": "парк",
+          "pron": "PARK",
+          "en": "park",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u10-right",
+          "ru": "направо",
+          "pron": "na-PRA-va",
+          "en": "to the right",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u10-left",
+          "ru": "налево",
+          "pron": "na-LE-va",
+          "en": "to the left",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u10-straight",
+          "ru": "прямо",
+          "pron": "PRYA-ma",
+          "en": "straight",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u10-near",
+          "ru": "рядом",
+          "pron": "RYA-dam",
+          "en": "nearby",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u10-far",
+          "ru": "далеко",
+          "pron": "da-LE-ka",
+          "en": "far away",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u10-on-foot",
+          "ru": "пешком",
+          "pron": "pesh-KOM",
+          "en": "on foot",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u10-opposite",
+          "ru": "напротив",
+          "pron": "na-PRA-tif",
+          "en": "opposite / across from",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u10-turn",
+          "ru": "поворот",
+          "pron": "pa-va-ROT",
+          "en": "turn",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        }
+      ],
+      "patterns": [
+        {
+          "ru": "Извините, где находится аптека?",
+          "en": "Excuse me, where is the pharmacy?",
+          "pron": "iz-vee-NEE-tye gde na-HO-deet-sa ap-TE-ka"
+        },
+        {
+          "ru": "Как пройти к метро?",
+          "en": "How do I get to the metro?",
+          "pron": "kak pray-TEE k meh-TRO"
+        },
+        {
+          "ru": "Идите прямо, потом направо.",
+          "en": "Go straight, then right.",
+          "pron": "ee-DEE-tye PRYA-ma pa-TOM na-PRA-va"
+        },
+        {
+          "ru": "Аптека рядом с банком.",
+          "en": "The pharmacy is next to the bank.",
+          "pron": "ap-TE-ka RYA-dam s BAN-kam"
+        },
+        {
+          "ru": "Это далеко? Нет, это рядом.",
+          "en": "Is it far? No, it is nearby.",
+          "pron": "EH-ta da-LE-ka nyet EH-ta RYA-dam"
+        },
+        {
+          "ru": "Я не понимаю. Покажите, пожалуйста.",
+          "en": "I do not understand. Please show me.",
+          "pron": "ya nye pa-nee-MA-yoo pa-ka-ZHEE-tye pa-ZHA-loo-sta"
+        }
+      ],
+      "grammar": {
+        "id": "u10-location-and-route-chunks",
+        "kind": "Usage",
+        "title": "Location and direction chunks",
+        "explanation": "Use «Где находится…?» to ask where a place is. Use «Идите…» for a simple direction and «рядом с…» or «напротив…» for useful location relationships. These are best learned as ready-to-use route chunks at A1.",
+        "exampleRu": "Идите прямо, потом налево. Музей рядом с парком.",
+        "exampleEn": "Go straight, then left. The museum is next to the park.",
+        "commonMistake": "Do not confuse «направо» (right) with «налево» (left). When you are unsure, use «Я не понимаю. Покажите, пожалуйста» rather than guessing."
+      },
+      "dialogue": {
+        "id": "u10-pharmacy-route",
+        "title": "Finding a pharmacy in the city",
+        "turns": [
+          {
+            "role": "tutor",
+            "ru": "Извините, вы ищете что-то?",
+            "en": "Excuse me, are you looking for something?",
+            "prompt": "Ask where the pharmacy is.",
+            "variants": [
+              "где находится аптека",
+              "где аптека",
+              "извините где находится аптека"
+            ],
+            "hint": "Use «Извините, где находится аптека?»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Идите прямо, потом налево. Аптека рядом с банком.",
+            "en": "Go straight, then left. The pharmacy is next to the bank.",
+            "prompt": "Ask whether it is far.",
+            "variants": [
+              "это далеко",
+              "это далеко?"
+            ],
+            "hint": "Use «Это далеко?»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Нет, это рядом. Можно пешком.",
+            "en": "No, it is nearby. You can walk.",
+            "prompt": "Say that you do not understand and ask them to show you.",
+            "variants": [
+              "я не понимаю покажите пожалуйста",
+              "я не понимаю покажите",
+              "покажите пожалуйста"
+            ],
+            "hint": "Use «Я не понимаю. Покажите, пожалуйста»."
+          }
+        ]
+      },
+      "story": {
+        "id": "u10-city-pharmacy-walk",
+        "title": "A short walk through the city",
+        "lines": [
+          {
+            "ru": "Утром мы выходим из гостиницы.",
+            "en": "In the morning we leave the hotel."
+          },
+          {
+            "ru": "Моя сестра спрашивает: «Где находится аптека?»",
+            "en": "My sister asks: “Where is the pharmacy?”"
+          },
+          {
+            "ru": "Идите прямо, потом направо, — говорит женщина.",
+            "en": "Go straight, then right, the woman says."
+          },
+          {
+            "ru": "Аптека напротив банка и рядом с метро.",
+            "en": "The pharmacy is opposite the bank and near the metro."
+          },
+          {
+            "ru": "Мы идём пешком, потом пьём чай в кафе.",
+            "en": "We walk there, then drink tea in a café."
+          }
+        ],
+        "glossary": [
+          "утром",
+          "выходим",
+          "гостиница",
+          "спрашивает",
+          "направо",
+          "напротив",
+          "банк",
+          "метро",
+          "пешком"
+        ],
+        "questions": [
+          {
+            "q": "Откуда они выходят?",
+            "options": [
+              "из гостиницы",
+              "из музея",
+              "из школы"
+            ],
+            "answer": "из гостиницы"
+          },
+          {
+            "q": "Где аптека?",
+            "options": [
+              "напротив банка и рядом с метро",
+              "далеко от города",
+              "в гостинице"
+            ],
+            "answer": "напротив банка и рядом с метро"
+          },
+          {
+            "q": "Как они идут?",
+            "options": [
+              "пешком",
+              "на автобусе",
+              "на метро"
+            ],
+            "answer": "пешком"
+          }
+        ]
+      },
+      "recycling": {
+        "title": "Cumulative city-navigation loop",
+        "summary": "This unit expands travel language into a complete city route: ask politely, understand a short instruction, check distance, repair comprehension, and reach a useful destination.",
+        "sources": [
+          {
+            "unitId": "u02-greetings-introductions",
+            "label": "Unit 2 · polite openings",
+            "words": [
+              "Извините",
+              "Здравствуйте",
+              "пожалуйста"
+            ]
+          },
+          {
+            "unitId": "u03-numbers-time",
+            "label": "Unit 3 · time and sequence",
+            "words": [
+              "утром",
+              "потом",
+              "сначала"
+            ]
+          },
+          {
+            "unitId": "u04-people-family",
+            "label": "Unit 4 · companions",
+            "words": [
+              "моя сестра",
+              "мы",
+              "женщина"
+            ]
+          },
+          {
+            "unitId": "u05-home-objects",
+            "label": "Unit 5 · location relationships",
+            "words": [
+              "напротив",
+              "рядом",
+              "где"
+            ]
+          },
+          {
+            "unitId": "u06-food-cafe",
+            "label": "Unit 6 · café and requests",
+            "words": [
+              "кафе",
+              "чай",
+              "пожалуйста"
+            ]
+          },
+          {
+            "unitId": "u07-shopping-clothing",
+            "label": "Unit 7 · transport and route",
+            "words": [
+              "метро",
+              "остановка",
+              "идите прямо"
+            ]
+          },
+          {
+            "unitId": "u08-daily-routine",
+            "label": "Unit 8 · hotel and help",
+            "words": [
+              "гостиница",
+              "помогите",
+              "безопасно"
+            ]
+          },
+          {
+            "unitId": "u09-work-school",
+            "label": "Unit 9 · comprehension repair",
+            "words": [
+              "я не понимаю",
+              "медленнее",
+              "повторите"
+            ]
+          }
+        ],
+        "listeningContrasts": [
+          {
+            "id": "u10-listen-right-left",
+            "prompt": "You hear «направо» — which direction is it?",
+            "hear": "направо",
+            "options": [
+              "To the right",
+              "To the left",
+              "Straight"
+            ],
+            "answer": "To the right",
+            "explanation": "«Направо» is the right-turn cue."
+          },
+          {
+            "id": "u10-listen-left-right",
+            "prompt": "You hear «налево» — which direction is it?",
+            "hear": "налево",
+            "options": [
+              "To the left",
+              "To the right",
+              "Back"
+            ],
+            "answer": "To the left",
+            "explanation": "«Налево» is the left-turn cue."
+          },
+          {
+            "id": "u10-listen-near-far",
+            "prompt": "You hear «Это рядом» — how far is it?",
+            "hear": "Это рядом.",
+            "options": [
+              "Nearby",
+              "Far away",
+              "Across the road"
+            ],
+            "answer": "Nearby",
+            "explanation": "«Рядом» tells you the destination is close."
+          },
+          {
+            "id": "u10-listen-place",
+            "prompt": "You hear «Где находится аптека?» — what place is being sought?",
+            "hear": "Где находится аптека?",
+            "options": [
+              "The pharmacy",
+              "The museum",
+              "The metro station"
+            ],
+            "answer": "The pharmacy",
+            "explanation": "This is the high-value destination question."
+          },
+          {
+            "id": "u10-listen-straight",
+            "prompt": "You hear «Идите прямо» — what should you do?",
+            "hear": "Идите прямо.",
+            "options": [
+              "Go straight",
+              "Turn left",
+              "Go back"
+            ],
+            "answer": "Go straight",
+            "explanation": "This is a basic route instruction."
+          },
+          {
+            "id": "u10-listen-foot-metro",
+            "prompt": "You hear «Можно пешком» — how can you go?",
+            "hear": "Можно пешком.",
+            "options": [
+              "On foot",
+              "By metro",
+              "By bus"
+            ],
+            "answer": "On foot",
+            "explanation": "«Пешком» is the practical walking option."
+          },
+          {
+            "id": "u10-listen-opposite",
+            "prompt": "You hear «Аптека напротив банка» — where is the pharmacy?",
+            "hear": "Аптека напротив банка.",
+            "options": [
+              "Opposite the bank",
+              "Inside the bank",
+              "Far from the bank"
+            ],
+            "answer": "Opposite the bank",
+            "explanation": "«Напротив» marks an opposite/across-from relationship."
+          }
+        ]
+      },
+      "checkpoint": {
+        "id": "u10-cumulative-checkpoint",
+        "title": "Cumulative city-route check",
+        "isCumulative": true,
+        "sourceUnits": [
+          "u02-greetings-introductions",
+          "u03-numbers-time",
+          "u04-people-family",
+          "u05-home-objects",
+          "u06-food-cafe",
+          "u07-shopping-clothing",
+          "u08-daily-routine",
+          "u09-work-school"
+        ],
+        "questions": [
+          {
+            "id": "u10-q1",
+            "prompt": "Choose the phrase asking where the pharmacy is.",
+            "options": [
+              "Где находится аптека?",
+              "Сколько стоит?",
+              "Я работаю в офисе."
+            ],
+            "answer": "Где находится аптека?",
+            "skill": "production",
+            "sourceUnit": "u10-city-directions"
+          },
+          {
+            "id": "u10-q2",
+            "prompt": "Choose the instruction meaning “Go straight”.",
+            "options": [
+              "Идите прямо.",
+              "Поверните налево.",
+              "Это далеко."
+            ],
+            "answer": "Идите прямо.",
+            "skill": "recognition",
+            "sourceUnit": "u10-city-directions"
+          },
+          {
+            "id": "u10-q3",
+            "prompt": "Choose the phrase meaning “It is nearby”.",
+            "options": [
+              "Это рядом.",
+              "Это далеко.",
+              "Где метро?"
+            ],
+            "answer": "Это рядом.",
+            "skill": "recognition",
+            "sourceUnit": "u10-city-directions"
+          },
+          {
+            "id": "u10-q4",
+            "prompt": "Choose the transport or movement phrase meaning “on foot”.",
+            "options": [
+              "пешком",
+              "на метро",
+              "на автобусе"
+            ],
+            "answer": "пешком",
+            "skill": "recognition",
+            "sourceUnit": "u10-city-directions"
+          },
+          {
+            "id": "u10-q5",
+            "prompt": "Choose the phrase meaning “I do not understand; please show me”.",
+            "options": [
+              "Я не понимаю. Покажите, пожалуйста.",
+              "Повторите, пожалуйста.",
+              "Вызовите врача."
+            ],
+            "answer": "Я не понимаю. Покажите, пожалуйста.",
+            "skill": "production",
+            "sourceUnit": "u09-work-school"
+          },
+          {
+            "id": "u10-q6",
+            "prompt": "Choose the phrase meaning “the pharmacy is opposite the bank”.",
+            "options": [
+              "Аптека напротив банка.",
+              "Кафе рядом с гостиницей.",
+              "Душ не работает."
+            ],
+            "answer": "Аптека напротив банка.",
+            "skill": "recognition",
+            "sourceUnit": "u10-city-directions"
+          }
+        ],
+        "completionRule": "Answer at least 5 of 6 correctly and complete the dialogue."
+      },
+      "completionEvidence": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reviewLinks": [
+        3,
+        4,
+        5,
+        57,
+        66
+      ]
+    },
+    "u11-travel-stay": {
+      "id": "u11-travel-stay",
+      "unitId": "u11-travel-stay",
+      "status": "active",
+      "title": "Travel and accommodation",
+      "objective": "Buy or confirm a ticket, navigate arrival and departure, and handle simple travel or accommodation problems.",
+      "paretoTier": "high-frequency-core",
+      "estimatedMinutes": 15,
+      "activities": [
+        {
+          "id": "u11-warmup",
+          "type": "warm-up",
+          "title": "Start the trip",
+          "prompt": "Bring city directions, hotel, time, café, and repair language into a ticket and arrival situation.",
+          "reviewIds": []
+        },
+        {
+          "id": "u11-meaning",
+          "type": "meaning",
+          "title": "Tickets and arrival",
+          "prompt": "Connect the most useful travel, station, luggage, and accommodation words to their meanings.",
+          "reviewIds": []
+        },
+        {
+          "id": "u11-listen",
+          "type": "listen",
+          "title": "Hear the travel details",
+          "prompt": "Listen for departure, arrival, platform, ticket, and luggage information.",
+          "reviewIds": []
+        },
+        {
+          "id": "u11-produce",
+          "type": "produce",
+          "title": "Confirm the journey",
+          "prompt": "Ask for a ticket, say where you are going, and confirm the time or platform.",
+          "reviewIds": []
+        },
+        {
+          "id": "u11-speak",
+          "type": "speak",
+          "title": "Handle a problem",
+          "prompt": "Report a missed connection or missing reservation and ask for help.",
+          "reviewIds": []
+        },
+        {
+          "id": "u11-apply",
+          "type": "apply",
+          "title": "Travel with confidence",
+          "prompt": "Complete the station dialogue, arrival story, listening contrasts, and cumulative checkpoint.",
+          "reviewIds": []
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "u11-train",
+          "ru": "поезд",
+          "pron": "PO-yezd",
+          "en": "train",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u11-ticket",
+          "ru": "билет",
+          "pron": "bee-LET",
+          "en": "ticket",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u11-station",
+          "ru": "вокзал",
+          "pron": "vak-ZAL",
+          "en": "station / terminal",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u11-platform",
+          "ru": "платформа",
+          "pron": "plat-FOR-ma",
+          "en": "platform",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u11-departure",
+          "ru": "отправление",
+          "pron": "at-prav-LYE-nee-ye",
+          "en": "departure",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u11-arrival",
+          "ru": "прибытие",
+          "pron": "pree-BY-tee-ye",
+          "en": "arrival",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u11-luggage",
+          "ru": "багаж",
+          "pron": "ba-GAZH",
+          "en": "luggage",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u11-suitcase",
+          "ru": "чемодан",
+          "pron": "chee-ma-DAN",
+          "en": "suitcase",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u11-reservation",
+          "ru": "бронь",
+          "pron": "BRON",
+          "en": "booking / reservation",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u11-seat",
+          "ru": "место",
+          "pron": "MES-ta",
+          "en": "seat / place",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u11-depart",
+          "ru": "отправляется",
+          "pron": "at-prav-LYA-yet-sa",
+          "en": "departs / leaves",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u11-arrives",
+          "ru": "прибывает",
+          "pron": "pree-by-VA-yet",
+          "en": "arrives",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u11-late",
+          "ru": "опаздывает",
+          "pron": "a-PAZ-dy-va-yet",
+          "en": "is late",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u11-where-to",
+          "ru": "куда",
+          "pron": "koo-DA",
+          "en": "where to",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u11-when",
+          "ru": "когда",
+          "pron": "kag-DA",
+          "en": "when",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u11-wait",
+          "ru": "подождите",
+          "pron": "pa-da-ZHDEE-tye",
+          "en": "wait, please",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        }
+      ],
+      "patterns": [
+        {
+          "ru": "Мне нужен билет до Москвы.",
+          "en": "I need a ticket to Moscow.",
+          "pron": "mnye NOO-zhen bee-LET da mas-KVY"
+        },
+        {
+          "ru": "Во сколько отправляется поезд?",
+          "en": "What time does the train depart?",
+          "pron": "va SKOL-ka at-prav-LYA-yet-sa PO-yezd"
+        },
+        {
+          "ru": "С какой платформы?",
+          "en": "From which platform?",
+          "pron": "s ka-KOY plat-FOR-my"
+        },
+        {
+          "ru": "У меня есть бронь и багаж.",
+          "en": "I have a reservation and luggage.",
+          "pron": "oo me-NYA yest BRON ee ba-GAZH"
+        },
+        {
+          "ru": "Поезд опаздывает?",
+          "en": "Is the train late?",
+          "pron": "PO-yezd a-PAZ-dy-va-yet"
+        },
+        {
+          "ru": "Подождите, пожалуйста. Я не понимаю.",
+          "en": "Please wait. I do not understand.",
+          "pron": "pa-da-ZHDEE-tye pa-ZHA-loo-sta ya nye pa-nee-MA-yoo"
+        }
+      ],
+      "grammar": {
+        "id": "u11-travel-questions",
+        "kind": "Usage",
+        "title": "Travel questions with до, во сколько, and с какой",
+        "explanation": "Use «билет до + place» for a ticket to a destination, «Во сколько…?» to ask what time something happens, and «С какой платформы?» to ask for the platform. Learn these as practical station chunks.",
+        "exampleRu": "Мне нужен билет до Москвы. Во сколько отправляется поезд?",
+        "exampleEn": "I need a ticket to Moscow. What time does the train depart?",
+        "commonMistake": "Do not use «где» for every travel question. Use «куда» for destination, «когда» for when, and «во сколько» for the exact time."
+      },
+      "dialogue": {
+        "id": "u11-station-ticket",
+        "title": "At the train station",
+        "turns": [
+          {
+            "role": "tutor",
+            "ru": "Здравствуйте! Куда вы едете?",
+            "en": "Hello! Where are you going?",
+            "prompt": "Say that you need a ticket to Moscow.",
+            "variants": [
+              "мне нужен билет до москвы",
+              "нужен билет до москвы",
+              "билет до москвы"
+            ],
+            "hint": "Use «Мне нужен билет до Москвы»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Поезд отправляется в семь часов с третьей платформы.",
+            "en": "The train departs at seven from platform three.",
+            "prompt": "Ask what time the train departs.",
+            "variants": [
+              "во сколько отправляется поезд",
+              "во сколько поезд отправляется"
+            ],
+            "hint": "Use «Во сколько отправляется поезд?»."
+          },
+          {
+            "role": "tutor",
+            "ru": "У вас есть багаж?",
+            "en": "Do you have luggage?",
+            "prompt": "Say that you have a reservation and luggage.",
+            "variants": [
+              "у меня есть бронь и багаж",
+              "есть бронь и багаж"
+            ],
+            "hint": "Use «У меня есть бронь и багаж»."
+          }
+        ]
+      },
+      "story": {
+        "id": "u11-train-arrival",
+        "title": "A trip by train",
+        "lines": [
+          {
+            "ru": "Сегодня мы едем на вокзал.",
+            "en": "Today we are going to the station."
+          },
+          {
+            "ru": "У меня есть билет до Москвы и маленький чемодан.",
+            "en": "I have a ticket to Moscow and a small suitcase."
+          },
+          {
+            "ru": "Поезд отправляется в семь часов с третьей платформы.",
+            "en": "The train departs at seven from platform three."
+          },
+          {
+            "ru": "Моя сестра спрашивает, где наш вагон.",
+            "en": "My sister asks where our train car is."
+          },
+          {
+            "ru": "После приезда мы идём в гостиницу рядом с метро.",
+            "en": "After arriving, we go to a hotel near the metro."
+          }
+        ],
+        "glossary": [
+          "сегодня",
+          "вокзал",
+          "билет до Москвы",
+          "чемодан",
+          "отправляется",
+          "платформа",
+          "вагон",
+          "после приезда",
+          "гостиница"
+        ],
+        "questions": [
+          {
+            "q": "Куда они едут?",
+            "options": [
+              "в Москву",
+              "в кафе",
+              "в аптеку"
+            ],
+            "answer": "в Москву"
+          },
+          {
+            "q": "Во сколько отправляется поезд?",
+            "options": [
+              "в семь часов",
+              "в шесть часов",
+              "в три часа"
+            ],
+            "answer": "в семь часов"
+          },
+          {
+            "q": "Где гостиница?",
+            "options": [
+              "рядом с метро",
+              "на платформе",
+              "в вагоне"
+            ],
+            "answer": "рядом с метро"
+          }
+        ]
+      },
+      "recycling": {
+        "title": "Cumulative travel-and-stay loop",
+        "summary": "This unit combines city navigation with a complete rail journey: choose a destination, confirm departure details, manage luggage, and arrive at accommodation near transport.",
+        "sources": [
+          {
+            "unitId": "u02-greetings-introductions",
+            "label": "Unit 2 · polite station opening",
+            "words": [
+              "Здравствуйте",
+              "пожалуйста",
+              "Как вас зовут?"
+            ]
+          },
+          {
+            "unitId": "u03-numbers-time",
+            "label": "Unit 3 · departure times",
+            "words": [
+              "в семь часов",
+              "сегодня",
+              "три"
+            ]
+          },
+          {
+            "unitId": "u04-people-family",
+            "label": "Unit 4 · travel companion",
+            "words": [
+              "моя сестра",
+              "мы",
+              "наш"
+            ]
+          },
+          {
+            "unitId": "u05-home-objects",
+            "label": "Unit 5 · places and possessions",
+            "words": [
+              "где",
+              "наш",
+              "маленький"
+            ]
+          },
+          {
+            "unitId": "u06-food-cafe",
+            "label": "Unit 6 · polite service requests",
+            "words": [
+              "пожалуйста",
+              "чай",
+              "счёт"
+            ]
+          },
+          {
+            "unitId": "u07-shopping-clothing",
+            "label": "Unit 7 · tickets and transport",
+            "words": [
+              "билет",
+              "метро",
+              "остановка"
+            ]
+          },
+          {
+            "unitId": "u08-daily-routine",
+            "label": "Unit 8 · hotel and problems",
+            "words": [
+              "гостиница",
+              "помогите",
+              "проблема"
+            ]
+          },
+          {
+            "unitId": "u09-work-school",
+            "label": "Unit 9 · repair language",
+            "words": [
+              "я не понимаю",
+              "повторите",
+              "медленнее"
+            ]
+          },
+          {
+            "unitId": "u10-city-directions",
+            "label": "Unit 10 · city route and proximity",
+            "words": [
+              "вокзал",
+              "рядом",
+              "идите прямо"
+            ]
+          }
+        ],
+        "listeningContrasts": [
+          {
+            "id": "u11-listen-ticket",
+            "prompt": "You hear «билет до Москвы» — what is it?",
+            "hear": "билет до Москвы",
+            "options": [
+              "A ticket to Moscow",
+              "A hotel reservation",
+              "A platform number"
+            ],
+            "answer": "A ticket to Moscow",
+            "explanation": "«До Москвы» identifies the destination."
+          },
+          {
+            "id": "u11-listen-departure",
+            "prompt": "You hear «Поезд отправляется в семь часов» — when does it leave?",
+            "hear": "Поезд отправляется в семь часов.",
+            "options": [
+              "At seven o’clock",
+              "At six o’clock",
+              "At three o’clock"
+            ],
+            "answer": "At seven o’clock",
+            "explanation": "This combines a train departure with a familiar time frame."
+          },
+          {
+            "id": "u11-listen-platform",
+            "prompt": "You hear «с третьей платформы» — what is this information?",
+            "hear": "с третьей платформы",
+            "options": [
+              "From platform three",
+              "To the third city",
+              "For three passengers"
+            ],
+            "answer": "From platform three",
+            "explanation": "This is the platform detail needed to board."
+          },
+          {
+            "id": "u11-listen-luggage",
+            "prompt": "You hear «У меня есть багаж» — what does the traveler have?",
+            "hear": "У меня есть багаж.",
+            "options": [
+              "Luggage",
+              "A ticket price",
+              "A room problem"
+            ],
+            "answer": "Luggage",
+            "explanation": "«Багаж» is luggage or baggage."
+          },
+          {
+            "id": "u11-listen-late",
+            "prompt": "You hear «Поезд опаздывает» — what is happening?",
+            "hear": "Поезд опаздывает.",
+            "options": [
+              "The train is late",
+              "The train is arriving early",
+              "The train is on platform three"
+            ],
+            "answer": "The train is late",
+            "explanation": "This is a high-value travel problem report."
+          },
+          {
+            "id": "u11-listen-arrival",
+            "prompt": "You hear «гостиница рядом с метро» — where is the hotel?",
+            "hear": "Гостиница рядом с метро.",
+            "options": [
+              "Near the metro",
+              "At the station platform",
+              "Far from the city"
+            ],
+            "answer": "Near the metro",
+            "explanation": "This recycles Unit 10 proximity language and Unit 8 hotel language."
+          },
+          {
+            "id": "u11-listen-wait",
+            "prompt": "You hear «Подождите, пожалуйста» — what is the speaker asking?",
+            "hear": "Подождите, пожалуйста.",
+            "options": [
+              "Please wait",
+              "Please show me",
+              "Please repeat"
+            ],
+            "answer": "Please wait",
+            "explanation": "This is useful when a station or hotel interaction moves too quickly."
+          }
+        ]
+      },
+      "checkpoint": {
+        "id": "u11-cumulative-checkpoint",
+        "title": "Cumulative travel-and-stay check",
+        "isCumulative": true,
+        "sourceUnits": [
+          "u02-greetings-introductions",
+          "u03-numbers-time",
+          "u04-people-family",
+          "u05-home-objects",
+          "u06-food-cafe",
+          "u07-shopping-clothing",
+          "u08-daily-routine",
+          "u09-work-school",
+          "u10-city-directions"
+        ],
+        "questions": [
+          {
+            "id": "u11-q1",
+            "prompt": "Choose the phrase meaning “I need a ticket to Moscow”.",
+            "options": [
+              "Мне нужен билет до Москвы.",
+              "Где находится аптека?",
+              "Я работаю в офисе."
+            ],
+            "answer": "Мне нужен билет до Москвы.",
+            "skill": "production",
+            "sourceUnit": "u11-travel-stay"
+          },
+          {
+            "id": "u11-q2",
+            "prompt": "Choose the question asking when the train departs.",
+            "options": [
+              "Во сколько отправляется поезд?",
+              "С какой платформы?",
+              "Это далеко?"
+            ],
+            "answer": "Во сколько отправляется поезд?",
+            "skill": "production",
+            "sourceUnit": "u11-travel-stay"
+          },
+          {
+            "id": "u11-q3",
+            "prompt": "Choose the phrase meaning “I have luggage”.",
+            "options": [
+              "У меня есть багаж.",
+              "У меня есть бронь.",
+              "Мне нужна помощь."
+            ],
+            "answer": "У меня есть багаж.",
+            "skill": "recognition",
+            "sourceUnit": "u11-travel-stay"
+          },
+          {
+            "id": "u11-q4",
+            "prompt": "Choose the platform phrase from the dialogue.",
+            "options": [
+              "с третьей платформы",
+              "рядом с метро",
+              "в гостинице"
+            ],
+            "answer": "с третьей платформы",
+            "skill": "recognition",
+            "sourceUnit": "u11-travel-stay"
+          },
+          {
+            "id": "u11-q5",
+            "prompt": "Choose the phrase meaning “the hotel is near the metro”.",
+            "options": [
+              "Гостиница рядом с метро.",
+              "Аптека напротив банка.",
+              "Душ не работает."
+            ],
+            "answer": "Гостиница рядом с метро.",
+            "skill": "recognition",
+            "sourceUnit": "u10-city-directions"
+          },
+          {
+            "id": "u11-q6",
+            "prompt": "Choose the phrase asking someone to wait.",
+            "options": [
+              "Подождите, пожалуйста.",
+              "Повторите, пожалуйста.",
+              "Покажите, пожалуйста."
+            ],
+            "answer": "Подождите, пожалуйста.",
+            "skill": "production",
+            "sourceUnit": "u11-travel-stay"
+          }
+        ],
+        "completionRule": "Answer at least 5 of 6 correctly and complete the dialogue."
+      },
+      "completionEvidence": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reviewLinks": [
+        3,
+        4,
+        5,
+        57,
+        66
+      ]
+    },
+    "u12-weather-seasons": {
+      "id": "u12-weather-seasons",
+      "unitId": "u12-weather-seasons",
+      "status": "active",
+      "title": "Weather and seasons",
+      "objective": "Describe basic weather and seasons, choose suitable clothes, and make a simple plan.",
+      "paretoTier": "high-frequency-core",
+      "estimatedMinutes": 15,
+      "activities": [
+        {
+          "id": "u12-warmup",
+          "type": "warm-up",
+          "title": "Check the weather",
+          "prompt": "Bring time, travel, city, clothing, café, and plan language into a weather conversation.",
+          "reviewIds": []
+        },
+        {
+          "id": "u12-meaning",
+          "type": "meaning",
+          "title": "Weather and seasons",
+          "prompt": "Connect the most useful weather, temperature, and season words to their meanings.",
+          "reviewIds": []
+        },
+        {
+          "id": "u12-listen",
+          "type": "listen",
+          "title": "Hear the forecast",
+          "prompt": "Listen for hot, cold, rain, snow, wind, and tomorrow’s conditions.",
+          "reviewIds": []
+        },
+        {
+          "id": "u12-produce",
+          "type": "produce",
+          "title": "Describe today",
+          "prompt": "Say what the weather is like and what you plan to wear or do.",
+          "reviewIds": []
+        },
+        {
+          "id": "u12-speak",
+          "type": "speak",
+          "title": "Make a weather plan",
+          "prompt": "Ask about tomorrow and respond with a simple outdoor or indoor plan.",
+          "reviewIds": []
+        },
+        {
+          "id": "u12-apply",
+          "type": "apply",
+          "title": "Choose the right plan",
+          "prompt": "Complete the weather dialogue, seasonal story, listening contrasts, and cumulative checkpoint.",
+          "reviewIds": []
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "u12-weather",
+          "ru": "погода",
+          "pron": "pa-GO-da",
+          "en": "weather",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u12-sun",
+          "ru": "солнце",
+          "pron": "SOLN-tse",
+          "en": "sun",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u12-rain",
+          "ru": "дождь",
+          "pron": "DOZHCH",
+          "en": "rain",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u12-snow",
+          "ru": "снег",
+          "pron": "SNYEK",
+          "en": "snow",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u12-wind",
+          "ru": "ветер",
+          "pron": "VYE-ter",
+          "en": "wind",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u12-hot",
+          "ru": "жарко",
+          "pron": "ZHAR-ka",
+          "en": "hot",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u12-cold",
+          "ru": "холодно",
+          "pron": "HO-lad-na",
+          "en": "cold",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u12-warm",
+          "ru": "тепло",
+          "pron": "te-PLO",
+          "en": "warm",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u12-spring",
+          "ru": "весна",
+          "pron": "ves-NA",
+          "en": "spring",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u12-summer",
+          "ru": "лето",
+          "pron": "LYE-ta",
+          "en": "summer",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u12-autumn",
+          "ru": "осень",
+          "pron": "O-sen",
+          "en": "autumn / fall",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u12-winter",
+          "ru": "зима",
+          "pron": "zee-MA",
+          "en": "winter",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u12-tomorrow",
+          "ru": "завтра",
+          "pron": "ZAF-tra",
+          "en": "tomorrow",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u12-today",
+          "ru": "сегодня",
+          "pron": "see-VO-dnya",
+          "en": "today",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u12-umbrella",
+          "ru": "зонт",
+          "pron": "ZONT",
+          "en": "umbrella",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u12-jacket",
+          "ru": "куртка",
+          "pron": "KOORT-ka",
+          "en": "jacket",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        }
+      ],
+      "patterns": [
+        {
+          "ru": "Какая сегодня погода?",
+          "en": "What is the weather like today?",
+          "pron": "ka-KA-ya see-VO-dnya pa-GO-da"
+        },
+        {
+          "ru": "Сегодня холодно и идёт дождь.",
+          "en": "Today it is cold and it is raining.",
+          "pron": "see-VO-dnya HO-lad-na ee ee-DYOT DOZHCH"
+        },
+        {
+          "ru": "Завтра будет тепло.",
+          "en": "Tomorrow it will be warm.",
+          "pron": "ZAF-tra BOO-det te-PLO"
+        },
+        {
+          "ru": "Сейчас зима.",
+          "en": "It is winter now.",
+          "pron": "see-CHAS zee-MA"
+        },
+        {
+          "ru": "Возьмите зонт.",
+          "en": "Take an umbrella.",
+          "pron": "vaz-MEE-tye ZONT"
+        },
+        {
+          "ru": "Давайте пойдём в кафе.",
+          "en": "Let’s go to a café.",
+          "pron": "da-VA-yte pa-YDYOM v ka-FE"
+        }
+      ],
+      "grammar": {
+        "id": "u12-weather-impersonal-and-future",
+        "kind": "Usage",
+        "title": "Weather with холодно, жарко, and будет",
+        "explanation": "Russian often describes weather with an impersonal word: «холодно», «жарко», «тепло». Use «сегодня» for today and «завтра будет…» for a simple tomorrow forecast.",
+        "exampleRu": "Сегодня холодно, а завтра будет тепло. Возьмите куртку.",
+        "exampleEn": "Today it is cold, but tomorrow it will be warm. Take a jacket.",
+        "commonMistake": "Do not force a subject into «холодно» or «жарко». Say «Сегодня холодно», not a literal word-for-word English structure."
+      },
+      "dialogue": {
+        "id": "u12-weather-plan",
+        "title": "Checking the forecast and making a plan",
+        "turns": [
+          {
+            "role": "tutor",
+            "ru": "Какая сегодня погода?",
+            "en": "What is the weather like today?",
+            "prompt": "Say that today it is cold and raining.",
+            "variants": [
+              "сегодня холодно и идет дождь",
+              "сегодня холодно идет дождь"
+            ],
+            "hint": "Use «Сегодня холодно и идёт дождь»."
+          },
+          {
+            "role": "tutor",
+            "ru": "А завтра? Можно гулять?",
+            "en": "And tomorrow? Can we go for a walk?",
+            "prompt": "Say that tomorrow it will be warm.",
+            "variants": [
+              "завтра будет тепло",
+              "завтра тепло"
+            ],
+            "hint": "Use «Завтра будет тепло»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Хорошо. Что мы возьмём?",
+            "en": "Good. What will we take?",
+            "prompt": "Tell the person to take an umbrella.",
+            "variants": [
+              "возьмите зонт",
+              "возьмем зонт",
+              "давайте возьмем зонт"
+            ],
+            "hint": "Use «Возьмите зонт»."
+          }
+        ]
+      },
+      "story": {
+        "id": "u12-seasons-city-plan",
+        "title": "A changing-weather weekend",
+        "lines": [
+          {
+            "ru": "Сегодня осень, и на улице холодно.",
+            "en": "Today it is autumn, and it is cold outside."
+          },
+          {
+            "ru": "Утром идёт дождь, поэтому мы берём куртки и зонт.",
+            "en": "It is raining in the morning, so we take jackets and an umbrella."
+          },
+          {
+            "ru": "Моя сестра хочет идти в музей.",
+            "en": "My sister wants to go to a museum."
+          },
+          {
+            "ru": "Завтра будет тепло и будет солнце.",
+            "en": "Tomorrow it will be warm and sunny."
+          },
+          {
+            "ru": "Тогда мы пойдём в парк, а потом в кафе.",
+            "en": "Then we will go to the park, and then to a café."
+          }
+        ],
+        "glossary": [
+          "осень",
+          "на улице",
+          "холодно",
+          "идёт дождь",
+          "куртка",
+          "зонт",
+          "музей",
+          "завтра",
+          "солнце",
+          "парк"
+        ],
+        "questions": [
+          {
+            "q": "Какое сейчас время года?",
+            "options": [
+              "осень",
+              "зима",
+              "лето"
+            ],
+            "answer": "осень"
+          },
+          {
+            "q": "Что они берут утром?",
+            "options": [
+              "куртки и зонт",
+              "билет и чемодан",
+              "чай и меню"
+            ],
+            "answer": "куртки и зонт"
+          },
+          {
+            "q": "Куда они пойдут завтра?",
+            "options": [
+              "в парк, а потом в кафе",
+              "на вокзал",
+              "в аптеку"
+            ],
+            "answer": "в парк, а потом в кафе"
+          }
+        ]
+      },
+      "recycling": {
+        "title": "Cumulative weather-and-plans loop",
+        "summary": "This unit turns weather into action: check today, prepare clothes, ask about tomorrow, and choose a city or café plan.",
+        "sources": [
+          {
+            "unitId": "u02-greetings-introductions",
+            "label": "Unit 2 · polite conversation",
+            "words": [
+              "Здравствуйте",
+              "пожалуйста",
+              "Привет"
+            ]
+          },
+          {
+            "unitId": "u03-numbers-time",
+            "label": "Unit 3 · today and tomorrow",
+            "words": [
+              "сегодня",
+              "завтра",
+              "утром"
+            ]
+          },
+          {
+            "unitId": "u04-people-family",
+            "label": "Unit 4 · companions",
+            "words": [
+              "моя сестра",
+              "мы",
+              "хочет"
+            ]
+          },
+          {
+            "unitId": "u05-home-objects",
+            "label": "Unit 5 · outside and objects",
+            "words": [
+              "на улице",
+              "куртка",
+              "зонт"
+            ]
+          },
+          {
+            "unitId": "u06-food-cafe",
+            "label": "Unit 6 · café plan",
+            "words": [
+              "кафе",
+              "чай",
+              "давайте"
+            ]
+          },
+          {
+            "unitId": "u07-shopping-clothing",
+            "label": "Unit 7 · clothing and movement",
+            "words": [
+              "куртка",
+              "идти",
+              "пойдём"
+            ]
+          },
+          {
+            "unitId": "u08-daily-routine",
+            "label": "Unit 8 · problems and help",
+            "words": [
+              "проблема",
+              "помогите",
+              "сейчас"
+            ]
+          },
+          {
+            "unitId": "u09-work-school",
+            "label": "Unit 9 · language repair",
+            "words": [
+              "я не понимаю",
+              "повторите",
+              "медленнее"
+            ]
+          },
+          {
+            "unitId": "u10-city-directions",
+            "label": "Unit 10 · city destinations",
+            "words": [
+              "музей",
+              "парк",
+              "рядом"
+            ]
+          },
+          {
+            "unitId": "u11-travel-stay",
+            "label": "Unit 11 · travel and arrival",
+            "words": [
+              "вокзал",
+              "гостиница",
+              "багаж"
+            ]
+          }
+        ],
+        "listeningContrasts": [
+          {
+            "id": "u12-listen-cold-hot",
+            "prompt": "You hear «холодно» — what is the weather like?",
+            "hear": "холодно",
+            "options": [
+              "Cold",
+              "Hot",
+              "Warm"
+            ],
+            "answer": "Cold",
+            "explanation": "«Холодно» is a key weather description for choosing clothes."
+          },
+          {
+            "id": "u12-listen-rain-snow",
+            "prompt": "You hear «идёт дождь» — what is falling?",
+            "hear": "Идёт дождь.",
+            "options": [
+              "Rain",
+              "Snow",
+              "Wind"
+            ],
+            "answer": "Rain",
+            "explanation": "This is the practical rainy-day phrase."
+          },
+          {
+            "id": "u12-listen-season",
+            "prompt": "You hear «Сейчас зима» — what season is it?",
+            "hear": "Сейчас зима.",
+            "options": [
+              "Winter",
+              "Summer",
+              "Autumn"
+            ],
+            "answer": "Winter",
+            "explanation": "The season word helps contextualize temperature and clothing."
+          },
+          {
+            "id": "u12-listen-tomorrow",
+            "prompt": "You hear «Завтра будет тепло» — what will tomorrow be like?",
+            "hear": "Завтра будет тепло.",
+            "options": [
+              "Warm",
+              "Cold",
+              "Rainy"
+            ],
+            "answer": "Warm",
+            "explanation": "This is a simple future forecast."
+          },
+          {
+            "id": "u12-listen-umbrella",
+            "prompt": "You hear «Возьмите зонт» — what should you take?",
+            "hear": "Возьмите зонт.",
+            "options": [
+              "An umbrella",
+              "A ticket",
+              "A suitcase"
+            ],
+            "answer": "An umbrella",
+            "explanation": "This turns a forecast into a useful action."
+          },
+          {
+            "id": "u12-listen-plan",
+            "prompt": "You hear «Давайте пойдём в кафе» — what is the plan?",
+            "hear": "Давайте пойдём в кафе.",
+            "options": [
+              "Let’s go to a café",
+              "Let’s go to the station",
+              "Let’s stay at the hotel"
+            ],
+            "answer": "Let’s go to a café",
+            "explanation": "This recycles invitation and café language."
+          },
+          {
+            "id": "u12-listen-sun",
+            "prompt": "You hear «будет солнце» — what will there be?",
+            "hear": "Будет солнце.",
+            "options": [
+              "Sun",
+              "Snow",
+              "Wind"
+            ],
+            "answer": "Sun",
+            "explanation": "«Солнце» is the positive forecast cue."
+          }
+        ]
+      },
+      "checkpoint": {
+        "id": "u12-cumulative-checkpoint",
+        "title": "Cumulative weather-and-plans check",
+        "isCumulative": true,
+        "sourceUnits": [
+          "u02-greetings-introductions",
+          "u03-numbers-time",
+          "u04-people-family",
+          "u05-home-objects",
+          "u06-food-cafe",
+          "u07-shopping-clothing",
+          "u08-daily-routine",
+          "u09-work-school",
+          "u10-city-directions",
+          "u11-travel-stay"
+        ],
+        "questions": [
+          {
+            "id": "u12-q1",
+            "prompt": "Choose the phrase meaning “What is the weather like today?”",
+            "options": [
+              "Какая сегодня погода?",
+              "Где находится аптека?",
+              "Во сколько отправляется поезд?"
+            ],
+            "answer": "Какая сегодня погода?",
+            "skill": "production",
+            "sourceUnit": "u12-weather-seasons"
+          },
+          {
+            "id": "u12-q2",
+            "prompt": "Choose the phrase meaning “Today it is cold and raining”.",
+            "options": [
+              "Сегодня холодно и идёт дождь.",
+              "Завтра будет тепло.",
+              "Сейчас зима."
+            ],
+            "answer": "Сегодня холодно и идёт дождь.",
+            "skill": "production",
+            "sourceUnit": "u12-weather-seasons"
+          },
+          {
+            "id": "u12-q3",
+            "prompt": "Choose the phrase meaning “Take an umbrella”.",
+            "options": [
+              "Возьмите зонт.",
+              "Подождите, пожалуйста.",
+              "Идите прямо."
+            ],
+            "answer": "Возьмите зонт.",
+            "skill": "production",
+            "sourceUnit": "u12-weather-seasons"
+          },
+          {
+            "id": "u12-q4",
+            "prompt": "Choose the season in the story.",
+            "options": [
+              "осень",
+              "зима",
+              "лето"
+            ],
+            "answer": "осень",
+            "skill": "recognition",
+            "sourceUnit": "u12-weather-seasons"
+          },
+          {
+            "id": "u12-q5",
+            "prompt": "Choose the city plan for tomorrow.",
+            "options": [
+              "в парк, а потом в кафе",
+              "на вокзал",
+              "в гостиницу"
+            ],
+            "answer": "в парк, а потом в кафе",
+            "skill": "recognition",
+            "sourceUnit": "u12-weather-seasons"
+          },
+          {
+            "id": "u12-q6",
+            "prompt": "Choose the phrase meaning “I do not understand; please repeat”.",
+            "options": [
+              "Я не понимаю. Повторите, пожалуйста.",
+              "Я не понимаю. Покажите, пожалуйста.",
+              "Мне нужна помощь."
+            ],
+            "answer": "Я не понимаю. Повторите, пожалуйста.",
+            "skill": "production",
+            "sourceUnit": "u09-work-school"
+          }
+        ],
+        "completionRule": "Answer at least 5 of 6 correctly and complete the dialogue."
+      },
+      "completionEvidence": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reviewLinks": [
+        3,
+        4,
+        5,
+        57,
+        66
+      ]
+    },
+    "u13-health-needs": {
+      "id": "u13-health-needs",
+      "unitId": "u13-health-needs",
+      "status": "active",
+      "title": "Health and immediate needs",
+      "objective": "Describe simple symptoms, ask for a doctor or pharmacy, and communicate immediate health needs clearly.",
+      "paretoTier": "survival-core",
+      "estimatedMinutes": 15,
+      "activities": [
+        {
+          "id": "u13-warmup",
+          "type": "warm-up",
+          "title": "Check in safely",
+          "prompt": "Bring help, pharmacy, weather, hotel, and repair language into a health situation.",
+          "reviewIds": []
+        },
+        {
+          "id": "u13-meaning",
+          "type": "meaning",
+          "title": "Body and care words",
+          "prompt": "Connect high-value symptoms, medicine, pharmacy, and doctor words to their meanings.",
+          "reviewIds": []
+        },
+        {
+          "id": "u13-listen",
+          "type": "listen",
+          "title": "Hear the symptom",
+          "prompt": "Listen for pain, allergy, temperature, and urgent help requests.",
+          "reviewIds": []
+        },
+        {
+          "id": "u13-produce",
+          "type": "produce",
+          "title": "Describe the need",
+          "prompt": "Say what hurts, what you need, and where to find a pharmacy.",
+          "reviewIds": []
+        },
+        {
+          "id": "u13-speak",
+          "type": "speak",
+          "title": "Ask for care",
+          "prompt": "Ask for a doctor or ambulance and use a repair phrase when necessary.",
+          "reviewIds": []
+        },
+        {
+          "id": "u13-apply",
+          "type": "apply",
+          "title": "Get the right help",
+          "prompt": "Complete the pharmacy dialogue, health story, listening contrasts, and cumulative checkpoint.",
+          "reviewIds": []
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "u13-pain",
+          "ru": "боль",
+          "pron": "BOL",
+          "en": "pain",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u13-head",
+          "ru": "голова",
+          "pron": "ga-la-VA",
+          "en": "head",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u13-stomach",
+          "ru": "живот",
+          "pron": "zhee-VOT",
+          "en": "stomach",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u13-throat",
+          "ru": "горло",
+          "pron": "GOR-la",
+          "en": "throat",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u13-temperature",
+          "ru": "температура",
+          "pron": "tem-pe-ra-TOO-ra",
+          "en": "temperature",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u13-sick",
+          "ru": "плохо",
+          "pron": "PLO-ha",
+          "en": "unwell / bad",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u13-hurt",
+          "ru": "болит",
+          "pron": "ba-LEET",
+          "en": "hurts",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u13-medicine",
+          "ru": "лекарство",
+          "pron": "lee-KAR-stva",
+          "en": "medicine",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u13-pharmacy",
+          "ru": "аптека",
+          "pron": "ap-TE-ka",
+          "en": "pharmacy",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u13-doctor",
+          "ru": "врач",
+          "pron": "vrach",
+          "en": "doctor",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u13-ambulance",
+          "ru": "скорая помощь",
+          "pron": "SKO-ra-ya PO-mashch",
+          "en": "ambulance",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u13-need",
+          "ru": "нужен",
+          "pron": "NOO-zhen",
+          "en": "need (masculine)",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u13-allergy",
+          "ru": "аллергия",
+          "pron": "a-ler-GEE-ya",
+          "en": "allergy",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u13-dizzy",
+          "ru": "головокружение",
+          "pron": "ga-la-va-kroo-ZHE-nee-ye",
+          "en": "dizziness",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u13-rest",
+          "ru": "отдыхать",
+          "pron": "at-dy-HAT",
+          "en": "to rest",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u13-water",
+          "ru": "вода",
+          "pron": "va-DA",
+          "en": "water",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        }
+      ],
+      "patterns": [
+        {
+          "ru": "Мне плохо.",
+          "en": "I feel unwell.",
+          "pron": "mne PLO-ha"
+        },
+        {
+          "ru": "У меня болит голова.",
+          "en": "I have a headache.",
+          "pron": "oo me-NYA ba-LEET ga-la-VA"
+        },
+        {
+          "ru": "Мне нужен врач.",
+          "en": "I need a doctor.",
+          "pron": "mne NOO-zhen vrach"
+        },
+        {
+          "ru": "Где находится аптека?",
+          "en": "Where is the pharmacy?",
+          "pron": "gde na-HO-deet-sa ap-TE-ka"
+        },
+        {
+          "ru": "У меня аллергия на лекарства.",
+          "en": "I am allergic to medicine.",
+          "pron": "oo me-NYA a-ler-GEE-ya na lee-KAR-stva"
+        },
+        {
+          "ru": "Вызовите скорую помощь, пожалуйста.",
+          "en": "Call an ambulance, please.",
+          "pron": "vy-ZO-vee-tye SKO-roo-yoo PO-mashch pa-ZHA-loo-sta"
+        }
+      ],
+      "grammar": {
+        "id": "u13-health-needs-frames",
+        "kind": "Usage",
+        "title": "У меня болит… and Мне нужен…",
+        "explanation": "Use «У меня болит + body part» to report pain and «Мне нужен врач» to say you need a doctor. Add «пожалуйста» to make an urgent request clear and polite.",
+        "exampleRu": "У меня болит живот. Мне нужен врач, пожалуйста.",
+        "exampleEn": "My stomach hurts. I need a doctor, please.",
+        "commonMistake": "Do not minimize a serious emergency with a vague «плохо». Add the symptom or use «Вызовите скорую помощь» when immediate help is needed."
+      },
+      "dialogue": {
+        "id": "u13-pharmacy-doctor",
+        "title": "At a pharmacy and asking for a doctor",
+        "turns": [
+          {
+            "role": "tutor",
+            "ru": "Здравствуйте. Что случилось?",
+            "en": "Hello. What happened?",
+            "prompt": "Say that you feel unwell and have a headache.",
+            "variants": [
+              "мне плохо у меня болит голова",
+              "мне плохо",
+              "болит голова"
+            ],
+            "hint": "Use «Мне плохо. У меня болит голова»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Вам нужен врач?",
+            "en": "Do you need a doctor?",
+            "prompt": "Say that you need a doctor, please.",
+            "variants": [
+              "мне нужен врач пожалуйста",
+              "мне нужен врач"
+            ],
+            "hint": "Use «Мне нужен врач, пожалуйста»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Аптека рядом. Я помогу вам.",
+            "en": "The pharmacy is nearby. I will help you.",
+            "prompt": "Ask where the pharmacy is.",
+            "variants": [
+              "где находится аптека",
+              "где аптека"
+            ],
+            "hint": "Use «Где находится аптека?»."
+          }
+        ]
+      },
+      "story": {
+        "id": "u13-help-at-pharmacy",
+        "title": "A careful day in the city",
+        "lines": [
+          {
+            "ru": "Сегодня холодно, и у Анны болит голова.",
+            "en": "Today it is cold, and Anna has a headache."
+          },
+          {
+            "ru": "Её сестра говорит: «Мне нужен врач».",
+            "en": "Her sister says: “I need a doctor.”"
+          },
+          {
+            "ru": "Они спрашивают, где находится аптека.",
+            "en": "They ask where the pharmacy is."
+          },
+          {
+            "ru": "Аптека рядом с гостиницей и метро.",
+            "en": "The pharmacy is near the hotel and metro."
+          },
+          {
+            "ru": "После помощи Анна отдыхает и пьёт воду.",
+            "en": "After getting help, Anna rests and drinks water."
+          }
+        ],
+        "glossary": [
+          "холодно",
+          "болит голова",
+          "её сестра",
+          "врач",
+          "аптека",
+          "рядом",
+          "гостиница",
+          "отдыхает",
+          "вода"
+        ],
+        "questions": [
+          {
+            "q": "Что болит у Анны?",
+            "options": [
+              "голова",
+              "живот",
+              "горло"
+            ],
+            "answer": "голова"
+          },
+          {
+            "q": "Где аптека?",
+            "options": [
+              "рядом с гостиницей и метро",
+              "на вокзале",
+              "в кафе"
+            ],
+            "answer": "рядом с гостиницей и метро"
+          },
+          {
+            "q": "Что делает Анна после помощи?",
+            "options": [
+              "отдыхает и пьёт воду",
+              "идёт на поезд",
+              "работает в офисе"
+            ],
+            "answer": "отдыхает и пьёт воду"
+          }
+        ]
+      },
+      "recycling": {
+        "title": "Cumulative health-and-help loop",
+        "summary": "This unit keeps health language calm and actionable: describe a symptom, find a pharmacy, request a doctor, and escalate to emergency help when needed.",
+        "sources": [
+          {
+            "unitId": "u02-greetings-introductions",
+            "label": "Unit 2 · polite opening",
+            "words": [
+              "Извините",
+              "пожалуйста"
+            ]
+          },
+          {
+            "unitId": "u03-numbers-time",
+            "label": "Unit 3 · time and urgency",
+            "words": [
+              "сейчас",
+              "сегодня"
+            ]
+          },
+          {
+            "unitId": "u04-people-family",
+            "label": "Unit 4 · companions",
+            "words": [
+              "моя сестра",
+              "мне"
+            ]
+          },
+          {
+            "unitId": "u05-home-objects",
+            "label": "Unit 5 · body and objects",
+            "words": [
+              "голова",
+              "вода"
+            ]
+          },
+          {
+            "unitId": "u06-food-cafe",
+            "label": "Unit 6 · pharmacy requests",
+            "words": [
+              "аптека",
+              "лекарство"
+            ]
+          },
+          {
+            "unitId": "u07-shopping-clothing",
+            "label": "Unit 7 · movement",
+            "words": [
+              "идите",
+              "помогите"
+            ]
+          },
+          {
+            "unitId": "u08-daily-routine",
+            "label": "Unit 8 · help",
+            "words": [
+              "Мне нужна помощь",
+              "проблема"
+            ]
+          },
+          {
+            "unitId": "u09-work-school",
+            "label": "Unit 9 · repair",
+            "words": [
+              "я не понимаю",
+              "повторите"
+            ]
+          },
+          {
+            "unitId": "u10-city-directions",
+            "label": "Unit 10 · pharmacy location",
+            "words": [
+              "где находится",
+              "рядом"
+            ]
+          },
+          {
+            "unitId": "u11-travel-stay",
+            "label": "Unit 11 · doctor/travel",
+            "words": [
+              "врач",
+              "гостиница"
+            ]
+          },
+          {
+            "unitId": "u12-weather-seasons",
+            "label": "Unit 12 · weather and rest",
+            "words": [
+              "отдыхать",
+              "холодно"
+            ]
+          }
+        ],
+        "listeningContrasts": [
+          {
+            "id": "u13-listen-pain",
+            "prompt": "You hear «У меня болит голова» — what hurts?",
+            "hear": "У меня болит голова.",
+            "options": [
+              "The head",
+              "The stomach",
+              "The throat"
+            ],
+            "answer": "The head",
+            "explanation": "This is a common symptom report."
+          },
+          {
+            "id": "u13-listen-doctor",
+            "prompt": "You hear «Мне нужен врач» — what does the speaker need?",
+            "hear": "Мне нужен врач.",
+            "options": [
+              "A doctor",
+              "A ticket",
+              "A room"
+            ],
+            "answer": "A doctor",
+            "explanation": "This is a direct request for medical help."
+          },
+          {
+            "id": "u13-listen-pharmacy",
+            "prompt": "You hear «Где находится аптека?» — what place is sought?",
+            "hear": "Где находится аптека?",
+            "options": [
+              "The pharmacy",
+              "The station",
+              "The hotel"
+            ],
+            "answer": "The pharmacy",
+            "explanation": "This recycles city-navigation language."
+          },
+          {
+            "id": "u13-listen-allergy",
+            "prompt": "You hear «У меня аллергия» — what does the speaker have?",
+            "hear": "У меня аллергия.",
+            "options": [
+              "An allergy",
+              "A reservation",
+              "A fever"
+            ],
+            "answer": "An allergy",
+            "explanation": "This is useful safety information."
+          },
+          {
+            "id": "u13-listen-ambulance",
+            "prompt": "You hear «Вызовите скорую помощь» — what should someone call?",
+            "hear": "Вызовите скорую помощь.",
+            "options": [
+              "An ambulance",
+              "A taxi",
+              "A teacher"
+            ],
+            "answer": "An ambulance",
+            "explanation": "Use this for urgent danger or serious symptoms."
+          },
+          {
+            "id": "u13-listen-rest",
+            "prompt": "You hear «Нужно отдыхать» — what is needed?",
+            "hear": "Нужно отдыхать.",
+            "options": [
+              "Rest",
+              "A train",
+              "A passport"
+            ],
+            "answer": "Rest",
+            "explanation": "This gives a calm next step for non-urgent illness."
+          },
+          {
+            "id": "u13-listen-temperature",
+            "prompt": "You hear «У меня температура» — what does the person have?",
+            "hear": "У меня температура.",
+            "options": [
+              "A temperature / fever",
+              "A headache",
+              "A ticket"
+            ],
+            "answer": "A temperature / fever",
+            "explanation": "This is a high-value doctor/pharmacy phrase."
+          }
+        ]
+      },
+      "checkpoint": {
+        "id": "u13-cumulative-checkpoint",
+        "title": "Cumulative health-and-help check",
+        "isCumulative": true,
+        "sourceUnits": [
+          "u02-greetings-introductions",
+          "u03-numbers-time",
+          "u04-people-family",
+          "u05-home-objects",
+          "u06-food-cafe",
+          "u07-shopping-clothing",
+          "u08-daily-routine",
+          "u09-work-school",
+          "u10-city-directions",
+          "u11-travel-stay",
+          "u12-weather-seasons"
+        ],
+        "questions": [
+          {
+            "id": "u13-q1",
+            "prompt": "Choose “I feel unwell”.",
+            "options": [
+              "Мне плохо.",
+              "Мне нужен билет.",
+              "Идите прямо."
+            ],
+            "answer": "Мне плохо.",
+            "skill": "production",
+            "sourceUnit": "u13-health-needs"
+          },
+          {
+            "id": "u13-q2",
+            "prompt": "Choose “I have a headache”.",
+            "options": [
+              "У меня болит голова.",
+              "У меня есть багаж.",
+              "Завтра будет тепло."
+            ],
+            "answer": "У меня болит голова.",
+            "skill": "production",
+            "sourceUnit": "u13-health-needs"
+          },
+          {
+            "id": "u13-q3",
+            "prompt": "Choose “I need a doctor”.",
+            "options": [
+              "Мне нужен врач.",
+              "Где платформа?",
+              "Счёт, пожалуйста."
+            ],
+            "answer": "Мне нужен врач.",
+            "skill": "production",
+            "sourceUnit": "u13-health-needs"
+          },
+          {
+            "id": "u13-q4",
+            "prompt": "Choose the pharmacy question.",
+            "options": [
+              "Где находится аптека?",
+              "Какая сегодня погода?",
+              "Куда вы едете?"
+            ],
+            "answer": "Где находится аптека?",
+            "skill": "recognition",
+            "sourceUnit": "u10-city-directions"
+          },
+          {
+            "id": "u13-q5",
+            "prompt": "Choose the urgent ambulance request.",
+            "options": [
+              "Вызовите скорую помощь, пожалуйста.",
+              "Повторите, пожалуйста.",
+              "Возьмите зонт."
+            ],
+            "answer": "Вызовите скорую помощь, пожалуйста.",
+            "skill": "production",
+            "sourceUnit": "u13-health-needs"
+          },
+          {
+            "id": "u13-q6",
+            "prompt": "Choose the repair phrase.",
+            "options": [
+              "Я не понимаю. Повторите, пожалуйста.",
+              "Я работаю в офисе.",
+              "Аптека рядом с банком."
+            ],
+            "answer": "Я не понимаю. Повторите, пожалуйста.",
+            "skill": "recognition",
+            "sourceUnit": "u09-work-school"
+          }
+        ],
+        "completionRule": "Answer at least 5 of 6 correctly and complete the dialogue."
+      },
+      "completionEvidence": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reviewLinks": [
+        3,
+        4,
+        5,
+        57,
+        66
+      ]
+    },
+    "u14-preferences-free-time": {
+      "id": "u14-preferences-free-time",
+      "unitId": "u14-preferences-free-time",
+      "status": "active",
+      "title": "Preferences and free time",
+      "objective": "Express likes and dislikes, talk about hobbies, and make or decline a simple invitation.",
+      "paretoTier": "high-frequency-core",
+      "estimatedMinutes": 15,
+      "activities": [
+        {
+          "id": "u14-warmup",
+          "type": "warm-up",
+          "title": "Find a shared interest",
+          "prompt": "Bring greetings, weekend, café, weather, health, and work language into a free-time conversation.",
+          "reviewIds": []
+        },
+        {
+          "id": "u14-meaning",
+          "type": "meaning",
+          "title": "Likes and hobbies",
+          "prompt": "Connect preference, hobby, invitation, and polite-decline phrases to their meanings.",
+          "reviewIds": []
+        },
+        {
+          "id": "u14-listen",
+          "type": "listen",
+          "title": "Hear the preference",
+          "prompt": "Listen for likes, dislikes, invitations, and reasons to postpone.",
+          "reviewIds": []
+        },
+        {
+          "id": "u14-produce",
+          "type": "produce",
+          "title": "Say what you enjoy",
+          "prompt": "Say what you like to do and ask about another person’s hobbies.",
+          "reviewIds": []
+        },
+        {
+          "id": "u14-speak",
+          "type": "speak",
+          "title": "Invite or decline",
+          "prompt": "Invite someone for the weekend and accept or decline politely.",
+          "reviewIds": []
+        },
+        {
+          "id": "u14-apply",
+          "type": "apply",
+          "title": "Make a small plan",
+          "prompt": "Complete the hobby dialogue, free-time story, listening contrasts, and cumulative checkpoint.",
+          "reviewIds": []
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "u14-music",
+          "ru": "музыка",
+          "pron": "MOO-zee-ka",
+          "en": "music",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u14-film",
+          "ru": "фильм",
+          "pron": "FEELM",
+          "en": "film",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u14-book",
+          "ru": "книга",
+          "pron": "KNEE-ga",
+          "en": "book",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u14-sport",
+          "ru": "спорт",
+          "pron": "SPORT",
+          "en": "sport",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u14-walk",
+          "ru": "прогулка",
+          "pron": "pra-GOOL-ka",
+          "en": "walk",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u14-hobby",
+          "ru": "хобби",
+          "pron": "HO-bbee",
+          "en": "hobby",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u14-like",
+          "ru": "нравиться",
+          "pron": "na-RA-veet-sa",
+          "en": "to like",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u14-love",
+          "ru": "любить",
+          "pron": "lyoo-BEET",
+          "en": "to love",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u14-prefer",
+          "ru": "любимый",
+          "pron": "lyoo-BEE-my",
+          "en": "favorite",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u14-dislike",
+          "ru": "не нравится",
+          "pron": "nye na-RA-veet-sa",
+          "en": "do not like",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u14-free-time",
+          "ru": "свободное время",
+          "pron": "sva-BOD-na-ye VRYE-mya",
+          "en": "free time",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u14-invite",
+          "ru": "приглашать",
+          "pron": "preeg-la-SHAT",
+          "en": "to invite",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u14-together",
+          "ru": "вместе",
+          "pron": "VMES-tye",
+          "en": "together",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u14-weekend",
+          "ru": "выходные",
+          "pron": "vy-hod-NY-ye",
+          "en": "weekend",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u14-interesting",
+          "ru": "интересно",
+          "pron": "in-te-RES-na",
+          "en": "interesting",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u14-busy",
+          "ru": "занят",
+          "pron": "za-NYAT",
+          "en": "busy",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        }
+      ],
+      "patterns": [
+        {
+          "ru": "Мне нравится музыка.",
+          "en": "I like music.",
+          "pron": "mne NRA-veet-sa MOO-zee-ka"
+        },
+        {
+          "ru": "Я люблю читать книги.",
+          "en": "I love reading books.",
+          "pron": "ya lyoo-BLYOO chee-TAT KNEE-gee"
+        },
+        {
+          "ru": "Я не люблю спорт.",
+          "en": "I do not like sport.",
+          "pron": "ya nye lyoo-BLYOO SPORT"
+        },
+        {
+          "ru": "Что вы любите делать?",
+          "en": "What do you like to do?",
+          "pron": "shto vy lyoo-BEE-tye DYE-lat"
+        },
+        {
+          "ru": "Давайте встретимся в выходные.",
+          "en": "Let’s meet on the weekend.",
+          "pron": "da-VA-yte VSTRE-tym-sa v vy-hod-NY-ye"
+        },
+        {
+          "ru": "Извините, я занят.",
+          "en": "Sorry, I am busy.",
+          "pron": "iz-vee-NEE-tye ya za-NYAT"
+        }
+      ],
+      "grammar": {
+        "id": "u14-preference-frames",
+        "kind": "Usage",
+        "title": "Мне нравится… and Я люблю…",
+        "explanation": "Use «Мне нравится + singular thing» for “I like …” and «Я люблю + verb» for “I love doing …”. Use «не» to make a simple dislike and «Давайте…» for an invitation.",
+        "exampleRu": "Мне нравится музыка. Я люблю гулять в парке.",
+        "exampleEn": "I like music. I love walking in the park.",
+        "commonMistake": "Do not confuse «Мне нравится» with an English-style subject pattern. The thing you like follows the phrase: «Мне нравится фильм»."
+      },
+      "dialogue": {
+        "id": "u14-weekend-hobby",
+        "title": "Talking about hobbies and making a plan",
+        "turns": [
+          {
+            "role": "tutor",
+            "ru": "Что вы любите делать в свободное время?",
+            "en": "What do you like to do in your free time?",
+            "prompt": "Say that you love reading books.",
+            "variants": [
+              "я люблю читать книги",
+              "люблю читать книги"
+            ],
+            "hint": "Use «Я люблю читать книги»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Мне тоже нравится читать. Давайте встретимся в выходные?",
+            "en": "I also like reading. Shall we meet on the weekend?",
+            "prompt": "Suggest going to a park.",
+            "variants": [
+              "давайте пойдем в парк",
+              "давайте пойдем в парк",
+              "пойдем в парк"
+            ],
+            "hint": "Use «Давайте пойдём в парк»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Хорошая идея! Во сколько?",
+            "en": "Good idea! At what time?",
+            "prompt": "Say that you are free at three o’clock.",
+            "variants": [
+              "в три часа",
+              "я свободен в три часа",
+              "я свободна в три часа"
+            ],
+            "hint": "Use «В три часа»."
+          }
+        ]
+      },
+      "story": {
+        "id": "u14-weekend-hobbies",
+        "title": "A weekend with friends",
+        "lines": [
+          {
+            "ru": "После работы Олег спрашивает сестру: «Что ты любишь делать?»",
+            "en": "After work Oleg asks his sister: “What do you like to do?”"
+          },
+          {
+            "ru": "Она любит читать и слушать музыку.",
+            "en": "She loves reading and listening to music."
+          },
+          {
+            "ru": "Олегу нравится спорт, но сегодня плохая погода.",
+            "en": "Oleg likes sport, but the weather is bad today."
+          },
+          {
+            "ru": "Они решают встретиться в кафе в выходные.",
+            "en": "They decide to meet at a café on the weekend."
+          },
+          {
+            "ru": "Потом, если будет тепло, они пойдут в парк.",
+            "en": "Then, if it is warm, they will go to a park."
+          }
+        ],
+        "glossary": [
+          "после работы",
+          "что ты любишь делать",
+          "читать",
+          "слушать музыку",
+          "спорт",
+          "плохая погода",
+          "встретиться",
+          "выходные",
+          "если будет тепло"
+        ],
+        "questions": [
+          {
+            "q": "Что любит сестра?",
+            "options": [
+              "читать и слушать музыку",
+              "спорт",
+              "работать в офисе"
+            ],
+            "answer": "читать и слушать музыку"
+          },
+          {
+            "q": "Где они решают встретиться?",
+            "options": [
+              "в кафе",
+              "на вокзале",
+              "в аптеке"
+            ],
+            "answer": "в кафе"
+          },
+          {
+            "q": "Куда они пойдут, если будет тепло?",
+            "options": [
+              "в парк",
+              "в гостиницу",
+              "в университет"
+            ],
+            "answer": "в парк"
+          }
+        ]
+      },
+      "recycling": {
+        "title": "Cumulative preferences-and-plans loop",
+        "summary": "This unit turns familiar places, weather, time, and companions into a social skill: say what you enjoy, invite someone, and respond politely.",
+        "sources": [
+          {
+            "unitId": "u02-greetings-introductions",
+            "label": "Unit 2 · friendly opening",
+            "words": [
+              "Привет",
+              "Как вас зовут?"
+            ]
+          },
+          {
+            "unitId": "u03-numbers-time",
+            "label": "Unit 3 · time and weekend",
+            "words": [
+              "выходные",
+              "в субботу"
+            ]
+          },
+          {
+            "unitId": "u04-people-family",
+            "label": "Unit 4 · companions",
+            "words": [
+              "моя сестра",
+              "вместе"
+            ]
+          },
+          {
+            "unitId": "u05-home-objects",
+            "label": "Unit 5 · everyday objects",
+            "words": [
+              "книга",
+              "дома"
+            ]
+          },
+          {
+            "unitId": "u06-food-cafe",
+            "label": "Unit 6 · café invitations",
+            "words": [
+              "кафе",
+              "давайте"
+            ]
+          },
+          {
+            "unitId": "u07-shopping-clothing",
+            "label": "Unit 7 · clothing and activity",
+            "words": [
+              "прогулка",
+              "идти"
+            ]
+          },
+          {
+            "unitId": "u08-daily-routine",
+            "label": "Unit 8 · routine and free time",
+            "words": [
+              "свободное время",
+              "вечером"
+            ]
+          },
+          {
+            "unitId": "u09-work-school",
+            "label": "Unit 9 · work schedules",
+            "words": [
+              "занят",
+              "после работы"
+            ]
+          },
+          {
+            "unitId": "u10-city-directions",
+            "label": "Unit 10 · city activities",
+            "words": [
+              "музей",
+              "парк"
+            ]
+          },
+          {
+            "unitId": "u11-travel-stay",
+            "label": "Unit 11 · travel plans",
+            "words": [
+              "встретимся",
+              "гостиница"
+            ]
+          },
+          {
+            "unitId": "u12-weather-seasons",
+            "label": "Unit 12 · weather plans",
+            "words": [
+              "погода",
+              "завтра"
+            ]
+          },
+          {
+            "unitId": "u13-health-needs",
+            "label": "Unit 13 · energy and needs",
+            "words": [
+              "мне нравится",
+              "отдыхать"
+            ]
+          }
+        ],
+        "listeningContrasts": [
+          {
+            "id": "u14-listen-like",
+            "prompt": "What does «Мне нравится музыка» mean?",
+            "hear": "Мне нравится музыка.",
+            "options": [
+              "I like music",
+              "I dislike music",
+              "I need music"
+            ],
+            "answer": "I like music",
+            "explanation": "A core preference frame."
+          },
+          {
+            "id": "u14-listen-hobby",
+            "prompt": "What does the speaker love doing?",
+            "hear": "Я люблю читать книги.",
+            "options": [
+              "Reading books",
+              "Playing sport",
+              "Going to the station"
+            ],
+            "answer": "Reading books",
+            "explanation": "This supports free-time conversation."
+          },
+          {
+            "id": "u14-listen-dislike",
+            "prompt": "What does «Я не люблю спорт» express?",
+            "hear": "Я не люблю спорт.",
+            "options": [
+              "Dislike of sport",
+              "Love of sport",
+              "A sports injury"
+            ],
+            "answer": "Dislike of sport",
+            "explanation": "Negation makes preferences usable."
+          },
+          {
+            "id": "u14-listen-invite",
+            "prompt": "What is the speaker suggesting?",
+            "hear": "Давайте встретимся в выходные.",
+            "options": [
+              "Meeting on the weekend",
+              "Going to the doctor",
+              "Taking a train"
+            ],
+            "answer": "Meeting on the weekend",
+            "explanation": "A reusable invitation chunk."
+          },
+          {
+            "id": "u14-listen-busy",
+            "prompt": "Why does the speaker decline?",
+            "hear": "Извините, я занят.",
+            "options": [
+              "They are busy",
+              "They are sick",
+              "They are lost"
+            ],
+            "answer": "They are busy",
+            "explanation": "A polite decline protects the conversation."
+          },
+          {
+            "id": "u14-listen-question",
+            "prompt": "What is «Что вы любите делать?» asking about?",
+            "hear": "Что вы любите делать?",
+            "options": [
+              "What you like to do",
+              "Where you work",
+              "What time the train leaves"
+            ],
+            "answer": "What you like to do",
+            "explanation": "A high-value open preference question."
+          },
+          {
+            "id": "u14-listen-interesting",
+            "prompt": "What does «Это интересно» mean?",
+            "hear": "Это интересно.",
+            "options": [
+              "It is interesting",
+              "It is far",
+              "It is cold"
+            ],
+            "answer": "It is interesting",
+            "explanation": "A useful reaction to a hobby or plan."
+          }
+        ]
+      },
+      "checkpoint": {
+        "id": "u14-cumulative-checkpoint",
+        "title": "Cumulative preferences-and-plans check",
+        "isCumulative": true,
+        "sourceUnits": [
+          "u02-greetings-introductions",
+          "u03-numbers-time",
+          "u04-people-family",
+          "u05-home-objects",
+          "u06-food-cafe",
+          "u07-shopping-clothing",
+          "u08-daily-routine",
+          "u09-work-school",
+          "u10-city-directions",
+          "u11-travel-stay",
+          "u12-weather-seasons",
+          "u13-health-needs"
+        ],
+        "questions": [
+          {
+            "id": "u14-q1",
+            "prompt": "Choose “I like music”.",
+            "options": [
+              "Мне нравится музыка.",
+              "Мне плохо.",
+              "Где находится аптека?"
+            ],
+            "answer": "Мне нравится музыка.",
+            "skill": "production",
+            "sourceUnit": "u14-preferences-free-time"
+          },
+          {
+            "id": "u14-q2",
+            "prompt": "Choose “I love reading books”.",
+            "options": [
+              "Я люблю читать книги.",
+              "Я не люблю спорт.",
+              "Завтра будет тепло."
+            ],
+            "answer": "Я люблю читать книги.",
+            "skill": "production",
+            "sourceUnit": "u14-preferences-free-time"
+          },
+          {
+            "id": "u14-q3",
+            "prompt": "Choose the invitation for the weekend.",
+            "options": [
+              "Давайте встретимся в выходные.",
+              "Во сколько отправляется поезд?",
+              "Вызовите врача."
+            ],
+            "answer": "Давайте встретимся в выходные.",
+            "skill": "production",
+            "sourceUnit": "u14-preferences-free-time"
+          },
+          {
+            "id": "u14-q4",
+            "prompt": "Choose the question “What do you like to do?”.",
+            "options": [
+              "Что вы любите делать?",
+              "Какая сегодня погода?",
+              "Куда вы едете?"
+            ],
+            "answer": "Что вы любите делать?",
+            "skill": "recognition",
+            "sourceUnit": "u14-preferences-free-time"
+          },
+          {
+            "id": "u14-q5",
+            "prompt": "Choose the polite decline.",
+            "options": [
+              "Извините, я занят.",
+              "Я не понимаю. Повторите, пожалуйста.",
+              "Идите прямо."
+            ],
+            "answer": "Извините, я занят.",
+            "skill": "recognition",
+            "sourceUnit": "u09-work-school"
+          },
+          {
+            "id": "u14-q6",
+            "prompt": "Choose the weather-plan phrase recycled from Unit 12.",
+            "options": [
+              "Давайте пойдём в парк.",
+              "Мне нужен врач.",
+              "У меня есть багаж."
+            ],
+            "answer": "Давайте пойдём в парк.",
+            "skill": "recognition",
+            "sourceUnit": "u12-weather-seasons"
+          }
+        ],
+        "completionRule": "Answer at least 5 of 6 correctly and complete the dialogue."
+      },
+      "completionEvidence": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reviewLinks": [
+        3,
+        4,
+        5,
+        57,
+        66
+      ]
+    },
+    "u15-plans-future": {
+      "id": "u15-plans-future",
+      "unitId": "u15-plans-future",
+      "status": "active",
+      "title": "Plans and near future",
+      "objective": "Talk about simple future plans, arrange a time and place, and change a plan politely.",
+      "paretoTier": "high-frequency-core",
+      "estimatedMinutes": 15,
+      "activities": [
+        {
+          "id": "u15-warmup",
+          "type": "warm-up",
+          "title": "Make a plan",
+          "prompt": "Bring time, invitations, travel, weather, work, and health language into a future plan.",
+          "reviewIds": []
+        },
+        {
+          "id": "u15-meaning",
+          "type": "meaning",
+          "title": "Future plan chunks",
+          "prompt": "Connect future verbs, availability, timing, and rescheduling phrases to their meanings.",
+          "reviewIds": []
+        },
+        {
+          "id": "u15-listen",
+          "type": "listen",
+          "title": "Hear tomorrow’s plan",
+          "prompt": "Listen for will, can, must, meeting times, and changed plans.",
+          "reviewIds": []
+        },
+        {
+          "id": "u15-produce",
+          "type": "produce",
+          "title": "Say what you will do",
+          "prompt": "Describe a simple tomorrow plan and give a time when you can come.",
+          "reviewIds": []
+        },
+        {
+          "id": "u15-speak",
+          "type": "speak",
+          "title": "Arrange and change",
+          "prompt": "Invite someone, confirm a time, and change the plan politely if needed.",
+          "reviewIds": []
+        },
+        {
+          "id": "u15-apply",
+          "type": "apply",
+          "title": "Coordinate the day",
+          "prompt": "Complete the planning dialogue, future story, listening contrasts, and cumulative checkpoint.",
+          "reviewIds": []
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "u15-tomorrow",
+          "ru": "завтра",
+          "pron": "ZAF-tra",
+          "en": "tomorrow",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u15-next",
+          "ru": "послезавтра",
+          "pron": "pos-le-ZAF-tra",
+          "en": "the day after tomorrow",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u15-plan",
+          "ru": "план",
+          "pron": "PLAN",
+          "en": "plan",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u15-meet",
+          "ru": "встретиться",
+          "pron": "vstre-TEET-sa",
+          "en": "to meet",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u15-go",
+          "ru": "пойти",
+          "pron": "pa-YTEE",
+          "en": "to go",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u15-will",
+          "ru": "буду",
+          "pron": "BOO-doo",
+          "en": "will / am going to",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u15-want",
+          "ru": "хотеть",
+          "pron": "ha-TYET",
+          "en": "to want",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u15-can",
+          "ru": "могу",
+          "pron": "ma-GOO",
+          "en": "can",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u15-must",
+          "ru": "нужно",
+          "pron": "NOOZH-na",
+          "en": "need to / must",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u15-free",
+          "ru": "свободен",
+          "pron": "sva-ba-DYEN",
+          "en": "free / available",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u15-later",
+          "ru": "позже",
+          "pron": "POZH-zhe",
+          "en": "later",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u15-early",
+          "ru": "рано",
+          "pron": "RA-na",
+          "en": "early",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u15-evening",
+          "ru": "вечером",
+          "pron": "VYE-cha-ram",
+          "en": "in the evening",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u15-morning",
+          "ru": "утром",
+          "pron": "OOT-ram",
+          "en": "in the morning",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u15-change",
+          "ru": "изменить",
+          "pron": "iz-me-NEET",
+          "en": "to change",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u15-together",
+          "ru": "вместе",
+          "pron": "VMES-tye",
+          "en": "together",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        }
+      ],
+      "patterns": [
+        {
+          "ru": "Что вы будете делать завтра?",
+          "en": "What will you do tomorrow?",
+          "pron": "shto vy BOO-de-tye DYE-lat ZAF-tra"
+        },
+        {
+          "ru": "Я буду работать утром.",
+          "en": "I will work in the morning.",
+          "pron": "ya BOO-doo ra-BO-tat OOT-ram"
+        },
+        {
+          "ru": "Давайте встретимся вечером.",
+          "en": "Let’s meet in the evening.",
+          "pron": "da-VA-yte VSTRE-tym-sa VYE-cha-ram"
+        },
+        {
+          "ru": "Я могу прийти в три часа.",
+          "en": "I can come at three o’clock.",
+          "pron": "ya ma-GOO pree-YTEE v TREE cha-SA"
+        },
+        {
+          "ru": "Мне нужно изменить план.",
+          "en": "I need to change the plan.",
+          "pron": "mne NOOZH-na iz-me-NEET PLAN"
+        },
+        {
+          "ru": "Увидимся позже.",
+          "en": "See you later.",
+          "pron": "oo-VEED-im-sa POZH-zhe"
+        }
+      ],
+      "grammar": {
+        "id": "u15-near-future",
+        "kind": "Usage",
+        "title": "Буду + infinitive and могу + infinitive",
+        "explanation": "Use «буду + infinitive» for a simple future plan: «Я буду работать». Use «могу + infinitive» to say you can do something, and «мне нужно + infinitive» for a necessary action.",
+        "exampleRu": "Завтра я буду работать утром, а вечером могу встретиться с вами.",
+        "exampleEn": "Tomorrow I will work in the morning, and in the evening I can meet you.",
+        "commonMistake": "Keep the infinitive after буду, могу, and нужно: «буду работать», «могу прийти», «нужно изменить»."
+      },
+      "dialogue": {
+        "id": "u15-change-plan",
+        "title": "Arranging and changing a plan",
+        "turns": [
+          {
+            "role": "tutor",
+            "ru": "Что вы будете делать завтра?",
+            "en": "What will you do tomorrow?",
+            "prompt": "Say that you will work in the morning.",
+            "variants": [
+              "я буду работать утром",
+              "буду работать утром"
+            ],
+            "hint": "Use «Я буду работать утром»."
+          },
+          {
+            "role": "tutor",
+            "ru": "А вечером? Давайте встретимся?",
+            "en": "And in the evening? Shall we meet?",
+            "prompt": "Say that you can come at three o’clock.",
+            "variants": [
+              "я могу прийти в три часа",
+              "могу прийти в три часа"
+            ],
+            "hint": "Use «Я могу прийти в три часа»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Хорошо. В три часа в кафе.",
+            "en": "Good. At three at the café.",
+            "prompt": "Say that you need to change the plan.",
+            "variants": [
+              "мне нужно изменить план",
+              "нужно изменить план"
+            ],
+            "hint": "Use «Мне нужно изменить план»."
+          }
+        ]
+      },
+      "story": {
+        "id": "u15-tomorrow-plan",
+        "title": "A plan that changes",
+        "lines": [
+          {
+            "ru": "Завтра утром Маша будет работать дома.",
+            "en": "Tomorrow morning Masha will work at home."
+          },
+          {
+            "ru": "Вечером она хочет встретиться с братом в кафе.",
+            "en": "In the evening she wants to meet her brother at a café."
+          },
+          {
+            "ru": "Она пишет: «Я могу прийти в три часа».",
+            "en": "She writes: “I can come at three o’clock.”"
+          },
+          {
+            "ru": "Но погода плохая, и Маша меняет план.",
+            "en": "But the weather is bad, and Masha changes the plan."
+          },
+          {
+            "ru": "Они будут дома, читать книгу и пить чай.",
+            "en": "They will stay at home, read a book, and drink tea."
+          }
+        ],
+        "glossary": [
+          "завтра утром",
+          "будет работать",
+          "вечером",
+          "встретиться",
+          "могу прийти",
+          "плохая погода",
+          "меняет план",
+          "дома",
+          "читать книгу"
+        ],
+        "questions": [
+          {
+            "q": "Где Маша будет работать утром?",
+            "options": [
+              "дома",
+              "в кафе",
+              "на вокзале"
+            ],
+            "answer": "дома"
+          },
+          {
+            "q": "Во сколько она может прийти?",
+            "options": [
+              "в три часа",
+              "в семь часов",
+              "вечером"
+            ],
+            "answer": "в три часа"
+          },
+          {
+            "q": "Почему они меняют план?",
+            "options": [
+              "плохая погода",
+              "нет билета",
+              "Маша больна"
+            ],
+            "answer": "плохая погода"
+          }
+        ]
+      },
+      "recycling": {
+        "title": "Cumulative planning-and-rescheduling loop",
+        "summary": "This unit turns familiar time, places, weather, work, health, and invitations into a flexible survival skill: make a plan, confirm it, and change it clearly.",
+        "sources": [
+          {
+            "unitId": "u02-greetings-introductions",
+            "label": "Unit 2 · greeting and courtesy",
+            "words": [
+              "Здравствуйте",
+              "пожалуйста"
+            ]
+          },
+          {
+            "unitId": "u03-numbers-time",
+            "label": "Unit 3 · time and dates",
+            "words": [
+              "завтра",
+              "в три часа"
+            ]
+          },
+          {
+            "unitId": "u04-people-family",
+            "label": "Unit 4 · companions",
+            "words": [
+              "мы",
+              "моя сестра"
+            ]
+          },
+          {
+            "unitId": "u05-home-objects",
+            "label": "Unit 5 · home plans",
+            "words": [
+              "дома",
+              "вечером"
+            ]
+          },
+          {
+            "unitId": "u06-food-cafe",
+            "label": "Unit 6 · café meeting",
+            "words": [
+              "кафе",
+              "счёт"
+            ]
+          },
+          {
+            "unitId": "u07-shopping-clothing",
+            "label": "Unit 7 · shopping errands",
+            "words": [
+              "магазин",
+              "купить"
+            ]
+          },
+          {
+            "unitId": "u08-daily-routine",
+            "label": "Unit 8 · daily routine",
+            "words": [
+              "утром",
+              "после работы"
+            ]
+          },
+          {
+            "unitId": "u09-work-school",
+            "label": "Unit 9 · work schedule",
+            "words": [
+              "занят",
+              "офис"
+            ]
+          },
+          {
+            "unitId": "u10-city-directions",
+            "label": "Unit 10 · city destinations",
+            "words": [
+              "парк",
+              "идите прямо"
+            ]
+          },
+          {
+            "unitId": "u11-travel-stay",
+            "label": "Unit 11 · travel changes",
+            "words": [
+              "вокзал",
+              "билет"
+            ]
+          },
+          {
+            "unitId": "u12-weather-seasons",
+            "label": "Unit 12 · weather plan",
+            "words": [
+              "будет тепло",
+              "погода"
+            ]
+          },
+          {
+            "unitId": "u13-health-needs",
+            "label": "Unit 13 · energy and needs",
+            "words": [
+              "мне плохо",
+              "отдыхать"
+            ]
+          },
+          {
+            "unitId": "u14-preferences-free-time",
+            "label": "Unit 14 · hobbies and invitations",
+            "words": [
+              "выходные",
+              "встретимся"
+            ]
+          }
+        ],
+        "listeningContrasts": [
+          {
+            "id": "u15-listen-future",
+            "prompt": "What does «Я буду работать утром» mean?",
+            "hear": "Я буду работать утром.",
+            "options": [
+              "I will work in the morning",
+              "I worked yesterday",
+              "I am lost at the station"
+            ],
+            "answer": "I will work in the morning",
+            "explanation": "A practical future plan."
+          },
+          {
+            "id": "u15-listen-meeting",
+            "prompt": "What is the speaker suggesting?",
+            "hear": "Давайте встретимся вечером.",
+            "options": [
+              "Let’s meet in the evening",
+              "Let’s go to the pharmacy",
+              "Let’s take a train"
+            ],
+            "answer": "Let’s meet in the evening",
+            "explanation": "This recycles Unit 14 invitations."
+          },
+          {
+            "id": "u15-listen-can",
+            "prompt": "What can the speaker do?",
+            "hear": "Я могу прийти в три часа.",
+            "options": [
+              "Come at three",
+              "Leave at seven",
+              "Call an ambulance"
+            ],
+            "answer": "Come at three",
+            "explanation": "This arranges time with familiar numbers."
+          },
+          {
+            "id": "u15-listen-change",
+            "prompt": "What does the speaker need to do?",
+            "hear": "Мне нужно изменить план.",
+            "options": [
+              "Change the plan",
+              "Buy a ticket",
+              "Take medicine"
+            ],
+            "answer": "Change the plan",
+            "explanation": "Useful for repairs and rescheduling."
+          },
+          {
+            "id": "u15-listen-later",
+            "prompt": "What does «Увидимся позже» mean?",
+            "hear": "Увидимся позже.",
+            "options": [
+              "See you later",
+              "See you tomorrow",
+              "See you at the station"
+            ],
+            "answer": "See you later",
+            "explanation": "A natural closing phrase."
+          },
+          {
+            "id": "u15-listen-question",
+            "prompt": "What is «Что вы будете делать завтра?» asking about?",
+            "hear": "Что вы будете делать завтра?",
+            "options": [
+              "Tomorrow’s plans",
+              "A health problem",
+              "A hotel reservation"
+            ],
+            "answer": "Tomorrow’s plans",
+            "explanation": "A high-value future question."
+          },
+          {
+            "id": "u15-listen-early",
+            "prompt": "What time context is «утром»?",
+            "hear": "утром",
+            "options": [
+              "In the morning",
+              "In the evening",
+              "Later"
+            ],
+            "answer": "In the morning",
+            "explanation": "This recycles time-of-day language."
+          }
+        ]
+      },
+      "checkpoint": {
+        "id": "u15-cumulative-checkpoint",
+        "title": "Cumulative plans-and-future check",
+        "isCumulative": true,
+        "sourceUnits": [
+          "u02-greetings-introductions",
+          "u03-numbers-time",
+          "u04-people-family",
+          "u05-home-objects",
+          "u06-food-cafe",
+          "u07-shopping-clothing",
+          "u08-daily-routine",
+          "u09-work-school",
+          "u10-city-directions",
+          "u11-travel-stay",
+          "u12-weather-seasons",
+          "u13-health-needs",
+          "u14-preferences-free-time"
+        ],
+        "questions": [
+          {
+            "id": "u15-q1",
+            "prompt": "Choose “What will you do tomorrow?”.",
+            "options": [
+              "Что вы будете делать завтра?",
+              "Какая сегодня погода?",
+              "Где находится аптека?"
+            ],
+            "answer": "Что вы будете делать завтра?",
+            "skill": "production",
+            "sourceUnit": "u15-plans-future"
+          },
+          {
+            "id": "u15-q2",
+            "prompt": "Choose “I can come at three o’clock”.",
+            "options": [
+              "Я могу прийти в три часа.",
+              "Мне нужен врач.",
+              "Давайте пойдём в парк."
+            ],
+            "answer": "Я могу прийти в три часа.",
+            "skill": "production",
+            "sourceUnit": "u15-plans-future"
+          },
+          {
+            "id": "u15-q3",
+            "prompt": "Choose “I need to change the plan”.",
+            "options": [
+              "Мне нужно изменить план.",
+              "У меня болит голова.",
+              "С какой платформы?"
+            ],
+            "answer": "Мне нужно изменить план.",
+            "skill": "production",
+            "sourceUnit": "u15-plans-future"
+          },
+          {
+            "id": "u15-q4",
+            "prompt": "Choose the future work plan.",
+            "options": [
+              "Я буду работать утром.",
+              "Я люблю читать книги.",
+              "У меня есть багаж."
+            ],
+            "answer": "Я буду работать утром.",
+            "skill": "recognition",
+            "sourceUnit": "u15-plans-future"
+          },
+          {
+            "id": "u15-q5",
+            "prompt": "Choose the polite future invitation.",
+            "options": [
+              "Давайте встретимся вечером.",
+              "Вызовите скорую помощь.",
+              "Повторите, пожалуйста."
+            ],
+            "answer": "Давайте встретимся вечером.",
+            "skill": "recognition",
+            "sourceUnit": "u14-preferences-free-time"
+          },
+          {
+            "id": "u15-q6",
+            "prompt": "Choose the time phrase meaning “in the morning”.",
+            "options": [
+              "утром",
+              "вечером",
+              "позже"
+            ],
+            "answer": "утром",
+            "skill": "recognition",
+            "sourceUnit": "u03-numbers-time"
+          }
+        ],
+        "completionRule": "Answer at least 5 of 6 correctly and complete the dialogue."
+      },
+      "completionEvidence": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reviewLinks": [
+        3,
+        4,
+        5,
+        57,
+        66
+      ]
+    },
+    "u16-survival-mission": {
+      "id": "u16-survival-mission",
+      "unitId": "u16-survival-mission",
+      "status": "active",
+      "title": "A1 survival mission",
+      "objective": "Combine A1 Russian in realistic survival situations: arrive, ask, repair, solve a problem, and make a plan.",
+      "paretoTier": "survival-core",
+      "estimatedMinutes": 20,
+      "activities": [
+        {
+          "id": "u16-warmup",
+          "type": "warm-up",
+          "title": "Enter the mission",
+          "prompt": "Activate the highest-value chunks from the complete A1 course before the mixed scenario.",
+          "reviewIds": []
+        },
+        {
+          "id": "u16-meaning",
+          "type": "meaning",
+          "title": "Survival toolkit",
+          "prompt": "Connect help, repair, location, price, health, and closing phrases to their meanings.",
+          "reviewIds": []
+        },
+        {
+          "id": "u16-listen",
+          "type": "listen",
+          "title": "Understand the situation",
+          "prompt": "Listen for place, price, problem, repair, health, and thanks cues.",
+          "reviewIds": []
+        },
+        {
+          "id": "u16-produce",
+          "type": "produce",
+          "title": "Ask clearly",
+          "prompt": "Ask where, how much, what time, and for the help you need.",
+          "reviewIds": []
+        },
+        {
+          "id": "u16-speak",
+          "type": "speak",
+          "title": "Repair and solve",
+          "prompt": "Handle a mixed station, pharmacy, and accommodation problem with calm, clear chunks.",
+          "reviewIds": []
+        },
+        {
+          "id": "u16-apply",
+          "type": "apply",
+          "title": "Complete the A1 mission",
+          "prompt": "Finish the capstone dialogue, story, listening contrasts, and final cumulative checkpoint.",
+          "reviewIds": []
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "u16-help",
+          "ru": "помогите",
+          "pron": "pa-ma-GEE-tye",
+          "en": "help me",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u16-excuse",
+          "ru": "извините",
+          "pron": "iz-vee-NEE-tye",
+          "en": "excuse me / sorry",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u16-repeat",
+          "ru": "повторите",
+          "pron": "pafta-REE-tye",
+          "en": "repeat, please",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u16-slow",
+          "ru": "медленнее",
+          "pron": "MED-len-nee-ye",
+          "en": "more slowly",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u16-understand",
+          "ru": "понимаю",
+          "pron": "pa-nee-MA-yoo",
+          "en": "I understand",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u16-where",
+          "ru": "где находится",
+          "pron": "gde na-HO-deet-sa",
+          "en": "where is",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u16-how much",
+          "ru": "сколько стоит",
+          "pron": "SKOL-ka STO-eet",
+          "en": "how much does it cost",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u16-need",
+          "ru": "мне нужна помощь",
+          "pron": "mne noozh-NA PO-mashch",
+          "en": "I need help",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u16-ticket",
+          "ru": "мне нужен билет",
+          "pron": "mne NOO-zhen bee-LET",
+          "en": "I need a ticket",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u16-doctor",
+          "ru": "мне нужен врач",
+          "pron": "mne NOO-zhen vrach",
+          "en": "I need a doctor",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u16-plan",
+          "ru": "давайте",
+          "pron": "da-VA-yte",
+          "en": "let’s",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u16-tomorrow",
+          "ru": "завтра",
+          "pron": "ZAF-tra",
+          "en": "tomorrow",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u16-time",
+          "ru": "во сколько",
+          "pron": "va SKOL-ka",
+          "en": "at what time",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u16-near",
+          "ru": "рядом",
+          "pron": "RYA-dam",
+          "en": "nearby",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u16-problem",
+          "ru": "у меня проблема",
+          "pron": "oo me-NYA pra-BLYE-ma",
+          "en": "I have a problem",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u16-thanks",
+          "ru": "спасибо за помощь",
+          "pron": "spa-SEE-ba za PO-mashch",
+          "en": "thanks for the help",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        }
+      ],
+      "patterns": [
+        {
+          "ru": "Извините, где находится вокзал?",
+          "en": "Excuse me, where is the station?",
+          "pron": "iz-vee-NEE-tye gde na-HO-deet-sa vak-ZAL"
+        },
+        {
+          "ru": "Сколько стоит билет?",
+          "en": "How much does the ticket cost?",
+          "pron": "SKOL-ka STO-eet bee-LET"
+        },
+        {
+          "ru": "Повторите, пожалуйста, медленнее.",
+          "en": "Repeat, please, more slowly.",
+          "pron": "pafta-REE-tye pa-ZHA-loo-sta MED-len-nee-ye"
+        },
+        {
+          "ru": "У меня проблема. Мне нужна помощь.",
+          "en": "I have a problem. I need help.",
+          "pron": "oo me-NYA pra-BLYE-ma mne noozh-NA PO-mashch"
+        },
+        {
+          "ru": "Мне нужен врач, пожалуйста.",
+          "en": "I need a doctor, please.",
+          "pron": "mne NOO-zhen vrach pa-ZHA-loo-sta"
+        },
+        {
+          "ru": "Спасибо за помощь.",
+          "en": "Thanks for the help.",
+          "pron": "spa-SEE-ba za PO-mashch"
+        }
+      ],
+      "grammar": {
+        "id": "u16-survival-strategy",
+        "kind": "Usage",
+        "title": "Chunk stacking for survival communication",
+        "explanation": "In a stressful situation, stack short reliable chunks: «Извините» + question, «У меня проблема» + need, or «Повторите…» + repair request. Clear chunks are more useful than long sentences.",
+        "exampleRu": "Извините. У меня проблема. Мне нужна помощь, пожалуйста.",
+        "exampleEn": "Excuse me. I have a problem. I need help, please.",
+        "commonMistake": "Do not stop after «Я не понимаю». Add «Повторите, пожалуйста, медленнее» or show the relevant place, object, or need."
+      },
+      "dialogue": {
+        "id": "u16-mixed-survival",
+        "title": "A mixed survival mission",
+        "turns": [
+          {
+            "role": "tutor",
+            "ru": "Здравствуйте. Вы ищете вокзал?",
+            "en": "Hello. Are you looking for the station?",
+            "prompt": "Ask where the station is, please.",
+            "variants": [
+              "извините где находится вокзал",
+              "где находится вокзал"
+            ],
+            "hint": "Use «Извините, где находится вокзал?»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Вокзал рядом. Но поезд опаздывает.",
+            "en": "The station is nearby. But the train is late.",
+            "prompt": "Ask what time the train will depart.",
+            "variants": [
+              "во сколько отправляется поезд",
+              "во сколько поезд отправляется"
+            ],
+            "hint": "Use «Во сколько отправляется поезд?»."
+          },
+          {
+            "role": "tutor",
+            "ru": "В семь часов. Вам нужна помощь?",
+            "en": "At seven o’clock. Do you need help?",
+            "prompt": "Say that you have a problem and need help, please.",
+            "variants": [
+              "у меня проблема мне нужна помощь",
+              "мне нужна помощь пожалуйста",
+              "у меня проблема"
+            ],
+            "hint": "Stack «У меня проблема. Мне нужна помощь, пожалуйста»."
+          }
+        ]
+      },
+      "story": {
+        "id": "u16-one-day-mission",
+        "title": "One day, many small wins",
+        "lines": [
+          {
+            "ru": "Сегодня Анна приезжает в новый город.",
+            "en": "Today Anna arrives in a new city."
+          },
+          {
+            "ru": "Она спрашивает: «Извините, где находится вокзал?»",
+            "en": "She asks: “Excuse me, where is the station?”"
+          },
+          {
+            "ru": "Потом у неё проблема с билетом, но она просит повторить медленнее.",
+            "en": "Then she has a problem with the ticket, but she asks for it to be repeated more slowly."
+          },
+          {
+            "ru": "После этого она находит гостиницу и аптеку рядом.",
+            "en": "After that she finds the hotel and pharmacy nearby."
+          },
+          {
+            "ru": "Вечером она говорит: «Спасибо за помощь» и строит план на завтра.",
+            "en": "In the evening she says: “Thanks for the help” and makes a plan for tomorrow."
+          }
+        ],
+        "glossary": [
+          "приезжает",
+          "новый город",
+          "вокзал",
+          "проблема с билетом",
+          "повторить медленнее",
+          "гостиница",
+          "аптека рядом",
+          "спасибо за помощь",
+          "план на завтра"
+        ],
+        "questions": [
+          {
+            "q": "Куда приезжает Анна?",
+            "options": [
+              "в новый город",
+              "в кафе",
+              "в школу"
+            ],
+            "answer": "в новый город"
+          },
+          {
+            "q": "Что она просит сделать?",
+            "options": [
+              "повторить медленнее",
+              "купить лекарство",
+              "пойти в парк"
+            ],
+            "answer": "повторить медленнее"
+          },
+          {
+            "q": "Что она делает вечером?",
+            "options": [
+              "строит план на завтра",
+              "идёт на поезд",
+              "работает в аптеке"
+            ],
+            "answer": "строит план на завтра"
+          }
+        ]
+      },
+      "recycling": {
+        "title": "Complete A1 survival loop",
+        "summary": "The capstone combines all prior themes into one practical mission: arrive, find places, handle a ticket or health issue, repair communication, thank someone, and plan tomorrow.",
+        "sources": [
+          {
+            "unitId": "u02-greetings-introductions",
+            "label": "Unit 2 · courtesy",
+            "words": [
+              "Здравствуйте",
+              "пожалуйста"
+            ]
+          },
+          {
+            "unitId": "u03-numbers-time",
+            "label": "Unit 3 · time",
+            "words": [
+              "завтра",
+              "во сколько"
+            ]
+          },
+          {
+            "unitId": "u04-people-family",
+            "label": "Unit 4 · people",
+            "words": [
+              "мы",
+              "моя сестра"
+            ]
+          },
+          {
+            "unitId": "u05-home-objects",
+            "label": "Unit 5 · home",
+            "words": [
+              "где",
+              "дома"
+            ]
+          },
+          {
+            "unitId": "u06-food-cafe",
+            "label": "Unit 6 · food and payment",
+            "words": [
+              "счёт",
+              "сколько стоит"
+            ]
+          },
+          {
+            "unitId": "u07-shopping-clothing",
+            "label": "Unit 7 · shopping and movement",
+            "words": [
+              "билет",
+              "идите прямо"
+            ]
+          },
+          {
+            "unitId": "u08-daily-routine",
+            "label": "Unit 8 · routine",
+            "words": [
+              "сейчас",
+              "помогите"
+            ]
+          },
+          {
+            "unitId": "u09-work-school",
+            "label": "Unit 9 · repair",
+            "words": [
+              "я не понимаю",
+              "повторите"
+            ]
+          },
+          {
+            "unitId": "u10-city-directions",
+            "label": "Unit 10 · city routes",
+            "words": [
+              "вокзал",
+              "рядом"
+            ]
+          },
+          {
+            "unitId": "u11-travel-stay",
+            "label": "Unit 11 · travel",
+            "words": [
+              "гостиница",
+              "багаж"
+            ]
+          },
+          {
+            "unitId": "u12-weather-seasons",
+            "label": "Unit 12 · weather",
+            "words": [
+              "погода",
+              "будет тепло"
+            ]
+          },
+          {
+            "unitId": "u13-health-needs",
+            "label": "Unit 13 · health",
+            "words": [
+              "врач",
+              "мне плохо"
+            ]
+          },
+          {
+            "unitId": "u14-preferences-free-time",
+            "label": "Unit 14 · preferences",
+            "words": [
+              "встретимся",
+              "выходные"
+            ]
+          },
+          {
+            "unitId": "u15-plans-future",
+            "label": "Unit 15 · future plans",
+            "words": [
+              "план",
+              "изменить"
+            ]
+          }
+        ],
+        "listeningContrasts": [
+          {
+            "id": "u16-listen-station",
+            "prompt": "Which place is being asked about?",
+            "hear": "где находится вокзал",
+            "options": [
+              "The station",
+              "The pharmacy",
+              "The hotel"
+            ],
+            "answer": "The station",
+            "explanation": "A city-navigation survival question."
+          },
+          {
+            "id": "u16-listen-cost",
+            "prompt": "What is being asked?",
+            "hear": "Сколько стоит билет?",
+            "options": [
+              "The ticket price",
+              "The train platform",
+              "The doctor’s name"
+            ],
+            "answer": "The ticket price",
+            "explanation": "A transaction phrase from the café/shopping loop."
+          },
+          {
+            "id": "u16-listen-repair",
+            "prompt": "What should the listener do?",
+            "hear": "Повторите, пожалуйста, медленнее.",
+            "options": [
+              "Repeat more slowly",
+              "Call an ambulance",
+              "Wait at the hotel"
+            ],
+            "answer": "Repeat more slowly",
+            "explanation": "A key communication-repair move."
+          },
+          {
+            "id": "u16-listen-problem",
+            "prompt": "What does the speaker have?",
+            "hear": "У меня проблема.",
+            "options": [
+              "A problem",
+              "A reservation",
+              "A suitcase"
+            ],
+            "answer": "A problem",
+            "explanation": "This makes the next help request clear."
+          },
+          {
+            "id": "u16-listen-doctor",
+            "prompt": "What help is needed?",
+            "hear": "Мне нужен врач, пожалуйста.",
+            "options": [
+              "A doctor",
+              "A ticket",
+              "A map"
+            ],
+            "answer": "A doctor",
+            "explanation": "This recycles the health mission."
+          },
+          {
+            "id": "u16-listen-thanks",
+            "prompt": "What is the speaker expressing?",
+            "hear": "Спасибо за помощь.",
+            "options": [
+              "Thanks for the help",
+              "A dislike",
+              "A future plan"
+            ],
+            "answer": "Thanks for the help",
+            "explanation": "A polite close after receiving help."
+          },
+          {
+            "id": "u16-listen-near",
+            "prompt": "What does «рядом» tell you?",
+            "hear": "Аптека рядом.",
+            "options": [
+              "It is nearby",
+              "It is closed",
+              "It is expensive"
+            ],
+            "answer": "It is nearby",
+            "explanation": "A useful route and location cue."
+          }
+        ]
+      },
+      "checkpoint": {
+        "id": "u16-final-checkpoint",
+        "title": "Final A1 survival checkpoint",
+        "isCumulative": true,
+        "sourceUnits": [
+          "u02-greetings-introductions",
+          "u03-numbers-time",
+          "u04-people-family",
+          "u05-home-objects",
+          "u06-food-cafe",
+          "u07-shopping-clothing",
+          "u08-daily-routine",
+          "u09-work-school",
+          "u10-city-directions",
+          "u11-travel-stay",
+          "u12-weather-seasons",
+          "u13-health-needs",
+          "u14-preferences-free-time",
+          "u15-plans-future"
+        ],
+        "questions": [
+          {
+            "id": "u16-q1",
+            "prompt": "Choose the phrase meaning “Excuse me, where is the station?”.",
+            "options": [
+              "Извините, где находится вокзал?",
+              "Какая сегодня погода?",
+              "Что вы любите делать?"
+            ],
+            "answer": "Извините, где находится вокзал?",
+            "skill": "production",
+            "sourceUnit": "u16-survival-mission"
+          },
+          {
+            "id": "u16-q2",
+            "prompt": "Choose the phrase asking the ticket price.",
+            "options": [
+              "Сколько стоит билет?",
+              "Мне нужен врач.",
+              "Давайте встретимся вечером."
+            ],
+            "answer": "Сколько стоит билет?",
+            "skill": "production",
+            "sourceUnit": "u16-survival-mission"
+          },
+          {
+            "id": "u16-q3",
+            "prompt": "Choose the communication-repair phrase.",
+            "options": [
+              "Повторите, пожалуйста, медленнее.",
+              "Возьмите зонт.",
+              "У меня есть багаж."
+            ],
+            "answer": "Повторите, пожалуйста, медленнее.",
+            "skill": "production",
+            "sourceUnit": "u09-work-school"
+          },
+          {
+            "id": "u16-q4",
+            "prompt": "Choose “I have a problem; I need help”.",
+            "options": [
+              "У меня проблема. Мне нужна помощь.",
+              "Я люблю читать книги.",
+              "Завтра будет тепло."
+            ],
+            "answer": "У меня проблема. Мне нужна помощь.",
+            "skill": "recognition",
+            "sourceUnit": "u16-survival-mission"
+          },
+          {
+            "id": "u16-q5",
+            "prompt": "Choose the health request.",
+            "options": [
+              "Мне нужен врач, пожалуйста.",
+              "Мне нужен билет до Москвы.",
+              "Мне нужно изменить план."
+            ],
+            "answer": "Мне нужен врач, пожалуйста.",
+            "skill": "recognition",
+            "sourceUnit": "u13-health-needs"
+          },
+          {
+            "id": "u16-q6",
+            "prompt": "Choose the polite closing after help.",
+            "options": [
+              "Спасибо за помощь.",
+              "Увидимся позже.",
+              "С какой платформы?"
+            ],
+            "answer": "Спасибо за помощь.",
+            "skill": "production",
+            "sourceUnit": "u16-survival-mission"
+          }
+        ],
+        "completionRule": "Answer at least 5 of 6 correctly and complete the capstone dialogue."
       },
       "completionEvidence": [
         "recognition",

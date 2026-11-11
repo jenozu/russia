@@ -300,3 +300,137 @@
 - [x] Connect Unit 7 to the shared lesson renderer, adaptive scheduler, XP rewards, and review navigation.
 - [x] Extend content validation for Unit 7’s five-source recycling chain and cumulative checkpoint.
 - [x] Validate fresh-port rendering, route listening feedback, source labels, adaptive review scheduling, XP persistence, checkpoint state, generated JavaScript syntax, and Unit 2–6 compatibility.
+
+## 28. A1 roadmap Phase 2 — Unit 8 hotel, accommodation, and emergency help
+
+- [x] Retarget the Unit 8 scaffold to hotel check-in, accommodation issues, and emergency phrases.
+- [x] Author survival vocabulary for reservations, rooms, keys, floors, problems, safety, and urgent help.
+- [x] Add reusable hotel and accommodation sentence patterns with a calm emergency-language usage note.
+- [x] Add an authored check-in dialogue with reservation, room-problem, and help-response turns.
+- [x] Add a five-line hotel story that recycles greeting, time, family, home, café, and travel language.
+- [x] Extend the cumulative recycling chain through Units 2, 3, 4, 5, 6, and 7.
+- [x] Add six interactive listening contrasts covering reservations, room problems, help, floors, medical help, and safety.
+- [x] Add a six-question cumulative checkpoint requiring five correct answers and dialogue completion.
+- [x] Connect Unit 8 to the shared lesson renderer, adaptive scheduler, XP rewards, and review navigation.
+- [x] Extend content validation for Unit 8’s six-source recycling chain and cumulative checkpoint.
+- [x] Validate fresh-port rendering, dialogue progression, listening feedback, source labels, LocalStorage persistence, checkpoint completion, generated JavaScript syntax, and Unit 2–7 compatibility.
+
+## 29. A1 roadmap Phase 2 — Unit 9 work, school, and languages
+
+- [x] Retarget the Unit 9 scaffold to work, school, languages, ability, and communication repair.
+- [x] Author Pareto-prioritized vocabulary for workplaces, study, language ability, and repair requests.
+- [x] Add present-tense work/study/language patterns and a contextual grammar note for по-русски and по-английски.
+- [x] Add an authored language-meetup dialogue with workplace, ability, and slow-speech response turns.
+- [x] Add a five-line story recycling time, family, university, lesson, and comprehension-repair language.
+- [x] Extend the cumulative recycling chain through Units 2, 3, 4, 5, 6, 7, and 8.
+- [x] Add six interactive listening contrasts covering work, study, ability, repetition, slower speech, and class time.
+- [x] Add a six-question cumulative checkpoint requiring five correct answers and dialogue completion.
+- [x] Connect Unit 9 to the shared lesson renderer, adaptive scheduler, XP rewards, and review navigation.
+- [x] Extend content validation for Unit 9’s seven-source recycling chain and cumulative checkpoint.
+- [x] Validate fresh-port rendering, productive dialogue matching, listening feedback, source labels, LocalStorage persistence, checkpoint completion, generated JavaScript syntax, and Unit 2–8 compatibility.
+
+## 30. A1 roadmap Phase 2 — Unit 10 city and directions
+
+- [x] Retarget the Unit 10 scaffold to city places, direction language, transport choices, and route repair.
+- [x] Author a full Pareto-prioritized vocabulary set for destinations, directions, proximity, and walking.
+- [x] Add six reusable city-route sentence patterns and contextual location guidance.
+- [x] Add an authored pharmacy-finding dialogue with distance checking and visual repair.
+- [x] Add a five-line city story recycling hotel, family, time, transport, and café language.
+- [x] Extend the cumulative recycling chain through Units 2, 3, 4, 5, 6, 7, 8, and 9.
+- [x] Add seven interactive listening contrasts covering left/right, nearby/far, destination, straight, walking, and opposite.
+- [x] Add a six-question cumulative checkpoint requiring five correct answers and dialogue completion.
+- [x] Connect Unit 10 to the shared lesson renderer, adaptive scheduler, XP rewards, and review navigation.
+- [x] Extend content validation for Unit 10’s eight-source recycling chain and cumulative checkpoint.
+- [x] Validate fresh-port rendering, route dialogue matching, listening exercises, source labels, LocalStorage persistence, checkpoint completion, generated JavaScript syntax, and Unit 2–9 compatibility.
+
+## 31. A1 roadmap Phase 2 — Unit 11 travel and accommodation
+
+- [x] Test the reusable A1 Course Unit Builder skill on a complete Unit 11 implementation.
+- [x] Retarget the Unit 11 scaffold to tickets, stations, departure/arrival, luggage, and accommodation.
+- [x] Author Pareto-prioritized travel vocabulary and six reusable station/travel patterns.
+- [x] Add contextual grammar guidance for destinations, departure times, and platforms.
+- [x] Add an authored train-station dialogue with ticket, departure-time, and luggage responses.
+- [x] Add a five-line train story recycling city, time, family, hotel, metro, and repair language.
+- [x] Extend the cumulative recycling chain through Units 2, 3, 4, 5, 6, 7, 8, 9, and 10.
+- [x] Add seven interactive listening contrasts covering destination, departure, platform, luggage, delay, hotel location, and waiting.
+- [x] Add a six-question cumulative checkpoint requiring five correct answers and dialogue completion.
+- [x] Connect Unit 11 to the shared lesson renderer, adaptive scheduler, XP rewards, and review navigation.
+- [x] Extend content validation for Unit 11’s nine-source recycling chain and cumulative checkpoint.
+- [x] Validate fresh-port rendering, station dialogue matching, listening exercises, source labels, LocalStorage persistence, checkpoint completion, generated JavaScript syntax, and Unit 2–10 compatibility.
+
+## 32. A1 roadmap Phase 2 — Unit 12 weather and seasons
+
+- [x] Use the reusable A1 Course Unit Builder workflow for the next curriculum phase.
+- [x] Retarget the Unit 12 scaffold to weather, seasons, clothing choices, and simple plans.
+- [x] Author Pareto-prioritized weather vocabulary and six reusable forecast/plan patterns.
+- [x] Add contextual grammar guidance for impersonal weather expressions and simple tomorrow forecasts.
+- [x] Add an authored weather-planning dialogue with today, tomorrow, and umbrella responses.
+- [x] Add a five-line seasonal story recycling time, family, clothing, city, café, and travel language.
+- [x] Extend the cumulative recycling chain through Units 2, 3, 4, 5, 6, 7, 8, 9, 10, and 11.
+- [x] Add seven interactive listening contrasts covering temperature, rain, season, forecast, clothing, plans, and sun.
+- [x] Add a six-question cumulative checkpoint requiring five correct answers and dialogue completion.
+- [x] Connect Unit 12 to the shared lesson renderer, adaptive scheduler, XP rewards, and review navigation.
+- [x] Extend content validation for Unit 12’s ten-source recycling chain and cumulative checkpoint.
+- [x] Validate fresh-port rendering, weather dialogue matching, listening exercises, source labels, LocalStorage persistence, checkpoint completion, generated JavaScript syntax, and Unit 2–11 compatibility.
+
+## 33. A1 roadmap Phase 2 — Unit 13 health and immediate needs
+
+- [x] Use the reusable A1 Course Unit Builder workflow for Unit 13.
+- [x] Retarget the Unit 13 scaffold to symptoms, pharmacy, doctor, ambulance, and immediate needs.
+- [x] Author Pareto-prioritized health vocabulary and six reusable symptom/help patterns.
+- [x] Add contextual usage guidance for У меня болит… and Мне нужен… frames.
+- [x] Add an authored pharmacy/doctor dialogue with symptom, doctor, and pharmacy responses.
+- [x] Add a five-line health story recycling weather, family, city, hotel, metro, and repair language.
+- [x] Extend the cumulative recycling chain through Units 2–12.
+- [x] Add seven interactive listening contrasts covering pain, doctor, pharmacy, allergy, ambulance, rest, and temperature.
+- [x] Add a six-question cumulative checkpoint requiring five correct answers and dialogue completion.
+- [x] Connect Unit 13 to the shared lesson renderer, adaptive scheduler, XP rewards, and review navigation.
+- [x] Extend content validation for Unit 13’s eleven-source recycling chain and cumulative checkpoint.
+- [x] Validate fresh-port rendering, health dialogue matching, listening exercises, source labels, LocalStorage persistence, checkpoint completion, generated JavaScript syntax, and Unit 2–12 compatibility.
+- [x] Overall course status: 13 of 16 planned units complete; 3 units remain (Units 14–16), 81.25% of the planned unit spine.
+
+## 34. A1 roadmap Phase 2 — Unit 14 preferences and free time
+
+- [x] Use the reusable A1 Course Unit Builder workflow for Unit 14.
+- [x] Retarget the Unit 14 scaffold to likes, dislikes, hobbies, invitations, and polite declines.
+- [x] Author Pareto-prioritized free-time vocabulary and six reusable preference/planning patterns.
+- [x] Add contextual usage guidance for Мне нравится, Я люблю, не, and Давайте.
+- [x] Add an authored hobby dialogue with reading, park invitation, and time responses.
+- [x] Add a five-line free-time story recycling work, family, café, weather, and city plans.
+- [x] Extend the cumulative recycling chain through Units 2–13.
+- [x] Add seven interactive listening contrasts covering likes, hobbies, dislikes, invitations, declines, questions, and reactions.
+- [x] Add a six-question cumulative checkpoint requiring five correct answers and dialogue completion.
+- [x] Connect Unit 14 to the shared lesson renderer, adaptive scheduler, XP rewards, and review navigation.
+- [x] Extend content validation for Unit 14’s twelve-source recycling chain and cumulative checkpoint.
+- [x] Validate fresh-port rendering, hobby dialogue matching, listening exercises, source labels, LocalStorage persistence, checkpoint completion, generated JavaScript syntax, and Unit 2–13 compatibility.
+
+## 35. A1 roadmap Phase 2 — Unit 15 plans and near future
+
+- [x] Use the reusable A1 Course Unit Builder workflow for Unit 15.
+- [x] Retarget the Unit 15 scaffold to future plans, availability, meeting times, and rescheduling.
+- [x] Author Pareto-prioritized future-planning vocabulary and six reusable plan patterns.
+- [x] Add contextual usage guidance for буду + infinitive, могу + infinitive, and нужно + infinitive.
+- [x] Add an authored planning dialogue with work, meeting time, and plan-change responses.
+- [x] Add a five-line story recycling home, work, café, weather, family, and future plans.
+- [x] Extend the cumulative recycling chain through Units 2–14.
+- [x] Add seven interactive listening contrasts covering future plans, invitations, availability, rescheduling, closing phrases, future questions, and time of day.
+- [x] Add a six-question cumulative checkpoint requiring five correct answers and dialogue completion.
+- [x] Connect Unit 15 to the shared lesson renderer, adaptive scheduler, XP rewards, and review navigation.
+- [x] Extend content validation for Unit 15’s thirteen-source recycling chain and cumulative checkpoint.
+- [x] Validate fresh-port rendering, future-planning dialogue matching, listening exercises, source labels, LocalStorage persistence, checkpoint completion, generated JavaScript syntax, and Unit 2–14 compatibility.
+
+## 36. A1 roadmap Phase 2 — Unit 16 final A1 survival mission
+
+- [x] Use the reusable A1 Course Unit Builder workflow for the final capstone.
+- [x] Retarget the Unit 16 scaffold to integrated survival communication rather than a narrow new theme.
+- [x] Author a survival toolkit of help, repair, location, price, health, planning, and closing chunks.
+- [x] Add contextual guidance for stacking short chunks under communication pressure.
+- [x] Add an authored mixed station/pharmacy/accommodation dialogue.
+- [x] Add a five-line capstone story combining arrival, ticket repair, hotel, pharmacy, thanks, and tomorrow planning.
+- [x] Extend the cumulative recycling chain through Units 2–15.
+- [x] Add seven interactive listening contrasts covering place, price, repair, problem, health, thanks, and proximity.
+- [x] Add the final six-question cumulative checkpoint requiring five correct answers and capstone dialogue completion.
+- [x] Connect Unit 16 to the shared lesson renderer, adaptive scheduler, XP rewards, and review navigation.
+- [x] Extend content validation for Unit 16’s fourteen-source recycling chain and final cumulative checkpoint.
+- [x] Validate fresh-port rendering, capstone dialogue matching, listening exercises, source labels, LocalStorage persistence, final checkpoint completion, generated JavaScript syntax, and Unit 2–15 compatibility.
+- [x] Overall A1 unit spine complete: 16 of 16 planned units authored and integrated.

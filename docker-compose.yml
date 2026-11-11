@@ -1,0 +1,78 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-azbuka}
+      POSTGRES_USER: ${POSTGRES_USER:-azbuka_app}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - azbuka_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+    networks:
+      - azbuka_internal
+
+  migrate:
+    image: postgres:16-alpine
+    restart: "no"
+    env_file:
+      - .env
+    environment:
+      PGHOST: db
+      PGPORT: 5432
+      PGDATABASE: ${POSTGRES_DB:-azbuka}
+      PGUSER: ${POSTGRES_USER:-azbuka_app}
+      PGPASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./db/migrations/001_initial_azbuka_schema.sql:/migrations/001_initial_azbuka_schema.sql:ro
+    command: ["psql", "-v", "ON_ERROR_STOP=1", "-f", "/migrations/001_initial_azbuka_schema.sql"]
+    networks:
+      - azbuka_internal
+
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?Set DATABASE_URL in .env}
+      APP_ORIGINS: ${APP_ORIGINS:?Set APP_ORIGINS in .env}
+      SESSION_TTL_DAYS: ${SESSION_TTL_DAYS:-30}
+      MAX_SYNC_EVENTS: ${MAX_SYNC_EVENTS:-250}
+      TOKEN_PEPPER: ${TOKEN_PEPPER:?Set TOKEN_PEPPER in .env}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    ports:
+      # Keep the API private to the VPS. Nginx/Caddy can proxy to 127.0.0.1:8090.
+      - "127.0.0.1:${API_PORT:-8090}:8090"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health', timeout=3)"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    networks:
+      - azbuka_internal
+
+volumes:
+  azbuka_postgres_data:
+    name: azbuka_postgres_data
+
+networks:
+  azbuka_internal:
+    name: azbuka_internal
+    driver: bridge
+    internal: true
