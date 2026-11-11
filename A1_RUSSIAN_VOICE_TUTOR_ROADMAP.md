@@ -225,7 +225,7 @@ The roadmap has twelve build phases. The existing Stage 1 implementation counts 
 
 ## 9. Phase 1 — Course architecture and content schema
 
-**Status: first Pareto-first schema slice, first data-driven unit, and Units 2–4 lesson/review integration complete.** The repository now has a versioned `a1-course.json` that covers all 100 Stage 1 items, tags 45 high-leverage survival-core items, scaffolds 16 A1 units, and contains complete learner-facing vertical slices for greetings, numbers/time, and people/family. Units 2–4 use the same lesson renderer, interval scheduler, idempotent XP ledger, streaks, and badge thresholds; the next Phase 2 slice is expanding authored content and recycling it across the remaining course spine.
+**Status: first Pareto-first schema slice, Units 2–4 lesson/review integration, and Unit 5 cumulative recycling slice complete.** The repository now has a versioned `a1-course.json` that covers all 100 Stage 1 items, tags 45 high-leverage survival-core items, scaffolds 16 A1 units, and contains complete learner-facing vertical slices for greetings, numbers/time, people/family, and home. Units 2–5 use the same lesson renderer, interval scheduler, idempotent XP ledger, streaks, and badge thresholds; Unit 5 explicitly recycles Units 2–4 vocabulary through listening contrasts, story input, and a cumulative checkpoint.
 
 ### Work
 

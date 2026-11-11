@@ -155,7 +155,7 @@
       "id": "u05-home-objects",
       "title": "Home and everyday objects",
       "order": 5,
-      "status": "planned",
+      "status": "active",
       "objective": "Use high-leverage Russian in a practical beginner situation.",
       "lessonTemplate": [
         "warm-up",
@@ -3458,6 +3458,475 @@
         3,
         4,
         5
+      ]
+    },
+    "u05-home-objects": {
+      "id": "u05-home-objects",
+      "unitId": "u05-home-objects",
+      "status": "active",
+      "title": "Home and everyday objects",
+      "objective": "Talk about what is at home while reusing greetings, family, time, and meeting phrases in one connected beginner conversation.",
+      "paretoTier": "high-frequency-core",
+      "estimatedMinutes": 12,
+      "activities": [
+        {
+          "id": "u05-warmup",
+          "type": "warm-up",
+          "title": "Return to the core",
+          "prompt": "Bring greetings, family words, and time phrases back before adding home words.",
+          "reviewIds": []
+        },
+        {
+          "id": "u05-meaning",
+          "type": "meaning",
+          "title": "Name the home",
+          "prompt": "Connect the most useful home and object words to their meanings.",
+          "reviewIds": []
+        },
+        {
+          "id": "u05-listen",
+          "type": "listen",
+          "title": "Hear the contrast",
+          "prompt": "Listen for who, when, and where in short recycled questions.",
+          "reviewIds": []
+        },
+        {
+          "id": "u05-produce",
+          "type": "produce",
+          "title": "Build a home sentence",
+          "prompt": "Say what is at home and when someone will meet you.",
+          "reviewIds": []
+        },
+        {
+          "id": "u05-apply",
+          "type": "apply",
+          "title": "Host a simple visit",
+          "prompt": "Complete the recycled dialogue, story, and cumulative checkpoint.",
+          "reviewIds": []
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "u05-home",
+          "ru": "дом",
+          "pron": "dom",
+          "en": "house / home",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u05-room",
+          "ru": "комната",
+          "pron": "KOM-na-ta",
+          "en": "room",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u05-table",
+          "ru": "стол",
+          "pron": "stol",
+          "en": "table",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u05-chair",
+          "ru": "стул",
+          "pron": "stool",
+          "en": "chair",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u05-book",
+          "ru": "книга",
+          "pron": "KNEE-ga",
+          "en": "book",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u05-coffee",
+          "ru": "кофе",
+          "pron": "KO-fe",
+          "en": "coffee",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u05-tea",
+          "ru": "чай",
+          "pron": "chai",
+          "en": "tea",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u05-here",
+          "ru": "здесь",
+          "pron": "zdes",
+          "en": "here",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u05-there",
+          "ru": "там",
+          "pron": "tam",
+          "en": "there",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u05-come",
+          "ru": "приходи",
+          "pron": "pree-ha-DEE",
+          "en": "come / come over",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u05-wait",
+          "ru": "жду",
+          "pron": "zhdoo",
+          "en": "I am waiting",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u05-together",
+          "ru": "вместе",
+          "pron": "VMYES-te",
+          "en": "together",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        }
+      ],
+      "patterns": [
+        {
+          "ru": "Я дома.",
+          "en": "I am at home.",
+          "pron": "ya DO-ma"
+        },
+        {
+          "ru": "Сегодня мы дома.",
+          "en": "Today we are at home.",
+          "pron": "se-VOD-nya my DO-ma"
+        },
+        {
+          "ru": "Приходи в три часа!",
+          "en": "Come over at three o’clock!",
+          "pron": "pree-ha-DEE v tree cha-SA"
+        },
+        {
+          "ru": "Книга на столе.",
+          "en": "The book is on the table.",
+          "pron": "KNEE-ga na sta-LYE"
+        }
+      ],
+      "grammar": {
+        "id": "u05-location-at-home",
+        "kind": "Grammar",
+        "title": "Где? — дома, здесь, там",
+        "explanation": "Use «дома» for being at home, «здесь» for here, and «там» for there. The phrase «в три часа» keeps the appointment pattern from Unit 3 active.",
+        "exampleRu": "Сегодня мы дома. Приходи в три часа.",
+        "exampleEn": "Today we are at home. Come over at three o’clock.",
+        "commonMistake": "Do not answer «Где?» with «дом» when you mean location; use «дома»."
+      },
+      "dialogue": {
+        "id": "u05-inviting-friend",
+        "title": "Inviting a friend home",
+        "turns": [
+          {
+            "role": "tutor",
+            "ru": "Привет! Ты дома?",
+            "en": "Hi! Are you at home?",
+            "prompt": "Say that you are at home.",
+            "variants": [
+              "я дома"
+            ],
+            "hint": "Use «Я дома»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Во сколько приходить?",
+            "en": "What time should I come?",
+            "prompt": "Invite your friend for three o’clock.",
+            "variants": [
+              "приходи в три часа",
+              "в три часа"
+            ],
+            "hint": "Reuse «В три часа»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Хорошо, до встречи!",
+            "en": "Okay, see you!",
+            "prompt": "Understand the closing.",
+            "variants": [],
+            "hint": ""
+          }
+        ]
+      },
+      "story": {
+        "id": "u05-visit-home",
+        "title": "A simple visit",
+        "lines": [
+          {
+            "ru": "Здравствуйте! Сегодня мы дома.",
+            "en": "Hello! Today we are at home."
+          },
+          {
+            "ru": "Моя сестра пьёт чай.",
+            "en": "My sister is drinking tea."
+          },
+          {
+            "ru": "Книга на столе.",
+            "en": "The book is on the table."
+          },
+          {
+            "ru": "Марк приходит в три часа.",
+            "en": "Mark is coming at three o’clock."
+          },
+          {
+            "ru": "Вечером мы вместе.",
+            "en": "In the evening we are together."
+          }
+        ],
+        "glossary": [
+          "здравствуйте",
+          "сегодня",
+          "дома",
+          "моя сестра",
+          "чай",
+          "в три часа",
+          "вместе"
+        ],
+        "questions": [
+          {
+            "q": "Где они сегодня?",
+            "options": [
+              "дома",
+              "в школе",
+              "там"
+            ],
+            "answer": "дома"
+          },
+          {
+            "q": "Что пьёт сестра?",
+            "options": [
+              "чай",
+              "кофе",
+              "воду"
+            ],
+            "answer": "чай"
+          },
+          {
+            "q": "Во сколько приходит Марк?",
+            "options": [
+              "в три часа",
+              "вчера",
+              "утром"
+            ],
+            "answer": "в три часа"
+          }
+        ]
+      },
+      "recycling": {
+        "title": "Cumulative listening loop",
+        "summary": "This unit deliberately brings back high-value phrases from Units 2, 3, and 4 before adding home vocabulary. Hear the question, identify the contrast, then reuse the answer in the story.",
+        "sources": [
+          {
+            "unitId": "u02-greetings-introductions",
+            "label": "Unit 2 · greetings",
+            "words": [
+              "Здравствуйте",
+              "Привет",
+              "Меня зовут"
+            ]
+          },
+          {
+            "unitId": "u03-numbers-time",
+            "label": "Unit 3 · time",
+            "words": [
+              "Сегодня",
+              "В три часа",
+              "Вечером"
+            ]
+          },
+          {
+            "unitId": "u04-people-family",
+            "label": "Unit 4 · people",
+            "words": [
+              "Моя сестра",
+              "Мой брат",
+              "вместе"
+            ]
+          }
+        ],
+        "listeningContrasts": [
+          {
+            "id": "u05-listen-greeting",
+            "prompt": "You hear «Здравствуйте!» — what kind of phrase is it?",
+            "hear": "Здравствуйте!",
+            "options": [
+              "a formal hello",
+              "a goodbye",
+              "a time question"
+            ],
+            "answer": "a formal hello",
+            "explanation": "This returns the formal greeting from Unit 2."
+          },
+          {
+            "id": "u05-listen-time",
+            "prompt": "You hear «В три часа» — what does it answer?",
+            "hear": "В три часа.",
+            "options": [
+              "When is the meeting?",
+              "Who is this?",
+              "Where is the book?"
+            ],
+            "answer": "When is the meeting?",
+            "explanation": "This returns the appointment answer from Unit 3."
+          },
+          {
+            "id": "u05-listen-family",
+            "prompt": "You hear «Моя сестра» — who is being described?",
+            "hear": "Моя сестра.",
+            "options": [
+              "a female family member",
+              "a male friend",
+              "a room"
+            ],
+            "answer": "a female family member",
+            "explanation": "This returns feminine agreement from Unit 4."
+          }
+        ]
+      },
+      "checkpoint": {
+        "id": "u05-cumulative-checkpoint",
+        "title": "Cumulative home visit check",
+        "isCumulative": true,
+        "sourceUnits": [
+          "u02-greetings-introductions",
+          "u03-numbers-time",
+          "u04-people-family"
+        ],
+        "questions": [
+          {
+            "id": "u05-q1",
+            "prompt": "Choose the natural answer to «Где ты?»",
+            "options": [
+              "Я дома.",
+              "Меня зовут Анна.",
+              "В три часа."
+            ],
+            "answer": "Я дома.",
+            "skill": "production",
+            "sourceUnit": "u05-home-objects"
+          },
+          {
+            "id": "u05-q2",
+            "prompt": "Choose the answer to «Во сколько приходить?»",
+            "options": [
+              "В три часа.",
+              "Кто это?",
+              "Здравствуйте!"
+            ],
+            "answer": "В три часа.",
+            "skill": "recognition",
+            "sourceUnit": "u03-numbers-time"
+          },
+          {
+            "id": "u05-q3",
+            "prompt": "Choose the correct phrase for “my sister”.",
+            "options": [
+              "Моя сестра.",
+              "Мой сестра.",
+              "Моя брат."
+            ],
+            "answer": "Моя сестра.",
+            "skill": "production",
+            "sourceUnit": "u04-people-family"
+          },
+          {
+            "id": "u05-q4",
+            "prompt": "Choose the formal greeting for a visitor.",
+            "options": [
+              "Здравствуйте!",
+              "До завтра!",
+              "Который час?"
+            ],
+            "answer": "Здравствуйте!",
+            "skill": "recognition",
+            "sourceUnit": "u02-greetings-introductions"
+          }
+        ],
+        "completionRule": "Answer at least 3 of 4 correctly and complete both dialogue turns."
+      },
+      "completionEvidence": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reviewLinks": [
+        3,
+        4,
+        5,
+        57,
+        66
       ]
     }
   }

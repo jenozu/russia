@@ -260,3 +260,15 @@
 - [x] Extend the content validator to enforce the complete lesson shape for all three integrated units.
 - [x] Validate Unit 2 rendering and adaptive selection, Unit 4 rendering and adaptive selection, Unit 4 scheduled review rewards, and Unit 3 regression behavior.
 - [ ] Recycle Units 2–4 vocabulary into later-unit stories, listening contrasts, and cumulative checkpoints.
+
+## 25. A1 roadmap Phase 2 — recycling and cumulative practice
+
+- [x] Author a complete Unit 5 home-and-everyday-objects content record.
+- [x] Add explicit recycling metadata citing Units 2, 3, and 4 vocabulary.
+- [x] Reuse greeting, family, and time phrases in the Unit 5 dialogue and five-line story.
+- [x] Add three interactive listening contrasts covering formal greetings, appointment time, and family gender agreement.
+- [x] Add a four-question cumulative checkpoint with source-unit attribution and a three-of-four completion rule.
+- [x] Persist listening-contrast answers and events within the unit’s local progress record.
+- [x] Add Unit 5 to the shared lesson renderer, adaptive scheduler, XP rewards, and review navigation.
+- [x] Extend validation to require the recycling sources, listening contrasts, and cumulative checkpoint structure.
+- [x] Validate fresh-port Unit 5 rendering, recycled source labels, listening feedback, local persistence, adaptive selection, and generated JavaScript syntax.
