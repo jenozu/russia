@@ -286,3 +286,17 @@
 - [x] Connect Unit 6 to the shared lesson renderer, adaptive scheduler, XP rewards, and review navigation.
 - [x] Extend content validation for Unit 6’s four-source recycling chain and cumulative checkpoint.
 - [x] Validate fresh-port rendering, listening feedback, adaptive review scheduling, XP persistence, checkpoint state, generated JavaScript syntax, and Unit 2–5 compatibility.
+
+## 27. A1 roadmap Phase 2 — Unit 7 travel, directions, and transportation
+
+- [x] Retarget the Unit 7 scaffold to travel, directions, and transportation while preserving existing Stage 1 item IDs.
+- [x] Author a complete Unit 7 travel content record with route, transport, station, ticket, and direction vocabulary.
+- [x] Add route chunks for asking where a station is, reaching a café, following directions, and buying a ticket.
+- [x] Add an authored directions dialogue with response recovery variants.
+- [x] Add a five-line travel story that recycles greetings, time, family, home, food, and café language.
+- [x] Extend the cumulative recycling chain through Units 2, 3, 4, 5, and 6.
+- [x] Add five interactive travel listening contrasts covering destination, direction, transport, ticket, and proximity.
+- [x] Add a five-question cumulative route checkpoint requiring four correct answers.
+- [x] Connect Unit 7 to the shared lesson renderer, adaptive scheduler, XP rewards, and review navigation.
+- [x] Extend content validation for Unit 7’s five-source recycling chain and cumulative checkpoint.
+- [x] Validate fresh-port rendering, route listening feedback, source labels, adaptive review scheduling, XP persistence, checkpoint state, generated JavaScript syntax, and Unit 2–6 compatibility.

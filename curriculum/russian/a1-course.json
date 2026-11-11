@@ -189,9 +189,9 @@
     },
     {
       "id": "u07-shopping-clothing",
-      "title": "Shopping and clothing",
+      "title": "Travel, directions, and transportation",
       "order": 7,
-      "status": "planned",
+      "status": "active",
       "objective": "Use high-leverage Russian in a practical beginner situation.",
       "lessonTemplate": [
         "warm-up",
@@ -4440,6 +4440,572 @@
             ],
             "answer": "Триста рублей.",
             "skill": "recognition",
+            "sourceUnit": "u03-numbers-time"
+          }
+        ],
+        "completionRule": "Answer at least 4 of 5 correctly and complete both dialogue turns."
+      },
+      "completionEvidence": [
+        "recognition",
+        "listening",
+        "production",
+        "speaking"
+      ],
+      "reviewLinks": [
+        3,
+        4,
+        5,
+        57,
+        66
+      ]
+    },
+    "u07-shopping-clothing": {
+      "id": "u07-shopping-clothing",
+      "unitId": "u07-shopping-clothing",
+      "status": "active",
+      "title": "Travel, directions, and transportation",
+      "objective": "Ask where a place is, understand a simple route, and use public transportation while recycling the A1 conversation core.",
+      "paretoTier": "high-frequency-core",
+      "estimatedMinutes": 13,
+      "activities": [
+        {
+          "id": "u07-warmup",
+          "type": "warm-up",
+          "title": "Plan the trip",
+          "prompt": "Bring greetings, time, family, home, food, and price language into one travel situation.",
+          "reviewIds": []
+        },
+        {
+          "id": "u07-meaning",
+          "type": "meaning",
+          "title": "Map the route",
+          "prompt": "Connect the most useful direction and transport words to their meanings.",
+          "reviewIds": []
+        },
+        {
+          "id": "u07-listen",
+          "type": "listen",
+          "title": "Hear the directions",
+          "prompt": "Listen for the destination, turn, and transport in short route instructions.",
+          "reviewIds": []
+        },
+        {
+          "id": "u07-produce",
+          "type": "produce",
+          "title": "Ask the way",
+          "prompt": "Ask where the station is and say how you are traveling.",
+          "reviewIds": []
+        },
+        {
+          "id": "u07-apply",
+          "type": "apply",
+          "title": "Reach the café",
+          "prompt": "Complete the travel dialogue, recycled listening, and cumulative checkpoint.",
+          "reviewIds": []
+        }
+      ],
+      "vocabulary": [
+        {
+          "id": "u07-city",
+          "ru": "город",
+          "pron": "GO-rat",
+          "en": "city",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u07-station",
+          "ru": "станция",
+          "pron": "stan-TSEE-ya",
+          "en": "station",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u07-stop",
+          "ru": "остановка",
+          "pron": "a-sta-NOF-ka",
+          "en": "stop",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u07-metro",
+          "ru": "метро",
+          "pron": "meh-TRO",
+          "en": "metro",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u07-bus",
+          "ru": "автобус",
+          "pron": "av-TO-boos",
+          "en": "bus",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u07-train",
+          "ru": "поезд",
+          "pron": "PO-yezd",
+          "en": "train",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u07-ticket",
+          "ru": "билет",
+          "pron": "bee-LET",
+          "en": "ticket",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u07-where",
+          "ru": "где",
+          "pron": "gdeh",
+          "en": "where",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u07-how-get",
+          "ru": "как добраться",
+          "pron": "kak da-BRAT-sa",
+          "en": "how to get there",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u07-straight",
+          "ru": "прямо",
+          "pron": "PRYA-ma",
+          "en": "straight",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u07-left",
+          "ru": "налево",
+          "pron": "na-LE-va",
+          "en": "to the left",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u07-right",
+          "ru": "направо",
+          "pron": "na-PRA-va",
+          "en": "to the right",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u07-near",
+          "ru": "рядом",
+          "pron": "RYA-dam",
+          "en": "nearby",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production"
+          ]
+        },
+        {
+          "id": "u07-go",
+          "ru": "идите",
+          "pron": "ee-DEE-teh",
+          "en": "go / walk",
+          "tier": "high-frequency-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        },
+        {
+          "id": "u07-need",
+          "ru": "мне нужно",
+          "pron": "mne NOOZH-na",
+          "en": "I need",
+          "tier": "survival-core",
+          "skills": [
+            "recognition",
+            "listening",
+            "production",
+            "speaking"
+          ]
+        }
+      ],
+      "patterns": [
+        {
+          "ru": "Где станция метро?",
+          "en": "Where is the metro station?",
+          "pron": "gdeh stan-TSEE-ya meh-TRO"
+        },
+        {
+          "ru": "Как добраться до кафе?",
+          "en": "How do I get to the café?",
+          "pron": "kak da-BRAT-sa da ka-FEH"
+        },
+        {
+          "ru": "Идите прямо, потом налево.",
+          "en": "Go straight, then left.",
+          "pron": "ee-DEE-teh PRYA-ma, pa-TOM na-LE-va"
+        },
+        {
+          "ru": "Мне нужен билет.",
+          "en": "I need a ticket.",
+          "pron": "mne NOO-zhen bee-LET"
+        }
+      ],
+      "grammar": {
+        "id": "u07-prepositional-route",
+        "kind": "Usage",
+        "title": "Route chunks: до, на, и потом",
+        "explanation": "Use memorized route chunks such as «до кафе» for to the café, «на метро» for by metro, and «потом» for then. These short chunks make directions easier to understand before studying every case ending.",
+        "exampleRu": "Идите прямо, потом направо. Кафе рядом.",
+        "exampleEn": "Go straight, then right. The café is nearby.",
+        "commonMistake": "Do not translate “by metro” as «в метро» when you mean the transport you take; use «на метро»."
+      },
+      "dialogue": {
+        "id": "u07-finding-cafe",
+        "title": "Finding the café",
+        "turns": [
+          {
+            "role": "tutor",
+            "ru": "Извините, где станция метро?",
+            "en": "Excuse me, where is the metro station?",
+            "prompt": "Ask how to get to the café.",
+            "variants": [
+              "как добраться до кафе",
+              "как добраться"
+            ],
+            "hint": "Use «Как добраться до кафе?»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Идите прямо, потом направо.",
+            "en": "Go straight, then right.",
+            "prompt": "Say that you need a ticket.",
+            "variants": [
+              "мне нужен билет",
+              "нужен билет"
+            ],
+            "hint": "Use «Мне нужен билет»."
+          },
+          {
+            "role": "tutor",
+            "ru": "Кафе рядом.",
+            "en": "The café is nearby.",
+            "prompt": "Understand the route closing.",
+            "variants": [],
+            "hint": ""
+          }
+        ]
+      },
+      "story": {
+        "id": "u07-trip-to-cafe",
+        "title": "A small trip across town",
+        "lines": [
+          {
+            "ru": "Здравствуйте! Сегодня мы едем в город.",
+            "en": "Hello! Today we are going to the city."
+          },
+          {
+            "ru": "Моя сестра спрашивает: «Где станция метро?»",
+            "en": "My sister asks: “Where is the metro station?”"
+          },
+          {
+            "ru": "Идите прямо, потом налево.",
+            "en": "Go straight, then left."
+          },
+          {
+            "ru": "Мы покупаем билет и едем в кафе.",
+            "en": "We buy a ticket and go to the café."
+          },
+          {
+            "ru": "Вечером мы вместе дома.",
+            "en": "In the evening we are together at home."
+          }
+        ],
+        "glossary": [
+          "сегодня",
+          "город",
+          "моя сестра",
+          "станция метро",
+          "прямо",
+          "налево",
+          "билет",
+          "в кафе",
+          "вместе"
+        ],
+        "questions": [
+          {
+            "q": "Куда они едут?",
+            "options": [
+              "в город",
+              "домой",
+              "в школу"
+            ],
+            "answer": "в город"
+          },
+          {
+            "q": "Что они покупают?",
+            "options": [
+              "билет",
+              "чай",
+              "книгу"
+            ],
+            "answer": "билет"
+          },
+          {
+            "q": "Куда они едут после станции?",
+            "options": [
+              "в кафе",
+              "в магазин",
+              "домой"
+            ],
+            "answer": "в кафе"
+          }
+        ]
+      },
+      "recycling": {
+        "title": "Cumulative travel loop",
+        "summary": "This unit carries the conversation from greeting and time to family, home, food, prices, and finally a real route. Hear the destination, follow the direction, and reuse the same short chunks while traveling.",
+        "sources": [
+          {
+            "unitId": "u02-greetings-introductions",
+            "label": "Unit 2 · polite conversation",
+            "words": [
+              "Здравствуйте",
+              "Извините",
+              "пожалуйста"
+            ]
+          },
+          {
+            "unitId": "u03-numbers-time",
+            "label": "Unit 3 · time and numbers",
+            "words": [
+              "Сегодня",
+              "В три часа",
+              "билет"
+            ]
+          },
+          {
+            "unitId": "u04-people-family",
+            "label": "Unit 4 · companions",
+            "words": [
+              "Моя сестра",
+              "мы",
+              "вместе"
+            ]
+          },
+          {
+            "unitId": "u05-home-objects",
+            "label": "Unit 5 · places",
+            "words": [
+              "дома",
+              "рядом",
+              "здесь"
+            ]
+          },
+          {
+            "unitId": "u06-food-cafe",
+            "label": "Unit 6 · destination",
+            "words": [
+              "кафе",
+              "Сколько стоит?",
+              "чай"
+            ]
+          }
+        ],
+        "listeningContrasts": [
+          {
+            "id": "u07-listen-destination",
+            "prompt": "You hear «Где станция метро?» — what does the speaker need?",
+            "hear": "Где станция метро?",
+            "options": [
+              "The metro station location",
+              "The price of tea",
+              "A family name"
+            ],
+            "answer": "The metro station location",
+            "explanation": "This turns the Unit 6 destination café pattern into a travel question."
+          },
+          {
+            "id": "u07-listen-direction",
+            "prompt": "You hear «Идите прямо» — what should you do?",
+            "hear": "Идите прямо.",
+            "options": [
+              "Go straight",
+              "Turn right",
+              "Buy a ticket"
+            ],
+            "answer": "Go straight",
+            "explanation": "This is the first route instruction."
+          },
+          {
+            "id": "u07-listen-transport",
+            "prompt": "You hear «Мы едем на метро» — how are they traveling?",
+            "hear": "Мы едем на метро.",
+            "options": [
+              "By metro",
+              "By bus",
+              "On foot"
+            ],
+            "answer": "By metro",
+            "explanation": "This reuses the “we” and destination frame while adding transport."
+          },
+          {
+            "id": "u07-listen-ticket",
+            "prompt": "You hear «Мне нужен билет» — what does the traveler need?",
+            "hear": "Мне нужен билет.",
+            "options": [
+              "A ticket",
+              "A menu",
+              "A room"
+            ],
+            "answer": "A ticket",
+            "explanation": "The ticket connects the travel task to the number-and-transaction chain."
+          },
+          {
+            "id": "u07-listen-near",
+            "prompt": "You hear «Кафе рядом» — what does that tell you?",
+            "hear": "Кафе рядом.",
+            "options": [
+              "The café is nearby",
+              "The café is closed",
+              "The café is expensive"
+            ],
+            "answer": "The café is nearby",
+            "explanation": "This recycles the place word from the home unit."
+          }
+        ]
+      },
+      "checkpoint": {
+        "id": "u07-cumulative-checkpoint",
+        "title": "Cumulative route check",
+        "isCumulative": true,
+        "sourceUnits": [
+          "u02-greetings-introductions",
+          "u03-numbers-time",
+          "u04-people-family",
+          "u05-home-objects",
+          "u06-food-cafe"
+        ],
+        "questions": [
+          {
+            "id": "u07-q1",
+            "prompt": "Choose the question asking where the metro station is.",
+            "options": [
+              "Где станция метро?",
+              "Сколько стоит чай?",
+              "Кто это?"
+            ],
+            "answer": "Где станция метро?",
+            "skill": "production",
+            "sourceUnit": "u07-shopping-clothing"
+          },
+          {
+            "id": "u07-q2",
+            "prompt": "Choose the instruction meaning “go straight”.",
+            "options": [
+              "Идите прямо.",
+              "Потом налево.",
+              "Кафе рядом."
+            ],
+            "answer": "Идите прямо.",
+            "skill": "recognition",
+            "sourceUnit": "u07-shopping-clothing"
+          },
+          {
+            "id": "u07-q3",
+            "prompt": "Choose the phrase meaning “my sister”.",
+            "options": [
+              "Моя сестра.",
+              "Мой билет.",
+              "Моя книга."
+            ],
+            "answer": "Моя сестра.",
+            "skill": "production",
+            "sourceUnit": "u04-people-family"
+          },
+          {
+            "id": "u07-q4",
+            "prompt": "Choose the destination from the café chain.",
+            "options": [
+              "в кафе",
+              "дома",
+              "в три часа"
+            ],
+            "answer": "в кафе",
+            "skill": "recognition",
+            "sourceUnit": "u06-food-cafe"
+          },
+          {
+            "id": "u07-q5",
+            "prompt": "Choose the phrase for “I need a ticket”.",
+            "options": [
+              "Мне нужен билет.",
+              "Дайте, пожалуйста, чай.",
+              "Меня зовут Ольга."
+            ],
+            "answer": "Мне нужен билет.",
+            "skill": "production",
             "sourceUnit": "u03-numbers-time"
           }
         ],

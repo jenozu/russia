@@ -74,7 +74,7 @@ def load_and_validate(path: Path = COURSE_PATH) -> dict[str, Any]:
     if len(items) != len(source):
         errors.append(f"items must cover all {len(source)} Stage 1 entries; found {len(items)}")
     unit_content_all = data.get("unitContent") or {}
-    required_unit_content = ("u02-greetings-introductions", "u03-numbers-time", "u04-people-family", "u05-home-objects", "u06-food-cafe")
+    required_unit_content = ("u02-greetings-introductions", "u03-numbers-time", "u04-people-family", "u05-home-objects", "u06-food-cafe", "u07-shopping-clothing")
     for unit_key in required_unit_content:
         unit_content = unit_content_all.get(unit_key)
         if not unit_content:
@@ -119,6 +119,17 @@ def load_and_validate(path: Path = COURSE_PATH) -> dict[str, Any]:
             checkpoint = unit_content.get("checkpoint", {})
             if not checkpoint.get("isCumulative") or set(checkpoint.get("sourceUnits", [])) != expected_sources:
                 errors.append("u06-food-cafe checkpoint must be cumulative across Units 2, 3, 4, and 5")
+        if unit_key == "u07-shopping-clothing":
+            recycling = unit_content.get("recycling") or {}
+            expected_sources = {"u02-greetings-introductions", "u03-numbers-time", "u04-people-family", "u05-home-objects", "u06-food-cafe"}
+            source_ids = {source.get("unitId") for source in recycling.get("sources", [])}
+            if source_ids != expected_sources:
+                errors.append("u07-shopping-clothing recycling sources must be exactly Units 2 through 6")
+            if len(recycling.get("listeningContrasts", [])) < 5:
+                errors.append("u07-shopping-clothing needs at least 5 listening contrasts")
+            checkpoint = unit_content.get("checkpoint", {})
+            if not checkpoint.get("isCumulative") or set(checkpoint.get("sourceUnits", [])) != expected_sources:
+                errors.append("u07-shopping-clothing checkpoint must be cumulative across Units 2 through 6")
     if errors:
         raise ValueError("Course content validation failed:\n- " + "\n- ".join(errors))
     return data
