@@ -241,12 +241,12 @@
       {
         "title": "Reverse-proxy site block for azbuka.andel-vps.space",
         "description": "A committed site config serves dist/ at https://azbuka.andel-vps.space/ and proxies /api/ to the API on 127.0.0.1:8090 with the /api prefix stripped.",
-        "status": "pending",
+        "status": "done",
         "priority": "medium",
         "dependencies": [
           10
         ],
-        "details": "Use the proxy task 10 found (nginx expected). nginx: deploy/nginx/azbuka.andel-vps.space.conf with server_name azbuka.andel-vps.space; port 80 serves /.well-known/acme-challenge/ and redirects everything else to https; the 443 block (certificate paths filled in by certbot in task 15, or written for /etc/letsencrypt/live/azbuka.andel-vps.space/) has root /opt/azbuka/dist, try_files $uri /index.html, `location /api/ { proxy_pass http://127.0.0.1:8090/; }` (trailing slash strips the prefix) with Host, X-Forwarded-For, X-Forwarded-Proto headers, client_max_body_size 64k, a limit_req zone for /api/v1/auth/, Cache-Control no-cache on service-worker.js and index.html, and security headers (HSTS, X-Content-Type-Options, Referrer-Policy; a CSP that allows the inline script and connect-src 'self'). If the server runs Caddy instead, write deploy/caddy/{APP}.caddy with the same behaviour (handle_path /api/*). Never edit other sites' files.",
+        "details": "Use the proxy task 10 found (nginx expected). nginx: deploy/nginx/azbuka.andel-vps.space.conf with server_name azbuka.andel-vps.space; port 80 serves /.well-known/acme-challenge/ and redirects everything else to https; the 443 block (certificate paths filled in by certbot in task 15, or written for /etc/letsencrypt/live/azbuka.andel-vps.space/) has root /opt/azbuka/dist, try_files $uri /index.html, `location /api/ { proxy_pass http://127.0.0.1:8090/; }` (trailing slash strips the prefix) with Host, X-Forwarded-For, X-Forwarded-Proto headers, client_max_body_size 64k, a limit_req zone for /api/v1/auth/, Cache-Control no-cache on service-worker.js and index.html, and security headers (HSTS, X-Content-Type-Options, Referrer-Policy; a CSP that allows the inline script and connect-src 'self'). If the server runs Caddy instead, write deploy/caddy/{APP}.caddy with the same behaviour (handle_path /api/*). Never edit other sites' files.\n\n[2026-11-12T12:41:10-05:00] done: deploy/nginx/azbuka.andel-vps.space.conf (+ azbuka-headers.inc, azbuka-proxy.inc, http-only bootstrap file so nginx -t passes before the cert exists). greps ok; nginx -t not runnable here (task 15). Proxy type still to be confirmed from task 10 output. Reviewer not run.",
         "testStrategy": "The file exists and greps show server_name, proxy_pass http://127.0.0.1:8090/, the acme-challenge location and the 80→443 redirect. `nginx -t` runs on the server in task 15.",
         "complexity": 4,
         "review": true,
@@ -627,7 +627,7 @@
         }
       ],
       "created": "2026-11-12",
-      "updated": "2026-11-12T12:40:34-05:00"
+      "updated": "2026-11-12T12:41:10-05:00"
     }
   }
 }

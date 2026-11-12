@@ -3,7 +3,7 @@
 Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit by hand; regenerate with
 `python .taskmaster/render_tasks_md.py`.
 
-**Progress: 7/30 tasks done.**
+**Progress: 8/30 tasks done.**
 
 ## Phase 0 - Foundation
 
@@ -52,7 +52,7 @@ Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit 
 - [x] **11. Server deploy script and static build output** _(after 2, 6)_  
   One idempotent script on the server pulls main, builds the static app into dist/ and (re)starts the Compose stack, waiting for it to be healthy.  
   _Test:_ `python scripts/build_dist.py` leaves exactly the 4 files in dist/; `python -m http.server -d dist 4174` + curl -fsS http://127.0.0.1:4174/ returns the app; `sh -n deploy/deploy.sh` passes (shellcheck -S warning if installed).
-- [ ] **12. Reverse-proxy site block for azbuka.andel-vps.space** _(after 10)_  
+- [x] **12. Reverse-proxy site block for azbuka.andel-vps.space** _(after 10)_  
   A committed site config serves dist/ at https://azbuka.andel-vps.space/ and proxies /api/ to the API on 127.0.0.1:8090 with the /api prefix stripped.  
   _Test:_ The file exists and greps show server_name, proxy_pass http://127.0.0.1:8090/, the acme-challenge location and the 80→443 redirect. `nginx -t` runs on the server in task 15.
 - [ ] **13. Security review before first deploy** _(after 11, 12)_  
