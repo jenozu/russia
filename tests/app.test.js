@@ -595,6 +595,24 @@ test('service worker never caches API calls but still caches the app shell', () 
   assert.strictEqual(run('https://azbuka.example/standalone.html'), true);
 });
 
+test('every lesson step scrolls to its own section in every unit', () => {
+  const { w } = boot();
+  const ids = w.eval("Object.keys(COURSE.unitContent)");
+  assert.ok(ids.length >= 15);
+  for (const id of ids) {
+    w.eval("selectUnit('" + id + "');show('unit3')");
+    const n = w.eval("UNIT.activities.length");
+    for (let i = 0; i < n; i++) {
+      let scrolled = null;
+      w.eval("window.__t=null");
+      w.HTMLElement.prototype.scrollIntoView = function () { scrolled = this; };
+      w.eval("selectUnitActivity(" + i + ")");
+      assert.ok(scrolled, id + ' step ' + i + ' did not scroll');
+      assert.ok(scrolled.className.includes('panel') || scrolled.className.includes('fold'), id + ' step ' + i + ' scrolled to a non-section');
+    }
+  }
+});
+
 let failed = 0;
 (async () => {
   for (const [name, fn] of tests) {
