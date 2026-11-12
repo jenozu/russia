@@ -33,10 +33,10 @@
       {
         "title": "Remove one-off patch scripts and archive stale agent prompts",
         "description": "The repo holds only live sources and docs; already-applied patch scripts and old prompt files no longer confuse builders.",
-        "status": "pending",
+        "status": "done",
         "priority": "medium",
         "dependencies": [],
-        "details": "git rm scripts/patch_m7.py scripts/patch_m7_fix.py scripts/patch_m7_polish.py scripts/patch_m8.py scripts/patch_m8_docs.py (their changes are already in build_standalone.py; git history keeps them). git mv CLAUDE_INSPECT_FINISH_AND_MERGE_PROMPT.md CLAUDE_MAIN_BRANCH_REPAIR_PROMPT.md CLAUDE_VPS_BACKEND_IMPLEMENTATION_BRIEF.md into docs/archive/. grep for references to the moved/removed names and fix links. Update the README 'Repository structure' block to list .taskmaster/, AGENTS.md, CLAUDE.md, backend/, db/, docs/, tests/. Don't touch other docs.",
+        "details": "git rm scripts/patch_m7.py scripts/patch_m7_fix.py scripts/patch_m7_polish.py scripts/patch_m8.py scripts/patch_m8_docs.py (their changes are already in build_standalone.py; git history keeps them). git mv CLAUDE_INSPECT_FINISH_AND_MERGE_PROMPT.md CLAUDE_MAIN_BRANCH_REPAIR_PROMPT.md CLAUDE_VPS_BACKEND_IMPLEMENTATION_BRIEF.md into docs/archive/. grep for references to the moved/removed names and fix links. Update the README 'Repository structure' block to list .taskmaster/, AGENTS.md, CLAUDE.md, backend/, db/, docs/, tests/. Don't touch other docs.\n\n[2026-11-12T12:02:44-05:00] removed 5 patch scripts, archived 3 prompts to docs/archive, updated README structure; sync check passes",
         "testStrategy": "python tests/check_build_in_sync.py passes; `git grep -n -e patch_m7 -e patch_m8 -e CLAUDE_MAIN_BRANCH_REPAIR -- ':!docs/archive'` prints nothing.",
         "complexity": 2,
         "phase": 0,
@@ -597,7 +597,7 @@
         }
       ],
       "created": "2026-11-12",
-      "updated": "2026-11-12T11:24:29-05:00"
+      "updated": "2026-11-12T12:02:44-05:00"
     }
   }
 }

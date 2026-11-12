@@ -3,7 +3,7 @@
 Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit by hand; regenerate with
 `python .taskmaster/render_tasks_md.py`.
 
-**Progress: 0/30 tasks done.**
+**Progress: 1/30 tasks done.**
 
 ## Phase 0 - Foundation
 
@@ -13,7 +13,7 @@ Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit 
 - [ ] **2. Install dev dependencies and get every test suite green on Windows** _(after 1)_  
   One command runs the jsdom suite, build-in-sync check, course validator and backend pytest suite on this PC, all passing.  
   _Test:_ The AGENTS.md test command exits 0; `sh scripts/test_backend.sh -q` exits 0 in Git Bash with AZBUKA_TEST_DB set.
-- [ ] **3. Remove one-off patch scripts and archive stale agent prompts**  
+- [x] **3. Remove one-off patch scripts and archive stale agent prompts**  
   The repo holds only live sources and docs; already-applied patch scripts and old prompt files no longer confuse builders.  
   _Test:_ python tests/check_build_in_sync.py passes; `git grep -n -e patch_m7 -e patch_m8 -e CLAUDE_MAIN_BRANCH_REPAIR -- ':!docs/archive'` prints nothing.
 - [ ] **4. Run the API locally as a dev server** _(after 2)_  

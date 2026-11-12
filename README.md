@@ -57,11 +57,18 @@ The Russian Stage 1 curriculum is preserved in [`curriculum/russian/stage_1.md`]
 ## Repository structure
 
 ```text
-standalone.html                 Dependency-free browser app
-scripts/build_standalone.py     Regenerates standalone.html from local curriculum data
-curriculum/russian/             Source markdown and structured curriculum data
-README.md                       Standalone app setup and product overview
-master_task.md                  Incremental implementation plan
+standalone.html                 Generated browser app (never edit; rebuild it)
+scripts/build_standalone.py     Source of standalone.html (HTML/CSS/JS template)
+curriculum/russian/             Course data (a1-course.json) and source markdown
+service-worker.js, manifest.json  Offline cache and install manifest
+backend/                        FastAPI + asyncpg sync API and its pytest suite
+db/                             Numbered SQL migrations and generated course seed
+tests/                          jsdom app tests and build-in-sync check
+docs/                           MASTER_PLAN.md; docs/archive/ holds old agent prompts
+.taskmaster/                    PRD, task plan (tasks.json), parking lot
+AGENTS.md, CLAUDE.md, TASKS.md  Agent instructions and the generated task checklist
+README.md                       Product overview and app setup
+master_task.md                  Earlier incremental implementation plan
 ```
 
 ## Development principle
