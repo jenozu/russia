@@ -3,7 +3,7 @@
 Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit by hand; regenerate with
 `python .taskmaster/render_tasks_md.py`.
 
-**Progress: 1/30 tasks done.**
+**Progress: 2/30 tasks done.**
 
 ## Phase 0 - Foundation
 
@@ -22,7 +22,7 @@ Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit 
 
 ## Phase 1 - Client sync
 
-- [ ] **5. Device ID and durable local event queue** _(after 2)_  
+- [x] **5. Device ID and durable local event queue** _(after 2)_  
   Every learner action becomes an append-only event with a UUID in a durable local queue, saved before any network call; the app is unchanged offline and signed out.  
   _Test:_ (cd tests && npm test --silent) && python tests/check_build_in_sync.py; new tests prove: deviceId stable across reloads, rating a card appends one event with a valid id, old saved state without `sync` loads.
 - [ ] **6. Upload the event queue to the API** _(after 4, 5)_  
