@@ -77,13 +77,13 @@
       {
         "title": "Upload the event queue to the API",
         "description": "While signed in and online, queued events upload in batches with capped backoff; accepted and duplicate events are marked synced, rejected ones kept with a plain error.",
-        "status": "pending",
+        "status": "done",
         "priority": "high",
         "dependencies": [
           4,
           5
         ],
-        "details": "In build_standalone.py: API base = same-origin '/api' when served over https, else a value from localStorage 'azbuka-api-base' (default http://127.0.0.1:8090) so local dev works. Batch up to MAX_SYNC_EVENTS (250), reuse the same event ids on retry, backoff 2s doubling to 5 min, trigger on login, on 'online', after each new event (debounced) and on a timer. Bearer token from login stored in state.sync.account. 401 → signed-out state, keep the queue. Never block the UI. Add jsdom tests with a stubbed fetch (accepted, duplicate, rejected, network error, 401).",
+        "details": "In build_standalone.py: API base = same-origin '/api' when served over https, else a value from localStorage 'azbuka-api-base' (default http://127.0.0.1:8090) so local dev works. Batch up to MAX_SYNC_EVENTS (250), reuse the same event ids on retry, backoff 2s doubling to 5 min, trigger on login, on 'online', after each new event (debounced) and on a timer. Bearer token from login stored in state.sync.account. 401 → signed-out state, keep the queue. Never block the UI. Add jsdom tests with a stubbed fetch (accepted, duplicate, rejected, network error, 401).\n\n[2026-11-12T12:18:02-05:00] plan: apiCall/authRequest/syncNow/scheduleSync in build_standalone.py; batches of 250; backoff 2s doubling to 5m; 401 keeps queue; stub-fetch tests for accepted/duplicate/rejected/network/401/batching\n\n[2026-11-12T12:19:07-05:00] done: 26/26 jsdom tests (accepted, duplicate, rejected, network+backoff, 401, batching 250, signed-out, auth errors). Real run vs local API: register+upload 7 events accepted, rows in learning_events (review-rated, checkpoint-answer x2, unit-started, unit-completed, xp-awarded x2). Cache v17. Reviewer not run.",
         "testStrategy": "(cd tests && npm test --silent) && python tests/check_build_in_sync.py; stubbed-fetch tests cover all five responses; with the api dev server running, a scripted register+upload via the built app logic shows events in azbuka_dev (select count(*) from sync_events or the table backend uses).",
         "complexity": 6,
         "review": true,
@@ -597,7 +597,7 @@
         }
       ],
       "created": "2026-11-12",
-      "updated": "2026-11-12T12:17:28-05:00"
+      "updated": "2026-11-12T12:19:08-05:00"
     }
   }
 }

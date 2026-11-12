@@ -6,7 +6,7 @@ const assert = require('assert');
 
 const html = fs.readFileSync(path.join(__dirname, '..', 'standalone.html'), 'utf8');
 
-function boot(seedState) {
+function boot(seedState, opts = {}) {
   const spoken = [];
   const utterances = [];
   const downloads = [];
@@ -25,6 +25,7 @@ function boot(seedState) {
       w.URL.createObjectURL = () => 'blob:test';
       w.URL.revokeObjectURL = () => {};
       w.HTMLAnchorElement.prototype.click = function () { downloads.push(this.download); };
+      if (opts.fetch) w.fetch = opts.fetch;
       w.scrollTo = () => {}; w.alert = () => {}; w.confirm = () => true;
     },
   });
@@ -213,10 +214,133 @@ test('old saved state without sync fields gets queue defaults', () => {
   assert.strictEqual(w.eval('Array.isArray(state.sync.rejected)'), true);
 });
 
-let failed = 0;
-for (const [name, fn] of tests) {
-  try { fn(); console.log('ok   - ' + name); }
-  catch (e) { failed++; console.log('FAIL - ' + name + '\n       ' + e.message.split('\n')[0]); }
+// ---- upload (task 6): stubbed fetch ----
+function stubFetch(handler) {
+  const calls = [];
+  const fn = async (url, init = {}) => {
+    const call = { url, method: init.method || 'GET', headers: init.headers || {}, body: init.body ? JSON.parse(init.body) : null };
+    calls.push(call);
+    const r = await handler(call, calls.length);
+    return { status: r.status, ok: r.status >= 200 && r.status < 300, json: async () => r.body };
+  };
+  fn.calls = calls;
+  return fn;
 }
-console.log(`\n${tests.length - failed}/${tests.length} passed`);
-process.exit(failed ? 1 : 0);
+const signedIn = (w) => w.eval("state.sync.account={token:'tok',expiresAt:new Date(Date.now()+3600e3).toISOString(),email:'a@b.co'}");
+const rate = (w, n) => w.eval(`show('stage');for(let i=0;i<${n};i++){reveal();rateCurrent('good')}`);
+const ok = (ids) => ({ status: 200, body: { accepted: ids, duplicates: [], rejected: [], server_cursor: null, progress_version: 1 } });
+
+test('accepted events leave the queue; same ids are sent with bearer token and device id', async () => {
+  const f = stubFetch((c) => ok(c.body.events.map((e) => e.client_event_id)));
+  const { w } = boot(null, { fetch: f });
+  rate(w, 2); signedIn(w);
+  const ids = queue(w).map((e) => e.client_event_id);
+  const r = await w.eval('syncNow()');
+  assert.strictEqual(r.ok, true);
+  assert.strictEqual(f.calls.length, 1);
+  assert.ok(f.calls[0].url.endsWith('/v1/sync/events'));
+  assert.strictEqual(f.calls[0].headers.Authorization, 'Bearer tok');
+  assert.strictEqual(f.calls[0].body.device_id, w.eval('state.sync.deviceId'));
+  assert.deepStrictEqual(f.calls[0].body.events.map((e) => e.client_event_id), ids);
+  assert.strictEqual(queue(w).length, 0);
+  assert.strictEqual(w.eval('state.sync.syncedCount'), ids.length);
+});
+
+test('duplicate events are marked synced too', async () => {
+  const f = stubFetch((c) => ({ status: 200, body: { accepted: [], duplicates: c.body.events.map((e) => e.client_event_id), rejected: [], server_cursor: null, progress_version: 2 } }));
+  const { w } = boot(null, { fetch: f });
+  rate(w, 1); signedIn(w);
+  await w.eval('syncNow()');
+  assert.strictEqual(queue(w).length, 0);
+});
+
+test('rejected events are kept with a plain reason and leave the queue', async () => {
+  const f = stubFetch((c) => {
+    const [first, ...rest] = c.body.events.map((e) => e.client_event_id);
+    return { status: 200, body: { accepted: rest, duplicates: [], rejected: [{ clientEventId: first, reason: 'unsupported event type: x' }], server_cursor: null, progress_version: 1 } };
+  });
+  const { w } = boot(null, { fetch: f });
+  rate(w, 1); signedIn(w);
+  await w.eval('syncNow()');
+  assert.strictEqual(queue(w).length, 0);
+  const rej = JSON.parse(w.eval('JSON.stringify(state.sync.rejected)'));
+  assert.strictEqual(rej.length, 1);
+  assert.ok(/unsupported event type/.test(rej[0].reason));
+});
+
+test('network error keeps the queue, backs off, and retries with the same ids', async () => {
+  let fail = true;
+  const f = stubFetch((c) => { if (fail) throw new TypeError('Failed to fetch'); return ok(c.body.events.map((e) => e.client_event_id)); });
+  const { w } = boot(null, { fetch: f });
+  rate(w, 1); signedIn(w);
+  const ids = queue(w).map((e) => e.client_event_id);
+  const r1 = await w.eval('syncNow()');
+  assert.strictEqual(r1.ok, false);
+  assert.deepStrictEqual(queue(w).map((e) => e.client_event_id), ids);
+  assert.strictEqual(w.eval('syncBackoff'), 2000);
+  assert.ok(w.eval('syncRetryAt') > Date.now());
+  assert.ok(/Cannot reach the server/.test(w.eval('syncError')));
+  await w.eval('syncNow()');
+  assert.strictEqual(w.eval('syncBackoff'), 4000);
+  fail = false;
+  await w.eval('syncNow()');
+  assert.deepStrictEqual(f.calls[f.calls.length - 1].body.events.map((e) => e.client_event_id), ids);
+  assert.strictEqual(queue(w).length, 0);
+  assert.strictEqual(w.eval('syncBackoff'), 0);
+});
+
+test('401 signs out but keeps the whole queue', async () => {
+  const f = stubFetch(() => ({ status: 401, body: { detail: 'Invalid or expired session' } }));
+  const { w } = boot(null, { fetch: f });
+  rate(w, 2); signedIn(w);
+  const n = queue(w).length;
+  const r = await w.eval('syncNow()');
+  assert.strictEqual(r.reason, 'unauthorized');
+  assert.strictEqual(w.eval('state.sync.account'), null);
+  assert.strictEqual(queue(w).length, n);
+  assert.ok(/Sign in again/.test(w.eval('syncError')));
+});
+
+test('large queues upload in batches of at most 250', async () => {
+  const f = stubFetch((c) => ok(c.body.events.map((e) => e.client_event_id)));
+  const { w } = boot(null, { fetch: f });
+  w.eval("ensureSync();for(let i=0;i<600;i++)state.sync.queue.push({client_event_id:'e'+i,event_type:'settings-updated',occurred_at:new Date().toISOString(),payload:{}})");
+  signedIn(w);
+  await w.eval('syncNow()');
+  assert.deepStrictEqual(f.calls.map((c) => c.body.events.length), [250, 250, 100]);
+  assert.strictEqual(queue(w).length, 0);
+});
+
+test('signed out: nothing is sent and the queue keeps growing', async () => {
+  const f = stubFetch(() => ok([]));
+  const { w } = boot(null, { fetch: f });
+  rate(w, 1);
+  const r = await w.eval('syncNow()');
+  assert.strictEqual(r.reason, 'signed-out');
+  assert.strictEqual(f.calls.length, 0);
+  assert.ok(queue(w).length > 0);
+});
+
+test('register stores the token and maps errors to plain messages', async () => {
+  let status = 201;
+  const f = stubFetch(() => status === 201
+    ? { status, body: { access_token: 'T', token_type: 'bearer', expires_at: new Date(Date.now() + 3600e3).toISOString(), user: { id: 'u1', email: 'a@b.co', display_name: null } } }
+    : { status, body: { detail: 'x' } });
+  const { w } = boot(null, { fetch: f });
+  assert.strictEqual((await w.eval("authRequest('register','a@b.co','longenoughpw','')")).ok, true);
+  assert.strictEqual(w.eval('state.sync.account.email'), 'a@b.co');
+  w.eval('state.sync.account=null');
+  status = 401; assert.strictEqual((await w.eval("authRequest('login','a@b.co','wrong')")).message, 'Wrong email or password.');
+  status = 429; assert.ok(/Too many/.test((await w.eval("authRequest('login','a@b.co','x')")).message));
+  status = 409; assert.ok(/already has an account/.test((await w.eval("authRequest('register','a@b.co','longenoughpw','')")).message));
+});
+
+let failed = 0;
+(async () => {
+  for (const [name, fn] of tests) {
+    try { await fn(); console.log('ok   - ' + name); }
+    catch (e) { failed++; console.log('FAIL - ' + name + '\n       ' + e.message.split('\n')[0]); }
+  }
+  console.log(`\n${tests.length - failed}/${tests.length} passed`);
+  process.exit(failed ? 1 : 0);
+})();
