@@ -12,18 +12,23 @@ from __future__ import annotations
 
 import base64
 import hashlib
-import hmac
 import json
+import logging
 import os
+import re
 import secrets
+import time
 import uuid
+from contextlib import asynccontextmanager
+from collections import defaultdict, deque
 from datetime import datetime, timedelta, timezone
 from typing import Any, Annotated
 
 import asyncpg
 from fastapi import Depends, FastAPI, Header, HTTPException, Query, Request, Response, status
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from fastapi.responses import JSONResponse
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_validator
 
 try:
     from argon2 import PasswordHasher
@@ -33,35 +38,147 @@ except ImportError:  # pragma: no cover - requirements include argon2-cffi
     InvalidHashError = VerifyMismatchError = Exception
 
 
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://azbuka:change-me@127.0.0.1:5432/azbuka")
-APP_ORIGINS = [x.strip() for x in os.getenv("APP_ORIGINS", "http://localhost:4187").split(",") if x.strip()]
+log = logging.getLogger("azbuka")
+
+# Secrets and connection details come only from the environment. There are no
+# defaults for credentials; startup() refuses to run without them.
+DATABASE_URL = os.getenv("DATABASE_URL", "")
+APP_ORIGINS = [x.strip() for x in os.getenv("APP_ORIGINS", "").split(",") if x.strip()]
 SESSION_TTL_DAYS = int(os.getenv("SESSION_TTL_DAYS", "30"))
 MAX_SYNC_EVENTS = int(os.getenv("MAX_SYNC_EVENTS", "250"))
 TOKEN_PEPPER = os.getenv("TOKEN_PEPPER", "")
+MAX_PAYLOAD_BYTES = int(os.getenv("MAX_PAYLOAD_BYTES", "8192"))
+DAILY_XP_CAP = int(os.getenv("DAILY_XP_CAP", "1500"))
+RATE_AUTH_PER_MIN = int(os.getenv("RATE_AUTH_PER_MIN", "10"))
+RATE_LOGIN_FAILS_PER_15MIN = int(os.getenv("RATE_LOGIN_FAILS_PER_15MIN", "8"))
+RATE_SYNC_PER_MIN = int(os.getenv("RATE_SYNC_PER_MIN", "120"))
+ENABLE_DOCS = os.getenv("ENABLE_DOCS", "0") == "1"
 
-app = FastAPI(title="Azbuka A1 Progress API", version="1.0.0")
+# Maximum XP per reward-key prefix. The client may only claim an amount up to
+# the cap for a known prefix, and each key is paid at most once (xp_ledger).
+XP_RULES = {
+    "review": 5,
+    "quiz": 5,
+    "course-review": 7,
+    "scenario-complete": 15,
+    "speech": 4,
+    "unit-complete": 20,
+}
+EARLIEST_EVENT = datetime(2020, 1, 1, tzinfo=timezone.utc)
+ID_PATTERN = re.compile(r"^[A-Za-z0-9._:@-]+$")
+
+
+def validate_config() -> None:
+    """Fail fast on missing or unsafe configuration."""
+    if not DATABASE_URL:
+        raise RuntimeError("DATABASE_URL is required")
+    if len(TOKEN_PEPPER) < 16:
+        raise RuntimeError("TOKEN_PEPPER must be set to a random value of at least 16 characters")
+    if not APP_ORIGINS:
+        raise RuntimeError("APP_ORIGINS must list the exact origin(s) of the web app")
+    if any(origin == "*" for origin in APP_ORIGINS):
+        raise RuntimeError("APP_ORIGINS must not contain '*'")
+
+
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    global pool
+    validate_config()
+    pool = await asyncpg.create_pool(DATABASE_URL, min_size=1, max_size=10, command_timeout=15)
+    try:
+        yield
+    finally:
+        await pool.close()
+        pool = None
+
+
+app = FastAPI(
+    lifespan=lifespan,
+    title="Azbuka A1 Progress API",
+    version="1.1.0",
+    docs_url="/docs" if ENABLE_DOCS else None,
+    redoc_url=None,
+    openapi_url="/openapi.json" if ENABLE_DOCS else None,
+)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=APP_ORIGINS,
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["Authorization", "Content-Type", "X-Device-ID"],
 )
 
+
+class RateLimiter:
+    """Small in-memory sliding-window limiter (per process).
+
+    This is a second line of defense; the reverse proxy should also limit
+    /v1/auth and /v1/sync. It resets when the container restarts.
+    """
+
+    def __init__(self) -> None:
+        self.hits: dict[str, deque[float]] = defaultdict(deque)
+
+    def reset(self) -> None:
+        self.hits.clear()
+
+    def _prune(self, key: str, window: float, now: float) -> deque[float]:
+        q = self.hits[key]
+        while q and now - q[0] > window:
+            q.popleft()
+        return q
+
+    def blocked(self, key: str, limit: int, window: float) -> bool:
+        return len(self._prune(key, window, time.monotonic())) >= limit
+
+    def hit(self, key: str, limit: int, window: float) -> bool:
+        """Record a hit. Returns False when the limit is already reached."""
+        now = time.monotonic()
+        q = self._prune(key, window, now)
+        if len(q) >= limit:
+            return False
+        q.append(now)
+        if len(self.hits) > 20000:  # bound memory under a key-flooding attack
+            self.hits.clear()
+        return True
+
+
+limiter = RateLimiter()
+
+
+def too_many(retry_after: int = 60) -> HTTPException:
+    return HTTPException(status_code=429, detail="Too many requests. Try again shortly.", headers={"Retry-After": str(retry_after)})
+
+
+def client_ip(request: Request) -> str:
+    return request.client.host if request.client else "unknown"
+
+
+@app.middleware("http")
+async def security_headers(request: Request, call_next):
+    response = await call_next(request)
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    if request.url.path.startswith("/v1/"):
+        response.headers["Cache-Control"] = "no-store"
+    return response
+
+
+@app.exception_handler(asyncpg.PostgresError)
+async def database_error(request: Request, exc: asyncpg.PostgresError) -> JSONResponse:
+    log.error("database error on %s %s: %s", request.method, request.url.path, type(exc).__name__)
+    return JSONResponse(status_code=503, content={"detail": "Service temporarily unavailable"})
+
+
+@app.exception_handler(Exception)
+async def unexpected_error(request: Request, exc: Exception) -> JSONResponse:
+    log.error("unhandled error on %s %s: %s", request.method, request.url.path, type(exc).__name__)
+    return JSONResponse(status_code=500, content={"detail": "Internal server error"})
+
 pool: asyncpg.Pool | None = None
 password_hasher = PasswordHasher() if PasswordHasher else None
-
-
-@app.on_event("startup")
-async def startup() -> None:
-    global pool
-    pool = await asyncpg.create_pool(DATABASE_URL, min_size=1, max_size=10, command_timeout=15)
-
-
-@app.on_event("shutdown")
-async def shutdown() -> None:
-    if pool:
-        await pool.close()
+# Verified against when the email is unknown, so login takes about the same
+# time whether or not the account exists.
+DUMMY_HASH = password_hasher.hash("azbuka-dummy-password") if password_hasher else ""
 
 
 def db() -> asyncpg.Pool:
@@ -132,30 +249,43 @@ class RegisterRequest(StrictModel):
 
 
 class LoginRequest(StrictModel):
-    email: str
-    password: str
+    email: str = Field(min_length=1, max_length=320)
+    password: str = Field(min_length=1, max_length=200)
 
 
 class EventInput(StrictModel):
     client_event_id: str = Field(min_length=1, max_length=200)
-    event_type: str
-    unit_id: str | None = None
-    item_scope: str | None = None
-    item_id: str | None = None
+    event_type: str = Field(min_length=1, max_length=64)
+    unit_id: str | None = Field(default=None, max_length=64)
+    item_scope: str | None = Field(default=None, max_length=32)
+    item_id: str | None = Field(default=None, max_length=128)
     payload: dict[str, Any] = Field(default_factory=dict)
     occurred_at: datetime
 
+    @field_validator("client_event_id", "unit_id", "item_id")
+    @classmethod
+    def safe_identifier(cls, value: str | None) -> str | None:
+        if value is not None and not ID_PATTERN.match(value):
+            raise ValueError("identifier contains unsupported characters")
+        return value
+
     @field_validator("event_type")
     @classmethod
-    def event_type_not_blank(cls, value: str) -> str:
-        if not value.strip():
-            raise ValueError("event_type cannot be blank")
+    def event_type_trimmed(cls, value: str) -> str:
         return value.strip()
+
+    @field_validator("occurred_at")
+    @classmethod
+    def occurred_at_aware(cls, value: datetime) -> datetime:
+        # Browsers sometimes send local times without an offset; treat as UTC.
+        return value.replace(tzinfo=timezone.utc) if value.tzinfo is None else value.astimezone(timezone.utc)
 
 
 class SyncRequest(StrictModel):
-    device_id: str = Field(min_length=1, max_length=200)
-    events: list[EventInput] = Field(default_factory=list, max_length=MAX_SYNC_EVENTS)
+    device_id: str = Field(min_length=1, max_length=200, pattern=r"^[A-Za-z0-9._:-]+$")
+    # Events arrive as raw objects and are validated one by one, so a single
+    # malformed event is rejected on its own instead of failing the batch.
+    events: list[dict[str, Any]] = Field(default_factory=list, max_length=MAX_SYNC_EVENTS)
     client_cursor: str | None = None
 
 
@@ -201,7 +331,10 @@ async def current_user(authorization: Annotated[str | None, Header()] = None) ->
     )
     if not row:
         raise HTTPException(status_code=401, detail="Invalid or expired session")
-    await db().execute("UPDATE sessions SET last_seen_at = now() WHERE token_hash = $1", hash_token(token))
+    await db().execute(
+        "UPDATE sessions SET last_seen_at = now() WHERE token_hash = $1 AND last_seen_at < now() - interval '1 minute'",
+        hash_token(token),
+    )
     return row
 
 
@@ -230,12 +363,18 @@ async def ensure_user_defaults(user_id: uuid.UUID) -> None:
 
 @app.get("/health")
 async def health() -> dict[str, str]:
-    await db().fetchval("SELECT 1")
+    try:
+        await db().fetchval("SELECT 1")
+    except Exception as exc:  # noqa: BLE001 - report unhealthy without leaking details
+        log.error("health check failed: %s", type(exc).__name__)
+        raise HTTPException(status_code=503, detail="database unavailable") from exc
     return {"status": "ok"}
 
 
 @app.post("/v1/auth/register", response_model=AuthResponse, status_code=201)
-async def register(body: RegisterRequest) -> AuthResponse:
+async def register(body: RegisterRequest, request: Request) -> AuthResponse:
+    if not limiter.hit(f"auth:{client_ip(request)}", RATE_AUTH_PER_MIN, 60):
+        raise too_many()
     email = normalize_email(body.email)
     async with db().acquire() as conn:
         async with conn.transaction():
@@ -264,12 +403,20 @@ async def register(body: RegisterRequest) -> AuthResponse:
 
 
 @app.post("/v1/auth/login", response_model=AuthResponse)
-async def login(body: LoginRequest) -> AuthResponse:
+async def login(body: LoginRequest, request: Request) -> AuthResponse:
+    ip = client_ip(request)
+    email = normalize_email(body.email)
+    fail_key = f"login-fail:{email}"
+    if not limiter.hit(f"auth:{ip}", RATE_AUTH_PER_MIN, 60) or limiter.blocked(fail_key, RATE_LOGIN_FAILS_PER_15MIN, 900):
+        raise too_many()
     user = await db().fetchrow(
         "SELECT id, email, display_name, created_at, password_hash FROM users WHERE email_normalized = $1 AND disabled_at IS NULL",
-        normalize_email(body.email),
+        email,
     )
-    if not user or not user["password_hash"] or not password_verify(user["password_hash"], body.password):
+    stored = user["password_hash"] if user and user["password_hash"] else DUMMY_HASH
+    verified = password_verify(stored, body.password)
+    if not user or not user["password_hash"] or not verified:
+        limiter.hit(fail_key, RATE_LOGIN_FAILS_PER_15MIN * 2, 900)
         raise HTTPException(status_code=401, detail="Invalid email or password")
     token = secrets.token_urlsafe(48)
     expires = utc_now() + timedelta(days=SESSION_TTL_DAYS)
@@ -296,31 +443,56 @@ async def me(user: Annotated[asyncpg.Record, Depends(current_user)]) -> UserOut:
     return UserOut(**dict(user))
 
 
-async def validate_event(event: EventInput) -> None:
-    allowed = {
-        "unit-started", "unit-completed", "dialogue-response", "listening-answer",
-        "story-answer", "checkpoint-answer", "review-rated", "letter-rated",
-        "quiz-review", "xp-awarded", "badge-earned", "settings-updated",
-        "scenario-completed", "sync-import",
-    }
-    if event.event_type not in allowed:
+ALLOWED_EVENT_TYPES = {
+    "unit-started", "unit-completed", "dialogue-response", "listening-answer",
+    "story-answer", "checkpoint-answer", "review-rated", "letter-rated",
+    "quiz-review", "xp-awarded", "badge-earned", "settings-updated",
+    "scenario-completed", "sync-import",
+}
+UNIT_EVENTS = {"unit-started", "unit-completed", "checkpoint-answer", "dialogue-response", "listening-answer", "story-answer", "scenario-completed"}
+ITEM_EVENTS = {"review-rated", "quiz-review", "letter-rated"}
+ITEM_SCOPES = {"stage", "course", "letter", "story", "scenario"}
+
+
+def xp_claim(event: EventInput) -> tuple[str, int]:
+    """Validate an xp-awarded payload against XP_RULES; returns (key, amount)."""
+    key = event.payload.get("key")
+    amount = event.payload.get("amount")
+    if not isinstance(key, str) or not 1 <= len(key) <= 200 or not ID_PATTERN.match(key):
+        raise ValueError("xp-awarded needs a valid reward key")
+    cap = XP_RULES.get(key.split(":", 1)[0])
+    if cap is None:
+        raise ValueError("unknown reward type")
+    if isinstance(amount, bool) or not isinstance(amount, int) or not 1 <= amount <= cap:
+        raise ValueError("reward amount is outside the allowed range")
+    return key, amount
+
+
+def validate_event(event: EventInput) -> None:
+    if event.event_type not in ALLOWED_EVENT_TYPES:
         raise ValueError(f"unsupported event type: {event.event_type}")
-    if event.item_scope and event.item_scope not in {"stage", "course", "letter", "story", "scenario"}:
+    if event.item_scope and event.item_scope not in ITEM_SCOPES:
         raise ValueError("unsupported item scope")
     if event.occurred_at > utc_now() + timedelta(minutes=10):
         raise ValueError("occurred_at is too far in the future")
-    if event.event_type in {"unit-started", "unit-completed", "checkpoint-answer", "dialogue-response", "listening-answer", "story-answer", "scenario-completed"} and not event.unit_id:
+    if event.occurred_at < EARLIEST_EVENT:
+        raise ValueError("occurred_at is too far in the past")
+    if len(json.dumps(event.payload, separators=(",", ":"))) > MAX_PAYLOAD_BYTES:
+        raise ValueError("payload is too large")
+    if event.event_type in UNIT_EVENTS and not event.unit_id:
         raise ValueError("unit_id is required for this event type")
-    if event.event_type in {"review-rated", "quiz-review", "letter-rated"} and not event.item_id:
+    if event.event_type in ITEM_EVENTS and not event.item_id:
         raise ValueError("item_id is required for this event type")
+    if event.event_type == "xp-awarded":
+        xp_claim(event)
 
 
 async def project_event(conn: asyncpg.Connection, user_id: uuid.UUID, event: EventInput) -> None:
     """Update server projections after an event is inserted.
 
     The event remains the source of truth. These projections make API reads fast.
-    XP is intentionally bounded here; a production rules engine can replace this
-    with server-side scoring rules once the lesson event contracts are finalized.
+    XP is server-validated: the client may claim at most XP_RULES[prefix] for a
+    known reward key, each key pays once (xp_ledger), and DAILY_XP_CAP applies.
     """
     p = event.payload
     if event.unit_id and event.event_type in {"unit-started", "unit-completed", "checkpoint-answer", "dialogue-response", "listening-answer", "story-answer"}:
@@ -409,17 +581,27 @@ async def project_event(conn: asyncpg.Connection, user_id: uuid.UUID, event: Eve
             )
 
     if event.event_type == "xp-awarded":
-        amount = p.get("amount", 0)
-        if isinstance(amount, int) and 0 < amount <= 100:
+        key, amount = xp_claim(event)
+        # Each reward key pays once per user, and a daily cap bounds the total.
+        earned_today = await conn.fetchval(
+            "SELECT COALESCE(SUM(amount), 0) FROM xp_ledger WHERE user_id = $1 AND awarded_at >= date_trunc('day', now())",
+            user_id,
+        )
+        granted = max(0, min(amount, DAILY_XP_CAP - int(earned_today)))
+        paid = await conn.fetchval(
+            "INSERT INTO xp_ledger (user_id, reward_key, amount) VALUES ($1, $2, $3) ON CONFLICT (user_id, reward_key) DO NOTHING RETURNING amount",
+            user_id, key, granted,
+        )
+        if paid:
             await conn.execute(
                 "INSERT INTO user_rewards (user_id, xp) VALUES ($1, $2) ON CONFLICT (user_id) DO UPDATE SET xp = user_rewards.xp + EXCLUDED.xp, updated_at = now()",
                 user_id,
-                amount,
+                paid,
             )
 
 
 async def insert_event(conn: asyncpg.Connection, user_id: uuid.UUID, device_uuid: uuid.UUID, event: EventInput) -> str:
-    await validate_event(event)
+    validate_event(event)
     unit_exists = await conn.fetchval("SELECT 1 FROM course_units WHERE id = $1", event.unit_id) if event.unit_id else 1
     if not unit_exists:
         raise ValueError("unknown unit_id")
@@ -475,6 +657,8 @@ async def sync_events(
     body: SyncRequest,
     user: Annotated[asyncpg.Record, Depends(current_user)],
 ) -> SyncResponse:
+    if not limiter.hit(f"sync:{user['id']}", RATE_SYNC_PER_MIN, 60):
+        raise too_many()
     device = await ensure_device(user["id"], body.device_id)
     accepted: list[str] = []
     duplicates: list[str] = []
@@ -483,23 +667,43 @@ async def sync_events(
 
     async with db().acquire() as conn:
         async with conn.transaction():
-            for event in body.events:
+            for raw in body.events:
+                raw_id = raw.get("client_event_id") if isinstance(raw.get("client_event_id"), str) else "unknown"
                 try:
-                    result = await insert_event(conn, user["id"], device["id"], event)
+                    event = EventInput.model_validate(raw)
+                except ValidationError as exc:
+                    first = exc.errors()[0]
+                    where = ".".join(str(x) for x in first.get("loc", ()))
+                    rejected.append({"clientEventId": raw_id[:200], "reason": f"invalid event ({where}): {first.get('msg', 'invalid')}"[:300]})
+                    continue
+                try:
+                    # Each event runs in its own savepoint, so one database
+                    # error cannot poison the rest of the batch.
+                    async with conn.transaction():
+                        result = await insert_event(conn, user["id"], device["id"], event)
                     (accepted if result == "accepted" else duplicates).append(event.client_event_id)
-                except (ValueError, asyncpg.ForeignKeyViolationError) as exc:
+                except ValueError as exc:
                     rejected.append({"clientEventId": event.client_event_id, "reason": str(exc)})
+                except asyncpg.PostgresError as exc:
+                    log.warning("event rejected by database: %s", type(exc).__name__)
+                    rejected.append({"clientEventId": event.client_event_id, "reason": "event could not be stored"})
             row = await conn.fetchrow(
                 "SELECT received_at, id FROM learning_events WHERE user_id = $1 ORDER BY received_at DESC, id DESC LIMIT 1",
                 user["id"],
             )
             if row:
                 last_cursor = encode_cursor(row["received_at"], row["id"])
-            await conn.execute(
-                "INSERT INTO sync_cursors (user_id, device_id, last_received_at, last_received_event_id, last_sync_at, progress_version) VALUES ($1, $2, now(), $3, now(), 1) ON CONFLICT (user_id, device_id) DO UPDATE SET last_sync_at = now(), progress_version = sync_cursors.progress_version + 1, updated_at = now()",
+            version = await conn.fetchval(
+                """
+                INSERT INTO sync_cursors (user_id, device_id, last_received_at, last_received_event_id, last_sync_at, progress_version)
+                VALUES ($1, $2, now(), $3, now(), 1)
+                ON CONFLICT (user_id, device_id) DO UPDATE SET
+                    last_sync_at = now(), progress_version = sync_cursors.progress_version + 1, updated_at = now()
+                RETURNING progress_version
+                """,
                 user["id"], device["id"], row["id"] if row else None,
             )
-    return SyncResponse(accepted=accepted, duplicates=duplicates, rejected=rejected, server_cursor=last_cursor, progress_version=len(accepted))
+    return SyncResponse(accepted=accepted, duplicates=duplicates, rejected=rejected, server_cursor=last_cursor, progress_version=version)
 
 
 @app.get("/v1/sync/changes")
@@ -508,6 +712,10 @@ async def changes(
     cursor: str | None = Query(default=None),
     limit: int = Query(default=250, ge=1, le=500),
 ) -> dict[str, Any]:
+    # Known limitation: received_at is the transaction start time, so two
+    # transactions that overlap can commit out of order and a slow one may be
+    # missed by a client whose cursor already moved past it. Clients should
+    # re-run bootstrap occasionally; see docs/sync-notes in backend/README.md.
     decoded = decode_cursor(cursor)
     if decoded:
         after_time, after_id = decoded
