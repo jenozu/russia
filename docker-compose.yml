@@ -60,16 +60,61 @@ services:
       migrate:
         condition: service_completed_successfully
     ports:
-      # Keep the API private to the VPS. Nginx/Caddy can proxy to 127.0.0.1:8090.
-      - "127.0.0.1:${API_PORT:-8090}:8090"
+      # Keep the API private to the VPS. The reverse proxy reaches it on 127.0.0.1:8091 (host port 8090 belongs to another site on the VPS).
+      - "127.0.0.1:${API_PORT:-8091}:8090"
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health', timeout=3)"]
       interval: 15s
       timeout: 5s
       retries: 5
       start_period: 20s
+    labels:
+      # Public routing is done by the VPS's Traefik (docker provider). Nothing else on the server is changed.
+      traefik.enable: "true"
+      traefik.docker.network: azbuka_edge
+      traefik.http.services.azbuka-api.loadbalancer.server.port: "8090"
+      traefik.http.middlewares.azbuka-strip.stripprefix.prefixes: /api
+      traefik.http.middlewares.azbuka-body.buffering.maxrequestbodybytes: "65536"
+      traefik.http.middlewares.azbuka-authrate.ratelimit.average: "10"
+      traefik.http.middlewares.azbuka-authrate.ratelimit.period: 1m
+      traefik.http.middlewares.azbuka-authrate.ratelimit.burst: "5"
+      traefik.http.routers.azbuka-api.rule: "Host(`${AZBUKA_HOST:-azbuka.andel-vps.space}`) && PathPrefix(`/api/`)"
+      traefik.http.routers.azbuka-api.entrypoints: websecure
+      traefik.http.routers.azbuka-api.tls.certresolver: letsencrypt
+      traefik.http.routers.azbuka-api.priority: "100"
+      traefik.http.routers.azbuka-api.middlewares: azbuka-strip,azbuka-body
+      traefik.http.routers.azbuka-auth.rule: "Host(`${AZBUKA_HOST:-azbuka.andel-vps.space}`) && PathPrefix(`/api/v1/auth/`)"
+      traefik.http.routers.azbuka-auth.entrypoints: websecure
+      traefik.http.routers.azbuka-auth.tls.certresolver: letsencrypt
+      traefik.http.routers.azbuka-auth.priority: "200"
+      traefik.http.routers.azbuka-auth.middlewares: azbuka-strip,azbuka-body,azbuka-authrate
+      traefik.http.routers.azbuka-auth.service: azbuka-api
     networks:
       - azbuka_internal
+      - azbuka_edge
+
+  web:
+    image: nginx:1.27-alpine
+    restart: unless-stopped
+    volumes:
+      - ./dist:/usr/share/nginx/html:ro
+      - ./deploy/web/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./deploy/web/headers.inc:/etc/nginx/conf.d/headers.inc:ro
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:80/"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: azbuka_edge
+      traefik.http.services.azbuka-web.loadbalancer.server.port: "80"
+      traefik.http.routers.azbuka-web.rule: "Host(`${AZBUKA_HOST:-azbuka.andel-vps.space}`)"
+      traefik.http.routers.azbuka-web.entrypoints: websecure
+      traefik.http.routers.azbuka-web.tls.certresolver: letsencrypt
+      traefik.http.routers.azbuka-web.priority: "1"
+    networks:
       - azbuka_edge
 
 volumes:

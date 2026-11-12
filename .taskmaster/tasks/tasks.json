@@ -246,13 +246,24 @@
         "dependencies": [
           10
         ],
-        "details": "Use the proxy task 10 found (nginx expected). nginx: deploy/nginx/azbuka.andel-vps.space.conf with server_name azbuka.andel-vps.space; port 80 serves /.well-known/acme-challenge/ and redirects everything else to https; the 443 block (certificate paths filled in by certbot in task 15, or written for /etc/letsencrypt/live/azbuka.andel-vps.space/) has root /opt/azbuka/dist, try_files $uri /index.html, `location /api/ { proxy_pass http://127.0.0.1:8090/; }` (trailing slash strips the prefix) with Host, X-Forwarded-For, X-Forwarded-Proto headers, client_max_body_size 64k, a limit_req zone for /api/v1/auth/, Cache-Control no-cache on service-worker.js and index.html, and security headers (HSTS, X-Content-Type-Options, Referrer-Policy; a CSP that allows the inline script and connect-src 'self'). If the server runs Caddy instead, write deploy/caddy/{APP}.caddy with the same behaviour (handle_path /api/*). Never edit other sites' files.\n\n[2026-11-12T12:41:10-05:00] done: deploy/nginx/azbuka.andel-vps.space.conf (+ azbuka-headers.inc, azbuka-proxy.inc, http-only bootstrap file so nginx -t passes before the cert exists). greps ok; nginx -t not runnable here (task 15). Proxy type still to be confirmed from task 10 output. Reviewer not run.",
+        "details": "Use the proxy task 10 found (nginx expected). nginx: deploy/nginx/azbuka.andel-vps.space.conf with server_name azbuka.andel-vps.space; port 80 serves /.well-known/acme-challenge/ and redirects everything else to https; the 443 block (certificate paths filled in by certbot in task 15, or written for /etc/letsencrypt/live/azbuka.andel-vps.space/) has root /opt/azbuka/dist, try_files $uri /index.html, `location /api/ { proxy_pass http://127.0.0.1:8090/; }` (trailing slash strips the prefix) with Host, X-Forwarded-For, X-Forwarded-Proto headers, client_max_body_size 64k, a limit_req zone for /api/v1/auth/, Cache-Control no-cache on service-worker.js and index.html, and security headers (HSTS, X-Content-Type-Options, Referrer-Policy; a CSP that allows the inline script and connect-src 'self'). If the server runs Caddy instead, write deploy/caddy/{APP}.caddy with the same behaviour (handle_path /api/*). Never edit other sites' files.\n\n[2026-11-12T12:41:10-05:00] done: deploy/nginx/azbuka.andel-vps.space.conf (+ azbuka-headers.inc, azbuka-proxy.inc, http-only bootstrap file so nginx -t passes before the cert exists). greps ok; nginx -t not runnable here (task 15). Proxy type still to be confirmed from task 10 output. Reviewer not run.\n\n[2026-11-12T13:02:24-05:00] superseded by Traefik finding (task 10): host nginx is not the public proxy. Corrective work in 12.1; deploy/nginx/* removed there.",
         "testStrategy": "The file exists and greps show server_name, proxy_pass http://127.0.0.1:8090/, the acme-challenge location and the 80→443 redirect. `nginx -t` runs on the server in task 15.",
         "complexity": 4,
         "review": true,
         "phase": 2,
         "id": 12,
-        "subtasks": []
+        "subtasks": [
+          {
+            "title": "Replace nginx site config with Traefik labels and a static web container",
+            "description": "",
+            "status": "done",
+            "dependencies": [],
+            "details": "Traefik (docker provider, entrypoints web/websecure, resolver letsencrypt httpChallenge) is the public proxy. In docker-compose.yml: api gets traefik labels (router azbuka-api: Host && PathPrefix /api/, stripprefix /api, body limit 64k; router azbuka-auth: /api/v1/auth/ with ratelimit 10/min burst 5); new web service (nginx:alpine, ./dist read-only, deploy/web/default.conf with security headers, SPA fallback, no-cache for index/service-worker) with router azbuka-web. All on network azbuka_edge via traefik.docker.network. build_dist.py must refresh dist/ in place (a bind-mounted dir that is deleted and recreated goes stale). Remove deploy/nginx/. No change to Traefik or other apps.\n\n[2026-11-12T13:02:58-05:00] done: api labels (azbuka-api, azbuka-auth w/ ratelimit 10/min burst 5, strip /api, 64k body), web service (nginx:1.27-alpine, dist ro, deploy/web/default.conf + headers.inc), network azbuka_edge via traefik.docker.network; deploy.sh waits for web too; build_dist refreshes dist in place (inode kept); deploy/nginx removed; API host port 8091. YAML parsed OK; docker compose config not runnable here (checked on server in 14).",
+            "testStrategy": "python yaml parse of docker-compose.yml shows labels on api and web, network azbuka_edge, no published port besides 127.0.0.1:8091; deploy/web/default.conf contains try_files and CSP; build_dist keeps the dist inode",
+            "complexity": 4,
+            "id": 1
+          }
+        ]
       },
       {
         "title": "Security review before first deploy",
@@ -329,7 +340,18 @@
         "complexity": 5,
         "phase": 2,
         "id": 15,
-        "subtasks": [],
+        "subtasks": [
+          {
+            "title": "Traefik route, certificate and smoke test (replaces the nginx/certbot steps)",
+            "description": "",
+            "status": "pending",
+            "dependencies": [],
+            "details": "No nginx site block or certbot: Traefik issues the certificate itself (httpChallenge on :80) once the azbuka containers are up. Verify: https://azbuka.andel-vps.space/ 200 with valid cert; /api/health 200; http:// redirects to https (global Traefik redirect); CORS preflight from https://evil.example gets no Allow-Origin; ports 5432 and 8091 refuse connections from outside (host 5432 is another app's Postgres and 8091 is loopback-only); other apps still answer (twd.andel-vps.space, arova.andel-vps.space) before and after. scripts/smoke_prod.sh does these from any machine. Never touch /docker/traefik or other apps.",
+            "testStrategy": "sh scripts/smoke_prod.sh exits 0 from the dev PC or the VPS terminal",
+            "complexity": 3,
+            "id": 1
+          }
+        ],
         "review": true
       },
       {
@@ -627,7 +649,7 @@
         }
       ],
       "created": "2026-11-12",
-      "updated": "2026-11-12T12:57:40-05:00"
+      "updated": "2026-11-12T13:02:58-05:00"
     }
   }
 }

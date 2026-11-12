@@ -55,6 +55,7 @@ Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit 
 - [x] **12. Reverse-proxy site block for azbuka.andel-vps.space** _(after 10)_  
   A committed site config serves dist/ at https://azbuka.andel-vps.space/ and proxies /api/ to the API on 127.0.0.1:8090 with the /api prefix stripped.  
   _Test:_ The file exists and greps show server_name, proxy_pass http://127.0.0.1:8090/, the acme-challenge location and the 80→443 redirect. `nginx -t` runs on the server in task 15.
+  - [x] 12.1 Replace nginx site config with Traefik labels and a static web container
 - [ ] **13. Security review before first deploy** _(after 11, 12)_  
   Run the security-review skill over secrets, auth, input, web and dependencies and file every finding as a fix task.  
   _Test:_ Every finding is a task (tasks.py status lists them); no open high/critical finding before task 14 runs.
@@ -66,6 +67,7 @@ Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit 
 - [ ] **15. Install the site block, get the HTTPS certificate, smoke test** _(after 14)_  
   https://azbuka.andel-vps.space/ serves the app and /api/health answers over HTTPS with a valid certificate; plain HTTP redirects, CORS allows only the app origin, and ports 5432 and 8090 are closed from outside.  
   _Test:_ sh scripts/smoke_prod.sh exits 0; `ssh root@2.25.108.3 'nginx -t && certbot renew --dry-run'` exits 0. MANUAL CHECK: open the site on a phone, padlock shown, the mic prompt appears on a voice exercise.
+  - [ ] 15.1 Traefik route, certificate and smoke test (replaces the nginx/certbot steps)
 
 ## Phase 3 - Backups & ops
 

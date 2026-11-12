@@ -28,16 +28,17 @@ status() { # status <service> -> "health" or "state exitcode"
 
 i=0
 while [ "$i" -lt 60 ]; do
-  db=$(status db); mig=$(status migrate); api=$(status api)
-  if [ "$db" = "healthy" ] && [ "$mig" = "exited 0" ] && [ "$api" = "healthy" ]; then
-    echo "OK: db=$db migrate=$mig api=$api"
+  db=$(status db); mig=$(status migrate); api=$(status api); web=$(status web)
+  if [ "$db" = "healthy" ] && [ "$mig" = "exited 0" ] && [ "$api" = "healthy" ] && [ "$web" = "healthy" ]; then
+    echo "OK: db=$db migrate=$mig api=$api web=$web"
     exit 0
   fi
   case "$mig" in exited\ [1-9]*) break ;; esac
   i=$((i + 1)); sleep 2
 done
 
-echo "FAILED: db=$db migrate=$mig api=$api" >&2
+echo "FAILED: db=$db migrate=$mig api=$api web=$web" >&2
 echo "--- migrate (last 15) ---" >&2; docker compose logs --no-color --tail 15 migrate >&2 || true
 echo "--- api (last 30) ---" >&2; docker compose logs --no-color --tail 30 api >&2 || true
+echo "--- web (last 10) ---" >&2; docker compose logs --no-color --tail 10 web >&2 || true
 exit 1

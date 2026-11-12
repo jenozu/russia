@@ -18,7 +18,7 @@ TOKEN_PEPPER=$PEPPER
 APP_ORIGINS=$ORIGIN
 SESSION_TTL_DAYS=30
 MAX_SYNC_EVENTS=250
-API_PORT=8090
+API_PORT=8091
 EOT
 chmod 600 .env
 echo "Created $APP_DIR/.env (mode 600) for $ORIGIN. Secrets are random and were not printed."
