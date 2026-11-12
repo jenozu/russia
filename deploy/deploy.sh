@@ -16,6 +16,8 @@ git pull --ff-only origin main
 python3 scripts/build_dist.py
 docker compose config -q
 docker compose up -d --build --remove-orphans
+# Pick up a changed web config without downtime (unchanged containers are not recreated by `up`).
+docker compose exec -T web nginx -s reload >/dev/null 2>&1 || true
 
 status() { # status <service> -> "health" or "state exitcode"
   id=$(docker compose ps -a -q "$1" 2>/dev/null | head -1)

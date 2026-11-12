@@ -3,7 +3,7 @@
 Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit by hand; regenerate with
 `python .taskmaster/render_tasks_md.py`.
 
-**Progress: 10/30 tasks done.**
+**Progress: 11/30 tasks done.**
 
 ## Phase 0 - Foundation
 
@@ -59,11 +59,11 @@ Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit 
 - [x] **13. Security review before first deploy** _(after 11, 12)_  
   Run the security-review skill over secrets, auth, input, web and dependencies and file every finding as a fix task.  
   _Test:_ Every finding is a task (tasks.py status lists them); no open high/critical finding before task 14 runs.
-- [ ] **14. Put the Compose stack on the VPS** _(after 9, 10, 11, 12, 13)_  
+- [x] **14. Put the Compose stack on the VPS** _(after 9, 10, 11, 12, 13)_  
   The repo lives in /opt/azbuka on the VPS with a private .env, and `deploy/deploy.sh` brings up db, migrate and api healthy, with 16 course units in the database.  
   _Test:_ See subtasks.
-  - [ ] 14.1 Create the server .env
-  - [ ] 14.2 Clone to /opt/azbuka and run the first deploy
+  - [x] 14.1 Create the server .env
+  - [x] 14.2 Clone to /opt/azbuka and run the first deploy
 - [ ] **15. Install the site block, get the HTTPS certificate, smoke test** _(after 14)_  
   https://azbuka.andel-vps.space/ serves the app and /api/health answers over HTTPS with a valid certificate; plain HTTP redirects, CORS allows only the app origin, and ports 5432 and 8090 are closed from outside.  
   _Test:_ sh scripts/smoke_prod.sh exits 0; `ssh root@2.25.108.3 'nginx -t && certbot renew --dry-run'` exits 0. MANUAL CHECK: open the site on a phone, padlock shown, the mic prompt appears on a voice exercise.

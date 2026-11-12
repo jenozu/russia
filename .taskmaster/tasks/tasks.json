@@ -285,7 +285,7 @@
       {
         "title": "Put the Compose stack on the VPS",
         "description": "The repo lives in /opt/azbuka on the VPS with a private .env, and `deploy/deploy.sh` brings up db, migrate and api healthy, with 16 course units in the database.",
-        "status": "pending",
+        "status": "done",
         "priority": "high",
         "dependencies": [
           9,
@@ -294,7 +294,7 @@
           12,
           13
         ],
-        "details": "Split into subtasks: the owner creates the server .env (PRD human-only step, secrets never in chat), then the agent clones and deploys. Touch nothing outside /opt/azbuka.",
+        "details": "Split into subtasks: the owner creates the server .env (PRD human-only step, secrets never in chat), then the agent clones and deploys. Touch nothing outside /opt/azbuka.\n\n[2026-11-12T13:12:30-05:00] done: first deploy succeeded on the VPS.",
         "testStrategy": "See subtasks.",
         "complexity": 7,
         "review": true,
@@ -304,9 +304,9 @@
           {
             "title": "Create the server .env",
             "description": "The owner creates /opt/azbuka/.env with strong generated secrets, mode 600; nothing secret passes through chat.",
-            "status": "pending",
+            "status": "done",
             "dependencies": [],
-            "details": "HUMAN, in your own SSH session (`ssh root@2.25.108.3`), after main is pushed:\n  test -d /opt/azbuka || git clone https://github.com/jenozu/russia /opt/azbuka\n  cd /opt/azbuka && umask 077 && cp .env.example .env\n  PW=$(openssl rand -hex 24); PEP=$(openssl rand -hex 32)\n  sed -i \"s|^POSTGRES_PASSWORD=.*|POSTGRES_PASSWORD=$PW|; s|^DATABASE_URL=.*|DATABASE_URL=postgresql://azbuka_app:$PW@db:5432/azbuka|; s|^TOKEN_PEPPER=.*|TOKEN_PEPPER=$PEP|; s|^APP_ORIGINS=.*|APP_ORIGINS=https://azbuka.andel-vps.space|\" .env\n  unset PW PEP; chmod 600 .env; grep -c '<generate' .env   (must print 0)\nReply 'done' (never paste the file).",
+            "details": "HUMAN, in your own SSH session (`ssh root@2.25.108.3`), after main is pushed:\n  test -d /opt/azbuka || git clone https://github.com/jenozu/russia /opt/azbuka\n  cd /opt/azbuka && umask 077 && cp .env.example .env\n  PW=$(openssl rand -hex 24); PEP=$(openssl rand -hex 32)\n  sed -i \"s|^POSTGRES_PASSWORD=.*|POSTGRES_PASSWORD=$PW|; s|^DATABASE_URL=.*|DATABASE_URL=postgresql://azbuka_app:$PW@db:5432/azbuka|; s|^TOKEN_PEPPER=.*|TOKEN_PEPPER=$PEP|; s|^APP_ORIGINS=.*|APP_ORIGINS=https://azbuka.andel-vps.space|\" .env\n  unset PW PEP; chmod 600 .env; grep -c '<generate' .env   (must print 0)\nReply 'done' (never paste the file).\n\n[2026-11-12T13:12:30-05:00] done: deploy/make_env.sh run on the VPS (2026-11-12); secrets generated on the server, never shown",
             "testStrategy": "`ssh root@2.25.108.3 \"stat -c %a /opt/azbuka/.env; grep -c '<generate' /opt/azbuka/.env; grep -c '^APP_ORIGINS=https://azbuka.andel-vps.space$' /opt/azbuka/.env\"` prints 600, 0, 1.",
             "complexity": 2,
             "human": true,
@@ -315,11 +315,11 @@
           {
             "title": "Clone to /opt/azbuka and run the first deploy",
             "description": "The Compose stack is up on the VPS: db healthy, migrate exited 0, api healthy on 127.0.0.1:8090, 16 course units.",
-            "status": "pending",
+            "status": "done",
             "dependencies": [
               1
             ],
-            "details": "Over `ssh root@2.25.108.3`: `git clone https://github.com/jenozu/russia /opt/azbuka` if missing (the repo is public; main must be pushed first), then `cd /opt/azbuka && docker compose config -q && sh deploy/deploy.sh`. On failure read `docker compose logs --tail 80 <service>`, fix in the repo, commit, push, re-run; never run the same failing commit twice. Don't print .env. Touch nothing outside /opt/azbuka and the azbuka_* Docker volume/networks.",
+            "details": "Over `ssh root@2.25.108.3`: `git clone https://github.com/jenozu/russia /opt/azbuka` if missing (the repo is public; main must be pushed first), then `cd /opt/azbuka && docker compose config -q && sh deploy/deploy.sh`. On failure read `docker compose logs --tail 80 <service>`, fix in the repo, commit, push, re-run; never run the same failing commit twice. Don't print .env. Touch nothing outside /opt/azbuka and the azbuka_* Docker volume/networks.\n\n[2026-11-12T13:12:30-05:00] done: cloned to /opt/azbuka, deploy.sh OK: db=healthy migrate=exited 0 api=healthy web=healthy; course_units=16; 127.0.0.1:8091/health ok; other apps (twd, arova) still 200. Traefik issued the cert on its own.",
             "testStrategy": "`ssh root@2.25.108.3 \"cd /opt/azbuka && docker compose ps --format '{{.Service}} {{.State}} {{.Health}}' && curl -fsS http://127.0.0.1:8090/health && docker compose exec -T db psql -U azbuka_app -d azbuka -tAc 'select count(*) from course_units'\"` shows db and api healthy, health ok, 16.",
             "complexity": 5,
             "review": true,
@@ -346,7 +346,7 @@
             "description": "",
             "status": "pending",
             "dependencies": [],
-            "details": "No nginx site block or certbot: Traefik issues the certificate itself (httpChallenge on :80) once the azbuka containers are up. Verify: https://azbuka.andel-vps.space/ 200 with valid cert; /api/health 200; http:// redirects to https (global Traefik redirect); CORS preflight from https://evil.example gets no Allow-Origin; ports 5432 and 8091 refuse connections from outside (host 5432 is another app's Postgres and 8091 is loopback-only); other apps still answer (twd.andel-vps.space, arova.andel-vps.space) before and after. scripts/smoke_prod.sh does these from any machine. Never touch /docker/traefik or other apps.\n\n[2026-11-12T13:04:17-05:00] scripts/smoke_prod.sh written (https, health, redirect, HSTS/CSP, backend/.env not served, CORS evil vs app origin, ports 5432/8091 closed on public IP, other apps still answer). Run on the VPS after deploy.",
+            "details": "No nginx site block or certbot: Traefik issues the certificate itself (httpChallenge on :80) once the azbuka containers are up. Verify: https://azbuka.andel-vps.space/ 200 with valid cert; /api/health 200; http:// redirects to https (global Traefik redirect); CORS preflight from https://evil.example gets no Allow-Origin; ports 5432 and 8091 refuse connections from outside (host 5432 is another app's Postgres and 8091 is loopback-only); other apps still answer (twd.andel-vps.space, arova.andel-vps.space) before and after. scripts/smoke_prod.sh does these from any machine. Never touch /docker/traefik or other apps.\n\n[2026-11-12T13:04:17-05:00] scripts/smoke_prod.sh written (https, health, redirect, HSTS/CSP, backend/.env not served, CORS evil vs app origin, ports 5432/8091 closed on public IP, other apps still answer). Run on the VPS after deploy.\n\n[2026-11-12T13:12:30-05:00] first smoke run: 12/14 ok. Two FAILs were false alarms: SPA fallback returned 200 (index.html) for /backend/app/main.py and /.env. Fixed: file-like paths now 404 (web/default.conf), deploy.sh reloads web config. Needs re-run after git pull + deploy.sh.",
             "testStrategy": "sh scripts/smoke_prod.sh exits 0 from the dev PC or the VPS terminal",
             "complexity": 3,
             "id": 1
@@ -649,7 +649,7 @@
         }
       ],
       "created": "2026-11-12",
-      "updated": "2026-11-12T13:04:17-05:00"
+      "updated": "2026-11-12T13:12:30-05:00"
     }
   }
 }
