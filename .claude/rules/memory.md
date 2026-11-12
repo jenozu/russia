@@ -19,11 +19,11 @@ Never update it per task.
 ---
 
 ## Now (overwrite each time, max 6 lines)
-- 2026-11-12: Phase 1 built and pushed (tasks 5-9; Linux-verified: 41 jsdom, 5-step e2e vs real API, 26 backend).
-- Phase 0 open: tasks 1, 2, 4 need the owner's Windows PC (see manual-checks.md); Phase 1 started on Linux evidence.
-- Next: owner does task 1 + Windows checks, then `/run-phase 2` (deploy); needs SSH to the VPS from the PC.
+- 2026-11-12: Phases 1 and 2 done. LIVE at https://azbuka.andel-vps.space (smoke_prod.sh ALL OK).
+- Phase 0 open: tasks 1, 2, 4 need the owner's Windows PC (manual-checks.md).
+- Next: phase 3 (backups): needs the owner's choice of off-server storage (task 16).
 - In progress: none.
-- Manual checks waiting: Windows (1/2/4), mobile account screen (7), two real browsers (8/9).
+- Manual checks waiting: Windows (1/2/4), phone account screen + mic (7/15), two real browsers (8/9), forged X-Forwarded-For (15.1).
 
 ## Facts (stable, max 15 lines)
 - Dev machine: Windows 11, Git Bash; `python` (3.12), no `python3`. Node and PostgreSQL 17 installed locally (server on :5432). No Docker.

@@ -115,7 +115,7 @@ Status (2026-11-12): items 1 to 8 are built in `scripts/build_standalone.py`; it
 
 ## Phases 3 to 5: deploy, protect, prove
 
-### Phase 3: deploy to the VPS
+### Phase 3: deploy to the VPS (done 2026-11-12)
 
 - [ ] Inspect the server first: OS, Docker, free disk and memory, open ports, existing Nginx or Caddy sites, firewall. Do not touch other apps.
 - [ ] Put the repo in `/opt/azbuka` and create `.env` there (copy `.env.example`) with mode `600`; never paste secrets into chat.
@@ -126,6 +126,8 @@ Status (2026-11-12): items 1 to 8 are built in `scripts/build_standalone.py`; it
 - [ ] Point an API subdomain at the VPS; set up Nginx or Caddy with HTTPS and rate limits.
 - [ ] Serve the static app over HTTPS from the VPS so microphone recording works.
 - [ ] Exit test: the public `/health` URL answers over HTTPS, port 5432 is closed from outside, and plain HTTP to the API is refused or redirected.
+
+Status: live at https://azbuka.andel-vps.space (Docker Compose in `/opt/azbuka`; Traefik does routing and the certificate; API on loopback 8091; Postgres private). `scripts/smoke_prod.sh` passes. Changes from the plan: Traefik instead of nginx/certbot, port 8091 instead of 8090 (taken), a static `web` container. Open: phone check (padlock, mic prompt) and the forged-header login-limit check (`.taskmaster/docs/manual-checks.md`).
 
 ### Phase 4: backups and operations
 

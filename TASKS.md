@@ -3,7 +3,7 @@
 Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit by hand; regenerate with
 `python .taskmaster/render_tasks_md.py`.
 
-**Progress: 11/30 tasks done.**
+**Progress: 12/30 tasks done.**
 
 ## Phase 0 - Foundation
 
@@ -64,10 +64,10 @@ Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit 
   _Test:_ See subtasks.
   - [x] 14.1 Create the server .env
   - [x] 14.2 Clone to /opt/azbuka and run the first deploy
-- [ ] **15. Install the site block, get the HTTPS certificate, smoke test** _(after 14)_  
+- [x] **15. Install the site block, get the HTTPS certificate, smoke test** _(after 14)_  
   https://azbuka.andel-vps.space/ serves the app and /api/health answers over HTTPS with a valid certificate; plain HTTP redirects, CORS allows only the app origin, and ports 5432 and 8090 are closed from outside.  
   _Test:_ sh scripts/smoke_prod.sh exits 0; `ssh root@2.25.108.3 'nginx -t && certbot renew --dry-run'` exits 0. MANUAL CHECK: open the site on a phone, padlock shown, the mic prompt appears on a voice exercise.
-  - [ ] 15.1 Traefik route, certificate and smoke test (replaces the nginx/certbot steps)
+  - [x] 15.1 Traefik route, certificate and smoke test (replaces the nginx/certbot steps)
 
 ## Phase 3 - Backups & ops
 

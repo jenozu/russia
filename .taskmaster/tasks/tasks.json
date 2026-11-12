@@ -330,12 +330,12 @@
       {
         "title": "Install the site block, get the HTTPS certificate, smoke test",
         "description": "https://azbuka.andel-vps.space/ serves the app and /api/health answers over HTTPS with a valid certificate; plain HTTP redirects, CORS allows only the app origin, and ports 5432 and 8090 are closed from outside.",
-        "status": "pending",
+        "status": "done",
         "priority": "high",
         "dependencies": [
           14
         ],
-        "details": "On the server: copy task 12's file to /etc/nginx/sites-available/azbuka.andel-vps.space.conf and symlink into sites-enabled (or the layout task 10 found), `nginx -t`, reload. Certificate: `certbot --nginx -d azbuka.andel-vps.space --non-interactive --agree-tos -m <owner email from ~/.claude/vps.json> --redirect` (install certbot with apt only if task 10 found it missing; the wildcard DNS already points here). Caddy: obtains it automatically on reload. Confirm `certbot renew --dry-run` passes. Then write scripts/smoke_prod.sh (POSIX sh, run from the dev PC): https://azbuka.andel-vps.space/ 200; https://azbuka.andel-vps.space/api/health 200; http:// → 301/308 to https; a preflight with Origin: https://evil.example gets no Access-Control-Allow-Origin, Origin: https://azbuka.andel-vps.space does; 5432 and 8090 on 2.25.108.3 refuse connections (python socket with 5 s timeout). Never reload with a failing `nginx -t`; don't touch other sites.",
+        "details": "On the server: copy task 12's file to /etc/nginx/sites-available/azbuka.andel-vps.space.conf and symlink into sites-enabled (or the layout task 10 found), `nginx -t`, reload. Certificate: `certbot --nginx -d azbuka.andel-vps.space --non-interactive --agree-tos -m <owner email from ~/.claude/vps.json> --redirect` (install certbot with apt only if task 10 found it missing; the wildcard DNS already points here). Caddy: obtains it automatically on reload. Confirm `certbot renew --dry-run` passes. Then write scripts/smoke_prod.sh (POSIX sh, run from the dev PC): https://azbuka.andel-vps.space/ 200; https://azbuka.andel-vps.space/api/health 200; http:// → 301/308 to https; a preflight with Origin: https://evil.example gets no Access-Control-Allow-Origin, Origin: https://azbuka.andel-vps.space does; 5432 and 8090 on 2.25.108.3 refuse connections (python socket with 5 s timeout). Never reload with a failing `nginx -t`; don't touch other sites.\n\n[2026-11-12T13:16:29-05:00] done via 15.1 (Traefik replaced nginx/certbot). Live at https://azbuka.andel-vps.space. Eyes-on: phone padlock + mic prompt; forged X-Forwarded-For check (manual-checks).",
         "testStrategy": "sh scripts/smoke_prod.sh exits 0; `ssh root@2.25.108.3 'nginx -t && certbot renew --dry-run'` exits 0. MANUAL CHECK: open the site on a phone, padlock shown, the mic prompt appears on a voice exercise.",
         "complexity": 5,
         "phase": 2,
@@ -344,9 +344,9 @@
           {
             "title": "Traefik route, certificate and smoke test (replaces the nginx/certbot steps)",
             "description": "",
-            "status": "pending",
+            "status": "done",
             "dependencies": [],
-            "details": "No nginx site block or certbot: Traefik issues the certificate itself (httpChallenge on :80) once the azbuka containers are up. Verify: https://azbuka.andel-vps.space/ 200 with valid cert; /api/health 200; http:// redirects to https (global Traefik redirect); CORS preflight from https://evil.example gets no Allow-Origin; ports 5432 and 8091 refuse connections from outside (host 5432 is another app's Postgres and 8091 is loopback-only); other apps still answer (twd.andel-vps.space, arova.andel-vps.space) before and after. scripts/smoke_prod.sh does these from any machine. Never touch /docker/traefik or other apps.\n\n[2026-11-12T13:04:17-05:00] scripts/smoke_prod.sh written (https, health, redirect, HSTS/CSP, backend/.env not served, CORS evil vs app origin, ports 5432/8091 closed on public IP, other apps still answer). Run on the VPS after deploy.\n\n[2026-11-12T13:12:30-05:00] first smoke run: 12/14 ok. Two FAILs were false alarms: SPA fallback returned 200 (index.html) for /backend/app/main.py and /.env. Fixed: file-like paths now 404 (web/default.conf), deploy.sh reloads web config. Needs re-run after git pull + deploy.sh.",
+            "details": "No nginx site block or certbot: Traefik issues the certificate itself (httpChallenge on :80) once the azbuka containers are up. Verify: https://azbuka.andel-vps.space/ 200 with valid cert; /api/health 200; http:// redirects to https (global Traefik redirect); CORS preflight from https://evil.example gets no Allow-Origin; ports 5432 and 8091 refuse connections from outside (host 5432 is another app's Postgres and 8091 is loopback-only); other apps still answer (twd.andel-vps.space, arova.andel-vps.space) before and after. scripts/smoke_prod.sh does these from any machine. Never touch /docker/traefik or other apps.\n\n[2026-11-12T13:04:17-05:00] scripts/smoke_prod.sh written (https, health, redirect, HSTS/CSP, backend/.env not served, CORS evil vs app origin, ports 5432/8091 closed on public IP, other apps still answer). Run on the VPS after deploy.\n\n[2026-11-12T13:12:30-05:00] first smoke run: 12/14 ok. Two FAILs were false alarms: SPA fallback returned 200 (index.html) for /backend/app/main.py and /.env. Fixed: file-like paths now 404 (web/default.conf), deploy.sh reloads web config. Needs re-run after git pull + deploy.sh.\n\n[2026-11-12T13:16:29-05:00] done: smoke_prod.sh ALL OK on the VPS (https+cert, /api/health, redirect, HSTS, CSP, .env and backend 404, CORS evil refused/app allowed, 5432+8091 closed on public IP, twd+arova still 200).",
             "testStrategy": "sh scripts/smoke_prod.sh exits 0 from the dev PC or the VPS terminal",
             "complexity": 3,
             "id": 1
@@ -649,7 +649,7 @@
         }
       ],
       "created": "2026-11-12",
-      "updated": "2026-11-12T13:12:30-05:00"
+      "updated": "2026-11-12T13:16:30-05:00"
     }
   }
 }
