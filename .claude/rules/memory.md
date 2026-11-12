@@ -27,11 +27,12 @@ Never update it per task.
 ## Facts (stable, max 15 lines)
 - Dev machine: Windows 11, Git Bash; `python` (3.12), no `python3`. Node and PostgreSQL 17 installed locally (server on :5432). No Docker.
 - Backend tests on Windows: `TEST_DATABASE_URL` to a disposable local db (`AZBUKA_TEST_DB`, set up in task 2); `scripts/test_backend.sh` is Linux-only.
-- Hosting: owner's VPS via the VPS kit, app `azbuka`, domain `azbuka.andel-vps.space` (decision log 2026-11-12, to confirm).
+- Hosting: Docker Compose in `/opt/azbuka` on the VPS (`ssh root@2.25.108.3`), host proxy + Let's Encrypt for `https://azbuka.andel-vps.space`, API under `/api/` → 127.0.0.1:8090. Wildcard DNS already points there. Other apps share the server.
 - Single owner/operator; learners are self-taught adults on phones. No analytics, no paid services in v1.
 - Product docs: `docs/MASTER_PLAN.md` (status), `AZBUKA_BACKEND_UNFINISHED_WORK.md`, `backend/README.md` (API, cursor limitation).
 
 ## Decisions since the PRD (max 8 lines, newest first; full text in the PRD decision log)
+- 2026-11-12: Deploy with Docker Compose (not VPS-kit git push); domain `azbuka.andel-vps.space`, API at `/api/`.
 - 2026-11-12: Built with master-harness v1.3.1: lead (Opus) → phase-runner (Sonnet) → builders
   haiku → sonnet → opus. Manual checks batched per phase.
 
@@ -48,7 +49,5 @@ Never update it per task.
      starting complexity in .claude/skills/next-task/SKILL.md. If haiku passes everything, give it complexity 4 too. -->
 
 ## Open questions for the human (max 5; delete once answered)
-- Deploy through the VPS kit (assumed) or keep the hand-run Docker Compose plan from the 2026-11-11 decision?
-- App domain: `azbuka.andel-vps.space` (assumed) or your own domain?
 - Off-server backup storage for the encrypted nightly dump: where, and who creates the credentials?
 - Monthly cost limit for hosted pronunciation scoring / AI conversation (v2; not blocking v1).

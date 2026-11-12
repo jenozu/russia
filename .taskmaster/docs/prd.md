@@ -58,8 +58,9 @@ Status: [x] built, [ ] to do.
   `curriculum/russian/a1-course.json`. Never edit the HTML directly; edit the sources and rebuild.
 - Storage: `localStorage["azbuka-standalone"]` plus service worker (cache-first; bump the cache name when assets change).
 - Backend: FastAPI, asyncpg, argon2, PostgreSQL; numbered migrations in `db/migrations/`, generated seed in `db/repeatable/`.
-- Deploy: owner's VPS kit (`vps` skill): static app plus API under `/api/` on one HTTPS origin, kit-managed
-  PostgreSQL (see decision log). Docker Compose (`db`, `migrate`, `api`) stays as the local full-stack option.
+- Deploy: Docker Compose (`db`, `migrate`, `api`) in `/opt/azbuka` on the owner's VPS. One HTTPS origin,
+  `https://azbuka.andel-vps.space`: the host reverse proxy serves the static app and proxies `/api/` to the API on
+  `127.0.0.1:8090`; Let's Encrypt certificate for that hostname.
 - Tests: jsdom for the app, pytest against a throwaway PostgreSQL for the backend.
 - Offline-first; must stay usable signed out. Browser speech varies by device; some have no Russian voice.
 - Privacy: no secrets in the repo; `.env` ignored; learner audio is not stored.
@@ -73,7 +74,7 @@ Status: [x] built, [ ] to do.
 - Pronunciation scoring approach (hosted vs in-browser) and its monthly cost are undecided.
 
 ## Human-only steps
-- Provide the API domain (for example `api.<domain>`) and the static app origin; create DNS records.
+- Domain decided: `azbuka.andel-vps.space` (app, API under `/api/`); the wildcard `*` A record already points at the VPS, so no DNS step.
 - Run Claude Code on the home PC with the SSH key to `root@2.25.108.3`; the agent must inspect the server first and not touch other apps.
 - Create `.env` on the server with strong `POSTGRES_PASSWORD` and `TOKEN_PEPPER`; never paste secrets into chat.
 - Choose off-server backup storage and its credentials.
@@ -89,4 +90,6 @@ Stage 2 content (200+ words), branching story dialogues.
 - 2026-11-12: Hosted pronunciation scoring is the working preference, to be confirmed in v2 - owner "not sure" - no decision yet.
 - 2026-11-12: Phases 0 (app fixes) and 1 (backend hardening) merged to main - see `docs/MASTER_PLAN.md`.
 - 2026-11-12: PRD adopted for build with master-harness; plan of record is `.taskmaster/tasks/tasks.json` (harness phases 0-5 continue MASTER_PLAN Phases 2-7).
-- 2026-11-12: Deploy through the owner's VPS kit (`ssh vps`, `git push vps main`, app `azbuka`, domain `azbuka.andel-vps.space`, kit-managed PostgreSQL and nightly dumps) instead of hand-run Docker Compose; Compose stays as the local full-stack option - bootstrap assumption, owner to confirm - replaces the 2026-11-11 Compose deploy decision.
+- 2026-11-12 (superseded the same day, see below): Deploy through the owner's VPS kit (`ssh vps`, `git push vps main`, app `azbuka`, domain `azbuka.andel-vps.space`, kit-managed PostgreSQL and nightly dumps) instead of hand-run Docker Compose; Compose stays as the local full-stack option - bootstrap assumption, owner to confirm - replaces the 2026-11-11 Compose deploy decision.
+- 2026-11-12: Deploy with Docker Compose on the VPS as decided 2026-11-11, not git-push deploys through the VPS kit - owner decision - replaces the bootstrap's VPS-kit assumption.
+- 2026-11-12: App at `https://azbuka.andel-vps.space` with the API under `/api/`; wildcard DNS already points at the VPS; the deploy tasks add the proxy site block and HTTPS certificate - owner decision - resolves the open API-domain question.

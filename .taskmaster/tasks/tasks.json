@@ -178,28 +178,30 @@
         "subtasks": []
       },
       {
-        "title": "Verify the VPS kit works from this PC",
-        "description": "`ssh vps` answers, so deploy tasks can run unattended.",
+        "title": "Verify DNS and SSH, inspect the VPS read-only",
+        "description": "azbuka.andel-vps.space resolves to the VPS through the wildcard record, SSH to root@2.25.108.3 works with the owner's key, and the server's state is recorded before anything is changed.",
         "status": "pending",
-        "priority": "medium",
+        "priority": "high",
         "dependencies": [],
-        "details": "Run `ssh -o BatchMode=yes -o ConnectTimeout=8 vps version` and `ssh vps help`; record the version and the subcommand list (especially any backup/offsite/download command) in the task log. If it fails with Permission denied or unknown host, stop: HUMAN NEEDED, set up the kit per master-harness library/vps-kit/README.md.",
-        "testStrategy": "ssh -o BatchMode=yes vps version exits 0.",
-        "complexity": 1,
+        "details": "DNS: `nslookup azbuka.andel-vps.space` must return 2.25.108.3 (wildcard * A record; no DNS step needed). SSH (read-only, change nothing): `ssh -o BatchMode=yes -o ConnectTimeout=8 root@2.25.108.3 '<cmds>'` with: uname -a; cat /etc/os-release; docker --version; docker compose version; free -m; df -h /; ss -tlnp; ls /etc/nginx/sites-enabled /etc/nginx/conf.d /etc/caddy 2>/dev/null; systemctl is-active nginx caddy; ufw status; ls /opt; which certbot python3 git. Log in the task: OS, Docker/Compose versions (or missing), which reverse proxy runs (nginx or caddy) and how other sites are configured, whether ports 8090 and 5432 are free, firewall state, certbot presence. Other apps run on this server: never touch them. If SSH fails, Docker or Compose is missing, or 8090 is taken: stop with HUMAN NEEDED and the exact fix to run.",
+        "testStrategy": "nslookup azbuka.andel-vps.space shows 2.25.108.3; `ssh -o BatchMode=yes root@2.25.108.3 true` exits 0; the task log holds the inspection summary.",
+        "complexity": 2,
         "phase": 2,
         "id": 10,
-        "subtasks": []
+        "subtasks": [],
+        "review": false
       },
       {
-        "title": "Make the API and migrations read the VPS kit's environment",
-        "description": "The same code runs locally and on the kit: config from the kit's .env (DATABASE_URL, ALLOWED_ORIGINS, SECRET_KEY, PORT) with the existing names still working.",
+        "title": "Server deploy script and static build output",
+        "description": "One idempotent script on the server pulls main, builds the static app into dist/ and (re)starts the Compose stack, waiting for it to be healthy.",
         "status": "pending",
         "priority": "high",
         "dependencies": [
-          2
+          2,
+          6
         ],
-        "details": "backend/app/main.py: APP_ORIGINS falls back to ALLOWED_ORIGINS; TOKEN_PEPPER falls back to SECRET_KEY (kit-managed random value); still refuse to start if neither is set. Honour the /api/ prefix being stripped by the proxy (no root_path change needed unless docs links break; check). db/apply_migrations.sh: if DATABASE_URL is set, pass it to every psql call (psql \"$DATABASE_URL\"), else keep PG* vars; MIGRATIONS_DIR still overrides the dir. Keep POSIX sh. Update .env.example comments and backend/README.md. Docker Compose must keep working unchanged.",
-        "testStrategy": "Backend test command passes; new pytest checks the fallbacks (env ALLOWED_ORIGINS only → CORS allows it; SECRET_KEY only → starts). `DATABASE_URL=postgresql://azbuka_test:azbuka_test@127.0.0.1:5432/azbuka_dev MIGRATIONS_DIR=db sh db/apply_migrations.sh` run twice prints only skip/repeat the second time.",
+        "details": "scripts/build_dist.py (stdlib): run build_standalone.py, then write dist/ with index.html (= standalone.html), standalone.html, manifest.json, service-worker.js and nothing else (never serve the repo root: it holds backend code and docs). dist/ stays gitignored. deploy/deploy.sh (POSIX sh, runs on the server as root from /opt/azbuka): git pull --ff-only origin main; python3 scripts/build_dist.py; docker compose config -q; docker compose up -d --build --remove-orphans; wait up to 120 s for `docker compose ps` to show db and api healthy and migrate exited 0; print the last 30 api log lines on failure and exit 1. Never prints .env values. Keep docker-compose.yml as is (API on 127.0.0.1:8090, Postgres unpublished) unless a test proves a fix is needed. Check service worker scope still works when served as index.html at /. The app's API base on https is '/api' (task 6). Update DOCKER_DEPLOYMENT.md to point at deploy.sh.",
+        "testStrategy": "`python scripts/build_dist.py` leaves exactly the 4 files in dist/; `python -m http.server -d dist 4174` + curl -fsS http://127.0.0.1:4174/ returns the app; `sh -n deploy/deploy.sh` passes (shellcheck -S warning if installed).",
         "complexity": 5,
         "review": true,
         "phase": 2,
@@ -207,17 +209,16 @@
         "subtasks": []
       },
       {
-        "title": "Add deploy/vps.json and a static build output",
-        "description": "The kit can build and serve the static app and the API on one HTTPS origin, with the API under /api/.",
+        "title": "Reverse-proxy site block for azbuka.andel-vps.space",
+        "description": "A committed site config serves dist/ at https://azbuka.andel-vps.space/ and proxies /api/ to the API on 127.0.0.1:8090 with the /api prefix stripped.",
         "status": "pending",
         "priority": "medium",
         "dependencies": [
-          6,
-          11
+          10
         ],
-        "details": "scripts/build_standalone.py (or a small scripts/build_dist.py) also writes dist/ with index.html (= standalone.html), standalone.html, manifest.json, service-worker.js and nothing else (never serve the repo root: it holds backend code and docs). dist/ stays gitignored. deploy/vps.json per the vps skill: web {dir: '.', build: 'python3 scripts/build_dist.py' (or equivalent), out: 'dist'}; api {dir: 'backend', runtime: 'python', start: 'venv/bin/uvicorn app.main:app --host 127.0.0.1 --port $PORT --proxy-headers', migrate: 'MIGRATIONS_DIR=.. sh ../db/apply_migrations.sh' (adjust to how the kit runs it; one line), health: '/health', path: '/api/'}. Check the service worker scope and CACHE list still work when served as index.html at /. The app's API base on https is '/api' (task 6).",
-        "testStrategy": "Run the build command locally: dist/ contains exactly the 4 files; python -c json.load on deploy/vps.json; with `python -m http.server -d dist 4174` curl -fsS http://127.0.0.1:4174/ returns the app.",
-        "complexity": 5,
+        "details": "Use the proxy task 10 found (nginx expected). nginx: deploy/nginx/azbuka.andel-vps.space.conf with server_name azbuka.andel-vps.space; port 80 serves /.well-known/acme-challenge/ and redirects everything else to https; the 443 block (certificate paths filled in by certbot in task 15, or written for /etc/letsencrypt/live/azbuka.andel-vps.space/) has root /opt/azbuka/dist, try_files $uri /index.html, `location /api/ { proxy_pass http://127.0.0.1:8090/; }` (trailing slash strips the prefix) with Host, X-Forwarded-For, X-Forwarded-Proto headers, client_max_body_size 64k, a limit_req zone for /api/v1/auth/, Cache-Control no-cache on service-worker.js and index.html, and security headers (HSTS, X-Content-Type-Options, Referrer-Policy; a CSP that allows the inline script and connect-src 'self'). If the server runs Caddy instead, write deploy/caddy/{APP}.caddy with the same behaviour (handle_path /api/*). Never edit other sites' files.",
+        "testStrategy": "The file exists and greps show server_name, proxy_pass http://127.0.0.1:8090/, the acme-challenge location and the 80→443 redirect. `nginx -t` runs on the server in task 15.",
+        "complexity": 4,
         "review": true,
         "phase": 2,
         "id": 12,
@@ -232,7 +233,7 @@
           11,
           12
         ],
-        "details": "Follow .claude/skills/security-review/SKILL.md (one reviewer dispatch per area; skip the Server area, the kit manages it). Fix high/critical findings in this phase as new tasks before task 14; medium/low go to later phases.",
+        "details": "Follow .claude/skills/security-review/SKILL.md (one reviewer dispatch per area). Include the Server area using task 10's inspection log, plus deploy/deploy.sh, the site block and docker-compose.yml. Fix high/critical findings in this phase as new tasks before task 14; medium/low go to later phases.",
         "testStrategy": "Every finding is a task (tasks.py status lists them); no open high/critical finding before task 14 runs.",
         "complexity": 5,
         "review": true,
@@ -241,38 +242,65 @@
         "subtasks": []
       },
       {
-        "title": "Create the azbuka app on the VPS and deploy",
-        "description": "The app and API are live on the VPS at azbuka.andel-vps.space via `git push vps main`.",
+        "title": "Put the Compose stack on the VPS",
+        "description": "The repo lives in /opt/azbuka on the VPS with a private .env, and `deploy/deploy.sh` brings up db, migrate and api healthy, with 16 course units in the database.",
         "status": "pending",
         "priority": "high",
         "dependencies": [
           9,
           10,
+          11,
           12,
           13
         ],
-        "details": "Follow the vps skill: `ssh vps create azbuka --domain azbuka.andel-vps.space --db`, `git remote add vps vps:/srv/git/azbuka.git`, ensure git status is clean and tests pass, `git push vps main`. Read the output (OK ... is live or FAILED: <step>); on failure `ssh vps logs azbuka --deploy -n 80`, fix, commit, push again; never push the same failing commit twice. Check `ssh vps env-keys azbuka` shows the keys the API needs. Do not touch other apps.",
-        "testStrategy": "git push vps main ends with OK ... is live; ssh vps status azbuka shows running.",
-        "complexity": 5,
+        "details": "Split into subtasks: the owner creates the server .env (PRD human-only step, secrets never in chat), then the agent clones and deploys. Touch nothing outside /opt/azbuka.",
+        "testStrategy": "See subtasks.",
+        "complexity": 7,
         "review": true,
         "phase": 2,
         "id": 14,
-        "subtasks": []
+        "subtasks": [
+          {
+            "title": "Create the server .env",
+            "description": "The owner creates /opt/azbuka/.env with strong generated secrets, mode 600; nothing secret passes through chat.",
+            "status": "pending",
+            "dependencies": [],
+            "details": "HUMAN, in your own SSH session (`ssh root@2.25.108.3`), after main is pushed:\n  test -d /opt/azbuka || git clone https://github.com/jenozu/russia /opt/azbuka\n  cd /opt/azbuka && umask 077 && cp .env.example .env\n  PW=$(openssl rand -hex 24); PEP=$(openssl rand -hex 32)\n  sed -i \"s|^POSTGRES_PASSWORD=.*|POSTGRES_PASSWORD=$PW|; s|^DATABASE_URL=.*|DATABASE_URL=postgresql://azbuka_app:$PW@db:5432/azbuka|; s|^TOKEN_PEPPER=.*|TOKEN_PEPPER=$PEP|; s|^APP_ORIGINS=.*|APP_ORIGINS=https://azbuka.andel-vps.space|\" .env\n  unset PW PEP; chmod 600 .env; grep -c '<generate' .env   (must print 0)\nReply 'done' (never paste the file).",
+            "testStrategy": "`ssh root@2.25.108.3 \"stat -c %a /opt/azbuka/.env; grep -c '<generate' /opt/azbuka/.env; grep -c '^APP_ORIGINS=https://azbuka.andel-vps.space$' /opt/azbuka/.env\"` prints 600, 0, 1.",
+            "complexity": 2,
+            "human": true,
+            "id": 1
+          },
+          {
+            "title": "Clone to /opt/azbuka and run the first deploy",
+            "description": "The Compose stack is up on the VPS: db healthy, migrate exited 0, api healthy on 127.0.0.1:8090, 16 course units.",
+            "status": "pending",
+            "dependencies": [
+              1
+            ],
+            "details": "Over `ssh root@2.25.108.3`: `git clone https://github.com/jenozu/russia /opt/azbuka` if missing (the repo is public; main must be pushed first), then `cd /opt/azbuka && docker compose config -q && sh deploy/deploy.sh`. On failure read `docker compose logs --tail 80 <service>`, fix in the repo, commit, push, re-run; never run the same failing commit twice. Don't print .env. Touch nothing outside /opt/azbuka and the azbuka_* Docker volume/networks.",
+            "testStrategy": "`ssh root@2.25.108.3 \"cd /opt/azbuka && docker compose ps --format '{{.Service}} {{.State}} {{.Health}}' && curl -fsS http://127.0.0.1:8090/health && docker compose exec -T db psql -U azbuka_app -d azbuka -tAc 'select count(*) from course_units'\"` shows db and api healthy, health ok, 16.",
+            "complexity": 5,
+            "review": true,
+            "id": 2
+          }
+        ]
       },
       {
-        "title": "TLS and production smoke test",
-        "description": "The public site and /api/health answer over HTTPS, plain HTTP redirects, CORS allows only the app origin and PostgreSQL is not reachable from outside.",
+        "title": "Install the site block, get the HTTPS certificate, smoke test",
+        "description": "https://azbuka.andel-vps.space/ serves the app and /api/health answers over HTTPS with a valid certificate; plain HTTP redirects, CORS allows only the app origin, and ports 5432 and 8090 are closed from outside.",
         "status": "pending",
-        "priority": "medium",
+        "priority": "high",
         "dependencies": [
           14
         ],
-        "details": "`ssh vps tls azbuka` if HTTPS is missing. Then curl checks: https://azbuka.andel-vps.space/ 200; https://azbuka.andel-vps.space/api/health 200; http:// → 301/308 to https; preflight with Origin: https://evil.example gets no Access-Control-Allow-Origin; `nc -z -w5 2.25.108.3 5432` (or python socket) fails. Put these in scripts/smoke_prod.sh for reuse.",
-        "testStrategy": "sh scripts/smoke_prod.sh exits 0. MANUAL CHECK: open the site on a phone, the mic prompt appears on a voice exercise.",
-        "complexity": 3,
+        "details": "On the server: copy task 12's file to /etc/nginx/sites-available/azbuka.andel-vps.space.conf and symlink into sites-enabled (or the layout task 10 found), `nginx -t`, reload. Certificate: `certbot --nginx -d azbuka.andel-vps.space --non-interactive --agree-tos -m <owner email from ~/.claude/vps.json> --redirect` (install certbot with apt only if task 10 found it missing; the wildcard DNS already points here). Caddy: obtains it automatically on reload. Confirm `certbot renew --dry-run` passes. Then write scripts/smoke_prod.sh (POSIX sh, run from the dev PC): https://azbuka.andel-vps.space/ 200; https://azbuka.andel-vps.space/api/health 200; http:// → 301/308 to https; a preflight with Origin: https://evil.example gets no Access-Control-Allow-Origin, Origin: https://azbuka.andel-vps.space does; 5432 and 8090 on 2.25.108.3 refuse connections (python socket with 5 s timeout). Never reload with a failing `nginx -t`; don't touch other sites.",
+        "testStrategy": "sh scripts/smoke_prod.sh exits 0; `ssh root@2.25.108.3 'nginx -t && certbot renew --dry-run'` exits 0. MANUAL CHECK: open the site on a phone, padlock shown, the mic prompt appears on a voice exercise.",
+        "complexity": 5,
         "phase": 2,
         "id": 15,
-        "subtasks": []
+        "subtasks": [],
+        "review": true
       },
       {
         "title": "Choose off-server backup storage",
@@ -282,7 +310,7 @@
         "dependencies": [
           14
         ],
-        "details": "HUMAN. The kit already takes nightly dumps on the server (task 10 logged whether it has an offsite/download command). Pick one: (a) pull to the home PC on a schedule, (b) an S3-compatible bucket (Backblaze B2, etc.), (c) another machine. Create the credentials yourself; set them with `ssh vps env-set azbuka KEY=VALUE` or keep them on the home PC; never paste secrets into chat. Reply with the choice and the variable names.",
+        "details": "HUMAN. Task 17 sets up a daily pg_dump from the db container on the VPS; you pick where the encrypted copy goes off the server: (a) pulled to the home PC on a schedule, (b) an S3-compatible bucket (Backblaze B2, etc.), (c) another machine. Create the credentials yourself and put them in /opt/azbuka/.env or /root/ with mode 600 over your own SSH session; never paste secrets into chat. Reply with the choice and the variable or file names.",
         "testStrategy": "The task log names the storage choice and where its credentials live (names only).",
         "complexity": 2,
         "human": true,
@@ -298,8 +326,8 @@
         "dependencies": [
           16
         ],
-        "details": "Implement the owner's choice from task 16 with the kit's commands (`ssh vps backup azbuka`, any download/offsite subcommand). If the kit can't do it without admin rights, write the exact admin command or home-PC scheduled script (Windows Task Scheduler + Git Bash) and make it a human step. Encrypt with age or gpg; keys never in Git.",
-        "testStrategy": "After one run, the off-server location lists a dump from today; decrypting it with the owner's key yields a valid pg_dump file (pg_restore --list succeeds).",
+        "details": "On the VPS: deploy/backup.sh (POSIX sh, committed; run by root cron daily): `docker compose -f /opt/azbuka/docker-compose.yml exec -T db pg_dump -U \"$POSTGRES_USER\" -Fc \"$POSTGRES_DB\"` into /var/backups/azbuka/azbuka-YYYYMMDD.dump (mode 600), delete local dumps older than 14 days, encrypt with age or gpg to the owner's public key and send off the server per task 16 (or leave for the home-PC pull, with a committed scripts/pull_backup.sh and Windows Task Scheduler steps as a human sub-step). Install the cron entry idempotently. Keys and credentials never in Git.",
+        "testStrategy": "After one manual run of deploy/backup.sh, the off-server location lists today's dump; decrypting it with the owner's key yields a file `pg_restore --list` accepts; `crontab -l` on the server shows the entry once.",
         "complexity": 6,
         "review": true,
         "phase": 3,
@@ -314,8 +342,8 @@
         "dependencies": [
           15
         ],
-        "details": "Short and command-first. Restore and app deletion are admin-only: give the exact `sudo vps-agent restore ...` form from the vps skill/`ssh vps help`. Migrations: add a numbered file to db/migrations/, push; the kit runs the migrate step. Link it from README.md and docs/MASTER_PLAN.md.",
-        "testStrategy": "File exists, every command in it appears in `ssh vps help` output or the repo; markdown links resolve.",
+        "details": "docs/OPERATIONS.md, short and command-first: deploy (push to GitHub, then `ssh root@2.25.108.3 'cd /opt/azbuka && sh deploy/deploy.sh'`), rollback (git checkout <previous sha> + deploy.sh), logs (`docker compose logs --tail 100 api`), backups and restore (task 17/19 commands), certificate renewal check, rotating POSTGRES_PASSWORD and TOKEN_PEPPER (what each invalidates), and schema migrations (add a numbered file to db/migrations/, deploy; the migrate service applies it once). Link it from README.md and docs/MASTER_PLAN.md.",
+        "testStrategy": "File exists; every script it names exists in the repo; markdown links resolve.",
         "complexity": 3,
         "phase": 3,
         "id": 18,
@@ -323,20 +351,20 @@
       },
       {
         "title": "Test a restore into a scratch database",
-        "description": "The owner restores last night's backup into a scratch database and the row counts match production.",
+        "description": "Last night's backup restores into a scratch database inside the db container and its row counts match production.",
         "status": "pending",
         "priority": "medium",
         "dependencies": [
           17,
           18
         ],
-        "details": "HUMAN, following docs/OPERATIONS.md: run the admin restore into a scratch db (never the live one), then compare counts for users, sync events, xp_ledger and course_units against production. Paste the two count lists (no data) into the task log.",
-        "testStrategy": "Counts match table by table; the log holds both lists.",
+        "details": "On the VPS: create database azbuka_restore_test in the db container, `pg_restore --no-owner -d azbuka_restore_test` from the newest dump, compare counts for users, sessions, sync events, xp_ledger and course_units against the live db, then drop azbuka_restore_test. Never restore into the live database. Put the exact commands in docs/OPERATIONS.md and both count lists (numbers only) in the task log.",
+        "testStrategy": "Counts match table by table; the log holds both lists; azbuka_restore_test no longer exists.",
         "complexity": 2,
-        "human": true,
         "phase": 3,
         "id": 19,
-        "subtasks": []
+        "subtasks": [],
+        "review": true
       },
       {
         "title": "Automated production acceptance script",
@@ -530,8 +558,8 @@
           28,
           29
         ],
-        "details": "Bump CACHE in service-worker.js if not already bumped, run all tests, `git push vps main`, then scripts/smoke_prod.sh and scripts/acceptance_prod.sh.",
-        "testStrategy": "Both scripts exit 0 after the push. MANUAL CHECK: Word of the Day and a typed quiz on a real phone.",
+        "details": "Bump CACHE in service-worker.js if not already bumped, run all tests, git push origin main, then `ssh root@2.25.108.3 'cd /opt/azbuka && sh deploy/deploy.sh'`, then scripts/smoke_prod.sh and scripts/acceptance_prod.sh.",
+        "testStrategy": "deploy.sh exits 0 and both scripts exit 0 after the deploy. MANUAL CHECK: Word of the Day and a typed quiz on a real phone.",
         "complexity": 2,
         "review": true,
         "phase": 5,
@@ -569,7 +597,7 @@
         }
       ],
       "created": "2026-11-12",
-      "updated": "2026-11-12T09:34:11-05:00"
+      "updated": "2026-11-12T11:24:29-05:00"
     }
   }
 }

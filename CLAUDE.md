@@ -32,7 +32,7 @@ destructive, or a human-only step comes up. Manual checks never stop a phase; th
 ## Skills
 Core: `/run-phase [n|ids]` · `/status` · `/manual-checks run|results` · `/adapt` · `/plan-from-prd add-phase` ·
 `dev-servers` · `next-task` (phase-runner; `/next-task <id>` for one task by hand).
-Project: `db-migration` · `mobile-ui-check` · `security-review` · `vps`
+Project: `db-migration` · `mobile-ui-check` · `security-review`
 
 ## Keeping cost down
 - One phase per launch. The lead's context grows by one report per phase.

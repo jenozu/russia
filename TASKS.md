@@ -43,24 +43,26 @@ Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit 
 
 ## Phase 2 - Deploy
 
-- [ ] **10. Verify the VPS kit works from this PC**  
-  `ssh vps` answers, so deploy tasks can run unattended.  
-  _Test:_ ssh -o BatchMode=yes vps version exits 0.
-- [ ] **11. Make the API and migrations read the VPS kit's environment** _(after 2)_  
-  The same code runs locally and on the kit: config from the kit's .env (DATABASE_URL, ALLOWED_ORIGINS, SECRET_KEY, PORT) with the existing names still working.  
-  _Test:_ Backend test command passes; new pytest checks the fallbacks (env ALLOWED_ORIGINS only → CORS allows it; SECRET_KEY only → starts). `DATABASE_URL=postgresql://azbuka_test:azbuka_test@127.0.0.1:5432/azbuka_dev MIGRATIONS_DIR=db sh db/apply_migrations.sh` run twice prints only skip/repeat the second time.
-- [ ] **12. Add deploy/vps.json and a static build output** _(after 6, 11)_  
-  The kit can build and serve the static app and the API on one HTTPS origin, with the API under /api/.  
-  _Test:_ Run the build command locally: dist/ contains exactly the 4 files; python -c json.load on deploy/vps.json; with `python -m http.server -d dist 4174` curl -fsS http://127.0.0.1:4174/ returns the app.
+- [ ] **10. Verify DNS and SSH, inspect the VPS read-only**  
+  azbuka.andel-vps.space resolves to the VPS through the wildcard record, SSH to root@2.25.108.3 works with the owner's key, and the server's state is recorded before anything is changed.  
+  _Test:_ nslookup azbuka.andel-vps.space shows 2.25.108.3; `ssh -o BatchMode=yes root@2.25.108.3 true` exits 0; the task log holds the inspection summary.
+- [ ] **11. Server deploy script and static build output** _(after 2, 6)_  
+  One idempotent script on the server pulls main, builds the static app into dist/ and (re)starts the Compose stack, waiting for it to be healthy.  
+  _Test:_ `python scripts/build_dist.py` leaves exactly the 4 files in dist/; `python -m http.server -d dist 4174` + curl -fsS http://127.0.0.1:4174/ returns the app; `sh -n deploy/deploy.sh` passes (shellcheck -S warning if installed).
+- [ ] **12. Reverse-proxy site block for azbuka.andel-vps.space** _(after 10)_  
+  A committed site config serves dist/ at https://azbuka.andel-vps.space/ and proxies /api/ to the API on 127.0.0.1:8090 with the /api prefix stripped.  
+  _Test:_ The file exists and greps show server_name, proxy_pass http://127.0.0.1:8090/, the acme-challenge location and the 80→443 redirect. `nginx -t` runs on the server in task 15.
 - [ ] **13. Security review before first deploy** _(after 11, 12)_  
   Run the security-review skill over secrets, auth, input, web and dependencies and file every finding as a fix task.  
   _Test:_ Every finding is a task (tasks.py status lists them); no open high/critical finding before task 14 runs.
-- [ ] **14. Create the azbuka app on the VPS and deploy** _(after 9, 10, 12, 13)_  
-  The app and API are live on the VPS at azbuka.andel-vps.space via `git push vps main`.  
-  _Test:_ git push vps main ends with OK ... is live; ssh vps status azbuka shows running.
-- [ ] **15. TLS and production smoke test** _(after 14)_  
-  The public site and /api/health answer over HTTPS, plain HTTP redirects, CORS allows only the app origin and PostgreSQL is not reachable from outside.  
-  _Test:_ sh scripts/smoke_prod.sh exits 0. MANUAL CHECK: open the site on a phone, the mic prompt appears on a voice exercise.
+- [ ] **14. Put the Compose stack on the VPS** _(after 9, 10, 11, 12, 13)_  
+  The repo lives in /opt/azbuka on the VPS with a private .env, and `deploy/deploy.sh` brings up db, migrate and api healthy, with 16 course units in the database.  
+  _Test:_ See subtasks.
+  - [ ] 14.1 Create the server .env
+  - [ ] 14.2 Clone to /opt/azbuka and run the first deploy
+- [ ] **15. Install the site block, get the HTTPS certificate, smoke test** _(after 14)_  
+  https://azbuka.andel-vps.space/ serves the app and /api/health answers over HTTPS with a valid certificate; plain HTTP redirects, CORS allows only the app origin, and ports 5432 and 8090 are closed from outside.  
+  _Test:_ sh scripts/smoke_prod.sh exits 0; `ssh root@2.25.108.3 'nginx -t && certbot renew --dry-run'` exits 0. MANUAL CHECK: open the site on a phone, padlock shown, the mic prompt appears on a voice exercise.
 
 ## Phase 3 - Backups & ops
 
@@ -69,13 +71,13 @@ Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit 
   _Test:_ The task log names the storage choice and where its credentials live (names only).
 - [ ] **17. Ship an encrypted off-server copy of the nightly dump** _(after 16)_  
   Each night's database dump ends up encrypted outside the VPS with 14-30 days of retention.  
-  _Test:_ After one run, the off-server location lists a dump from today; decrypting it with the owner's key yields a valid pg_dump file (pg_restore --list succeeds).
+  _Test:_ After one manual run of deploy/backup.sh, the off-server location lists today's dump; decrypting it with the owner's key yields a file `pg_restore --list` accepts; `crontab -l` on the server shows the entry once.
 - [ ] **18. Write the operations runbook** _(after 15)_  
   docs/OPERATIONS.md holds exact commands for deploy, rollback, logs, backups, restore, secret rotation and schema migrations on the kit.  
-  _Test:_ File exists, every command in it appears in `ssh vps help` output or the repo; markdown links resolve.
-- [ ] **19. Test a restore into a scratch database** **[HUMAN]** _(after 17, 18)_  
-  The owner restores last night's backup into a scratch database and the row counts match production.  
-  _Test:_ Counts match table by table; the log holds both lists.
+  _Test:_ File exists; every script it names exists in the repo; markdown links resolve.
+- [ ] **19. Test a restore into a scratch database** _(after 17, 18)_  
+  Last night's backup restores into a scratch database inside the db container and its row counts match production.  
+  _Test:_ Counts match table by table; the log holds both lists; azbuka_restore_test no longer exists.
 
 ## Phase 4 - Acceptance
 
@@ -116,4 +118,4 @@ Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit 
   _Test:_ (cd tests && npm test --silent) && python tests/check_build_in_sync.py; jsdom test: switching persona changes a feedback string and persists across reload.
 - [ ] **30. Deploy the learner features and smoke test** _(after 24, 25, 26, 27, 28, 29)_  
   Phase 5 is live on the VPS and still passes the production checks.  
-  _Test:_ Both scripts exit 0 after the push. MANUAL CHECK: Word of the Day and a typed quiz on a real phone.
+  _Test:_ deploy.sh exits 0 and both scripts exit 0 after the deploy. MANUAL CHECK: Word of the Day and a typed quiz on a real phone.
