@@ -28,7 +28,7 @@ Never update it per task.
 ## Facts (stable, max 15 lines)
 - Dev machine: Windows 11, Git Bash; `python` (3.12), no `python3`. Node and PostgreSQL 17 installed locally (server on :5432). No Docker.
 - Backend tests on Windows: `TEST_DATABASE_URL` to a disposable local db (`AZBUKA_TEST_DB`, set up in task 2); `scripts/test_backend.sh` is Linux-only.
-- Hosting: Docker Compose in `/opt/azbuka` on the VPS (`ssh root@2.25.108.3`), host proxy + Let's Encrypt for `https://azbuka.andel-vps.space`, API under `/api/` → 127.0.0.1:8090. Wildcard DNS already points there. Other apps share the server.
+- Hosting: Docker Compose in `/opt/azbuka` on the VPS (`ssh root@2.25.108.3`), Traefik (docker) owns 80/443 and does HTTPS; port 8090 is TAKEN by another site, Azbuka API uses host port 8091. Public URL `https://azbuka.andel-vps.space`, API under `/api/`. Server: Ubuntu 24.04, Docker 29, Compose 5.4, 31G free. Wildcard DNS already points there. Other apps share the server.
 - Single owner/operator; learners are self-taught adults on phones. No analytics, no paid services in v1.
 - Product docs: `docs/MASTER_PLAN.md` (status), `AZBUKA_BACKEND_UNFINISHED_WORK.md`, `backend/README.md` (API, cursor limitation).
 

@@ -210,10 +210,10 @@
       {
         "title": "Verify DNS and SSH, inspect the VPS read-only",
         "description": "azbuka.andel-vps.space resolves to the VPS through the wildcard record, SSH to root@2.25.108.3 works with the owner's key, and the server's state is recorded before anything is changed.",
-        "status": "pending",
+        "status": "done",
         "priority": "high",
         "dependencies": [],
-        "details": "DNS: `nslookup azbuka.andel-vps.space` must return 2.25.108.3 (wildcard * A record; no DNS step needed). SSH (read-only, change nothing): `ssh -o BatchMode=yes -o ConnectTimeout=8 root@2.25.108.3 '<cmds>'` with: uname -a; cat /etc/os-release; docker --version; docker compose version; free -m; df -h /; ss -tlnp; ls /etc/nginx/sites-enabled /etc/nginx/conf.d /etc/caddy 2>/dev/null; systemctl is-active nginx caddy; ufw status; ls /opt; which certbot python3 git. Log in the task: OS, Docker/Compose versions (or missing), which reverse proxy runs (nginx or caddy) and how other sites are configured, whether ports 8090 and 5432 are free, firewall state, certbot presence. Other apps run on this server: never touch them. If SSH fails, Docker or Compose is missing, or 8090 is taken: stop with HUMAN NEEDED and the exact fix to run.",
+        "details": "DNS: `nslookup azbuka.andel-vps.space` must return 2.25.108.3 (wildcard * A record; no DNS step needed). SSH (read-only, change nothing): `ssh -o BatchMode=yes -o ConnectTimeout=8 root@2.25.108.3 '<cmds>'` with: uname -a; cat /etc/os-release; docker --version; docker compose version; free -m; df -h /; ss -tlnp; ls /etc/nginx/sites-enabled /etc/nginx/conf.d /etc/caddy 2>/dev/null; systemctl is-active nginx caddy; ufw status; ls /opt; which certbot python3 git. Log in the task: OS, Docker/Compose versions (or missing), which reverse proxy runs (nginx or caddy) and how other sites are configured, whether ports 8090 and 5432 are free, firewall state, certbot presence. Other apps run on this server: never touch them. If SSH fails, Docker or Compose is missing, or 8090 is taken: stop with HUMAN NEEDED and the exact fix to run.\n\n[2026-11-12T12:57:40-05:00] inspection via Hostinger web terminal (2026-11-12): Ubuntu 24.04.4, Docker 29.7.2, Compose v5.4.0, RAM 7.9G (6.8G avail), disk 31G free. DNS azbuka.andel-vps.space -> 2.25.108.3 OK. PUBLIC PROXY IS TRAEFIK (docker, traefik-traefik-1) on 80/443, NOT nginx. nginx runs only for fittrack on 127.0.0.1:8090 -> PORT 8090 IS TAKEN. Caddy inactive. Other: host postgres 127.0.0.1:5432, uvicorn 8000, gunicorn 8001, docker-proxy 8012/8082/4387, streamlit 8501. UFW active (22,80,443,Nginx Full). certbot present but Traefik handles certs. /opt: arova containerd docker. Free port chosen: 8091. Not touched: all other apps.",
         "testStrategy": "nslookup azbuka.andel-vps.space shows 2.25.108.3; `ssh -o BatchMode=yes root@2.25.108.3 true` exits 0; the task log holds the inspection summary.",
         "complexity": 2,
         "phase": 2,
@@ -627,7 +627,7 @@
         }
       ],
       "created": "2026-11-12",
-      "updated": "2026-11-12T12:41:10-05:00"
+      "updated": "2026-11-12T12:57:40-05:00"
     }
   }
 }

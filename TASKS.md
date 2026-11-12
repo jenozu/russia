@@ -3,7 +3,7 @@
 Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit by hand; regenerate with
 `python .taskmaster/render_tasks_md.py`.
 
-**Progress: 8/30 tasks done.**
+**Progress: 9/30 tasks done.**
 
 ## Phase 0 - Foundation
 
@@ -46,7 +46,7 @@ Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit 
 
 ## Phase 2 - Deploy
 
-- [ ] **10. Verify DNS and SSH, inspect the VPS read-only**  
+- [x] **10. Verify DNS and SSH, inspect the VPS read-only**  
   azbuka.andel-vps.space resolves to the VPS through the wildcard record, SSH to root@2.25.108.3 works with the owner's key, and the server's state is recorded before anything is changed.  
   _Test:_ nslookup azbuka.andel-vps.space shows 2.25.108.3; `ssh -o BatchMode=yes root@2.25.108.3 true` exits 0; the task log holds the inspection summary.
 - [x] **11. Server deploy script and static build output** _(after 2, 6)_  
