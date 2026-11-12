@@ -1,6 +1,11 @@
 {
   "name": "azbuka-tests",
   "private": true,
-  "scripts": { "test": "node app.test.js" },
-  "devDependencies": { "jsdom": "^24.0.0" }
+  "scripts": {
+    "test": "node app.test.js",
+    "test:e2e": "node sync_e2e.test.js"
+  },
+  "devDependencies": {
+    "jsdom": "^24.0.0"
+  }
 }

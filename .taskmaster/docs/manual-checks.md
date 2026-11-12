@@ -27,3 +27,10 @@ Expected: all pass; then close tasks 2 and 4.
 4. Stop the API, rate a card: status shows queued/sync problem and the pending count goes up; app keeps working.
 Expected: all of the above; tap targets are comfortable.
 
+### Tasks 8 and 9 - Two real browser profiles (2026-11-12)
+1. With the API running, in browser profile A create an account, rate a few cards and finish a unit checkpoint; press Sync now.
+2. In profile B (or a private window) sign in with the same account; press Sync now.
+3. Cards, letters, XP and the unit checkpoint match in both. Rate another card in B, Sync now in A: it appears.
+4. In profile A, if you had progress before this feature existed, tap "Add this browser's existing progress" once, before the first sync.
+Expected: no progress lost in either browser; XP does not double.
+

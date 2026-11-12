@@ -19,10 +19,11 @@ Never update it per task.
 ---
 
 ## Now (overwrite each time, max 6 lines)
-- Plan created 2026-11-12; no phase run yet.
-- Next: phase 0. Run `/run-phase 0`.
+- 2026-11-12: Phase 1 built and pushed (tasks 5-9; Linux-verified: 41 jsdom, 5-step e2e vs real API, 26 backend).
+- Phase 0 open: tasks 1, 2, 4 need the owner's Windows PC (see manual-checks.md); Phase 1 started on Linux evidence.
+- Next: owner does task 1 + Windows checks, then `/run-phase 2` (deploy); needs SSH to the VPS from the PC.
 - In progress: none.
-- Manual checks waiting: none.
+- Manual checks waiting: Windows (1/2/4), mobile account screen (7), two real browsers (8/9).
 
 ## Facts (stable, max 15 lines)
 - Dev machine: Windows 11, Git Bash; `python` (3.12), no `python3`. Node and PostgreSQL 17 installed locally (server on :5432). No Docker.

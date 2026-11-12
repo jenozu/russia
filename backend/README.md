@@ -125,3 +125,12 @@ Run the API against a local `azbuka_dev` database so client sync can be built an
    python .claude/scripts/devserver.py stop api
    ```
    Use the project venv's Python (`backend/venv`) or have it on PATH. The dev token pepper is a local-only value, never reuse it in production.
+
+## Client sync (what the app sends and expects)
+
+The app queues one event per learner action (`review-rated`, `letter-rated`, `quiz-review`, `checkpoint-answer`,
+`listening-answer`, `unit-started`, `unit-completed`, `xp-awarded`) with a UUID `client_event_id`, uploads them to
+`POST /v1/sync/events` in batches of 250 with the same ids on retry, then pulls `GET /v1/sync/changes` and applies
+remote events locally: newer review wins by `occurred_at`, answers are OR-ed, each XP key counts once. A full
+re-pull (no cursor) runs every 6 hours to cover the cursor race above. End-to-end check: `cd tests && npm run test:e2e`
+(API running).

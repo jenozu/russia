@@ -97,7 +97,7 @@ Every fix goes into the source files (`build_standalone.py`, the curriculum JSON
 - [x] 26 backend tests against a throwaway PostgreSQL (`scripts/test_backend.sh`).
 - [ ] Exit test: the whole stack starts with `docker compose up` (to verify on the VPS; this workspace has no Docker).
 
-### Phase 2: build the client sync adapter and account screen (next)
+### Phase 2: build the client sync adapter and account screen (built; Windows and eyes-on checks pending)
 
 This is the largest piece of missing work. It lives in `build_standalone.py` and keeps `localStorage["azbuka-standalone"]` as the instant save.
 
@@ -110,6 +110,8 @@ This is the largest piece of missing work. It lives in `build_standalone.py` and
 7. Add the screen: register, login, logout, account name, status (local only, syncing, synced, queued, error), last sync time, pending count, Sync Now, export and import.
 8. First login: offer a clear "merge this browser's progress into my account" step; never replace local progress with an empty account.
 9. Exit test: stop the API, complete a lesson, refresh and see progress; restart the API and watch the queue drain; open a second browser profile and see the same progress.
+
+Status (2026-11-12): items 1 to 8 are built in `scripts/build_standalone.py`; item 9 is covered by `tests/sync_e2e.test.js` (`npm run test:e2e` in `tests/`, API must be running). Verified on Linux: 41 jsdom tests and the 5-step end-to-end script against the real API. Still open: a phone-size look at the account screen and two real browser profiles (see `.taskmaster/docs/manual-checks.md`).
 
 ## Phases 3 to 5: deploy, protect, prove
 

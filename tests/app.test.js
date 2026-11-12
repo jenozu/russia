@@ -215,15 +215,18 @@ test('old saved state without sync fields gets queue defaults', () => {
 });
 
 // ---- upload (task 6): stubbed fetch ----
-function stubFetch(handler) {
+function stubFetch(handler, changes) {
   const calls = [];
   const fn = async (url, init = {}) => {
     const call = { url, method: init.method || 'GET', headers: init.headers || {}, body: init.body ? JSON.parse(init.body) : null };
     calls.push(call);
-    const r = await handler(call, calls.length);
+    const r = url.includes('/v1/sync/changes')
+      ? (changes ? await changes(call) : { status: 200, body: { events: [], nextCursor: null, hasMore: false } })
+      : await handler(call, calls.length);
     return { status: r.status, ok: r.status >= 200 && r.status < 300, json: async () => r.body };
   };
   fn.calls = calls;
+  fn.eventCalls = () => calls.filter((c) => c.url.endsWith('/v1/sync/events'));
   return fn;
 }
 const signedIn = (w) => w.eval("state.sync.account={token:'tok',expiresAt:new Date(Date.now()+3600e3).toISOString(),email:'a@b.co'}");
@@ -237,11 +240,10 @@ test('accepted events leave the queue; same ids are sent with bearer token and d
   const ids = queue(w).map((e) => e.client_event_id);
   const r = await w.eval('syncNow()');
   assert.strictEqual(r.ok, true);
-  assert.strictEqual(f.calls.length, 1);
-  assert.ok(f.calls[0].url.endsWith('/v1/sync/events'));
-  assert.strictEqual(f.calls[0].headers.Authorization, 'Bearer tok');
-  assert.strictEqual(f.calls[0].body.device_id, w.eval('state.sync.deviceId'));
-  assert.deepStrictEqual(f.calls[0].body.events.map((e) => e.client_event_id), ids);
+  assert.strictEqual(f.eventCalls().length, 1);
+  assert.strictEqual(f.eventCalls()[0].headers.Authorization, 'Bearer tok');
+  assert.strictEqual(f.eventCalls()[0].body.device_id, w.eval('state.sync.deviceId'));
+  assert.deepStrictEqual(f.eventCalls()[0].body.events.map((e) => e.client_event_id), ids);
   assert.strictEqual(queue(w).length, 0);
   assert.strictEqual(w.eval('state.sync.syncedCount'), ids.length);
 });
@@ -284,7 +286,7 @@ test('network error keeps the queue, backs off, and retries with the same ids', 
   assert.strictEqual(w.eval('syncBackoff'), 4000);
   fail = false;
   await w.eval('syncNow()');
-  assert.deepStrictEqual(f.calls[f.calls.length - 1].body.events.map((e) => e.client_event_id), ids);
+  assert.deepStrictEqual(f.eventCalls().pop().body.events.map((e) => e.client_event_id), ids);
   assert.strictEqual(queue(w).length, 0);
   assert.strictEqual(w.eval('syncBackoff'), 0);
 });
@@ -307,7 +309,7 @@ test('large queues upload in batches of at most 250', async () => {
   w.eval("ensureSync();for(let i=0;i<600;i++)state.sync.queue.push({client_event_id:'e'+i,event_type:'settings-updated',occurred_at:new Date().toISOString(),payload:{}})");
   signedIn(w);
   await w.eval('syncNow()');
-  assert.deepStrictEqual(f.calls.map((c) => c.body.events.length), [250, 250, 100]);
+  assert.deepStrictEqual(f.eventCalls().map((c) => c.body.events.length), [250, 250, 100]);
   assert.strictEqual(queue(w).length, 0);
 });
 
@@ -417,6 +419,143 @@ test('resetting local progress keeps the sign-in and device id', () => {
   assert.strictEqual(w.eval('state.sync.deviceId'), id);
   assert.strictEqual(w.eval('state.sync.account.email'), 'a@b.co');
   assert.strictEqual(w.eval('Object.keys(state.stageItems).length'), 0);
+});
+
+// ---- restore and merge (task 8): two browsers, one fake server ----
+function fakeServer() {
+  const events = []; const ids = new Set(); let confirmCalls = 0;
+  const handler = (c) => {
+    if (c.url.endsWith('/v1/auth/login') || c.url.endsWith('/v1/auth/register')) {
+      return { status: 201, body: { ...authBody, user: { id: c.body.email, email: c.body.email, display_name: null } } };
+    }
+    if (c.url.endsWith('/v1/sync/events')) {
+      const acc = [], dup = [];
+      for (const e of c.body.events) {
+        if (ids.has(e.client_event_id)) { dup.push(e.client_event_id); continue; }
+        ids.add(e.client_event_id); acc.push(e.client_event_id);
+        events.push({ id: events.length + 1, client_event_id: e.client_event_id, event_type: e.event_type, unit_id: e.unit_id || null,
+          item_scope: e.item_scope || null, item_id: e.item_id || null, payload: JSON.stringify(e.payload), occurred_at: new Date(e.occurred_at).toISOString().replace('Z', '000+00:00') });
+      }
+      return { status: 200, body: { accepted: acc, duplicates: dup, rejected: [], server_cursor: null, progress_version: 1 } };
+    }
+    return { status: 404, body: { detail: 'nope' } };
+  };
+  const changes = (c) => {
+    const u = new URL(c.url, 'http://x'); const cur = Number(u.searchParams.get('cursor') || 0); const limit = Number(u.searchParams.get('limit') || 250);
+    const rows = events.filter((e) => e.id > cur).slice(0, limit);
+    return { status: 200, body: { events: rows, nextCursor: rows.length ? String(rows[rows.length - 1].id) : (u.searchParams.get('cursor') || null), hasMore: rows.length === limit } };
+  };
+  return { events, fetch: () => stubFetch(handler, changes) };
+}
+const snap = (w) => JSON.parse(w.eval('JSON.stringify({s:state.stageItems,l:state.letters,c:state.courseReviews,u:state.courseUnits,xp:state.motivation.xp,r:Object.keys(state.motivation.rewards).sort()})'));
+const login = async (w, email = 'a@b.co') => { const r = await w.eval(`authRequest('login','${email}','pw')`); assert.ok(r.ok, r.message); await w.eval('syncNow()'); };
+const doWork = (w) => w.eval("show('stage');reveal();rateCurrent('good');index=0;reveal();rateCurrent('hard');show('alphabet');rateLetter(2,'easy');show('unit3');startUnit();unitSession.dialogueComplete=true;answerUnitCheckpoint(0,UNIT.checkpoint.questions[0].answer);answerUnitCheckpoint(1,UNIT.checkpoint.questions[1].answer)");
+
+test('a second browser restores the same progress after login', async () => {
+  const srv = fakeServer();
+  const A = boot(null, { fetch: srv.fetch() }); doWork(A.w); await login(A.w);
+  const B = boot(null, { fetch: srv.fetch() }); await login(B.w);
+  const a = snap(A.w), b = snap(B.w);
+  assert.ok(Object.keys(a.s).length >= 1 && Object.keys(a.l).length === 1 && a.xp > 0);
+  assert.deepStrictEqual(Object.keys(b.s), Object.keys(a.s));
+  assert.deepStrictEqual(Object.keys(b.l), Object.keys(a.l));
+  assert.strictEqual(b.xp, a.xp);
+  assert.deepStrictEqual(b.r, a.r);
+  assert.strictEqual(b.u['u03-numbers-time'].checkpoint, 2);
+  assert.ok(b.u['u03-numbers-time'].completedAt);
+  for (const id of Object.keys(a.s)) { assert.strictEqual(b.s[id].attempts, a.s[id].attempts); assert.strictEqual(b.s[id].lastRating, a.s[id].lastRating); }
+});
+
+test('own events are never re-applied: attempts and xp stay put after pulls', async () => {
+  const srv = fakeServer();
+  const A = boot(null, { fetch: srv.fetch() });
+  A.w.eval("show('stage');reveal();rateCurrent('good');index=0;reveal();rateCurrent('good')");
+  await login(A.w);
+  const before = snap(A.w);
+  A.w.eval('state.sync.lastFullPullAt=null'); await A.w.eval('syncNow()'); await A.w.eval('syncNow()');
+  assert.deepStrictEqual(snap(A.w), before);
+});
+
+test('offline progress on the joining browser is kept and also reaches the account', async () => {
+  const srv = fakeServer();
+  const A = boot(null, { fetch: srv.fetch() }); doWork(A.w); await login(A.w);
+  const B = boot(null, { fetch: srv.fetch() });
+  B.w.eval("show('stage');day=5;index=0;reveal();rateCurrent('easy')");
+  const bItem = Object.keys(snap(B.w).s)[0];
+  await login(B.w);
+  const b = snap(B.w);
+  assert.ok(bItem in b.s, 'local item kept');
+  assert.ok(Object.keys(b.s).length >= 2, 'account items merged in');
+  await A.w.eval('syncNow()');
+  assert.ok(bItem in snap(A.w).s, 'first browser receives the new item');
+  assert.strictEqual(snap(A.w).xp, snap(B.w).xp);
+});
+
+test('replaying the same remote events twice changes nothing', async () => {
+  const srv = fakeServer();
+  const A = boot(null, { fetch: srv.fetch() }); doWork(A.w); await login(A.w);
+  const B = boot(null, { fetch: srv.fetch() }); await login(B.w);
+  const once = snap(B.w);
+  B.w.eval('state.sync.cursor=null;state.sync.lastFullPullAt=null'); await B.w.eval('syncNow()');
+  assert.deepStrictEqual(snap(B.w), once);
+});
+
+test('a stale remote review does not overwrite a newer local one', () => {
+  const { w } = boot();
+  w.eval("show('stage');reveal();rateCurrent('easy')");
+  const local = snap(w).s[1];
+  const applied = w.eval(`applyRemoteEvent({event_type:'review-rated',item_scope:'stage',item_id:'1',payload:'{"rating":"again"}',occurred_at:'2020-06-01T00:00:00+00:00'})`);
+  assert.strictEqual(applied, false);
+  assert.deepStrictEqual(snap(w).s[1], local);
+});
+
+test('new events from another device arrive through the saved cursor', async () => {
+  const srv = fakeServer();
+  const A = boot(null, { fetch: srv.fetch() }); A.w.eval("show('stage');reveal();rateCurrent('good')"); await login(A.w);
+  const B = boot(null, { fetch: srv.fetch() }); await login(B.w);
+  assert.ok(B.w.eval('state.sync.cursor'));
+  A.w.eval("index=0;reveal();rateCurrent('good')"); await A.w.eval('syncNow()');
+  const r = await B.w.eval('syncNow()');
+  assert.ok(r.applied >= 1);
+  assert.strictEqual(snap(B.w).xp, snap(A.w).xp);
+});
+
+test('backfill turns legacy progress into valid events once, and only before any upload', () => {
+  const now = new Date().toISOString();
+  const old = { version: 1, goal: 10, audio: { speed: 0.8, voiceName: '' }, daily: { date: now.slice(0, 10), reviewed: [] },
+    stageItems: { 7: { attempts: 3, correct: 2, lastReviewed: now, nextReview: now, lastRating: 'good' } }, letters: { 4: { attempts: 1, correct: 1, lastReviewed: now, lastRating: 'hard' } },
+    events: [], motivation: { xp: 5, rewards: { ['review:7:' + now.slice(0, 10)]: { amount: 5, label: 'x', at: now }, 'weird key!': { amount: 5, at: now } }, badges: [], activityDates: [], weeklyGoal: 5 } };
+  const { w } = boot(old);
+  const n = w.eval('backfillLocal()');
+  const q = queue(w);
+  assert.strictEqual(n, 3);
+  assert.deepStrictEqual(q.map((e) => e.event_type).sort(), ['letter-rated', 'review-rated', 'xp-awarded']);
+  assert.ok(q.every((e) => ID_RE.test(e.client_event_id) && (!e.item_id || ID_RE.test(e.item_id))));
+  assert.strictEqual(w.eval('backfillLocal()'), 0);
+  assert.strictEqual(queue(w).length, 3);
+});
+
+test('signing in as a different account on a browser with progress asks first and cancel changes nothing', async () => {
+  const srv = fakeServer();
+  const A = boot(null, { fetch: srv.fetch() }); doWork(A.w); await login(A.w, 'one@x.co');
+  A.w.eval('state.sync.account=null');
+  const before = JSON.stringify(A.w.eval('state.sync.queue')) + JSON.stringify(snap(A.w));
+  let asked = 0; A.w.confirm = () => { asked++; return false; };
+  const r = await A.w.eval("authRequest('login','two@x.co','pw')");
+  assert.strictEqual(asked, 1);
+  assert.strictEqual(r.ok, false);
+  assert.strictEqual(A.w.eval('state.sync.account'), null);
+  assert.strictEqual(JSON.stringify(A.w.eval('state.sync.queue')) + JSON.stringify(snap(A.w)), before);
+  A.w.confirm = () => true;
+  assert.strictEqual((await A.w.eval("authRequest('login','two@x.co','pw')")).ok, true);
+});
+
+test('a remote wrong checkpoint answer never undoes a local correct one', () => {
+  const { w } = boot();
+  w.eval("show('unit3');startUnit();answerUnitCheckpoint(0,UNIT.checkpoint.questions[0].answer)");
+  w.eval(`applyRemoteEvent({event_type:'checkpoint-answer',unit_id:'u03-numbers-time',payload:{index:0,correct:false,score:0,total:3},occurred_at:new Date().toISOString()})`);
+  assert.strictEqual(w.eval("state.courseUnits['u03-numbers-time'].checkpointAnswers[0]"), true);
+  assert.strictEqual(w.eval("state.courseUnits['u03-numbers-time'].checkpoint"), 1);
 });
 
 let failed = 0;

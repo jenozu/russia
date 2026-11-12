@@ -109,13 +109,13 @@
       {
         "title": "Restore and merge progress after login",
         "description": "After login the app pulls the account's progress and merges it with local progress without ever losing offline work; a second browser restores the same progress.",
-        "status": "pending",
+        "status": "done",
         "priority": "high",
         "dependencies": [
           6,
           7
         ],
-        "details": "Split into subtasks. Server side already exists: GET /v1/sync/bootstrap and GET /v1/sync/changes?cursor= (see backend/README.md, including the overlapping-sync cursor limitation).",
+        "details": "Split into subtasks. Server side already exists: GET /v1/sync/bootstrap and GET /v1/sync/changes?cursor= (see backend/README.md, including the overlapping-sync cursor limitation).\n\n[2026-11-12T12:24:08-05:00] done: 41/41 jsdom tests; 4 guards mutation-tested (stale, OR checkpoint, xp once, owner prompt); full pull every 6h for cursor race; cache v19. Reviewer not run (no agent spawned): please review sync/merge code in build_standalone.py before relying on it.",
         "testStrategy": "See subtasks.",
         "complexity": 8,
         "review": true,
@@ -158,19 +158,49 @@
             "complexity": 4,
             "review": true,
             "id": 3
+          },
+          {
+            "title": "Pull and apply remote events idempotently",
+            "description": "",
+            "status": "done",
+            "dependencies": [],
+            "details": "applyRemoteEvent per event type (newer-wins by occurred_at, OR for answers, once per xp key); pullChanges pages /v1/sync/changes, full re-pull every 6h to cover the cursor race; run after upload in syncNow\n\n[2026-11-12T12:24:08-05:00] done: applyRemoteEvent + pullChanges; fake-server tests incl. second profile, own events not re-applied, stale ignored, cursor, replay idempotent; mutation-checked",
+            "testStrategy": "jsdom tests with a fake server: second profile restores same progress; own events never re-applied; stale remote events ignored",
+            "complexity": 5,
+            "id": 4
+          },
+          {
+            "title": "Explicit backfill of this browser's existing progress",
+            "description": "",
+            "status": "done",
+            "dependencies": [],
+            "details": "backfillLocal() turns existing records into events once, only if nothing was ever uploaded; button in the sync panel; skip records already covered by a queued event\n\n[2026-11-12T12:24:08-05:00] done: backfillLocal once, only before any upload; legacy-state test",
+            "testStrategy": "jsdom tests: legacy state produces valid events once; second call adds none",
+            "complexity": 4,
+            "id": 5
+          },
+          {
+            "title": "Different-account guard and merge safety tests",
+            "description": "",
+            "status": "done",
+            "dependencies": [],
+            "details": "ownerUserId stored at login; signing in as another user on a browser holding progress asks first and cancels without changing anything; tests that offline progress is never lost\n\n[2026-11-12T12:24:08-05:00] done: ownerUserId guard with confirm; cancel changes nothing; offline progress kept on join",
+            "testStrategy": "jsdom tests: offline progress survives login and pull; other-account prompt cancel leaves state untouched",
+            "complexity": 4,
+            "id": 6
           }
         ]
       },
       {
         "title": "Client sync end-to-end check against the local API",
         "description": "A script proves the PRD sync criteria locally: offline progress survives refresh, the queue drains with no duplicates when the API returns, and a second browser profile restores the same progress.",
-        "status": "pending",
+        "status": "done",
         "priority": "medium",
         "dependencies": [
           7,
           8
         ],
-        "details": "Add tests/sync_e2e.test.js (jsdom, real fetch to http://127.0.0.1:8090) runnable as `node tests/sync_e2e.test.js`; skip with a clear message if the API isn't up. Steps: API down → complete actions → reload → progress there; API up → queue drains; send same batch twice → XP and attempts unchanged; fresh 'profile' (new localStorage) logs in → same progress. Add it to tests/package.json as `test:e2e`. Update docs/MASTER_PLAN.md Phase 2 checkboxes.",
+        "details": "Add tests/sync_e2e.test.js (jsdom, real fetch to http://127.0.0.1:8090) runnable as `node tests/sync_e2e.test.js`; skip with a clear message if the API isn't up. Steps: API down → complete actions → reload → progress there; API up → queue drains; send same batch twice → XP and attempts unchanged; fresh 'profile' (new localStorage) logs in → same progress. Add it to tests/package.json as `test:e2e`. Update docs/MASTER_PLAN.md Phase 2 checkboxes.\n\n[2026-11-12T12:23:26-05:00] plan: tests/sync_e2e.test.js, real fetch to API_BASE (default http://127.0.0.1:8090), skip if /health down; scenarios offline->reload->drain->duplicate resend->fresh profile\n\n[2026-11-12T12:24:08-05:00] done: tests/sync_e2e.test.js 5/5 vs real local API (offline reload, drain, duplicate resend, fresh profile, relogin); skips cleanly when API down; npm run test:e2e; MASTER_PLAN Phase 2 updated. Eyes-on two-profile check in manual-checks.",
         "testStrategy": "python .claude/scripts/devserver.py start api && (cd tests && npm run test:e2e --silent) exits 0. MANUAL CHECK: two real browser profiles on the PC show the same progress after login.",
         "complexity": 6,
         "phase": 1,
@@ -597,7 +627,7 @@
         }
       ],
       "created": "2026-11-12",
-      "updated": "2026-11-12T12:20:08-05:00"
+      "updated": "2026-11-12T12:24:08-05:00"
     }
   }
 }

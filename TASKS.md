@@ -3,7 +3,7 @@
 Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit by hand; regenerate with
 `python .taskmaster/render_tasks_md.py`.
 
-**Progress: 4/30 tasks done.**
+**Progress: 6/30 tasks done.**
 
 ## Phase 0 - Foundation
 
@@ -31,13 +31,16 @@ Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit 
 - [x] **7. Account screen: register, login, logout, sync status** _(after 6)_  
   A learner can create an account, sign in and out, and see local-only / syncing / synced / queued / error status, last sync time, pending count and a Sync Now button.  
   _Test:_ (cd tests && npm test --silent) && python tests/check_build_in_sync.py; jsdom tests with stubbed fetch: register → signed-in view with email; logout → local-only; pending count equals queue length. MANUAL CHECK: mobile-ui-check checklist at 390x844.
-- [ ] **8. Restore and merge progress after login** _(after 6, 7)_  
+- [x] **8. Restore and merge progress after login** _(after 6, 7)_  
   After login the app pulls the account's progress and merges it with local progress without ever losing offline work; a second browser restores the same progress.  
   _Test:_ See subtasks.
   - [ ] 8.1 Pure merge function with tests
   - [ ] 8.2 First-login merge step and bootstrap call
   - [ ] 8.3 Periodic re-bootstrap and cursor handling
-- [ ] **9. Client sync end-to-end check against the local API** _(after 7, 8)_  
+  - [x] 8.4 Pull and apply remote events idempotently
+  - [x] 8.5 Explicit backfill of this browser's existing progress
+  - [x] 8.6 Different-account guard and merge safety tests
+- [x] **9. Client sync end-to-end check against the local API** _(after 7, 8)_  
   A script proves the PRD sync criteria locally: offline progress survives refresh, the queue drains with no duplicates when the API returns, and a second browser profile restores the same progress.  
   _Test:_ python .claude/scripts/devserver.py start api && (cd tests && npm run test:e2e --silent) exits 0. MANUAL CHECK: two real browser profiles on the PC show the same progress after login.
 
