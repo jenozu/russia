@@ -613,6 +613,46 @@ test('every lesson step scrolls to its own section in every unit', () => {
   }
 });
 
+test('checkpoint feedback says just "Correct!" and wrong answers still get a hint', () => {
+  const { w } = boot();
+  w.eval("show('unit3');startUnit();answerUnitCheckpoint(0,UNIT.checkpoint.questions[0].answer)");
+  const txt = w.document.getElementById('unitCheckpoint').textContent;
+  assert.ok(txt.includes('Correct!'));
+  assert.ok(!txt.includes('keep this phrase active'));
+});
+
+test('lesson words are expandable cards with pronunciation, and open cards stay open', () => {
+  const { w } = boot();
+  w.eval("selectUnit('u02-greetings-introductions');show('unit3');renderUnit()");
+  const n = w.eval("UNIT.vocabulary.length");
+  const cards = () => w.document.querySelectorAll('#unitVocabulary details.wordCard');
+  assert.strictEqual(cards().length, n);
+  const first = cards()[0];
+  assert.ok(first.querySelector('summary .ru') && first.querySelector('summary .en'));
+  assert.ok(first.querySelector('.wordBody .pron').textContent.length > 0);
+  assert.ok(first.querySelector('.wordBody [data-speak]'));
+  first.open = true;
+  w.eval("unitWordToggle(document.querySelector('#unitVocabulary details'))");
+  w.eval("renderUnit()");
+  assert.strictEqual(cards()[0].open, true);
+});
+
+test('usage example and explanation can be heard; Russian, English and pronunciation are styled differently', () => {
+  const { w } = boot();
+  w.eval("selectUnit('u02-greetings-introductions');show('unit3');renderUnit()");
+  const d = w.document;
+  assert.ok(d.querySelector('#unitGrammarExample .ru'));
+  assert.ok(d.querySelector('#unitGrammarExample .en'));
+  assert.ok(d.querySelector('#unitGrammarExample [data-speak]'));
+  const read = d.getElementById('unitGrammarRead');
+  assert.strictEqual(read.dataset.lang, 'en');
+  assert.strictEqual(read.dataset.speak, w.eval("UNIT.grammar.explanation"));
+  assert.ok(d.querySelector('#unitPatterns .ru') && d.querySelector('#unitPatterns .en') && d.querySelector('#unitPatterns .pron'));
+  assert.ok(d.querySelector('#unitDialogue .ru') && d.querySelector('#unitDialogue .en'));
+  const css = w.eval("[...document.styleSheets].map(s=>[...s.cssRules].map(r=>r.cssText).join(' ')).join(' ')");
+  assert.ok(/\.ru\.ru/.test(css) && /\.en\.en/.test(css) && /\.pron\.pron/.test(css));
+});
+
 let failed = 0;
 (async () => {
   for (const [name, fn] of tests) {
