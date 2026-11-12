@@ -558,6 +558,26 @@ test('a remote wrong checkpoint answer never undoes a local correct one', () => 
   assert.strictEqual(w.eval("state.courseUnits['u03-numbers-time'].checkpoint"), 1);
 });
 
+test('cursor persists across reload; a stale full-pull stamp triggers a full re-pull; visibility triggers a sync', async () => {
+  const srv = fakeServer();
+  const A = boot(null, { fetch: srv.fetch() }); A.w.eval("show('stage');reveal();rateCurrent('good')"); await login(A.w);
+  const B = boot(null, { fetch: srv.fetch() }); await login(B.w);
+  const cur = B.w.eval('state.sync.cursor');
+  assert.ok(cur);
+  const B2 = boot(JSON.parse(B.w.localStorage.getItem('azbuka-standalone')), { fetch: srv.fetch() });
+  assert.strictEqual(B2.w.eval('state.sync.cursor'), cur);
+  await B2.w.eval('syncNow()');
+  const f = B2.w.fetch; assert.ok(f.calls.some((c) => c.url.includes('/v1/sync/changes') && c.url.includes('cursor=')), 'incremental pull uses cursor');
+  B2.w.eval('state.sync.lastFullPullAt=new Date(Date.now()-31*60e3).toISOString()');
+  const before = f.calls.length; await B2.w.eval('syncNow()');
+  const pulls = f.calls.slice(before).filter((c) => c.url.includes('/v1/sync/changes'));
+  assert.ok(pulls.length && !pulls[0].url.includes('cursor='), 'full re-pull has no cursor');
+  const n = f.calls.length;
+  B2.d.dispatchEvent(new B2.w.Event('visibilitychange'));
+  await new Promise((r) => setTimeout(r, 50));
+  assert.ok(f.calls.length > n, 'visible tab syncs');
+});
+
 let failed = 0;
 (async () => {
   for (const [name, fn] of tests) {

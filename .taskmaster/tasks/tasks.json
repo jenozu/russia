@@ -125,9 +125,9 @@
           {
             "title": "Pure merge function with tests",
             "description": "A merge(local, remote) function combines two progress states with no loss: max of counters per item, union of completed units and badges, latest review date wins, XP display from server totals.",
-            "status": "pending",
+            "status": "cancelled",
             "dependencies": [],
-            "details": "In build_standalone.py as a pure function (no DOM, no fetch) so jsdom tests can call it. Define exactly how each field in state merges and write it in a comment above the function.",
+            "details": "In build_standalone.py as a pure function (no DOM, no fetch) so jsdom tests can call it. Define exactly how each field in state merges and write it in a comment above the function.\n\n[2026-11-12T12:24:50-05:00] cancelled: replaced by event replay (applyRemoteEvent, 8.4); see PRD decision log 2026-11-12",
             "testStrategy": "(cd tests && npm test --silent) && python tests/check_build_in_sync.py; tests: empty remote never wipes local; remote-only items appear; conflicting item keeps the later review; merge(a,b) then merge with b again is unchanged (idempotent).",
             "complexity": 6,
             "review": true,
@@ -136,11 +136,11 @@
           {
             "title": "First-login merge step and bootstrap call",
             "description": "On first login on a browser with local progress, the learner is asked to merge this browser's progress into the account; nothing is replaced by an empty account.",
-            "status": "pending",
+            "status": "cancelled",
             "dependencies": [
               1
             ],
-            "details": "After login: call /v1/sync/bootstrap, then changes with the saved cursor, apply merge(), save locally, then upload any local events not yet on the server. If local has progress and the account is new/empty, show a clear one-tap 'Merge this browser's progress into my account' prompt (default: merge).",
+            "details": "After login: call /v1/sync/bootstrap, then changes with the saved cursor, apply merge(), save locally, then upload any local events not yet on the server. If local has progress and the account is new/empty, show a clear one-tap 'Merge this browser's progress into my account' prompt (default: merge).\n\n[2026-11-12T12:24:50-05:00] cancelled: covered by 8.5 (explicit backfill), 8.6 (other-account guard) and the join-with-offline-progress test",
             "testStrategy": "(cd tests && npm test --silent) && python tests/check_build_in_sync.py; jsdom test with stubbed fetch: local progress + empty account → after confirm, local progress unchanged and events queued for upload.",
             "complexity": 5,
             "review": true,
@@ -149,11 +149,11 @@
           {
             "title": "Periodic re-bootstrap and cursor handling",
             "description": "The app re-runs bootstrap after login and periodically so a missed event from overlapping syncs still arrives.",
-            "status": "pending",
+            "status": "done",
             "dependencies": [
               2
             ],
-            "details": "Save the changes cursor in state.sync.cursor; poll changes on the sync timer; full bootstrap+merge every ~30 min while open and on visibilitychange to visible.",
+            "details": "Save the changes cursor in state.sync.cursor; poll changes on the sync timer; full bootstrap+merge every ~30 min while open and on visibilitychange to visible.\n\n[2026-11-12T12:24:50-05:00] done: cursor persisted in state.sync.cursor and used for incremental pulls; full re-pull every 30 min; 60s timer, online and visibilitychange trigger a sync; test added; cache v20",
             "testStrategy": "(cd tests && npm test --silent) && python tests/check_build_in_sync.py; jsdom test with fake timers: bootstrap called again after the interval; cursor persisted across reload.",
             "complexity": 4,
             "review": true,
@@ -627,7 +627,7 @@
         }
       ],
       "created": "2026-11-12",
-      "updated": "2026-11-12T12:24:08-05:00"
+      "updated": "2026-11-12T12:24:50-05:00"
     }
   }
 }

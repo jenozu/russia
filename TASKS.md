@@ -34,9 +34,9 @@ Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit 
 - [x] **8. Restore and merge progress after login** _(after 6, 7)_  
   After login the app pulls the account's progress and merges it with local progress without ever losing offline work; a second browser restores the same progress.  
   _Test:_ See subtasks.
-  - [ ] 8.1 Pure merge function with tests
-  - [ ] 8.2 First-login merge step and bootstrap call
-  - [ ] 8.3 Periodic re-bootstrap and cursor handling
+  - [~] 8.1 Pure merge function with tests
+  - [~] 8.2 First-login merge step and bootstrap call
+  - [x] 8.3 Periodic re-bootstrap and cursor handling
   - [x] 8.4 Pull and apply remote events idempotently
   - [x] 8.5 Explicit backfill of this browser's existing progress
   - [x] 8.6 Different-account guard and merge safety tests
