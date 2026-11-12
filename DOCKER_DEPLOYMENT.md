@@ -1,3 +1,11 @@
+# Deploy script (current method)
+
+On the VPS, from `/opt/azbuka`: first time `sh deploy/make_env.sh` (random secrets, mode 600, never overwrites), then
+`sh deploy/deploy.sh` for every deploy. It pulls `main`, builds `dist/` (only `index.html`, `standalone.html`,
+`manifest.json`, `service-worker.js`), runs `docker compose up -d --build`, and waits for `db` healthy, `migrate`
+exited 0 and `api` healthy. The web server serves `dist/` and proxies `/api/` to `127.0.0.1:8090`
+(`deploy/nginx/azbuka.andel-vps.space.conf`). The notes below are the manual steps behind it.
+
 # Azbuka Docker Compose Deployment on a Hostinger VPS
 
 This stack runs:

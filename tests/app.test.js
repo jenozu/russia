@@ -578,6 +578,23 @@ test('cursor persists across reload; a stale full-pull stamp triggers a full re-
   assert.ok(f.calls.length > n, 'visible tab syncs');
 });
 
+test('service worker never caches API calls but still caches the app shell', () => {
+  const vm = require('vm');
+  const src = fs.readFileSync(path.join(__dirname, '..', 'service-worker.js'), 'utf8');
+  let handler;
+  const ctx = { self: { location: { origin: 'https://azbuka.example' }, addEventListener: (t, f) => { if (t === 'fetch') handler = f; }, skipWaiting() {}, clients: { claim() {} } },
+    caches: { open: async () => ({ addAll: async () => {}, put: async () => {} }), match: async () => undefined, keys: async () => [] },
+    fetch: async () => ({ clone: () => ({}) }), URL, Promise };
+  vm.runInNewContext(src, ctx);
+  const run = (url, method = 'GET') => { let used = false; handler({ request: { url, method }, respondWith: () => { used = true; } }); return used; };
+  assert.strictEqual(run('https://azbuka.example/api/v1/sync/changes?limit=500'), false);
+  assert.strictEqual(run('https://azbuka.example/api/v1/me'), false);
+  assert.strictEqual(run('http://127.0.0.1:8090/v1/sync/changes'), false);
+  assert.strictEqual(run('https://azbuka.example/api/v1/sync/events', 'POST'), false);
+  assert.strictEqual(run('https://azbuka.example/'), true);
+  assert.strictEqual(run('https://azbuka.example/standalone.html'), true);
+});
+
 let failed = 0;
 (async () => {
   for (const [name, fn] of tests) {

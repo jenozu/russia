@@ -3,7 +3,7 @@
 Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit by hand; regenerate with
 `python .taskmaster/render_tasks_md.py`.
 
-**Progress: 6/30 tasks done.**
+**Progress: 7/30 tasks done.**
 
 ## Phase 0 - Foundation
 
@@ -49,7 +49,7 @@ Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit 
 - [ ] **10. Verify DNS and SSH, inspect the VPS read-only**  
   azbuka.andel-vps.space resolves to the VPS through the wildcard record, SSH to root@2.25.108.3 works with the owner's key, and the server's state is recorded before anything is changed.  
   _Test:_ nslookup azbuka.andel-vps.space shows 2.25.108.3; `ssh -o BatchMode=yes root@2.25.108.3 true` exits 0; the task log holds the inspection summary.
-- [ ] **11. Server deploy script and static build output** _(after 2, 6)_  
+- [x] **11. Server deploy script and static build output** _(after 2, 6)_  
   One idempotent script on the server pulls main, builds the static app into dist/ and (re)starts the Compose stack, waiting for it to be healthy.  
   _Test:_ `python scripts/build_dist.py` leaves exactly the 4 files in dist/; `python -m http.server -d dist 4174` + curl -fsS http://127.0.0.1:4174/ returns the app; `sh -n deploy/deploy.sh` passes (shellcheck -S warning if installed).
 - [ ] **12. Reverse-proxy site block for azbuka.andel-vps.space** _(after 10)_  
