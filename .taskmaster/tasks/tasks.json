@@ -94,12 +94,12 @@
       {
         "title": "Account screen: register, login, logout, sync status",
         "description": "A learner can create an account, sign in and out, and see local-only / syncing / synced / queued / error status, last sync time, pending count and a Sync Now button.",
-        "status": "pending",
+        "status": "done",
         "priority": "medium",
         "dependencies": [
           6
         ],
-        "details": "New screen or panel in build_standalone.py, reachable from the existing navigation, in the existing neo-brutalist style. Uses /v1/auth/register, /v1/auth/login, /v1/auth/logout, /v1/me. Keep the existing export/import/reset controls on it. Plain error messages (wrong password, rate limited, offline). Password field type=password, autocomplete attributes set, font-size >= 16px. Follow the mobile-ui-check skill.",
+        "details": "New screen or panel in build_standalone.py, reachable from the existing navigation, in the existing neo-brutalist style. Uses /v1/auth/register, /v1/auth/login, /v1/auth/logout, /v1/me. Keep the existing export/import/reset controls on it. Plain error messages (wrong password, rate limited, offline). Password field type=password, autocomplete attributes set, font-size >= 16px. Follow the mobile-ui-check skill.\n\n[2026-11-12T12:19:41-05:00] plan: syncPanel markup above LOCAL ACCOUNT panel in settings view; real renderSyncPanel + syncSubmit; export strips token/queue; reset keeps sync\n\n[2026-11-12T12:20:07-05:00] done: 32/32 jsdom tests; panel above local account; export strips token+queue; reset keeps sync; cache v18. Eyes-on mobile check added to manual-checks.",
         "testStrategy": "(cd tests && npm test --silent) && python tests/check_build_in_sync.py; jsdom tests with stubbed fetch: register → signed-in view with email; logout → local-only; pending count equals queue length. MANUAL CHECK: mobile-ui-check checklist at 390x844.",
         "complexity": 5,
         "phase": 1,
@@ -597,7 +597,7 @@
         }
       ],
       "created": "2026-11-12",
-      "updated": "2026-11-12T12:19:08-05:00"
+      "updated": "2026-11-12T12:20:08-05:00"
     }
   }
 }

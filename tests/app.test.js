@@ -335,6 +335,90 @@ test('register stores the token and maps errors to plain messages', async () => 
   status = 409; assert.ok(/already has an account/.test((await w.eval("authRequest('register','a@b.co','longenoughpw','')")).message));
 });
 
+// ---- account screen (task 7) ----
+const authBody = { access_token: 'T', token_type: 'bearer', expires_at: new Date(Date.now() + 3600e3).toISOString(), user: { id: 'u1', email: 'a@b.co', display_name: null } };
+const accountStub = (extra) => stubFetch((c) => {
+  if (c.url.endsWith('/v1/auth/register') || c.url.endsWith('/v1/auth/login')) return { status: 201, body: authBody };
+  if (c.url.endsWith('/v1/auth/logout')) return { status: 204, body: null };
+  if (extra) { const r = extra(c); if (r) return r; }
+  return ok((c.body && c.body.events || []).map((e) => e.client_event_id));
+});
+const visible = (d, id) => !d.getElementById(id).classList.contains('hidden');
+
+test('account panel starts local-only with the pending count and a sign-in form', () => {
+  const { w, d } = boot();
+  rate(w, 1); w.eval("show('settings')");
+  assert.ok(visible(d, 'syncSignedOut') && !visible(d, 'syncSignedIn'));
+  assert.ok(/Local only/.test(d.getElementById('syncStatus').textContent));
+  assert.ok(new RegExp(queue(w).length + ' changes saved on this device').test(d.getElementById('syncStatus').textContent));
+  assert.strictEqual(d.getElementById('syncPassword').type, 'password');
+  assert.strictEqual(d.getElementById('syncPassword').autocomplete, 'current-password');
+  assert.strictEqual(d.getElementById('syncEmail').autocomplete, 'email');
+});
+
+test('register shows the signed-in view with the email, then logout returns to local-only', async () => {
+  const f = accountStub();
+  const { w, d } = boot(null, { fetch: f });
+  rate(w, 1); w.eval("show('settings')");
+  d.getElementById('syncEmail').value = 'a@b.co';
+  d.getElementById('syncPassword').value = 'longenoughpw';
+  await w.eval("syncSubmit('register')");
+  assert.ok(visible(d, 'syncSignedIn') && !visible(d, 'syncSignedOut'));
+  assert.ok(/a@b\.co/.test(d.getElementById('syncWho').textContent));
+  assert.strictEqual(d.getElementById('syncPassword').value, '');
+  await w.eval('syncNow()');
+  assert.strictEqual(queue(w).length, 0);
+  assert.ok(/^0 changes waiting/.test(d.getElementById('syncPending').textContent));
+  assert.ok(/Synced/.test(d.getElementById('syncStatus').textContent));
+  await w.eval('logoutAccount()');
+  assert.ok(visible(d, 'syncSignedOut') && !visible(d, 'syncSignedIn'));
+  assert.strictEqual(w.eval('state.sync.account'), null);
+  assert.ok(f.calls.some((c) => c.url.endsWith('/v1/auth/logout')));
+});
+
+test('pending count in the panel equals the queue length while signed in and offline', async () => {
+  const f = accountStub((c) => c.url.endsWith('/v1/sync/events') ? (() => { throw new TypeError('x'); })() : null);
+  const { w, d } = boot(null, { fetch: f });
+  signedIn(w); rate(w, 2); w.eval("show('settings')");
+  await w.eval('syncNow()');
+  assert.strictEqual(d.getElementById('syncPending').textContent.split(' ')[0], String(queue(w).length));
+  assert.ok(/Sync problem/.test(d.getElementById('syncStatus').textContent));
+});
+
+test('wrong password and empty fields show plain messages and do not sign in', async () => {
+  const f = stubFetch(() => ({ status: 401, body: { detail: 'Invalid email or password' } }));
+  const { w, d } = boot(null, { fetch: f });
+  w.eval("show('settings')");
+  await w.eval("syncSubmit('login')");
+  assert.ok(/Enter your email and password/.test(d.getElementById('syncMsg').textContent));
+  d.getElementById('syncEmail').value = 'a@b.co'; d.getElementById('syncPassword').value = 'nope';
+  await w.eval("syncSubmit('login')");
+  assert.strictEqual(d.getElementById('syncMsg').textContent, 'Wrong email or password.');
+  assert.strictEqual(w.eval('state.sync.account'), null);
+});
+
+test('backup export never contains the session token or the queue', () => {
+  const { w, downloads } = boot();
+  let blobText = '';
+  w.Blob = function (parts) { blobText = parts.join(''); };
+  signedIn(w); rate(w, 1);
+  w.eval('exportState()');
+  assert.strictEqual(downloads.length, 1);
+  assert.ok(!/"token"/.test(blobText) && !/tok"/.test(blobText));
+  assert.deepStrictEqual(JSON.parse(blobText).sync.queue, []);
+  assert.ok(w.eval('state.sync.queue.length') > 0, 'live queue is untouched');
+});
+
+test('resetting local progress keeps the sign-in and device id', () => {
+  const { w } = boot();
+  signedIn(w); rate(w, 1);
+  const id = w.eval('state.sync.deviceId');
+  w.eval('resetState()');
+  assert.strictEqual(w.eval('state.sync.deviceId'), id);
+  assert.strictEqual(w.eval('state.sync.account.email'), 'a@b.co');
+  assert.strictEqual(w.eval('Object.keys(state.stageItems).length'), 0);
+});
+
 let failed = 0;
 (async () => {
   for (const [name, fn] of tests) {

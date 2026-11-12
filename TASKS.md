@@ -3,7 +3,7 @@
 Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit by hand; regenerate with
 `python .taskmaster/render_tasks_md.py`.
 
-**Progress: 3/30 tasks done.**
+**Progress: 4/30 tasks done.**
 
 ## Phase 0 - Foundation
 
@@ -28,7 +28,7 @@ Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit 
 - [x] **6. Upload the event queue to the API** _(after 4, 5)_  
   While signed in and online, queued events upload in batches with capped backoff; accepted and duplicate events are marked synced, rejected ones kept with a plain error.  
   _Test:_ (cd tests && npm test --silent) && python tests/check_build_in_sync.py; stubbed-fetch tests cover all five responses; with the api dev server running, a scripted register+upload via the built app logic shows events in azbuka_dev (select count(*) from sync_events or the table backend uses).
-- [ ] **7. Account screen: register, login, logout, sync status** _(after 6)_  
+- [x] **7. Account screen: register, login, logout, sync status** _(after 6)_  
   A learner can create an account, sign in and out, and see local-only / syncing / synced / queued / error status, last sync time, pending count and a Sync Now button.  
   _Test:_ (cd tests && npm test --silent) && python tests/check_build_in_sync.py; jsdom tests with stubbed fetch: register → signed-in view with email; logout → local-only; pending count equals queue length. MANUAL CHECK: mobile-ui-check checklist at 390x844.
 - [ ] **8. Restore and merge progress after login** _(after 6, 7)_  
