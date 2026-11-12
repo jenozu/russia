@@ -4,5 +4,12 @@
     "cwd": ".",
     "cmd": "python -m http.server 4173 --bind 127.0.0.1",
     "health": "http://127.0.0.1:4173/standalone.html"
+  },
+  {
+    "name": "api",
+    "cwd": "backend",
+    "cmd": "env DATABASE_URL=postgresql://azbuka_test:azbuka_test@127.0.0.1:5432/azbuka_dev APP_ORIGINS=http://127.0.0.1:4173,http://localhost:4173 TOKEN_PEPPER=local-dev-only-pepper-0123456789abcdef ENABLE_DOCS=1 python3 -m uvicorn app.main:app --app-dir . --host 127.0.0.1 --port 8090",
+    "cmd_windows": "set DATABASE_URL=postgresql://azbuka_test:azbuka_test@127.0.0.1:5432/azbuka_dev && set APP_ORIGINS=http://127.0.0.1:4173,http://localhost:4173 && set TOKEN_PEPPER=local-dev-only-pepper-0123456789abcdef && set ENABLE_DOCS=1 && venv\\Scripts\\python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8090",
+    "health": "http://127.0.0.1:8090/health"
   }
 ]

@@ -23,7 +23,7 @@
         "dependencies": [
           1
         ],
-        "details": "Create backend/venv (python -m venv backend/venv; backend/venv/Scripts/python.exe -m pip install -q -r backend/requirements-dev.txt) and run `cd tests && npm ci --no-audit --no-fund`. Run the AGENTS.md test command with AZBUKA_TEST_DB (default to postgresql://azbuka_test:azbuka_test@127.0.0.1:5432/azbuka_test if unset). Fix only Windows-specific failures (paths, CRLF, encoding: open files with encoding='utf-8'). Make scripts/test_backend.sh also work in Git Bash: if TEST_DATABASE_URL is unset and AZBUKA_TEST_DB is set, use it; pick backend/venv/Scripts/python.exe or backend/venv/bin/python, falling back to python3/python. Keep it POSIX sh. Log the pass counts (expected: 12 app tests, 26 backend tests).",
+        "details": "Create backend/venv (python -m venv backend/venv; backend/venv/Scripts/python.exe -m pip install -q -r backend/requirements-dev.txt) and run `cd tests && npm ci --no-audit --no-fund`. Run the AGENTS.md test command with AZBUKA_TEST_DB (default to postgresql://azbuka_test:azbuka_test@127.0.0.1:5432/azbuka_test if unset). Fix only Windows-specific failures (paths, CRLF, encoding: open files with encoding='utf-8'). Make scripts/test_backend.sh also work in Git Bash: if TEST_DATABASE_URL is unset and AZBUKA_TEST_DB is set, use it; pick backend/venv/Scripts/python.exe or backend/venv/bin/python, falling back to python3/python. Keep it POSIX sh. Log the pass counts (expected: 12 app tests, 26 backend tests).\n\n[2026-11-12T12:02:44-05:00] sandbox run (Linux): full suite\n\n[2026-11-12T12:03:46-05:00] Linux sandbox run: jsdom 12/12, validator ok, backend 26 passed. NOT done: still needs a run on the owner's Windows PC after task 1",
         "testStrategy": "The AGENTS.md test command exits 0; `sh scripts/test_backend.sh -q` exits 0 in Git Bash with AZBUKA_TEST_DB set.",
         "complexity": 4,
         "phase": 0,
@@ -51,7 +51,7 @@
         "dependencies": [
           2
         ],
-        "details": "Add an `api` entry to .claude/dev-servers.json (cwd backend; health http://127.0.0.1:8090/health). The API needs env vars: DATABASE_URL=postgresql://azbuka_test:azbuka_test@127.0.0.1:5432/azbuka_dev, APP_ORIGINS=http://127.0.0.1:4173,http://localhost:4173, TOKEN_PEPPER=<any 32+ chars, local only>. Read .claude/scripts/devserver.py to see how cmd runs (shell or not) and set them inline in cmd/cmd_windows, or add a tiny gitignored backend/.env.dev loader only if inline env is impossible. Apply migrations to azbuka_dev first: PGHOST=127.0.0.1 PGUSER=azbuka_test PGPASSWORD=azbuka_test PGDATABASE=azbuka_dev MIGRATIONS_DIR=db sh db/apply_migrations.sh (needs psql on PATH: /c/Program Files/PostgreSQL/17/bin). Document both steps in backend/README.md under 'Local dev'.",
+        "details": "Add an `api` entry to .claude/dev-servers.json (cwd backend; health http://127.0.0.1:8090/health). The API needs env vars: DATABASE_URL=postgresql://azbuka_test:azbuka_test@127.0.0.1:5432/azbuka_dev, APP_ORIGINS=http://127.0.0.1:4173,http://localhost:4173, TOKEN_PEPPER=<any 32+ chars, local only>. Read .claude/scripts/devserver.py to see how cmd runs (shell or not) and set them inline in cmd/cmd_windows, or add a tiny gitignored backend/.env.dev loader only if inline env is impossible. Apply migrations to azbuka_dev first: PGHOST=127.0.0.1 PGUSER=azbuka_test PGPASSWORD=azbuka_test PGDATABASE=azbuka_dev MIGRATIONS_DIR=db sh db/apply_migrations.sh (needs psql on PATH: /c/Program Files/PostgreSQL/17/bin). Document both steps in backend/README.md under 'Local dev'.\n\n[2026-11-12T12:03:46-05:00] api entry added to dev-servers.json and Local dev docs written; verified in Linux sandbox (migrations ok, /health ok, course_units=16). Pending: task 2 dependency and a Windows check",
         "testStrategy": "python .claude/scripts/devserver.py start api && curl -fsS http://127.0.0.1:8090/health returns ok JSON; psql on azbuka_dev: select count(*) from course_units = 16; then devserver.py stop api.",
         "complexity": 4,
         "phase": 0,
@@ -597,7 +597,7 @@
         }
       ],
       "created": "2026-11-12",
-      "updated": "2026-11-12T12:02:44-05:00"
+      "updated": "2026-11-12T12:03:46-05:00"
     }
   }
 }

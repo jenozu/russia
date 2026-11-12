@@ -108,3 +108,20 @@ scripts/test_backend.sh            # starts a temporary local cluster (needs Pos
 # or, with your own disposable database:
 TEST_DATABASE_URL=postgresql://user@host/db_that_can_be_wiped scripts/test_backend.sh
 ```
+
+## Local dev
+
+Run the API against a local `azbuka_dev` database so client sync can be built and tested.
+
+1. Create the database and role (once). The role is `azbuka_test` / `azbuka_test`, local only.
+2. Apply migrations (needs `psql` on PATH; on Windows Git Bash add `/c/Program Files/PostgreSQL/17/bin`):
+   ```
+   PGHOST=127.0.0.1 PGUSER=azbuka_test PGPASSWORD=azbuka_test PGDATABASE=azbuka_dev MIGRATIONS_DIR=db sh db/apply_migrations.sh
+   ```
+3. Start and stop the API (port 8090; env vars are set inline in `.claude/dev-servers.json`):
+   ```
+   python .claude/scripts/devserver.py start api
+   curl http://127.0.0.1:8090/health      # {"status":"ok"}
+   python .claude/scripts/devserver.py stop api
+   ```
+   Use the project venv's Python (`backend/venv`) or have it on PATH. The dev token pepper is a local-only value, never reuse it in production.
