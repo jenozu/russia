@@ -1,4 +1,4 @@
-const CACHE = 'azbuka-standalone-v14';
+const CACHE = 'azbuka-standalone-v15';
 const CORE = ['./', './standalone.html', './manifest.json'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting()));
