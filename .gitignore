@@ -83,3 +83,9 @@ venv/
 *.dump
 *.sql.gz
 backups/
+
+# master-harness
+.claude/settings.local.json
+.claude/deploy-target
+.harness-backup/
+.harness-tmp/

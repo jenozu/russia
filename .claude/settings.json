@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH": "2"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(python .taskmaster/tasks.py *)",
+      "Bash(python3 .taskmaster/tasks.py *)",
+      "Bash(python .taskmaster/render_tasks_md.py)",
+      "Bash(python3 .taskmaster/render_tasks_md.py)",
+      "Bash(python .claude/scripts/devserver.py *)",
+      "Bash(python3 .claude/scripts/devserver.py *)",
+      "Bash(python .claude/scripts/check_harness.py*)",
+      "Bash(python3 .claude/scripts/check_harness.py*)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git show *)",
+      "Bash(git ls-files *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git stash *)",
+      "Bash(curl -s *)",
+      "Bash(curl -fsS *)",
+      "Bash(pytest *)",
+      "Bash(python -m pytest *)",
+      "Bash(python3 -m pytest *)",
+      "Bash(venv/bin/python *)",
+      "Bash(venv/Scripts/python.exe *)",
+      "Bash(ruff *)",
+      "Bash(alembic *)",
+      "Bash(npm run *)",
+      "Bash(npm test *)",
+      "Bash(npm test)",
+      "Bash(npx eslint *)",
+      "Bash(npx tsc *)",
+      "Bash(npx vitest *)",
+      "Bash(npx prisma migrate dev *)",
+      "Bash(npx prisma generate)",
+      "Bash(npm ci *)",
+      "Bash(pg_isready *)",
+      "Bash(shellcheck *)",
+      "Bash(bash -n *)",
+      "Bash(ssh vps *)",
+      "Bash(git push vps *)",
+      "Bash(git remote add vps *)",
+      "Bash(git remote set-url vps *)",
+      "Bash",
+      "Edit",
+      "Write",
+      "WebFetch",
+      "WebSearch"
+    ],
+    "ask": [
+      "Bash(npx prisma migrate reset *)",
+      "Bash(dropdb *)"
+    ],
+    "deny": [
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard *)",
+      "Bash(git clean -fdx *)",
+      "Read(./.env)",
+      "Read(./**/.env)",
+      "Read(./**/.env.*)",
+      "Read(./**/*.pem)",
+      "Read(./**/*.key)",
+      "Read(~/.ssh/**)",
+      "Bash(rm -rf /*)"
+    ]
+  }
+}

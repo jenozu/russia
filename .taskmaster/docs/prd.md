@@ -58,7 +58,8 @@ Status: [x] built, [ ] to do.
   `curriculum/russian/a1-course.json`. Never edit the HTML directly; edit the sources and rebuild.
 - Storage: `localStorage["azbuka-standalone"]` plus service worker (cache-first; bump the cache name when assets change).
 - Backend: FastAPI, asyncpg, argon2, PostgreSQL; numbered migrations in `db/migrations/`, generated seed in `db/repeatable/`.
-- Deploy: Docker Compose (`db`, `migrate`, `api`) on the owner's VPS behind Nginx or Caddy with HTTPS.
+- Deploy: owner's VPS kit (`vps` skill): static app plus API under `/api/` on one HTTPS origin, kit-managed
+  PostgreSQL (see decision log). Docker Compose (`db`, `migrate`, `api`) stays as the local full-stack option.
 - Tests: jsdom for the app, pytest against a throwaway PostgreSQL for the backend.
 - Offline-first; must stay usable signed out. Browser speech varies by device; some have no Russian voice.
 - Privacy: no secrets in the repo; `.env` ignored; learner audio is not stored.
@@ -87,3 +88,5 @@ Stage 2 content (200+ words), branching story dialogues.
 - 2026-11-11: Host the API and static app on the owner's VPS with Docker Compose - owner decision - replaces unspecified hosting.
 - 2026-11-12: Hosted pronunciation scoring is the working preference, to be confirmed in v2 - owner "not sure" - no decision yet.
 - 2026-11-12: Phases 0 (app fixes) and 1 (backend hardening) merged to main - see `docs/MASTER_PLAN.md`.
+- 2026-11-12: PRD adopted for build with master-harness; plan of record is `.taskmaster/tasks/tasks.json` (harness phases 0-5 continue MASTER_PLAN Phases 2-7).
+- 2026-11-12: Deploy through the owner's VPS kit (`ssh vps`, `git push vps main`, app `azbuka`, domain `azbuka.andel-vps.space`, kit-managed PostgreSQL and nightly dumps) instead of hand-run Docker Compose; Compose stays as the local full-stack option - bootstrap assumption, owner to confirm - replaces the 2026-11-11 Compose deploy decision.
