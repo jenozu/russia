@@ -11,3 +11,6 @@ if before != after:
     target.write_bytes(before)
     sys.exit("standalone.html is out of date: run scripts/build_standalone.py and commit the result")
 print("standalone.html matches build_standalone.py")
+
+seed = subprocess.run([sys.executable, str(root / "scripts" / "generate_course_seed.py"), "--check"])
+sys.exit(seed.returncode)

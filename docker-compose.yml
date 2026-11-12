@@ -34,8 +34,8 @@ services:
       db:
         condition: service_healthy
     volumes:
-      - ./db/migrations/001_initial_azbuka_schema.sql:/migrations/001_initial_azbuka_schema.sql:ro
-    command: ["psql", "-v", "ON_ERROR_STOP=1", "-f", "/migrations/001_initial_azbuka_schema.sql"]
+      - ./db:/db:ro
+    command: ["sh", "/db/apply_migrations.sh"]
     networks:
       - azbuka_internal
 
@@ -52,6 +52,10 @@ services:
       SESSION_TTL_DAYS: ${SESSION_TTL_DAYS:-30}
       MAX_SYNC_EVENTS: ${MAX_SYNC_EVENTS:-250}
       TOKEN_PEPPER: ${TOKEN_PEPPER:?Set TOKEN_PEPPER in .env}
+      DAILY_XP_CAP: ${DAILY_XP_CAP:-1500}
+      RATE_AUTH_PER_MIN: ${RATE_AUTH_PER_MIN:-10}
+      RATE_LOGIN_FAILS_PER_15MIN: ${RATE_LOGIN_FAILS_PER_15MIN:-8}
+      RATE_SYNC_PER_MIN: ${RATE_SYNC_PER_MIN:-120}
     depends_on:
       migrate:
         condition: service_completed_successfully
@@ -66,13 +70,20 @@ services:
       start_period: 20s
     networks:
       - azbuka_internal
+      - azbuka_edge
 
 volumes:
   azbuka_postgres_data:
     name: azbuka_postgres_data
 
 networks:
+  # db and migrate live only here: no route to or from the outside world.
   azbuka_internal:
     name: azbuka_internal
     driver: bridge
     internal: true
+  # Only the api joins this network. Docker cannot publish a host port for a
+  # container that is attached solely to an internal network, so the api needs it.
+  azbuka_edge:
+    name: azbuka_edge
+    driver: bridge

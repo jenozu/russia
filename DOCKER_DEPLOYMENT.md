@@ -19,7 +19,8 @@ Internet -> Nginx/Caddy HTTPS -> 127.0.0.1:8090 -> api container -> internal db 
 - `backend/requirements.txt` — API dependencies.
 - `.env.compose.example` — production environment template.
 - `.dockerignore` — excludes secrets and local files from the image.
-- `db/migrations/001_initial_azbuka_schema.sql` — database schema.
+- `db/migrations/*.sql` — numbered schema migrations, applied once each by `db/apply_migrations.sh`.
+- `db/repeatable/course_units.sql` — generated course seed, re-applied on every start.
 
 ## Prerequisites on the VPS
 
@@ -70,26 +71,18 @@ APP_ORIGINS=https://app.example.com
 
 Do not use `*` with authenticated requests.
 
-## 3. Set the course-content hash
+## 3. Course content hash (automatic)
 
-The migration seed includes a placeholder hash for `a1-course.json`. Replace it before the first deployment:
+The course metadata is loaded from `db/repeatable/course_units.sql`, which is generated from `curriculum/russian/a1-course.json` and carries that file's SHA-256 hash. Nothing needs editing by hand. The migration runner re-applies it on every `docker compose up`.
 
-```bash
-HASH="$(sha256sum curriculum/russian/a1-course.json | awk '{print $1}')"
-sed "s/replace-with-a1-course-json-sha256/$HASH/g" \
-  db/migrations/001_initial_azbuka_schema.sql \
-  > /tmp/001_initial_azbuka_schema.applied.sql
-mv /tmp/001_initial_azbuka_schema.applied.sql \
-  db/migrations/001_initial_azbuka_schema.sql
-```
-
-Check that the placeholder is gone:
+Whenever the course JSON changes, regenerate and commit the seed:
 
 ```bash
-grep -n "replace-with-a1-course-json-sha256" db/migrations/001_initial_azbuka_schema.sql || true
+python3 scripts/generate_course_seed.py          # rewrite the seed
+python3 scripts/generate_course_seed.py --check  # fails if the committed seed is stale
 ```
 
-If the migration has already been applied with the placeholder, do not edit history casually. Create a follow-up migration that inserts the correct `course_versions` row and updates the unit metadata.
+Never edit `db/migrations/001_initial_azbuka_schema.sql` after it has been applied. Its placeholder hash row is harmless; the repeatable seed adds the real course version and points all 16 units at it.
 
 ## 4. Start the stack
 
@@ -306,7 +299,7 @@ docker compose up -d api
 - [ ] `POSTGRES_PASSWORD` is strong and private.
 - [ ] `TOKEN_PEPPER` is separate from the database password.
 - [ ] `DATABASE_URL` uses `db` as the hostname.
-- [ ] The course-content hash replaced the migration placeholder.
+- [ ] `python3 scripts/generate_course_seed.py --check` passes, so the seed matches the deployed `a1-course.json`.
 - [ ] `docker compose up -d --build` succeeds.
 - [ ] `migrate` exits successfully.
 - [ ] `api` reports healthy.

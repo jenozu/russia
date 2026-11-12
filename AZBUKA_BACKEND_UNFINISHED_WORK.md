@@ -41,30 +41,30 @@ This is the living checklist for taking Azbuka from a local-first standalone app
 ### 2. Harden and verify the backend
 
 - [ ] Install backend dependencies in an isolated environment or build the Docker image.
-- [ ] Run Python compilation and import checks.
-- [ ] Add or run API tests for:
-  - [ ] Registration.
-  - [ ] Login with valid credentials.
-  - [ ] Login rejection with invalid credentials.
-  - [ ] Logout and token revocation.
-  - [ ] `/v1/me` authorization.
-  - [ ] Bootstrap for a new account.
-  - [ ] Event acceptance.
-  - [ ] Duplicate `client_event_id` handling.
-  - [ ] Invalid event rejection.
-  - [ ] Unknown unit rejection.
-  - [ ] Progress projection updates.
-  - [ ] Changes cursor pagination.
-  - [ ] User isolation between two accounts.
-- [ ] Review the backend for production issues before deployment:
-  - [ ] Do not trust client-provided XP as authoritative.
-  - [ ] Confirm all user-specific SQL queries scope by authenticated `user_id`.
-  - [ ] Add request rate limits for auth and sync endpoints if not supplied by the reverse proxy.
-  - [ ] Confirm CORS allows only the real app origin.
-  - [ ] Confirm secrets are environment-only.
-  - [ ] Confirm sessions expire and can be revoked.
-  - [ ] Confirm sensitive values are not logged.
-- [ ] Add a proper migration runner or document the one-shot Compose migration behavior for future migrations.
+- [x] Run Python compilation and import checks.
+- [x] Add or run API tests for:
+  - [x] Registration.
+  - [x] Login with valid credentials.
+  - [x] Login rejection with invalid credentials.
+  - [x] Logout and token revocation.
+  - [x] `/v1/me` authorization.
+  - [x] Bootstrap for a new account.
+  - [x] Event acceptance.
+  - [x] Duplicate `client_event_id` handling.
+  - [x] Invalid event rejection.
+  - [x] Unknown unit rejection.
+  - [x] Progress projection updates.
+  - [x] Changes cursor pagination.
+  - [x] User isolation between two accounts.
+- [x] Review the backend for production issues before deployment:
+  - [x] Do not trust client-provided XP as authoritative.
+  - [x] Confirm all user-specific SQL queries scope by authenticated `user_id`.
+  - [x] Add request rate limits for auth and sync endpoints if not supplied by the reverse proxy.
+  - [x] Confirm CORS allows only the real app origin.
+  - [x] Confirm secrets are environment-only.
+  - [x] Confirm sessions expire and can be revoked.
+  - [x] Confirm sensitive values are not logged.
+- [x] Add a proper migration runner or document the one-shot Compose migration behavior for future migrations.
 
 ### 3. Deploy PostgreSQL and the API on Hostinger
 
@@ -73,7 +73,7 @@ This is the living checklist for taking Azbuka from a local-first standalone app
 - [ ] Create a production `.env` directly on the VPS with mode `600`.
 - [ ] Generate separate strong values for `POSTGRES_PASSWORD` and `TOKEN_PEPPER`.
 - [ ] Set `DATABASE_URL` to use the Docker service hostname `db`, not `localhost`.
-- [ ] Replace the course-hash placeholder in the migration with the hash of the exact deployed `a1-course.json`.
+- [x] Course hash: generated into `db/repeatable/course_units.sql` by `scripts/generate_course_seed.py` (checked by `--check`).
 - [ ] Run `docker compose config` with a safe test environment before startup.
 - [ ] Run `docker compose up -d --build`.
 - [ ] Confirm `db` is healthy, `migrate` exits 0, and `api` is healthy.

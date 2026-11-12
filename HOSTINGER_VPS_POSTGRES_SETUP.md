@@ -179,39 +179,17 @@ Then on the VPS:
 ```bash
 sudo mkdir -p /opt/azbuka/db/migrations
 sudo mv /tmp/001_initial_azbuka_schema.sql /opt/azbuka/db/migrations/
+# Also copy db/migrations/002_xp_ledger.sql, db/repeatable/course_units.sql and db/apply_migrations.sh
 ```
 
-## 7. Set the deployed course content hash
+## 7. Course content hash
 
-The migration seeds the course metadata and contains this placeholder:
-
-```text
-replace-with-a1-course-json-sha256
-```
-
-If the VPS has the repository, calculate the hash of the exact course file that belongs to the deployed app:
+Nothing to edit. The course seed (`db/repeatable/course_units.sql`) is generated from `curriculum/russian/a1-course.json` and includes the file's SHA-256 hash. Confirm it matches the checked-out course file:
 
 ```bash
 cd /opt/azbuka
-sha256sum curriculum/russian/a1-course.json
+python3 scripts/generate_course_seed.py --check
 ```
-
-Replace the placeholder in a copy of the migration. The command below is safe because a SHA-256 hash contains only hexadecimal characters:
-
-```bash
-HASH="$(sha256sum curriculum/russian/a1-course.json | awk '{print $1}')"
-sed "s/replace-with-a1-course-json-sha256/$HASH/g" \
-  db/migrations/001_initial_azbuka_schema.sql \
-  > /tmp/001_initial_azbuka_schema.applied.sql
-```
-
-Review the generated SQL before applying it:
-
-```bash
-grep -n "course_versions\|$HASH\|replace-with" /tmp/001_initial_azbuka_schema.applied.sql
-```
-
-The output should contain the real hash and no remaining placeholder.
 
 ## 8. Apply the Azbuka migration
 
@@ -223,7 +201,7 @@ Temporary shell variable:
 export PGPASSWORD='YOUR_DATABASE_PASSWORD'
 psql "host=127.0.0.1 port=5432 dbname=azbuka user=azbuka_app sslmode=disable" \
   -v ON_ERROR_STOP=1 \
-  -f /tmp/001_initial_azbuka_schema.applied.sql
+  -f /opt/azbuka/db/migrations/001_initial_azbuka_schema.sql
 unset PGPASSWORD
 ```
 
