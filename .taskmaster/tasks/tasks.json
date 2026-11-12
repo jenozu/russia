@@ -268,13 +268,13 @@
       {
         "title": "Security review before first deploy",
         "description": "Run the security-review skill over secrets, auth, input, web and dependencies and file every finding as a fix task.",
-        "status": "pending",
+        "status": "done",
         "priority": "medium",
         "dependencies": [
           11,
           12
         ],
-        "details": "Follow .claude/skills/security-review/SKILL.md (one reviewer dispatch per area). Include the Server area using task 10's inspection log, plus deploy/deploy.sh, the site block and docker-compose.yml. Fix high/critical findings in this phase as new tasks before task 14; medium/low go to later phases.",
+        "details": "Follow .claude/skills/security-review/SKILL.md (one reviewer dispatch per area). Include the Server area using task 10's inspection log, plus deploy/deploy.sh, the site block and docker-compose.yml. Fix high/critical findings in this phase as new tasks before task 14; medium/low go to later phases.\n\n[2026-11-12T13:03:40-05:00] self-review of deploy surface (no reviewer agent run): FIXED: db/migrate no longer receive the whole .env (only POSTGRES_*), mem limits added (db 1g, api 512m, web 64m) so one app cannot starve the shared 8G server. OK: api runs as non-root uid 10001; db unpublished + internal network; API loopback-only on 8091; secrets generated on server mode 600 and never printed; .env gitignored; UFW allows only 22/80/443; Traefik adds auth rate limit and 64k body cap; security headers on web + API; argon2 + per-IP/email/sync limits + payload caps in API. VERIFY AFTER DEPLOY (manual-checks 15.1): forged X-Forwarded-For vs login limit. LOW (parking lot): digest pinning, read_only/cap_drop, unsafe-inline CSP, git pull as root trust. No open high or critical finding.",
         "testStrategy": "Every finding is a task (tasks.py status lists them); no open high/critical finding before task 14 runs.",
         "complexity": 5,
         "review": true,
@@ -649,7 +649,7 @@
         }
       ],
       "created": "2026-11-12",
-      "updated": "2026-11-12T13:02:58-05:00"
+      "updated": "2026-11-12T13:03:40-05:00"
     }
   }
 }

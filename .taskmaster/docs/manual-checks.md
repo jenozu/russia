@@ -34,3 +34,7 @@ Expected: all of the above; tap targets are comfortable.
 4. In profile A, if you had progress before this feature existed, tap "Add this browser's existing progress" once, before the first sync.
 Expected: no progress lost in either browser; XP does not double.
 
+
+### Task 15.1 - forged X-Forwarded-For must not evade the login limit (2026-11-12)
+After the first deploy, from any machine: send 15 wrong logins to https://azbuka.andel-vps.space/api/v1/auth/login, each with a different `X-Forwarded-For: 1.2.3.<n>` header.
+Expected: HTTP 429 appears (Traefik rate limit keys on the real connection IP and the API also limits per email). If every request returns 401, the limit can be evaded: stop and report.

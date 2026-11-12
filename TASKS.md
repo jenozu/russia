@@ -3,7 +3,7 @@
 Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit by hand; regenerate with
 `python .taskmaster/render_tasks_md.py`.
 
-**Progress: 9/30 tasks done.**
+**Progress: 10/30 tasks done.**
 
 ## Phase 0 - Foundation
 
@@ -56,7 +56,7 @@ Generated from `.taskmaster/tasks/tasks.json` (the source of truth). Never edit 
   A committed site config serves dist/ at https://azbuka.andel-vps.space/ and proxies /api/ to the API on 127.0.0.1:8090 with the /api prefix stripped.  
   _Test:_ The file exists and greps show server_name, proxy_pass http://127.0.0.1:8090/, the acme-challenge location and the 80→443 redirect. `nginx -t` runs on the server in task 15.
   - [x] 12.1 Replace nginx site config with Traefik labels and a static web container
-- [ ] **13. Security review before first deploy** _(after 11, 12)_  
+- [x] **13. Security review before first deploy** _(after 11, 12)_  
   Run the security-review skill over secrets, auth, input, web and dependencies and file every finding as a fix task.  
   _Test:_ Every finding is a task (tasks.py status lists them); no open high/critical finding before task 14 runs.
 - [ ] **14. Put the Compose stack on the VPS** _(after 9, 10, 11, 12, 13)_  

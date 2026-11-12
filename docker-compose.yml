@@ -2,8 +2,7 @@ services:
   db:
     image: postgres:16-alpine
     restart: unless-stopped
-    env_file:
-      - .env
+    mem_limit: 1g
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-azbuka}
       POSTGRES_USER: ${POSTGRES_USER:-azbuka_app}
@@ -22,8 +21,6 @@ services:
   migrate:
     image: postgres:16-alpine
     restart: "no"
-    env_file:
-      - .env
     environment:
       PGHOST: db
       PGPORT: 5432
@@ -44,6 +41,7 @@ services:
       context: .
       dockerfile: backend/Dockerfile
     restart: unless-stopped
+    mem_limit: 512m
     env_file:
       - .env
     environment:
@@ -96,6 +94,7 @@ services:
   web:
     image: nginx:1.27-alpine
     restart: unless-stopped
+    mem_limit: 64m
     volumes:
       - ./dist:/usr/share/nginx/html:ro
       - ./deploy/web/default.conf:/etc/nginx/conf.d/default.conf:ro
